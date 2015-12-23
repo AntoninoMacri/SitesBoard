@@ -90,17 +90,8 @@ div {
 		}
 
 			#header_login div{
-				/*margin-top: 10px; -> per immagine*/
 				margin-top: 10px;
 			}
-
-				#header_PEL{
-					margin: 0px;
-					max-width: 2em;
-					max-height: 2em;
-					margin-left: 5px;
-				}
-
 
 	/*---------------------------------------------------
 	------------------------PATH-------------------------
