@@ -116,21 +116,13 @@ html body {
 			width: 100%;
 		}
 
-			#cont_login form #fieldset_op_login{
-				border:0px solid;
-				padding: 0px;
+			#cont_login form #login_submit, 
+			#cont_login form #login_reset{
+				width: 150px;
+				height: 25px;
+				float: right;
+				margin: 20px 0px 10px 20px;
 			}
-
-				#cont_login form #fieldset_op_login input{
-					width: 150px;
-					height: 25px;
-					float: right;
-					margin: 0px 0px 0px 20px;
-				}
-
-				#cont_login form #fieldset_op_login legend{
-					display:none;
-				}
 
 
 
@@ -162,27 +154,22 @@ html body {
 		#cont_registration #reg_year{
 			width: 20%
 		}
+
 		#cont_registration #reg_month{
 			width: 20%
 		}
+
 		#cont_registration #reg_day{
 			width: 20%
 		}
-			#cont_registration form #fieldset_op_RU{
-				border:0px solid;
-				padding: 0px;
+
+			#cont_registration form #login_password, 
+			#cont_registration form #login_reset{
+				width: 150px;
+				height: 25px;
+				float: right;
+				margin: 20px 0px 10px 20px;
 			}
-
-				#cont_registration form #fieldset_op_RU input{
-					width: 150px;
-					height: 25px;
-					float: right;
-					margin: 0px 0px 0px 20px;
-				}
-
-				#cont_registration form #fieldset_op_RU legend{
-					display:none;
-				}
 
 
 /*-------------- pass_recovery.html-------------------*/
@@ -204,25 +191,10 @@ html body {
 			width: 100%;
 		}
 
-			#cont_pass_recovery form #fieldset_op_PR{
-				border:0px solid;
-				padding: 0px;
+			#cont_pass_recovery form #recover_submit, 
+			#cont_pass_recovery form #recover_reset{
+				width: 150px;
+				height: 25px;
+				float: right;
+				margin: 20px 0px 10px 20px;
 			}
-
-				#cont_pass_recovery form #fieldset_op_PR input{
-					width: 150px;
-					height: 25px;
-					float: right;
-					margin: 0px 0px 0px 20px;
-				}
-
-				#cont_pass_recovery form #fieldset_op_PR input{
-					width: 150px;
-					height: 25px;
-					float: right;
-					margin: 0px 0px 0px 20px;
-				}
-
-				#cont_pass_recovery form #fieldset_op_PR legend{
-					display:none;
-				}
