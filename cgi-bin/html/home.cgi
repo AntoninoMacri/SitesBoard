@@ -33,22 +33,24 @@ print <<PRIMA_PARTE;
 
 			<!-- HEADER-->
 			<div id="header">
-				<img id="header_logo" src="../media/logo.png" alt="Logo del sito SitesBoard" title = "Logo del sito"/>
+				<img id="header_logo" src="../../media/logo.png" alt="Logo del sito SitesBoard" title = "Logo del sito"/>
 				<h1>SitesBoard</h1>
 				<h2>La <span xml:lang="en" lang="en">Sites Board</span> per richiedere Siti <span xml:lang="en" lang="en">Web</span></h2>
 PRIMA_PARTE
 
 if($session != undef){
+my $name = getSessionName();
+my $surname = getSessionSurname();
+
 print <<PEZZO;
 				<!-- Da caricare nel caso l'utente sia loggato -->
 				<div id="header_login">
 					<div>
-						Benvenuto <span class="notable">Nome Cognome</span>
+						Benvenuto <span class="notable">$name $surname</span>
 					</div>
 					<div class="minimal">
-						<!-- <a href="../administration/html/profile_change.html" hreflang="it" >Modifica Profilo<img id="header_PEL" src="../media/profile_edit.png" alt="Iconcina di modifica profilo" title = "Modifica i dati del profilo"/></a>-->
-						<a href="../administration/html/profile_change.html" hreflang="it" >Modifica Profilo</a>
-						o <a href="" hreflang="it" >Esci</a>
+						<a href="profile_change.cgi" hreflang="it" >Modifica Profilo</a>
+						o <a href="logout.cgi" hreflang="it" >Esci</a>
 					</div>
 				</div>
 			
@@ -72,12 +74,12 @@ print <<SECONDA_PARTE;
 					<h3>Menù</h3>
 					<p>Tipologia Siti:</p>
 					<ul>
-						<li><a href="" hreflang="it" ><span xml:lang="en" lang="en">E-commerce</span></a></li>
-						<li><a href="" hreflang="it" ><span xml:lang="en" lang="en">Forum</span></a></li>
-						<li><a href="" hreflang="it" ><span xml:lang="en" lang="en">Social</span></a></li>
-						<li><a href="" hreflang="it" >Personali</a></li>
-						<li><a href="" hreflang="it" >Aziendali</a></li>
-						<li><a href="" hreflang="it" ><span xml:lang="en" lang="en">Blog</span></a></li>
+						<li><a href="bacheca_ecommerce.cgi" hreflang="it" ><span xml:lang="en" lang="en">E-commerce</span></a></li>
+						<li><a href="bacheca_forum.cgi" hreflang="it" ><span xml:lang="en" lang="en">Forum</span></a></li>
+						<li><a href="bacheca_social.cgi" hreflang="it" ><span xml:lang="en" lang="en">Social</span></a></li>
+						<li><a href="bacheca_personali.cgi" hreflang="it" >Personali</a></li>
+						<li><a href="bacheca_aziendali.cgi" hreflang="it" >Aziendali</a></li>
+						<li><a href="bacheca_blog.cgi" hreflang="it" ><span xml:lang="en" lang="en">Blog</span></a></li>
 					</ul>
 					
 				</div>
@@ -97,7 +99,7 @@ print <<PEZZO;
 						<span xml:lang="en" lang="en">Password</span> e <span xml:lang="en" lang="en">Username</span> errati
 					</p>
 					<!-- Form da compilare -->
-					<form onsubmit="return loginControl()" method="post" action="login.html">
+					<form onsubmit="return loginControl()" method="post" action="login.cgi">
 						<fieldset title="Campi da compilare per effettuare il Login">
 							<legend>Campi da compilare per effettuare il Login</legend>
 							<label for="login_user">Username</label>
@@ -110,8 +112,8 @@ print <<PEZZO;
 							<input type="submit" name="login_submit" id="login_submit" value="Accedi al sito" />
 						</fieldset>
 					</form>
-					<a class ="minimal" href="registration.html" hreflang="it" >Non ti sei ancora registrato?</a>
-					<a class = "minimal" href="pass_recovery.html" hreflang="it" >Non trovi più la <span xml:lang="en" lang="en">password?</span></a>
+					<a class ="minimal" href="../../html/registration.html" hreflang="it" >Non ti sei ancora registrato?</a>
+					<a class = "minimal" href="../../html/pass_recovery.html" hreflang="it" >Non trovi più la <span xml:lang="en" lang="en">password?</span></a>
 				</div>
 PEZZO
 }
