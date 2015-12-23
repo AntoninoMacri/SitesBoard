@@ -1,16 +1,18 @@
 #!/usr/bin/perl
 
+require "../functions/session_function.cgi";
 print "Content-type: text/html\n\n";
+my $session=getSession();
 
-print <<FINE;
+print <<PRIMA_PARTE;
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 	<head>
 		<title xml:lang="en" lang="en">Home Page - SitesBoard</title> 
 
-		<link href="../../public_html/css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
-		<link href="../../public_html/css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
-		<link href="../../public_html/css/print.css" rel="stylesheet" type="text/css" media="print"/>
+		<link href="../../css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
+		<link href="../../css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
+		<link href="../../css/print.css" rel="stylesheet" type="text/css" media="print"/>
 		
 
 
@@ -22,7 +24,7 @@ print <<FINE;
 		<meta name="keywords" content="Home, Bacheca, Siti, Web" />
 		<meta name="language" content="italian it" />
 		
-		<script type="text/javascript" src="../../public_html/javascript/control.js"></script>
+		<script type="text/javascript" src="../../javascript/control.js"></script>
 	</head>
 	<body>
 		<div id="container">
@@ -34,7 +36,10 @@ print <<FINE;
 				<img id="header_logo" src="../media/logo.png" alt="Logo del sito SitesBoard" title = "Logo del sito"/>
 				<h1>SitesBoard</h1>
 				<h2>La <span xml:lang="en" lang="en">Sites Board</span> per richiedere Siti <span xml:lang="en" lang="en">Web</span></h2>
+PRIMA_PARTE
 
+if($session != undef){
+print <<PEZZO;
 				<!-- Da caricare nel caso l'utente sia loggato -->
 				<div id="header_login">
 					<div>
@@ -46,15 +51,18 @@ print <<FINE;
 						o <a href="" hreflang="it" >Esci</a>
 					</div>
 				</div>
+			
+PEZZO
+}
+
+
+
+print <<SECONDA_PARTE;
 			</div>
-
-
-
 			<!-- PATH -->
 			<div id="path" title="Sezione del sito in cui ti trovi in questo momento">
 				Ti trovi in: <span class="notable" xml:lang="en" lang="en">Home</span>
 			</div>
-
 
 
 			<div id="nav_panel">
@@ -73,9 +81,13 @@ print <<FINE;
 					</ul>
 					
 				</div>
+SECONDA_PARTE
 
 
 
+
+if($session == undef){
+print <<PEZZO;
 				<!-- MENÙ DI LOGIN-->
 				<!-- Da caricare solo se l'utente non è loggato-->
 				<div id="nav_login" class="menu" title="Menù di Login del sito">
@@ -101,8 +113,11 @@ print <<FINE;
 					<a class ="minimal" href="registration.html" hreflang="it" >Non ti sei ancora registrato?</a>
 					<a class = "minimal" href="pass_recovery.html" hreflang="it" >Non trovi più la <span xml:lang="en" lang="en">password?</span></a>
 				</div>
-
-
+PEZZO
+}
+else
+{
+print <<PEZZO;
 				<!-- Da caricare se l'utente è loggato-->
 				<div id="nav_administration" class="menu" title="Menù di amministrazione del sito">
 					<h3>Amministrazione</h3>
@@ -110,12 +125,14 @@ print <<FINE;
 					<a href="" hreflang="it" >Esempio 2</a>
 					<a href="" hreflang="it" >Esempio 3</a>
 				</div>
+PEZZO
 
+}
+
+
+
+print <<FINE;
 			</div>
-
-
-
-
 			<!-- CONTENUTI DELLA PAGINA -->
 			<div id="contents">
 				<h3><span xml:lang="en" lang="en">Home</span></h3>

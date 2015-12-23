@@ -3,10 +3,12 @@
 	<head>
 		<title xml:lang="en" lang="it">Modifica informazioni - SitesBoard</title> 
 
-		<link href="../..//public_html/css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
-		<link href="../../public_html/css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
-		<link href="../../public_html/css/print.css" rel="stylesheet" type="text/css" media="print"/>
+
+		<link href="../../css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
+		<link href="../../css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
+		<link href="../../css/print.css" rel="stylesheet" type="text/css" media="print"/>
 		
+
 
 		<!-- Meta Tag-->
 		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
@@ -15,7 +17,7 @@
 		<meta name="description" content="Pagina di modifica delle informazioni personali" />
 		<meta name="keywords" content="Changes, Profile, Logged, Siti, Web" />
 		<meta name="language" content="italian it" />
-<script type="text/javascript" src="../../public_html/javascript/control.js"></script>
+		<script type="text/javascript" src="../../javascript/control.js"></script>
 	</head>
 	<body>
 		<div id="container">
