@@ -1,10 +1,5 @@
 #!/usr/bin/perl
-package Session_functions;
-#messaggi di errore al browser
-use CGI;
-use CGI::Carp qw(fatalsToBrowser);
 
-#per la gestione delle sessioni
 use CGI::Session;
 
 #funzioni per le sessioni
@@ -79,4 +74,6 @@ sub destroySession(){
 	$session->delete();
 	$session->flush();
 }
+#necessario per far tornare true... altrimenti perl da errore
+1;
 

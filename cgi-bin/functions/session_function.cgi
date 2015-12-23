@@ -1,5 +1,7 @@
 #!/usr/bin/perl
 
+use CGI::Session;
+
 #funzioni per le sessioni
 sub createSession(){
 	my $session = new CGI::Session();
