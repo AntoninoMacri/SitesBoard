@@ -1,0 +1,424 @@
+/*---------------------------------------------------
+---------------------- GENERALE ----------------------
+-----------------------------------------------------*/
+/*imposto i link ad essere tutti in corsivo per una maggiore usabilità*/
+a{
+	font-style: italic;
+}
+
+html, body {
+	/*Cambio eventuali valori di default della pagina*/
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    /*Imposto il font e la grandezza predefinita per tutta la pagina*/
+    font-family: "Droid Sans", Verdana, "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+    font-size: 1em;
+}
+
+div {
+	/*opacity: 0.7;*/
+	/*border-radius: 10px;*/
+}
+
+
+#container {
+	/*Spingo il footer in fondo alla pagina con un gioco di dimensioni */
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -50px; 
+
+    /*Imposto la pagina*/
+    width: 95%;
+} 
+
+/*style per le immagini di validazione*/
+.img_validator{
+	border:0px;
+	width: 88px;
+	height: 31px;
+}
+
+
+/*definisco delle classi generali di grandezza per le scritte*/
+.notable{
+	font-weight: bold;
+	padding-left: 10px;
+	font-size: 1.1em;
+}
+
+.minimal
+{
+	font-size: 0.8em;
+}
+
+
+	/*---------------------------------------------------
+	----------------------HEADER-------------------------
+	-----------------------------------------------------*/
+	#header{
+		background-color: #F0F8FF;
+
+		padding: 1px 20px 1px 20px;
+		height: 11em;
+	}
+		#header_logo{
+			float: left;
+			margin-top: 1.5em;
+			margin-left: 1em;
+			margin-right: 2em;
+			max-height: 230px;
+			max-width: 170px;
+			width: 170px;
+			border: 0px;
+		}
+
+		#header h1{
+			margin-top: 0px;
+			margin-left: 200px;
+			padding-top: 1em;
+		}
+
+		#header h2{
+			margin-bottom: 0px;
+			margin-left: 200px;
+		}
+
+		#header_login{
+			text-align: right;
+		}
+
+			#header_login div{
+				/*margin-top: 10px; -> per immagine*/
+				margin-top: 10px;
+			}
+
+				#header_PEL{
+					margin: 0px;
+					max-width: 2em;
+					max-height: 2em;
+					margin-left: 5px;
+				}
+
+
+	/*---------------------------------------------------
+	------------------------PATH-------------------------
+	-----------------------------------------------------*/
+	#path
+	{
+		padding: 10px 20px 10px 20px;
+		clear:both;
+		background-color: #F0F8FF;
+		margin-top: 5px;
+	}
+
+	/*---------------------------------------------------
+	------------------------MENU-------------------------
+	-----------------------------------------------------*/
+	
+	#nav_panel{
+		margin-top: 20px;
+		float: left;
+		width: 23%;
+	}
+
+		.menu{
+			background-color: #F0F8FF;
+			padding:1px 20px 1px 20px;
+		}
+
+			.menu h3{
+				text-align: center;
+				padding-bottom:10px;
+				border-style: solid;
+				border-color: #D3D3D3;
+				border-width: 0px;
+				border-bottom-width: 1px;
+
+			}
+
+			.menu a{
+				display: block;
+				padding-bottom: 0.5em;
+			}
+
+		/*menu per il login*/
+		#nav_login{
+			margin-top: 20px;
+		}
+
+			#nav_login p{
+				color: red;
+				text-align: center;
+			}
+
+			#nav_login form{
+				margin-bottom: 10px;
+			}
+
+				#nav_login form fieldset{
+					border:0px solid;
+					margin: 0px;
+					padding: 0px;
+				}
+
+					#nav_login form fieldset legend{
+						display: none;
+					}
+
+					#nav_login form fieldset input{
+						width: 100%;
+					} 
+					#nav_login form  fieldset #login_submit{
+						width: 100px;
+						height: 25px;
+						float: right;
+						margin-top: 10px;
+					}
+
+			#nav_login a{
+				display: block;
+				text-align: right;
+			}
+
+		/*menu amministrativo*/
+		#nav_administration
+		{
+			margin-top: 20px;
+		}
+
+
+
+	/*---------------------------------------------------
+	----------------------CONTENUTO----------------------
+	-----------------------------------------------------*/
+	#contents{
+		margin-top: 20px;
+		margin-left: 25%;
+		padding:1px 20px 20px 20px;
+		background-color: #F0F8FF;
+	}
+
+		#contents h3 {
+			text-align: center;
+			padding-bottom:10px;
+			border-style: solid;
+			border-color: #D3D3D3;
+			border-width: 0px;
+			border-bottom-width: 1px;
+		}
+
+
+	/*Div utilizzato per spingere in fondo alla pagina il footer*/
+	#push_block {
+		/*Impostazioni*/
+	    height: 50px; 
+	    clear: both;
+	}
+
+
+/*---------------------------------------------------
+----------------------FOOTER-------------------------
+-----------------------------------------------------*/
+#footer{
+
+	background-color: #F0F8FF; 
+
+	/*Imposto la posizione e la dimensione*/
+	width: 95%;
+	margin: 75px auto 0px;
+	padding: 10px 20px 10px 20px;
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+/*---------------------------------------------------
+-----------------CONTENUTO AGGIUNTIVO----------------
+-----------------------------------------------------*/
+/*-------------- login.html-------------------*/
+#cont_login {
+}
+
+	#cont_login p{
+		color: red;
+		text-align: center;
+	}
+	
+	#cont_login form fieldset{
+		width: 50%;
+		margin: auto;
+		margin: 20px auto 20px auto;
+	}
+
+		#cont_login form fieldset input{
+			width: 100%;
+		}
+
+			#cont_login form #fieldset_op_login{
+				border:0px solid;
+				padding: 0px;
+			}
+
+				#cont_login form #fieldset_op_login input{
+					width: 150px;
+					height: 25px;
+					float: right;
+					margin: 0px 0px 10px 20px;
+				}
+
+				#cont_login form #fieldset_op_login legend{
+					display:none;
+				}
+
+
+/*-------------- registration.html-------------------*/
+#cont_registration {
+}
+
+	#cont_registration p{
+		color: red;
+		text-align: center;
+	}
+	
+	#cont_registration form fieldset{
+		width: 50%;
+		margin: auto;
+		margin: 20px auto 20px auto;
+	}
+
+		#cont_registration form fieldset label{
+			display: block;
+			margin-top: 0.4em;
+			margin-bottom: 0.2em;
+		}
+
+		#cont_registration form fieldset input{
+			width: 100%;
+		}
+
+		#cont_registration #reg_year{
+			width: 20%
+		}
+		#cont_registration #reg_month{
+			width: 20%
+		}
+		#cont_registration #reg_day{
+			width: 20%
+		}
+
+			#cont_registration form #fieldset_op_RU{
+				border:0px solid;
+				padding: 0px;
+			}
+
+				#cont_registration form #fieldset_op_RU input{
+					width: 150px;
+					height: 25px;
+					float: right;
+					margin: 0px 0px 10px 20px;
+				}
+
+
+				#cont_registration form #fieldset_op_RU legend{
+					display:none;
+				}
+
+
+
+
+
+/*-------------- pass_recovery.html-------------------*/
+#cont_pass_recovery {
+}
+
+	#cont_pass_recovery p{
+		color: red;
+		text-align: center;
+	}
+	
+	#cont_pass_recovery form fieldset{
+		width: 50%;
+		margin: auto;
+		margin: 20px auto 20px auto;
+	}
+
+		#cont_pass_recovery form fieldset label{
+			display: block;
+			margin-top: 0.4em;
+			margin-bottom: 0.2em;
+		}
+
+		#cont_pass_recovery form fieldset input{
+			width: 100%;
+		}
+
+			#cont_pass_recovery form #fieldset_op_PR{
+				border:0px solid;
+				padding: 0px;
+			}
+
+				#cont_pass_recovery form #fieldset_op_PR input{
+					width: 150px;
+					height: 25px;
+					float: right;
+					margin: 0px 0px 10px 20px;
+				}
+
+
+				#cont_pass_recovery form #fieldset_op_PR legend{
+					display:none;
+				}
+
+
+
+/*--------------profile_change.html-------------------*/
+#cont_profile_change .info{
+	font-size: small;
+}
+
+#cont_profile_change .buttons{
+	width: 100px;
+
+	margin-bottom: 0px;
+
+	margin-right: 10px;
+
+	float: left;
+}
+
+#cont_profile_change form age{   /*<--------errore*/
+	width: 20px;
+}
+
+
+#cont_profile_change form{
+
+	width: 250px;
+
+	margin-top: 20px;
+
+	margin-bottom: 20px;
+}
+
+#cont_profile_change form input{
+	float: right;
+}
+
+/*--------------profile.html-------------------*/
+#cont_profile #underline{
+	border-style: solid;
+	border-color: #D3D3D3;
+	border-width: 0px;
+	border-bottom-width: 1px;
+
+	padding-bottom: 20px;
+}

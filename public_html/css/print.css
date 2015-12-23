@@ -1,0 +1,228 @@
+/*---------------------------------------------------
+---------------------- GENERALE ----------------------
+-----------------------------------------------------*/
+/*imposto i link ad essere tutti in corsivo per una maggiore usabilità*/
+a{
+	font-style: italic;
+}
+
+
+/*Caratteri generali della pagina*/
+html body {
+    margin:0;
+    padding:0;
+    font-family:arial, helvetica, sans-serif;
+    font-size:0.7em;
+    background-color:white;
+    color:black;
+}
+
+.notable{
+	font-weight: bold;
+	padding-left: 10px;
+	font-size: 1.1em;
+}
+
+.minimal
+{
+	font-size: 0.8em;
+}
+
+
+
+/*nascondo alcuni div*/
+#header_login, #nav_panel,#push_block,#footer{
+	display: none;
+}
+
+
+	/*---------------------------------------------------
+	----------------------HEADER-------------------------
+	-----------------------------------------------------*/
+	#header{
+		padding: 1px 20px 1px 20px;
+		height: 100px;
+	}
+		#header_logo{
+			float: left;
+			margin-top: 1.5em;
+			margin-left: 1em;
+			margin-right: 2em;
+			max-height: 230px;
+			max-width: 170px;
+			width: 170px;
+			border: 0px;
+		}
+
+		#header h1{
+			margin-top: 10px;
+			margin-left: 200px;
+			padding-top: 20px;
+		}
+
+		#header h2{
+			margin-bottom: 0px;
+			margin-left: 200px;
+		}
+
+
+	/*---------------------------------------------------
+	------------------------PATH-------------------------
+	-----------------------------------------------------*/
+	#path
+	{
+		padding: 10px 20px 10px 20px;
+		clear:both;
+		margin-top: 5px;
+	}
+
+
+	/*---------------------------------------------------
+	----------------------CONTENUTO----------------------
+	-----------------------------------------------------*/
+	#contents{
+		margin-top: 20px;
+		padding: 10px 20px 10px 20px;
+	}
+
+		#contents h3{
+			text-align: center;
+			padding-bottom:10px;
+			border-style: solid;
+			border-color: #D3D3D3;
+			border-width: 0px;
+			border-bottom-width: 1px;
+		}
+
+/*---------------------------------------------------
+-----------------CONTENUTO AGGIUNTIVO----------------
+-----------------------------------------------------*/
+/*-------------- login.html-------------------*/
+#cont_login {
+}
+
+	#cont_login p{
+		color: red;
+		text-align: center;
+	}
+	
+	#cont_login form fieldset{
+		width: 50%;
+		margin: auto;
+		margin: 20px auto 20px auto;
+	}
+
+		#cont_login form fieldset input{
+			width: 100%;
+		}
+
+			#cont_login form #fieldset_op_login{
+				border:0px solid;
+				padding: 0px;
+			}
+
+				#cont_login form #fieldset_op_login input{
+					width: 150px;
+					height: 25px;
+					float: right;
+					margin: 0px 0px 0px 20px;
+				}
+
+				#cont_login form #fieldset_op_login legend{
+					display:none;
+				}
+
+
+
+/*-------------- registration.html-------------------*/
+#cont_registration {
+}
+
+	#cont_registration p{
+		color: red;
+		text-align: center;
+	}
+	
+	#cont_registration form fieldset{
+		width: 50%;
+		margin: auto;
+		margin: 20px auto 20px auto;
+	}
+
+		#cont_registration form fieldset label{
+			display: block;
+			margin-top: 0.4em;
+			margin-bottom: 0.2em;
+		}
+
+		#cont_registration form fieldset input{
+			width: 100%;
+		}
+
+		#cont_registration #reg_year{
+			width: 20%
+		}
+		#cont_registration #reg_month{
+			width: 20%
+		}
+		#cont_registration #reg_day{
+			width: 20%
+		}
+			#cont_registration form #fieldset_op_RU{
+				border:0px solid;
+				padding: 0px;
+			}
+
+				#cont_registration form #fieldset_op_RU input{
+					width: 150px;
+					height: 25px;
+					float: right;
+					margin: 0px 0px 0px 20px;
+				}
+
+				#cont_registration form #fieldset_op_RU legend{
+					display:none;
+				}
+
+
+/*-------------- pass_recovery.html-------------------*/
+#cont_pass_recovery {
+}
+
+	#cont_pass_recovery p{
+		color: red;
+		text-align: center;
+	}
+	
+	#cont_pass_recovery form fieldset{
+		width: 50%;
+		margin: auto;
+		margin: 20px auto 20px auto;
+	}
+
+		#cont_pass_recovery form fieldset input{
+			width: 100%;
+		}
+
+			#cont_pass_recovery form #fieldset_op_PR{
+				border:0px solid;
+				padding: 0px;
+			}
+
+				#cont_pass_recovery form #fieldset_op_PR input{
+					width: 150px;
+					height: 25px;
+					float: right;
+					margin: 0px 0px 0px 20px;
+				}
+
+				#cont_pass_recovery form #fieldset_op_PR input{
+					width: 150px;
+					height: 25px;
+					float: right;
+					margin: 0px 0px 0px 20px;
+				}
+
+				#cont_pass_recovery form #fieldset_op_PR legend{
+					display:none;
+				}
