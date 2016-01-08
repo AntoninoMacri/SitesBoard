@@ -94,12 +94,13 @@ function profileChangeControl(){
 //registrationControl
 function registrationControl(){
     var risultato=checkName("reg_name", "regErr");
-    risultato=risultato && checkSurname("reg_surname", "regErr");    
+    risultato=risultato && checkSurname("reg_surname", "regErr");
+    risultato=risultato && checkData("reg_year", "reg_month", "reg_day", "regErr");
     risultato=risultato && checkUser("reg_username", "regErr");
     risultato=risultato && checkEmail("reg_email", "regErr");
     risultato=risultato && checkPassword("reg_pass", "regErr");
     risultato=risultato && checkConfirmPassword("reg_pass", "reg_re_pass" ,"regErr");
-    
+
     //scrollo la pagina poichè la form è troppo lunga e c'è il rischio che l'utente non veda il suggerimento dell'errore
     var w = window.screen.width;
     var h = window.screen.height;
@@ -203,6 +204,79 @@ function checkEmail(par, err){
     var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     if(b && !re.test(tag.value)){
         document.getElementById(err).innerHTML = "*Email non valida";
+        b=false;
+    }
+    return b;
+}
+
+function checkData(y, m, d, err){
+    var tagy= document.getElementById(y);
+    var b=true;
+    if (tagy.value == null || tagy.value == "") {
+        document.getElementById(err).innerHTML = "*campo Anno di Nascita vuoto";
+        b=false;
+    }
+    //controllo che l'anno sia un numero
+    var re=/^[0-9]{4}$/;
+    if(b && !re.test(tagy.value)){
+        document.getElementById(err).innerHTML = "*Anno deve contenere 4 cifre";
+        b=false;
+    }
+    //controllo che l'anno sia successivo al 1900
+    if(b && tagy.value<1900){
+        document.getElementById(err).innerHTML = "*anno deve essere successivo al 1900";
+        b=false;
+    }
+    var bisestile=false;
+    if(tagy.value%4==0){
+        bisestile=true;
+    }
+
+    var tagm= document.getElementById(m);
+    if (b && (tagm.value == null || tagm.value == "")) {
+        document.getElementById(err).innerHTML = "*campo Mese di Nascita vuoto";
+        b=false;
+    }
+    //controllo che il mese sia un numero
+    var re=/^[0-9]{1,2}$/;
+    if(b && !re.test(tagm.value)){
+        document.getElementById(err).innerHTML = "*mese deve contenere 1 o 2 cifre";
+        b=false;
+    }
+    if(b && tagm.value>12){
+        document.getElementById(err).innerHTML = "*mese deve contenere un valore da 1 a 12";
+        b=false;
+    }
+
+    var tagd= document.getElementById(d);
+    if (b && (tagd.value == null || tagd.value == "")) {
+        document.getElementById(err).innerHTML = "*campo Giorno di Nascita vuoto";
+        b=false;
+    }
+    //controllo che il giorno sia un numero
+    var re=/^[0-9]{1,2}$/;
+    if(b && !re.test(tagd.value)){
+        document.getElementById(err).innerHTML = "*giorno deve contenere 1 o 2 cifre";
+        b=false;
+    }
+    if(b && tagd.value>31){
+        document.getElementById(err).innerHTML = "*giorno deve contenere un valore da 1 a 31";
+        b=false;
+    }
+    if(b && tagd.value>28 && tagm.value==2){
+        if(tagd.value==29)
+        {
+            if(!bisestile)
+                { 
+                    document.getElementById(err).innerHTML = "*anno NON bisestile. Febbraio ha al massimo 28 giorni"; 
+                    b=false;
+                }
+        }
+        if(tagd.value>29)
+                { document.getElementById(err).innerHTML = "*Febbraio ha al massimo 29 giorni"; b=false;}
+    }
+    if(b && tagd.value==31 && (tagm.value==11 || tagm.value==4 || tagm.value==6 || tagm.value==9)){
+        document.getElementById(err).innerHTML = "*30 giorni al massimo";
         b=false;
     }
     return b;
