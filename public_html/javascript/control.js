@@ -17,16 +17,19 @@
 
 //home.html, pass_recovery.html e registration.html
 //onsubmit="return loginControl()" dentro tag form di login
+//onkeypress="return loginControl()" dentro tag form di login
 //name="formLogin" dentro tag form di login
 //id="logErr" dentro il tag p del messaggio di errore
 
 //pass_recovery.html
 //onsubmit="return recoveryControl()" dentro tag form
+//onkeypress="return recoveryControl()" dentro tag form di login
 //name="pass_recovery" dentro tag form di login
 //id="recErr" dentro il tag p del messaggio di errore di recupero password
 
 //registration.html
 //onsubmit="return registrationControl()" dentro tag form
+//onkeypress="return registrationControl()" dentro tag form di login
 //name="registration" dentro tag form di login
 //id="regErr" dentro il tag p del messaggio di errore
 
@@ -37,9 +40,12 @@
 //id="name","surname","age","email" aggiunti a tutti i tag input della form
 //tutti i value=" " dentro i tag della form sono stati sostituiti con value=""; per poter controllare se il campo era stato lasciato vuoto dall'utente
 
+//profile_change.cgi
+//aggiunto id="username" al tag input
+//onkeypress="return profileChangeControl()" dentro tag form di login
 
 //appunto di codice: document.getElementById("recErr").style.color='red';
-
+/*
 function profileChangeControl(){
     var x=document.forms["profileChange"]["name"].value;
     if (x == null || x == "") {
@@ -88,6 +94,18 @@ function profileChangeControl(){
       document.getElementById("underline").innerHTML = "*Email non valida";
       return false;
     }
+}*/
+
+//profileChangeControl
+function profileChangeControl(){
+    document.getElementById("underline").style.color='red';
+    var risultato=checkName("name","underline");
+    risultato=risultato && checkSurname("surname","underline");
+    risultato=risultato && checkAge("age","underline");
+    risultato=risultato && checkUser("username","underline");
+    risultato=risultato && checkEmail("email","underline");
+    return risultato;
+
 }
 
 
@@ -204,6 +222,29 @@ function checkEmail(par, err){
     var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     if(b && !re.test(tag.value)){
         document.getElementById(err).innerHTML = "*Email non valida";
+        b=false;
+    }
+    return b;
+}
+
+function checkAge (par, err) {
+    var tag= document.getElementById(par);
+    var b=true;
+    if (tag.value == null || tag.value == "") {
+        document.getElementById(err).innerHTML = "*campo eta&#768; vuoto";
+        b=false;
+    }
+    var re=/^[0-9]{2,3}$/;
+    if(b && !re.test(tag.value)){
+        document.getElementById(err).innerHTML = "*eta&#768; campo numerico di massimo 3 cifre";
+        b=false;
+    }
+    if(b && tag.value<18){
+        document.getElementById(err).innerHTML = "*l'iscrizione è permessa solo hai maggiorenni";
+        b=false;
+    }
+    if(b && tag.value>110){
+        document.getElementById(err).innerHTML = "*l'iscrizione deve essere inferiore a 110";
         b=false;
     }
     return b;
