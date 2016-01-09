@@ -2,7 +2,7 @@
 
 //COSA NON HO FATTO:controllo della correttezza della data di nascita inserita dentro la pagina registration.html
 //NOTA BENE: Per la Data preferirei che venissero inseriti 3 campi input per giorno,mese ed anno er evitare problemi di forma es: dd.mm.yyyy oppure mm.dd.yyyy, vincolando l'utente ad un solo modo valido per l'inserimento dei dati (dd mm yyyy)
-//NOTA BENE2: controllare che il regex usato sia corretto per tutte le possibili e-mail(intanto controllare solo che le email che abbiamo siano tutte accettate)
+//NOTA BENE2: controllare che il regex usato sia corretto per tutte le possibili e-mail(intanto controllare solo che le email che abbiamo siano tutte accettate) 
 
 //COSA HO FATTO
 //AZIONI
