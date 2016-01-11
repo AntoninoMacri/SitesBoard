@@ -7,26 +7,26 @@ print <<EOF;
 	<head>
 		<title>Login - SitesBoard</title> 
 
-		<link href="../css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
-		<link href="../css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
-		<link href="../css/print.css" rel="stylesheet" type="text/css" media="print"/>
+		<link href="public_html/css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
+		<link href="public_html/css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
+		<link href="public_html/css/print.css" rel="stylesheet" type="text/css" media="print"/>
 
 
-		<!-- Meta Tag-->
+		<!-- Meta Tag -->
 		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
 		<meta name="title" content="Login - SitesBoard" />
 		<meta name="author" content="Davide Rigoni, Francesco Fasolato, Giacomo Zecchin, Antonino Macrì" />
 		<meta name="description" content="Form login utente per SitesBoard, il sito per la richiesta di Siti Web Professionali" />
 		<meta name="keywords" content="Login, Password, Bacheca, Siti, Web" />
 		<meta name="language" content="italian it" />
-		<script type="text/javascript" src="../javascript/control.js"></script>
+		<script type="text/javascript" src="data/js/control.js"></script>
 	</head>
 	<body>
 		<div id="container">
 
 
 
-			<!-- HEADER-->
+			<!-- HEADER -->
 			<div id="header">
 				<a href="home.html" hreflang="it" ><img id="header_logo" src="../media/logo.png" alt="Logo del sito SitesBoard" title = "Logo del sito"/></a>
 				<h1>SitesBoard</h1>
@@ -45,7 +45,7 @@ print <<EOF;
 
 
 
-				<!-- MENÙ DI NAVIGAZIONE -->
+				<!-- MENÙ DI NAVIGAZIONE --> 
 				<div id="nav_menu" class="menu" title ="Menù di navigazione del sito">
 					<h3>Menù</h3>
 					<a href="home.html" xml:lang="en" lang="en" hreflang="it" >Home</a>
@@ -73,12 +73,12 @@ print <<EOF;
 				<div id="cont_login" title="Form da compilare per effettuare il Login">
 					Se non disponi di un <span xml:lang="en" lang="en">username</span> e di una <span xml:lang="en" lang="en">password</span> allora prima di effettuare il <span xml:lang="en" lang="en">login</span> devi <a href="registration.html" hreflang="it">registrarti</a>.<br/>
 					Se hai dimenticato la <span xml:lang="en" lang="en">password</span> allora prima di effettuare il <span xml:lang="en" lang="en">login</span> devi <a href="pass_recovery.html" hreflang="it">recuperarla</a>.
-					<!-- Messaggio di errore -->
+					<!-- Messaggio di errore  -->
 					<p id="logErr" title="Messaggio di errore compilazione form login">
 						<span xml:lang="en" lang="en">Password</span> e <span xml:lang="en" lang="en">Username</span> errati
 					</p>
-					<!-- Form da compilare -->
-					<form onsubmit="return loginControl()" method="post" action="profile.cgi">
+					<!-- Form da compilare  -->
+					<form onsubmit="return loginControl()" method="post" action="checkLogin.cgi">
 						<fieldset title="Campi da compilare per effettuare il Login">
 							<legend>Campi da compilare per effettuare il Login</legend>
 							<label for="login_user">Username</label>
@@ -92,14 +92,14 @@ print <<EOF;
 				</div>
 			</div>
 
-			<!-- Div necessario per spostare il footer in fondo alla pagina -->
+			<!-- Div necessario per spostare il footer in fondo alla pagina  -->
 			<div id="push_block">
 			</div>
 		</div>
 
 
 
-		<!-- FOOTER -->
+		<!-- FOOTER  -->
 		<div id="footer">
 			<span title="Pagina validata con lo standard XHTML 1.0 Strict">
 			    <a href="http://validator.w3.org/check?uri=referer" hreflang="en" >
