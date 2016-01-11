@@ -1,2 +1,3 @@
 # ignore this extensions for commit:
 *.sh
+*.cgi~
