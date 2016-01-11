@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.dominio.com" xmlns="http://www.dominio.com" elementFormDefault="qualified">
+	<xsd:element name="bacheca">
+		<xsd:complexType>
+			<xsd:sequence minOccurs="0" maxOccurs="unbounded">
+				<xsd:element name="persona">
+					<xsd:attribute name="id" type="id" use="required"/>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="nome" type="xsd:string"/>
+							<xsd:element name="cognome" type="xsd:string"/>
+							<xsd:element name="dataNascita">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:date">
+										<xsd:minInclusive value="1900-01-01"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="user" type="xsd:string"/>
+							<xsd:element name="password" type="xsd:string"/>
+							<xsd:element name="mail" type="xsd:string"/>
+							<xsd:element name="biografia" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+							<xsd:element name="listaAnnunci" minOccurs="0" maxOccurs="1">
+								<xsd:complexType>
+									<xsd:sequence minOccurs="1" maxOccurs="unbounded">
+										<xsd:element name="annuncio">
+											<xsd:attribute name="id" type="id" use="required"/>
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="titolo" type="xsd:string"/>
+													<xsd:element name="oggetto" type="xsd:string"/>
+													<xsd:element name="descrizione" type="xsd:string"/>
+													<xsd:element name="data">
+														<xsd:simpleType>
+															<xsd:restriction base="xsd:date">
+																<xsd:minInclusive value="1900-01-01"/>
+															</xsd:restriction>
+														</xsd:simpleType>
+													</xsd:element>
+													<xsd:element name="listaDisponibili" minOccurs="0" maxOccurs="1">
+														<xsd:complexType>
+															<xsd:sequence minOccurs="1" maxOccurs="unbounded">
+																<xsd:element name="idProgrammatore" type="xsd:id"/>
+															</xsd:sequence>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
