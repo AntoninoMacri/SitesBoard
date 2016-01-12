@@ -1,11 +1,10 @@
 #!/usr/bin/perl
 
-require "../functions/session_function.cgi";
+require "functions/session_function.cgi";
 print "Content-type: text/html\n\n";
 my $session=getSession();
 
 print <<PRIMA_PARTE;
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 	<head>
 		<title xml:lang="en" lang="en">Home Page - SitesBoard</title> 
@@ -24,7 +23,7 @@ print <<PRIMA_PARTE;
 		<meta name="keywords" content="Home, Bacheca, Siti, Web" />
 		<meta name="language" content="italian it" />
 		
-		<script type="text/javascript" src="../../javascript/control.js"></script>
+		<script type="text/javascript" src="js/control.js"></script>
 	</head>
 	<body>
 		<div id="container">
