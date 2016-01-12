@@ -7,9 +7,9 @@ print<<EOF;
 	<head>
 		<title xml:lang="en" lang="it">Profilo Utente - SitesBoard</title> 
 
-		<link href="public_html/css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
-		<link href="public_html/css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
-		<link href="public_html/css/print.css" rel="stylesheet" type="text/css" media="print"/>
+		<link href="css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
+		<link href="css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
+		<link href="css/print.css" rel="stylesheet" type="text/css" media="print"/>
 
 
 		<!-- Meta Tag -->

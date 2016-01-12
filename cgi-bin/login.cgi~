@@ -7,9 +7,9 @@ print <<EOF;
 	<head>
 		<title>Login - SitesBoard</title> 
 
-		<link href="public_html/css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
-		<link href="public_html/css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
-		<link href="public_html/css/print.css" rel="stylesheet" type="text/css" media="print"/>
+		<link href="../public_html/css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
+		<link href="../public_html/css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
+		<link href="../public_html/css/print.css" rel="stylesheet" type="text/css" media="print"/>
 
 
 		<!-- Meta Tag -->
@@ -19,7 +19,7 @@ print <<EOF;
 		<meta name="description" content="Form login utente per SitesBoard, il sito per la richiesta di Siti Web Professionali" />
 		<meta name="keywords" content="Login, Password, Bacheca, Siti, Web" />
 		<meta name="language" content="italian it" />
-		<script type="text/javascript" src="../javascript/control.js"></script>
+		<script type="text/javascript" src="data/js/control.js"></script>
 	</head>
 	<body>
 		<div id="container">
