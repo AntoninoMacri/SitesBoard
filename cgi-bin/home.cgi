@@ -32,7 +32,7 @@ print <<PRIMA_PARTE;
 
 			<!-- HEADER-->
 			<div id="header">
-				<img id="header_logo" src="../../media/logo.png" alt="Logo del sito SitesBoard" title = "Logo del sito"/>
+				<img id="header_logo" src="media/logo.png" alt="Logo del sito SitesBoard" title = "Logo del sito"/>
 				<h1>SitesBoard</h1>
 				<h2>La <span xml:lang="en" lang="en">Sites Board</span> per richiedere Siti <span xml:lang="en" lang="en">Web</span></h2>
 PRIMA_PARTE
