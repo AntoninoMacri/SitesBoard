@@ -1,19 +1,19 @@
 #!/usr/bin/perl
 
-require "../functions/session_function.cgi";
+#controllare la funzione
+require "functions/session_function.cgi";
 print "Content-type: text/html\n\n";
 my $session=getSession();
 
 print <<PRIMA_PARTE;
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 	<head>
 		<title xml:lang="en" lang="en">Home Page - SitesBoard</title> 
 
-		<link href="../../css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
-		<link href="../../css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
-		<link href="../../css/print.css" rel="stylesheet" type="text/css" media="print"/>
-		
+		<link href="screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
+		<link href="handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
+		<link href="print.css" rel="stylesheet" type="text/css" media="print"/>
+
 
 
 		<!-- Meta Tag-->
@@ -24,7 +24,7 @@ print <<PRIMA_PARTE;
 		<meta name="keywords" content="Home, Bacheca, Siti, Web" />
 		<meta name="language" content="italian it" />
 		
-		<script type="text/javascript" src="../../javascript/control.js"></script>
+		<script type="text/javascript" src="js/control.js"></script>
 	</head>
 	<body>
 		<div id="container">

@@ -19,7 +19,7 @@ print <<EOF;
 		<meta name="description" content="Form login utente per SitesBoard, il sito per la richiesta di Siti Web Professionali" />
 		<meta name="keywords" content="Login, Password, Bacheca, Siti, Web" />
 		<meta name="language" content="italian it" />
-		<script type="text/javascript" src="data/js/control.js"></script>
+		<script type="text/javascript" src="js/control.js"></script>
 	</head>
 	<body>
 		<div id="container">

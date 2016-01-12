@@ -9,9 +9,9 @@ print <<PRIMA_PARTE;
 	<head>
 		<title xml:lang="en" lang="en">Home Page - SitesBoard</title> 
 
-		<link href="screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
-		<link href="handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
-		<link href="print.css" rel="stylesheet" type="text/css" media="print"/>
+		<link href="css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
+		<link href="css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
+		<link href="css/print.css" rel="stylesheet" type="text/css" media="print"/>
 
 
 
