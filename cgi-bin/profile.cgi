@@ -31,7 +31,7 @@ print<<EOF;
 				<h1>SitesBoard</h1>
 				<h2>La <span xml:lang="en" lang="en">Sites Board</span> per richiedere Siti <span xml:lang="en" lang="en">Web</span></h2>
 
-				<!-- Da caricare nel caso 'utente sia loggato  -->
+				<!-- Da caricare nel caso l utente sia loggato  -->
 				<div id="header_login">
 					<div>
 						Benvenuto <span class="notable">Nome Cognome</span>
@@ -52,7 +52,7 @@ print<<EOF;
 
 
 			<div id="nav_panel">
-				<!-- Menù di navigazione 
+				<!-- Menù di navigazione -->
 				<div id="nav_menu" class="menu">
 					<h3>Menu</h3>
 
