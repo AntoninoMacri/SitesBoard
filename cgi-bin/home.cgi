@@ -1,6 +1,5 @@
 #!/usr/bin/perl
 
-#controllare la funzione
 require "functions/session_function.cgi";
 print "Content-type: text/html\n\n";
 my $session=getSession();
