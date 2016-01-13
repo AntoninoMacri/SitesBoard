@@ -14,8 +14,7 @@ print <<PRIMA_PARTE;
 		<link href="css/print.css" rel="stylesheet" type="text/css" media="print"/>
 
 
-
-		<!-- Meta Tag-->
+		<!-- Meta Tag -->
 		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
 		<meta name="title" content="Home Page - SitesBoard" />
 		<meta name="author" content="Davide Rigoni, Francesco Fasolato, Giacomo Zecchin, Antonino Macrì" />

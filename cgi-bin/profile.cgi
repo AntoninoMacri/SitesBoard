@@ -8,9 +8,12 @@ print <<PRIMA_PARTE;
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 	<head>
 		<title xml:lang="en" lang="it">Profilo Utente - SitesBoard</title> 
+
 		<link href="css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
 		<link href="css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
 		<link href="css/print.css" rel="stylesheet" type="text/css" media="print"/>
+
+		
 		<!-- Meta Tag -->
 		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
 		<meta name="title" content="Profilo Utente - SitesBoard" />
