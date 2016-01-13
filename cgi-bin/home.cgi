@@ -38,11 +38,11 @@ print <<PRIMA_PARTE;
 PRIMA_PARTE
 
 if($session != undef){
-my $name = getSessionName();
-my $surname = getSessionSurname();
+my $name = getSessionName($session);
+my $surname = getSessionSurname($session);
 
 print <<PEZZO;
-				<!-- Da caricare nel caso l'utente sia loggato -->
+				<!-- Da caricare nel caso l utente sia loggato -->
 				<div id="header_login">
 					<div>
 						Benvenuto <span class="notable">$name $surname</span>
@@ -90,7 +90,7 @@ SECONDA_PARTE
 if($session == undef){
 print <<PEZZO;
 				<!-- MENÙ DI LOGIN-->
-				<!-- Da caricare solo se l'utente non è loggato-->
+				<!-- Da caricare solo se l utente non è loggato-->
 				<div id="nav_login" class="menu" title="Menù di Login del sito">
 					<h3><span xml:lang="en" lang="en">Login</span></h3>
 					<!-- Messaggio di errore -->
@@ -119,7 +119,7 @@ PEZZO
 else
 {
 print <<PEZZO;
-				<!-- Da caricare se l'utente è loggato-->
+				<!-- Da caricare se l utente è loggato-->
 				<div id="nav_administration" class="menu" title="Menù di amministrazione del sito">
 					<h3>Amministrazione</h3>
 					<a href="" hreflang="it" >Esempio 1</a>
