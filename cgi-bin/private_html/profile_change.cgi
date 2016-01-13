@@ -22,32 +22,44 @@ print <<PRIMA_PARTE;
 		<meta name="keywords" content="Changes, Profile, Logged, Siti, Web" />
 		<meta name="language" content="italian it" />
 
-		<script type="text/javascript" src="../../javascript/control.js"></script>
+		<script type="text/javascript" src="../functions/control.js"></script>
 		
 	</head>
 	<body>
 		<div id="container">
 
-
 			<!-- HEADER-->
 			<div id="header">
 
-				<a href="../../html/home.html" hreflang="it" type="application/xhtml+xml"><img id="header_logo" src="../../media/logo.png" alt="Logo del sito SitesBoard" title = "Logo del sito"/></a>
+				<a href="home.cgi" hreflang="it"><img id="header_logo" src="media/logo.png" alt="Logo del sito SitesBoard" title = "Logo del sito"/></a>
 				<h1>SitesBoard</h1>
 				<h2>La <span xml:lang="en" lang="en">Sites Board</span> per richiedere Siti <span xml:lang="en" lang="en">Web</span></h2>
 
-				<!-- Da caricare nel caso l'utente sia loggato -->
+PRIMA_PARTE
+
+if($session != undef){
+my $name = getSessionName($session);
+my $surname = getSessionSurname($session);
+
+print <<PEZZO;
+
+				<!-- Da caricare nel caso l utente sia loggato  -->
 				<div id="header_login">
 					<div>
 						Benvenuto <span class="notable">Nome Cognome</span>
 					</div>
+					
 				</div>
+PEZZO
+}
+
+print <<EOF;
 
 			</div>
 
 			<!-- PATH -->
 			<div id="path" title="Sezione del sito in cui ti trovi in questo momento">
-				Ti trovi in: <span class="notable" xml:lang="en" lang="en">Modifica informazioni</span>
+				Ti trovi in: <span class="notable" xml:lang="en" lang="it">Modifica informazioni</span>
 			</div>
 
 			<div id="nav_panel">
@@ -77,7 +89,7 @@ print <<PRIMA_PARTE;
 					Ricordati di cliccare su salva una volta che avrai terminato le modifiche
 					</p>
 
-					<form onsubmit="return profileChangeControl()" name="profileChange" method="post" action="profile_changes.cgi">
+					<form onsubmit="return profileChangeControl()" name="profileChange" method="post" action="profile_change.cgi">
 						<label for="name">Nome</label>
 	  					<input id="name" type="text" name="name" value="">
 	  					<br><br>
@@ -108,19 +120,24 @@ print <<PRIMA_PARTE;
 			</div>
 		</div>
 
-		<!-- Footer -->
+		<!-- FOOTER -->
 		<div id="footer">
-			<span>
-			    <a href="http://validator.w3.org/check?uri=referer"><img
-			      src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
+			<span title="Pagina validata con lo standard XHTML 1.0 Strict">
+			    <a href="http://validator.w3.org/check?uri=referer" hreflang="en" type="application/xhtml+xml"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
 			</span>
-			<span>
-			    <a href="http://jigsaw.w3.org/css-validator/check/referer">
-			        <img style="border:0;width:88px;height:31px"
-			            src="http://jigsaw.w3.org/css-validator/images/vcss"
-			            alt="CSS Valido!" />
+			<span title="CSS della pagina validato secondo lo standard">
+				<!--hrflang varia a seconda dello stato -->
+			    <a href="http://jigsaw.w3.org/css-validator/check/referer" type="application/xhtml+xml"> 
+			        <img id="footer_CSS_Validator" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valido!" />
+			    </a>
+			</span>
+			<span title="Accessibile secondo lo standard WCAG2 Livello AAA">
+			    <a href="http://www.w3.org/WAI/intro/wcag" type="application/xhtml+xml" hreflang="en-US"> 
+			        <img src="https://www.totalvalidator.com/images/valid_n_wcag2_aaa.gif" alt="Pagina accessibile" />
 			    </a>
 			</span>
 		</div>
 	</body>
 </html>
+EOF
+exit;

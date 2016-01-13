@@ -13,7 +13,7 @@ print <<PRIMA_PARTE;
 		<link href="css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
 		<link href="css/print.css" rel="stylesheet" type="text/css" media="print"/>
 
-		
+
 		<!-- Meta Tag -->
 		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
 		<meta name="title" content="Profilo Utente - SitesBoard" />
@@ -44,7 +44,7 @@ print <<PEZZO;
 						Benvenuto <span class="notable">Nome Cognome</span>
 					</div>
 					<div class="minimal">
-						<a href="../html/profile_change.html" hreflang="it" type="application/xhtml+xml">Modifica Profilo<img id="header_PEL" src="../../media/profile_edit.png" alt="Iconcina di modifica profilo" title = "Modifica i dati del profilo"/></a>
+						<a href="private_html/profile_change.cgi" hreflang="it" type="application/xhtml+xml">Modifica Profilo<img id="header_PEL" src="../../media/profile_edit.png" alt="Iconcina di modifica profilo" title = "Modifica i dati del profilo"/></a>
 					</div>
 				</div>
 PEZZO
@@ -56,11 +56,11 @@ print <<EOF;
 
 			<!-- PATH  -->
 			<div id="path" title="Sezione del sito in cui ti trovi in questo momento">
-				Ti trovi in: <span class="notable" xml:lang="en" lang="en">Profilo Utente</span>
+				Ti trovi in: <span class="notable" xml:lang="en" lang="it">Profilo utente</span>
 			</div>
 			<div id="nav_panel">
-				<!-- Menù di navigazione -->
-				<div id="nav_menu" class="menu">
+				<!-- MENU DI NAVIGAZIONE -->
+				<div id="nav_menu" class="menu" title ="Menù di navigazione del sito">
 					<h3>Menu</h3>
 					<p>Annunci:</p>
 					<ul>
@@ -84,6 +84,7 @@ print <<EOF;
 
 			<!-- Contenuti della pagina -->
 			<div id="contents">
+
 				<h3><span xml:lang="it" lang="it">Il tuo profilo</span></h3>
 				<div id="cont_profile">
 					<p class="info">
