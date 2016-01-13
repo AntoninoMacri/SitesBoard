@@ -23,12 +23,12 @@ sub getSession(){
 		return undef;
 	}
 	else{
-		return $utente;
+		return $session;
 	}
 }
 
 sub getSessionName(){
-	my ($session) = shift(@_);
+	my ($session) = shift(@_);	
 	return $session->param('name');
 }
 
