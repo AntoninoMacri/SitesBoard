@@ -30,8 +30,8 @@ print <<PRIMA_PARTE;
 PRIMA_PARTE
 
 if($session != undef){
-my $name = getSessionName();
-my $surname = getSessionSurname();
+my $name = getSessionName($session);
+my $surname = getSessionSurname($session);
 
 print <<PEZZO;
 
