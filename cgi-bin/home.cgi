@@ -47,7 +47,7 @@ print <<PEZZO;
 						Benvenuto <span class="notable">$name $surname</span>
 					</div>
 					<div class="minimal">
-						<a href="profile_change.cgi" hreflang="it" >Modifica Profilo</a>
+						<a href="profileChange.cgi" hreflang="it" >Modifica Profilo</a>
 						o <a href="logout.cgi" hreflang="it" >Esci</a>
 					</div>
 				</div>
@@ -94,7 +94,7 @@ print <<PEZZO;
 					<h3><span xml:lang="en" lang="en">Login</span></h3>
 					<!-- Messaggio di errore -->
 					<p id="logErr" title="Messaggio di errore compilazione form login">
-						<span xml:lang="en" lang="en">Password</span> e <span xml:lang="en" lang="en">Username</span> errati
+						inserisci <span xml:lang="en" lang="en">Password</span> ed <span xml:lang="en" lang="en">Username</span>
 					</p>
 					<!-- Form da compilare -->
 					<form onsubmit="return loginControl()" method="post" action="checkLogin.cgi">

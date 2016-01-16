@@ -87,7 +87,7 @@ print <<EOF;
 					Ricordati di cliccare su salva una volta che avrai terminato le modifiche
 					</p>
 
-					 <form onsubmit="return profileChangeControl()" name="profileChange" method="post" action="profileChange.cgi">
+					 <form onsubmit="return profileChangeControl()" name="profileChange" method="post" action="profile_change.cgi">
 						<label for="name">Nome</label>
 	  					<input id="name" type="text" name="name" value="">
 	  					<br><br>
