@@ -7,27 +7,27 @@ my $session=getSession();
 print <<PRIMA_PARTE;
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 	<head>
-		<title xml:lang="en" lang="it">Modifica informazioni - SitesBoard</title> 
+		<title xml:lang="en" lang="it">Nuovo annuncio - SitesBoard</title> 
 
 		<link href="css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
 		<link href="css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
-		<link href="css/print.css" rel="stylesheet" type="text/css" media="print"/>		
+		<link href="css/print.css" rel="stylesheet" type="text/css" media="print"/>
 
 
 		<!-- Meta Tag -->
 		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
-		<meta name="title" content="Modifica info profilo - SitesBoard" />
+		<meta name="title" content="Nuovo annuncio - SitesBoard" />
 		<meta name="author" content="Davide Rigoni, Francesco Fasolato, Giacomo Zecchin, Antonino Macrì" />
-		<meta name="description" content="Pagina di modifica delle informazioni personali" />
-		<meta name="keywords" content="Changes, Profile, Logged, Siti, Web" />
+		<meta name="description" content="Pagina per creare un nuovo annuncio" />
+		<meta name="keywords" content="Nuovo, Annuncio, New, Insertion, Siti, Web" />
 		<meta name="language" content="italian it" />
 
 		<script type="text/javascript" src="js/control.js"></script>
-		
+
 	</head>
 	<body>
 		<div id="container">
-			<!-- HEADER-->
+			<!-- HEADER  -->
 			<div id="header">
 				<a href="home.cgi" hreflang="it"><img id="header_logo" src="media/logo.png" alt="Logo del sito SitesBoard" title = "Logo del sito"/></a>
 				<h1>SitesBoard</h1>
@@ -41,7 +41,7 @@ my $surname = getSessionSurname($session);
 
 print <<PEZZO;
 
-				<!-- Da caricare nel caso utente sia loggato  -->
+				<!-- Da caricare nel caso l utente sia loggato  -->
 				<div id="header_login">
 					<div>
 						Benvenuto <span class="notable">Nome Cognome</span>
@@ -52,19 +52,18 @@ PEZZO
 }
 
 print <<EOF;
-
+			
 			</div>
 
-			<!-- PATH -->
+			<!-- PATH  -->
 			<div id="path" title="Sezione del sito in cui ti trovi in questo momento">
-				Ti trovi in: <span class="notable" xml:lang="en" lang="it">Modifica informazioni</span>
+				Ti trovi in: <span class="notable" xml:lang="en" lang="it">Nuovo Annuncio</span>
 			</div>
-
 			<div id="nav_panel">
-				
-				<!-- MENÙ DI NAVIGAZIONE -->
+				<!-- MENU DI NAVIGAZIONE -->
 				<div id="nav_menu" class="menu" title ="Menù di navigazione del sito">
-					<h3>Menù</h3>
+					<h3>Menu</h3>
+
 					<p>Tipologia Siti:</p>
 					<ul>
 						<li><a href="" hreflang="it" type="application/xhtml+xml"><span xml:lang="en" lang="en">E-commerce</span></a></li>
@@ -74,6 +73,7 @@ print <<EOF;
 						<li><a href="" hreflang="it" type="application/xhtml+xml">Aziendali</a></li>
 						<li><a href="" hreflang="it" type="application/xhtml+xml"><span xml:lang="en" lang="en">Blog</span></a></li>
 					</ul>
+					
 				</div>
 
 			</div>
@@ -81,40 +81,45 @@ print <<EOF;
 			<!-- Contenuti della pagina -->
 			<div id="contents">
 
-				<h3><span xml:lang="it" lang="it">Stai modificando i tuoi dati</span></h3>
-				<div id="cont_profile_change">
+				<h3><span xml:lang="it" lang="it">Nuovo annuncio</span></h3>
+				<div id="cont_add">
+					<p class="info">
+					Ti trovi dentro alla pagina per creare un nuovo annuncio.
+					</p>
+					<p class="info">
+					In particolare un annuncio si compone di: un titolo, un oggetto ed una descrizione.  
+					</p>
 					<p class="info" id="underline">
-					Ricordati di cliccare su salva una volta che avrai terminato le modifiche
+					Ricordati di fare salva quando hai portato a termine tutte le eventuali operazioni!
 					</p>
 
-					 <form onsubmit="return profileChangeControl()" name="profileChange" method="post" action="profileChange.cgi">
-						<label for="name">Nome</label>
-	  					<input id="name" type="text" name="name" value="">
-	  					<br><br>
-	  					<label for="surname">Cognome</label>
-	  					<input id="surname" type="text" name="surname" value="">
-	  					<br><br>
-	  					<label for="age">Età</label>
-	  					<input id="age" type="text" name="age" value="">
-	  					<br><br>
-	  					<label for="username">Username</label>
-	  					<input type="text" name="username" value="">
-	  					<br><br>
-	  					<label for="email">Email</label>
-	  					<input id="email" type="text" name="email" value="">
-	  					<br><br>
+					<form name="modulo" method="post" action="showInsertion.cgi">
+					<fieldset title="Campi da compilare per creare un nuovo annuncio">
+						<legend>Campi da compilare</legend>
 
-	  					<input class="buttons" type="submit" value="Salva">
+						<label for="titolo">Titolo</label>
+		  				<input id="titolo" type="text" name="titolo" value="">
+		  				<br><br>
+		  				<label for="oggetto">Oggetto</label>
+		  				<input id="oggetto" type="text" name="oggetto" value="">
+	  					<br><br>
+	  					<label for="descrizione">Descrizione (max 2000 caratteri)</label>
+	  					<textarea name="testo" cols="115" rows="15" onkeyup="ContaCaratteri()" onkeydown="ContaCaratteri()" onkeypress="ContaCaratteri()"></textarea>
+						<input id="conta_caratteri" type="text" name="conta" value="0" readonly>
+					</fieldset>
 
-						<input class="buttons" type="reset" value="Reset">
+					<fieldset id="new" title="Crea nuovo annuncio">
+						<legend>Crea nuovo annuncio</legend>
+
+						<input class="buttons" id="submit_new" type="submit" value="Crea annuncio">
+						<input class="buttons" id="reset_new" type="reset" value="Reset">
+					</fieldset>
 
 					</form>
 				</div>
-
 			</div>
-
 			<!-- Div necessario per spostare il footer in fondo alla pagina -->
-			<div id="push-block">
+			<div id="push_block">
 			</div>
 		</div>
 

@@ -7,7 +7,7 @@ my $session=getSession();
 print <<PRIMA_PARTE;
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 	<head>
-		<title xml:lang="en" lang="it">Profilo Utente - SitesBoard</title> 
+		<title xml:lang="en" lang="it">Profilo utente - SitesBoard</title> 
 
 		<link href="css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
 		<link href="css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
@@ -44,7 +44,7 @@ print <<PEZZO;
 						Benvenuto <span class="notable">Nome Cognome</span>
 					</div>
 					<div class="minimal">
-						<a href="private_html/profile_change.cgi" hreflang="it" type="application/xhtml+xml">Modifica Profilo<img id="header_PEL" src="../../media/profile_edit.png" alt="Iconcina di modifica profilo" title = "Modifica i dati del profilo"/></a>
+						<a href="profileChange.cgi" hreflang="it" type="application/xhtml+xml">Modifica Profilo<img id="header_PEL" src="../../media/profile_edit.png" alt="Iconcina di modifica profilo" title = "Modifica i dati del profilo"/></a>
 					</div>
 				</div>
 PEZZO
@@ -65,8 +65,8 @@ print <<EOF;
 					<p>Annunci:</p>
 					<ul>
 						<li><a href="addInsertions.cgi" hreflang="it" type="application/xhtml+xml">Nuovo</a></li>
-						<li><a href="showInsertions.html" hreflang="it" type="application/xhtml+xml">Inseriti</a></li>
-						<li><a href="acceptedInsertions.html" hreflang="it" type="application/xhtml+xml">Accettati</a></li>
+						<li><a href="showInsertions.cgi" hreflang="it" type="application/xhtml+xml">Inseriti</a></li>
+						<li><a href="acceptedInsertions.cgi" hreflang="it" type="application/xhtml+xml">Accettati</a></li>
 					</ul>
 					<p>Tipologia Siti:</p>
 					<ul>
@@ -90,14 +90,11 @@ print <<EOF;
 					<p class="info">
 					Ti trovi all'interno dell'area personale del tuo profilo. Da qui è possibile gestire tutti i tuoi annunci o quelli a cui sei interessato.
 					</p>
-					<p class="info">
+					<p class="info" id="underline">
 					In particolare puoi: visualizzare gli annunci da te inseriti. Visualizzare gli annunci che hai accettato in attesa di conclusione asta. Aggiungere un nuovo annuncio che apparirà nella bacheca di <span xml:lang="en">SitesBoard</span> in ordine, dal più vicino al più lontano, di scadenza. Cancellare i tuoi annunci che per qualche motivo non ti interessa più condividere. 
 					</p>
-					<p class="info" id="underline">
-					Ricordati di fare salva quando hai portato a termine tutte le eventuali operazioni!
-					</p>
-					<form method="post" action="profile_changes.cgi">
-						<label for="name">Nome:</label>
+					<form method="post" action="profileChanges.cgi">
+					<label for="name">Nome:</label>
   					<br><br>
   					<label for="surname">Cognome:</label>
   					<br><br>

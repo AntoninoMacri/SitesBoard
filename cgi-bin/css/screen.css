@@ -140,7 +140,7 @@ div {
 		}
 
 			#nav_login p{
-				color: red;
+				color: black;
 				text-align: center;
 			}
 
@@ -334,7 +334,7 @@ div {
 
 
 
-/*--------------profile_change.html-------------------*/
+/*--------------profile_change.cgi-------------------*/
 #cont_profile_change .info{
 	font-size: small;
 }
@@ -349,10 +349,6 @@ div {
 	float: left;
 }
 
-#cont_profile_change form age{   /*<--------errore*/
-	width: 20px;
-}
-
 
 #cont_profile_change form{
 
@@ -363,11 +359,64 @@ div {
 	margin-bottom: 20px;
 }
 
-#cont_profile_change form input{
-	float: right;
+	#cont_profile_change form input{
+		float: right;
+	}
+
+	#cont_profile_change form age{   /*<--------errore*/
+		width: 20px;
+	}
+
+
+/*--------------addInsertion.cgi-------------------*/
+
+#cont_add form{
+
+	width: 250px;
+
+	margin-top: 20px;
+
+	margin-bottom: 20px;
 }
 
-/*--------------profile.html-------------------*/
+#cont_add .buttons{
+	width: 100px;
+
+	margin-bottom: 0px;
+
+	margin-right: 10px;
+}
+
+#cont_add #underline{
+	border-style: solid;
+	border-color: #D3D3D3;
+	border-width: 0px;
+	border-bottom-width: 1px;
+
+	padding-bottom: 20px;
+}
+
+	#cont_add form fieldset input{
+		display: block;
+
+		width: 40%;
+	
+		margin: 10px 0px 0px 0px;
+	}
+
+	#cont_add form fieldset #conta_caratteri{
+		width: 35px;
+	}
+
+		#cont_add form fieldset #submit_new,
+		#cont_add form fieldset #reset_new{
+			width: 50%;
+			display: inline;
+			margin: 0px;
+			margin-right: 10px;
+		}
+
+/*--------------profile.cgi-------------------*/
 #cont_profile #underline{
 	border-style: solid;
 	border-color: #D3D3D3;
