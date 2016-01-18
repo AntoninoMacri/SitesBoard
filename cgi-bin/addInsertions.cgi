@@ -97,19 +97,21 @@ print <<EOF;
 					<fieldset title="Campi da compilare per creare un nuovo annuncio">
 						<legend>Campi da compilare</legend>
 
+						<ul>
 						<label for="titolo">Titolo</label>
-		  				<input id="titolo" type="text" name="titolo" value="">
-		  				<br><br>
+		  				<li> <input id="titolo" type="text" name="titolo" value=""> </li>
+		  				
 		  				<label for="oggetto">Oggetto</label>
-		  				<input id="oggetto" type="text" name="oggetto" value="">
-	  					<br><br>
+		  				<li> <input id="oggetto" type="text" name="oggetto" value=""> </li>
+	  					</ul>
+
 	  					<label for="descrizione">Descrizione (max 2000 caratteri)</label>
-	  					<textarea name="testo" cols="115" rows="15" onkeyup="ContaCaratteri()" onkeydown="ContaCaratteri()" onkeypress="ContaCaratteri()"></textarea>
+	  					<textarea name="testo" onkeyup="ContaCaratteri()" onkeydown="ContaCaratteri()" onkeypress="ContaCaratteri()"></textarea>
 						<input id="conta_caratteri" type="text" name="conta" value="0" readonly>
 					</fieldset>
 
 					<fieldset id="new" title="Crea nuovo annuncio">
-						<legend>Crea nuovo annuncio</legend>
+						<legend id="new_insertion">Crea nuovo annuncio</legend>
 
 						<input class="buttons" id="submit_new" type="submit" value="Crea annuncio">
 						<input class="buttons" id="reset_new" type="reset" value="Reset">
