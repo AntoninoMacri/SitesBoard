@@ -1,13 +1,24 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
 
 use CGI;
 use CGI::Session;
 
+
 #funzioni per le sessioni
 sub createSession(){
-	my $session = new CGI::Session();
-	$session->expire('20m');
-	
+    
+	my $cgi = new CGI;
+    my $dir = '../data/tmpSession';
+
+    #Se non esiste la cartella per mantenere le sessioni quest'ultima viene creata
+    if ( !( -d $dir ) ) {
+		mkdir $dir;
+    }
+
+    my $session = new CGI::Session( 'driver:File', undef, { Directory => $dir } ); #Crea la sessione
+    my $cookie = $cgi->cookie( 'CGISESSID' => $session->id );
+
+
 	my $name=$_[0];
 	my $surname=$_[1];
 	my $username=$_[2];
@@ -26,7 +37,7 @@ sub createSession(){
 	#print $session->param('username');
 	#print getSessionName($session);
 
-	#print "Content-type: text/html\n\n";
+	#print "Content-type: text/html\n\n";	
 	#print $session->param('name');
 	#print "<br />";
 	#print $session->param('surname');
@@ -38,20 +49,26 @@ sub createSession(){
 	#print $session->param('email');
 	
 	#return $session;
+
+	$cookie = $cgi->cookie(CGISESSID => $session->id);
+	$cgi->header( -cookie=>$cookie );
+
+	return $session;
 }
 
 sub getSession(){
-	my $session = CGI::Session->load() or die $!;
-	if($session->is_expired || $session->is_empty){
-		return undef;
-	}
-	else{
-		#print "entrato nell' if";
-		#my $name = $session->param('name');
-		#print "<br />";
-		#print $name;
-		return $session;
-	}
+
+        my $cgi = new CGI;
+        my $sid = $cgi->cookie( 'CGISESSID' ) || undef;
+        if($sid == undef){
+                return undef;
+        }
+        else{
+                my $session =  new CGI::Session(undef, $sid, { Directory => '../data/tmpSession' } ); #Crea la sessione
+                return $session;
+        }
+
+
 }
 
 sub getSessionName(){
