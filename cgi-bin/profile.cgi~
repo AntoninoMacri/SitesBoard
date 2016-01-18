@@ -1,15 +1,17 @@
 #!/usr/bin/perl
 
+require "functions/session_function.cgi";
 print "Content-type: text/html\n\n";
-print<<EOF;
+my $session=getSession();
 
+print <<PRIMA_PARTE;
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 	<head>
-		<title xml:lang="en" lang="it">Profilo Utente - SitesBoard</title> 
+		<title xml:lang="en" lang="it">Profilo utente - SitesBoard</title> 
 
-		<link href="../public_html/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
-		<link href="../public_html/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
-		<link href="../public_html/print.css" rel="stylesheet" type="text/css" media="print"/>
+		<link href="css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
+		<link href="css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
+		<link href="css/print.css" rel="stylesheet" type="text/css" media="print"/>
 
 
 		<!-- Meta Tag -->
@@ -22,47 +24,50 @@ print<<EOF;
 	</head>
 	<body>
 		<div id="container">
-
-
-
 			<!-- HEADER  -->
 			<div id="header">
-				<a href="../../html/home.html" hreflang="it" type="application/xhtml+xml"><img id="header_logo" src="../../media/logo.png" alt="Logo del sito SitesBoard" title = "Logo del sito"/></a>
+				<a href="home.cgi" hreflang="it"><img id="header_logo" src="media/logo.png" alt="Logo del sito SitesBoard" title = "Logo del sito"/></a>
 				<h1>SitesBoard</h1>
 				<h2>La <span xml:lang="en" lang="en">Sites Board</span> per richiedere Siti <span xml:lang="en" lang="en">Web</span></h2>
 
-				<!-- Da caricare nel caso 'utente sia loggato  -->
+PRIMA_PARTE
+
+if($session != undef){
+my $name = getSessionName($session);
+my $surname = getSessionSurname($session);
+
+print <<PEZZO;
+
+				<!-- Da caricare nel caso l utente sia loggato  -->
 				<div id="header_login">
 					<div>
 						Benvenuto <span class="notable">Nome Cognome</span>
 					</div>
 					<div class="minimal">
-						<a href="../html/profile_change.html" hreflang="it" type="application/xhtml+xml">Modifica Profilo<img id="header_PEL" src="../../media/profile_edit.png" alt="Iconcina di modifica profilo" title = "Modifica i dati del profilo"/></a>
+						<a href="profileChange.cgi" hreflang="it" type="application/xhtml+xml">Modifica Profilo<img id="header_PEL" src="../../media/profile_edit.png" alt="Iconcina di modifica profilo" title = "Modifica i dati del profilo"/></a>
 					</div>
 				</div>
+PEZZO
+}
+
+print <<EOF;
+			
 			</div>
-
-
 
 			<!-- PATH  -->
 			<div id="path" title="Sezione del sito in cui ti trovi in questo momento">
-				Ti trovi in: <span class="notable" xml:lang="en" lang="en">Profilo Utente</span>
+				Ti trovi in: <span class="notable" xml:lang="en" lang="it">Profilo utente</span>
 			</div>
-
-
-
 			<div id="nav_panel">
-				<!-- Menù di navigazione 
-				<div id="nav_menu" class="menu">
+				<!-- MENU DI NAVIGAZIONE -->
+				<div id="nav_menu" class="menu" title ="Menù di navigazione del sito">
 					<h3>Menu</h3>
-
 					<p>Annunci:</p>
 					<ul>
 						<li><a href="addInsertions.cgi" hreflang="it" type="application/xhtml+xml">Nuovo</a></li>
-						<li><a href="showInsertions.html" hreflang="it" type="application/xhtml+xml">Inseriti</a></li>
-						<li><a href="acceptedInsertions.html" hreflang="it" type="application/xhtml+xml">Accettati</a></li>
+						<li><a href="showInsertions.cgi" hreflang="it" type="application/xhtml+xml">Inseriti</a></li>
+						<li><a href="acceptedInsertions.cgi" hreflang="it" type="application/xhtml+xml">Accettati</a></li>
 					</ul>
-
 					<p>Tipologia Siti:</p>
 					<ul>
 						<li><a href="" hreflang="it" type="application/xhtml+xml"><span xml:lang="en" lang="en">E-commerce</span></a></li>
@@ -79,20 +84,17 @@ print<<EOF;
 
 			<!-- Contenuti della pagina -->
 			<div id="contents">
+
 				<h3><span xml:lang="it" lang="it">Il tuo profilo</span></h3>
 				<div id="cont_profile">
 					<p class="info">
 					Ti trovi all'interno dell'area personale del tuo profilo. Da qui è possibile gestire tutti i tuoi annunci o quelli a cui sei interessato.
 					</p>
-					<p class="info">
+					<p class="info" id="underline">
 					In particolare puoi: visualizzare gli annunci da te inseriti. Visualizzare gli annunci che hai accettato in attesa di conclusione asta. Aggiungere un nuovo annuncio che apparirà nella bacheca di <span xml:lang="en">SitesBoard</span> in ordine, dal più vicino al più lontano, di scadenza. Cancellare i tuoi annunci che per qualche motivo non ti interessa più condividere. 
 					</p>
-					<p class="info" id="underline">
-					Ricordati di fare salva quando hai portato a termine tutte le eventuali operazioni!
-					</p>
-
-					<form method="post" action="profile_changes.cgi">
-						<label for="name">Nome:</label>
+					<form method="post" action="profileChanges.cgi">
+					<label for="name">Nome:</label>
   					<br><br>
   					<label for="surname">Cognome:</label>
   					<br><br>
@@ -105,14 +107,10 @@ print<<EOF;
 					</form>
 				</div>
 			</div>
-
 			<!-- Div necessario per spostare il footer in fondo alla pagina -->
 			<div id="push_block">
 			</div>
 		</div>
-
-
-
 
 		<!-- FOOTER -->
 		<div id="footer">
@@ -133,7 +131,5 @@ print<<EOF;
 		</div>
 	</body>
 </html>
-
-
 EOF
 exit;
