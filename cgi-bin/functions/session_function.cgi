@@ -54,40 +54,25 @@ sub getSession(){
 	}
 }
 
-sub getSessionName(){
-	my $session = $_[0];	
-	return $session->param('name');
-}
-
-sub getSessionSurname(){
-	my $session = $_[0];
-	return $session->param('surname');
-}
-
-sub getSessionYear(){
-	my $session = $_[0];
-	return $session->param('year');
-}
-
-sub getSessionMonth(){
-	my $session = $_[0];
-	return $session->param('month');
-}
-
-sub getSessionDay(){
-	my $session = $_[0];
-	return $session->param('day');
-}
-
-sub getSessionUsername(){
-	my $session = $_[0];
-	return $session->param('username');
-}
-
-sub getSessionEmail(){
-	my $session = $_[0];
-	return $session->param('email');
-}
+#sub getSessionName(){
+#	my $session = $_[0];	
+#	return $session->param('name');
+#}
+#
+#sub getSessionSurname(){
+#	my $session = $_[0];
+#	return $session->param('surname');
+#}
+#
+#sub getSessionUsername(){
+#	my $session = $_[0];
+#	return $session->param('username');
+#}
+#
+#sub getSessionEmail(){
+#	my $session = $_[0];
+#	return $session->param('email');
+#}
 
 sub getSessionPassword(){
 	my $session = $_[0];
