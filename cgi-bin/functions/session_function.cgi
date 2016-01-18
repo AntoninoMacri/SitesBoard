@@ -16,8 +16,6 @@ sub createSession(){
     }
 
     my $session = new CGI::Session( 'driver:File', undef, { Directory => $dir } ); #Crea la sessione
-    my $cookie = $cgi->cookie( 'CGISESSID' => $session->id );
-
 
 	my $name=$_[0];
 	my $surname=$_[1];
@@ -50,8 +48,18 @@ sub createSession(){
 	
 	#return $session;
 
-	$cookie = $cgi->cookie(CGISESSID => $session->id);
-	$cgi->header( -cookie=>$cookie );
+	#$cookie = $cgi->cookie('CGISESSID' => $session->id);
+	#$cgi->header( -cookie=>$cookie );
+
+   $cgi->header(
+      -type    => 'text/html',
+      -charset => 'UTF-8',
+      -cookie => $cgi->cookie(
+         -name => 'session_id',
+         -value => $session->id,
+         -expires => SESSION_EXPIRE,
+       ),
+   );
 
 	return $session;
 }
@@ -64,7 +72,7 @@ sub getSession(){
                 return undef;
         }
         else{
-                my $session =  new CGI::Session(undef, $sid, { Directory => '../data/tmpSession' } ); #Crea la sessione
+                my $session =  new CGI::Session('driver:File', $sid, { Directory => '../data/tmpSession' } ); #Carica la sessione
                 return $session;
         }
 
@@ -97,12 +105,13 @@ sub getSessionPassword(){
 }
 
 sub destroySession(){
-	$session=CGI::Session->load() or die $!;
-	$SID = $session->id;
-	$session->close();
-	$session->delete();
-	$session->flush();
-}
+	my $session = $_[0];
+		#Rimozione sessione corrente
+		$session->close();
+		$session->delete();
+		$session->flush();
+	}
+
 #necessario per far tornare true... altrimenti perl da errore
 1;
 

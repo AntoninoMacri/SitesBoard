@@ -10,16 +10,24 @@ print "Content-type: text/html\n\n";
 
 my $s = getSession();
 
-
 if($s == undef)
 {
-        createSession('Davide','R','Ered','emailll','Pass');
-        print "Sessione creata";
+        my $p = createSession('Davide','R','Ered','emailll','Pass');
+        my $id = $p->id;
+        my $name = getSessionName($p);
+        print "Prova sessione creata -> <br/> Nome: $name <br/> ID: $id ";
+
 }
 else
 {
-		print getSessionName($s);
-        print "sessione trovata";
+        my $name = getSessionName($s); 
+        my $id = $s->id;
+        print "Prova sessione trovata: <br/> Nome: $name <br/> ID: $id <br/>";
+        destroySession($s);
 }
+
+
+
+
 
 
