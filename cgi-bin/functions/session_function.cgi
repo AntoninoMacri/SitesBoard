@@ -1,20 +1,43 @@
 #!/usr/bin/perl
 
+use CGI;
 use CGI::Session;
 
 #funzioni per le sessioni
 sub createSession(){
 	my $session = new CGI::Session();
-	my ($name,$surname,$year,$month,$day,$username,$email,$password) = split(@_);
+	$session->expire('20m');
+	
+	my $name=$_[0];
+	my $surname=$_[1];
+	my $username=$_[2];
+	my $email=$_[3];
+	my $password=$_[4];
+	
 
 	$session->param('name',$name);
 	$session->param('surname',$surname);
-	$session->param('year',$year);
-	$session->param('month',$month);
-	$session->param('day',$day);
 	$session->param('username',$username);
 	$session->param('email',$email);
 	$session->param('password',$password);
+
+
+	#print "Content-type: text/html\n\n";
+	#print $session->param('username');
+	#print getSessionName($session);
+
+	#print "Content-type: text/html\n\n";
+	#print $session->param('name');
+	#print "<br />";
+	#print $session->param('surname');
+	#print "<br />";
+	#print $session->param('username');
+	#print "<br />";
+	#print $session->param('password');
+	#print "<br />";
+	#print $session->param('email');
+	
+	#return $session;
 }
 
 sub getSession(){
@@ -23,47 +46,51 @@ sub getSession(){
 		return undef;
 	}
 	else{
+		#print "entrato nell' if";
+		#my $name = $session->param('name');
+		#print "<br />";
+		#print $name;
 		return $session;
 	}
 }
 
 sub getSessionName(){
-	my ($session) = shift(@_);	
+	my $session = $_[0];	
 	return $session->param('name');
 }
 
 sub getSessionSurname(){
-	my ($session) = shift(@_);
+	my $session = $_[0];
 	return $session->param('surname');
 }
 
 sub getSessionYear(){
-	my ($session) = shift(@_);
+	my $session = $_[0];
 	return $session->param('year');
 }
 
 sub getSessionMonth(){
-	my ($session) = shift(@_);
+	my $session = $_[0];
 	return $session->param('month');
 }
 
 sub getSessionDay(){
-	my ($session) = shift(@_);
+	my $session = $_[0];
 	return $session->param('day');
 }
 
 sub getSessionUsername(){
-	my ($session) = shift(@_);
+	my $session = $_[0];
 	return $session->param('username');
 }
 
 sub getSessionEmail(){
-	my ($session) = shift(@_);
+	my $session = $_[0];
 	return $session->param('email');
 }
 
 sub getSessionPassword(){
-	my ($session) = shift(@_);
+	my $session = $_[0];
 	return $session->param('password');
 }
 
