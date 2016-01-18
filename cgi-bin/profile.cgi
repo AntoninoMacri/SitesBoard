@@ -35,13 +35,15 @@ PRIMA_PARTE
 if($session != undef){
 my $name = getSessionName($session);
 my $surname = getSessionSurname($session);
+print "NOME: ";
+print $name;
 
 print <<PEZZO;
 
 				<!-- Da caricare nel caso l utente sia loggato  -->
 				<div id="header_login">
 					<div>
-						Benvenuto <span class="notable">Nome Cognome</span>
+						Benvenuto <span class="notable">$name $surname</span>
 					</div>
 					<div class="minimal">
 						<a href="profileChange.cgi" hreflang="it" type="application/xhtml+xml">Modifica Profilo<img id="header_PEL" src="../../media/profile_edit.png" alt="Iconcina di modifica profilo" title = "Modifica i dati del profilo"/></a>
