@@ -371,21 +371,11 @@ div {
 /*--------------addInsertion.cgi-------------------*/
 
 #cont_add form{
-
 	width: 250px;
-
 	margin-top: 20px;
-
 	margin-bottom: 20px;
 }
 
-#cont_add .buttons{
-	width: 100px;
-
-	margin-bottom: 0px;
-
-	margin-right: 10px;
-}
 
 #cont_add #underline{
 	border-style: solid;
@@ -396,25 +386,48 @@ div {
 	padding-bottom: 20px;
 }
 
-	#cont_add form fieldset input{
-		display: block;
-
-		width: 40%;
-	
-		margin: 10px 0px 0px 0px;
+	#cont_add form fieldset{
+		margin:10px 0px 0px 0px;
 	}
 
-	#cont_add form fieldset #conta_caratteri{
-		width: 35px;
-	}
-
-		#cont_add form fieldset #submit_new,
-		#cont_add form fieldset #reset_new{
-			width: 50%;
-			display: inline;
-			margin: 0px;
-			margin-right: 10px;
+		#cont_add form fieldset legend{
+			margin-bottom: 10px;
 		}
+
+		#cont_add form fieldset input{
+			width: 40%;
+			margin: 5px 0px 15px 0px;
+		}
+
+		#cont_add form fieldset ul{
+			list-style: none;
+			padding: 0px;
+			margin-top: 0px;
+		}
+
+		#cont_add form fieldset textarea{
+			min-width: 845px ;
+			min-height: 250px;
+			max-width: 845px;
+			max-height: 250px;
+			margin:10px 0px 0px 0px;
+		}
+
+		#cont_add form fieldset #conta_caratteri{
+			width: 35px;
+		}
+
+			#cont_add form fieldset #submit_new,
+			#cont_add form fieldset #reset_new{
+				margin: 0px;
+				margin-right: 10px;
+			}
+
+
+				#cont_add form fieldset legend #new_insertion{	/* tolgo margine solo dalla legend della fieldset piccola */
+					margin-bottom: 0px;
+				}
+
 
 /*--------------profile.cgi-------------------*/
 #cont_profile #underline{
