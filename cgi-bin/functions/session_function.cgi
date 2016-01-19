@@ -51,7 +51,7 @@ sub createSession(){
 	#$cookie = $cgi->cookie('CGISESSID' => $session->id);
 	#$cgi->header( -cookie=>$cookie );
 
-   $cgi->header(
+   print $cgi->header(
       -type    => 'text/html',
       -charset => 'UTF-8',
       -cookie => $cgi->cookie(
@@ -79,11 +79,11 @@ sub getSession(){
 
 }
 
-#sub getSessionName(){
-#	my $session = $_[0];	
-#	return $session->param('name');
-#}
-#
+sub getSessionName(){
+	my $session = $_[0];	
+	return $session->param('name');
+}
+
 #sub getSessionSurname(){
 #	my $session = $_[0];
 #	return $session->param('surname');

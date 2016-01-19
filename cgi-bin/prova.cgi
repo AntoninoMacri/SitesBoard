@@ -23,7 +23,7 @@ else
 {
         my $name = getSessionName($s); 
         my $id = $s->id;
-		destroySession($s);
+		#destroySession($s);
 		print "Content-type: text/html\n\n";
         print "Prova sessione trovata: <br/> Nome: $name <br/> ID: $id <br/>";
         
