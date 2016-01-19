@@ -55,9 +55,9 @@ sub createSession(){
       -type    => 'text/html',
       -charset => 'UTF-8',
       -cookie => $cgi->cookie(
-         -name => 'session_id',
+         -name => 'CGISESSID',
          -value => $session->id,
-         -expires => SESSION_EXPIRE,
+         -expires => '+12',
        ),
    );
 
@@ -67,12 +67,12 @@ sub createSession(){
 sub getSession(){
 
         my $cgi = new CGI;
-        my $sid = $cgi->cookie( 'CGISESSID' ) || undef;
-        if($sid == undef){
+        my $sid = $cgi->cookie( 'CGISESSID' );
+        if(! defined $sid){
                 return undef;
         }
         else{
-                my $session =  new CGI::Session('driver:File', $sid, { Directory => '../data/tmpSession' } ); #Carica la sessione
+                my $session =  new CGI::Session(undef, $sid, { Directory => '../data/tmpSession' } ); #Carica la sessione
                 return $session;
         }
 
