@@ -1,8 +1,28 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
+
+use CGI qw(:standard);
+use CGI::Carp qw(warningsToBrowser fatalsToBrowser);
+use CGI;
 
 require "functions/session_function.cgi";
-print "Content-type: text/html\n\n";
+require "functions/function.cgi";
 my $session=getSession();
+my $name;
+if($session != undef)
+{
+	   $name = getSessionUsername($session); 
+        my $id = $session->id;
+		#destroySession($s);
+		#print "Content-type: text/html\n\n";
+        #print "Prova sessione trovata: <br/> Nome: $name <br/> ID: $id <br/>";
+       # print $session->param('username');
+	#my $name = getName($session);
+	#my $surname = getSurname($session);
+	#my $id = $session->id;
+	#print $id;
+	#print $session->param('username');
+}
+print "Content-type: text/html\n\n";
 
 print <<PRIMA_PARTE;
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
@@ -34,17 +54,20 @@ print <<PRIMA_PARTE;
 				<img id="header_logo" src="media/logo.png" alt="Logo del sito SitesBoard" title = "Logo del sito"/>
 				<h1>SitesBoard</h1>
 				<h2>La <span xml:lang="en" lang="en">Sites Board</span> per richiedere Siti <span xml:lang="en" lang="en">Web</span></h2>
-PRIMA_PARTE
 
+PRIMA_PARTE
 if($session != undef){
-my $name = getSessionName($session);
-my $surname = getSessionSurname($session);
 
 print <<PEZZO;
 				<!-- Da caricare nel caso l utente sia loggato -->
 				<div id="header_login">
 					<div>
-						Benvenuto <span class="notable">$name $surname</span>
+						Benvenuto <span class="notable">
+PEZZO
+
+print $name;			
+print <<PEZZO2;
+			</span>
 					</div>
 					<div class="minimal">
 						<a href="profileChange.cgi" hreflang="it" >Modifica Profilo</a>
@@ -52,12 +75,11 @@ print <<PEZZO;
 					</div>
 				</div>
 			
-PEZZO
+PEZZO2
 }
 
-
-
 print <<SECONDA_PARTE;
+
 			</div>
 			<!-- PATH -->
 			<div id="path" title="Sezione del sito in cui ti trovi in questo momento">
@@ -82,8 +104,6 @@ print <<SECONDA_PARTE;
 					
 				</div>
 SECONDA_PARTE
-
-
 
 
 if($session == undef){
