@@ -1,8 +1,22 @@
 #!/usr/bin/perl
 
-require "functions/session_function.cgi";
-print "Content-type: text/html\n\n";
+require 'functions/function.cgi';
+require 'functions/session_function.cgi';
+
 my $session=getSession();
+
+if($session == undef)
+{
+    print redirect(-url => 'login.cgi');
+}
+
+my $name=getName($session);
+my $surname=getSurname($session);
+my $email=getEmail($session);
+my $date=getDate($session);
+
+
+print "Content-type: text/html\n\n";
 
 print <<PRIMA_PARTE;
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
@@ -32,28 +46,22 @@ print <<PRIMA_PARTE;
 
 PRIMA_PARTE
 
-if($session != undef){
-my $name = getSessionName($session);
-my $surname = getSessionSurname($session);
-print "NOME: ";
-print $name;
 
-print <<PEZZO;
+my $username = getSessionUsername($session);
+print <<EOF;
+
 
 				<!-- Da caricare nel caso l utente sia loggato  -->
 				<div id="header_login">
 					<div>
-						Benvenuto <span class="notable">$name $surname</span>
+						Benvenuto <span class="notable">$username</span>
 					</div>
 					<div class="minimal">
 						<a href="profileChange.cgi" hreflang="it" type="application/xhtml+xml">Modifica Profilo<img id="header_PEL" src="../../media/profile_edit.png" alt="Iconcina di modifica profilo" title = "Modifica i dati del profilo"/></a>
 					</div>
 				</div>
-PEZZO
-}
 
 
-print <<EOF;
 			
 			</div>
 
@@ -97,15 +105,15 @@ print <<EOF;
 					In particolare puoi: visualizzare gli annunci da te inseriti. Visualizzare gli annunci che hai accettato in attesa di conclusione asta. Aggiungere un nuovo annuncio che apparirà nella bacheca di <span xml:lang="en">SitesBoard</span> in ordine, dal più vicino al più lontano, di scadenza. Cancellare i tuoi annunci che per qualche motivo non ti interessa più condividere. 
 					</p>
 					<form method="post" action="profileChanges.cgi">
-					<label for="name">Nome:</label>
+					<label for="name">Nome: $name</label>
   					<br><br>
-  					<label for="surname">Cognome:</label>
+  					<label for="surname">Cognome: $surname</label>
   					<br><br>
-  					<label for="age">Età:</label id="age" >
+  					<label for="age">Età: $date</label id="age" >
   					<br><br>
-  					<label for="username">Username:</label>
+  					<label for="username">Username: $username</label>
   					<br><br>
-  					<label for="email">Email:</label>
+  					<label for="email">Email: $email</label>
   					<br><br>
 					</form>
 				</div>

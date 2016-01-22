@@ -1,103 +1,43 @@
 #!/usr/bin/perl -w
-
 use CGI;
 use CGI::Session;
+use XML::XPath;
+
+use CGI::Carp qw(fatalsToBrowser);
+use XML::LibXML;
+use File::Basename;
+use CGI qw(:standard Vars);
+use warnings;
 
 
 #funzioni per le sessioni
 sub createSession(){
-    
-	my $cgi = new CGI;
-    my $dir = '../data/tmpSession';
+	my $username=$_[0];
+	my $password=$_[1];
 
-    #Se non esiste la cartella per mantenere le sessioni quest'ultima viene creata
-    if ( !( -d $dir ) ) {
-		mkdir $dir;
-    }
-
-    my $session = new CGI::Session( 'driver:File', undef, { Directory => $dir } ); #Crea la sessione
-
-	my $name=$_[0];
-	my $surname=$_[1];
-	my $username=$_[2];
-	my $email=$_[3];
-	my $password=$_[4];
-	
-
-	$session->param('name',$name);
-	$session->param('surname',$surname);
+	my $session = new CGI::Session();
+	$session->expire('20m');
 	$session->param('username',$username);
-	$session->param('email',$email);
 	$session->param('password',$password);
-
-
-	#print "Content-type: text/html\n\n";
-	#print $session->param('username');
-	#print getSessionName($session);
-
-	#print "Content-type: text/html\n\n";	
-	#print $session->param('name');
-	#print "<br />";
-	#print $session->param('surname');
-	#print "<br />";
-	#print $session->param('username');
-	#print "<br />";
-	#print $session->param('password');
-	#print "<br />";
-	#print $session->param('email');
-	
-	#return $session;
-
-	#$cookie = $cgi->cookie('CGISESSID' => $session->id);
-	#$cgi->header( -cookie=>$cookie );
-
-   print $cgi->header(
-      -type    => 'text/html',
-      -charset => 'UTF-8',
-      -cookie => $cgi->cookie(
-         -name => 'CGISESSID',
-         -value => $session->id,
-         -expires => '+12',
-       ),
-   );
 
 	return $session;
 }
 
-sub getSession(){
-
-        my $cgi = new CGI;
-        my $sid = $cgi->cookie( 'CGISESSID' );
-        if(! defined $sid){
-                return undef;
+sub getSession() {
+        $sessione = CGI::Session->load() or die $!; #CGI::Session->errstr
+        if ($sessione->is_expired || $sessione->is_empty) { # Se manca la sessione torno in home
+                #print redirect(-url=>'login.cgi');
+                
+        } else {
+                # print $sessione->param('username');
+                return $sessione;
         }
-        else{
-                my $session =  new CGI::Session(undef, $sid, { Directory => '../data/tmpSession' } ); #Carica la sessione
-                return $session;
-        }
-
-
 }
 
-sub getSessionName(){
-	my $session = $_[0];	
-	return $session->param('name');
+sub getSessionUsername(){
+	my $session = $_[0];
+	return $session->param('username');
 }
-
-#sub getSessionSurname(){
-#	my $session = $_[0];
-#	return $session->param('surname');
-#}
-#
-#sub getSessionUsername(){
-#	my $session = $_[0];
-#	return $session->param('username');
-#}
-#
-#sub getSessionEmail(){
-#	my $session = $_[0];
-#	return $session->param('email');
-#}
 
 sub getSessionPassword(){
 	my $session = $_[0];
@@ -105,13 +45,12 @@ sub getSessionPassword(){
 }
 
 sub destroySession(){
-	my $session = $_[0];
-		#Rimozione sessione corrente
-		$session->close();
-		$session->delete();
-		$session->flush();
-	}
-
+	$session=CGI::Session->load() or die $!;
+	$SID = $session->id;
+	$session->close();
+	$session->delete();
+	$session->flush();
+}
 #necessario per far tornare true... altrimenti perl da errore
 1;
 
