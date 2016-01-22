@@ -1,8 +1,11 @@
 #!/usr/bin/perl -w
 
-use CGI qw(:standard);
-use CGI::Carp qw(warningsToBrowser fatalsToBrowser);
 use CGI;
+use CGI::Carp qw(fatalsToBrowser);
+use CGI qw(:standard Vars);
+use CGI::Session;
+use XML::LibXML;
+use warnings;
 
 require 'functions/session_function.cgi';
 
