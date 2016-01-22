@@ -28,7 +28,7 @@ else
         my $id = $s->id;
 		#destroySession($s);
 		print "Content-type: text/html\n\n";
-        print "Prova sessione trovata: <br/> Nome: $name <br/> ID: $id <br/>";
+        print "prova sessione trovata: <br/> Nome: $name <br/> ID: $id <br/>";
         
 }
 
