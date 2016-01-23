@@ -30,6 +30,18 @@
 													<xsd:element name="titolo" type="xsd:string"/>
 													<xsd:element name="oggetto" type="xsd:string"/>
 													<xsd:element name="descrizione" type="xsd:string"/>
+													<xsd:element name="tipologia">
+														<xsd:complexType>
+															<xsd:choice>
+																<xsd:element name="E-commerce" type="xsd:string"/>
+																<xsd:element name="Forum" type="xsd:string"/>
+																<xsd:element name="Social" type="xsd:string"/>
+																<xsd:element name="Personali" type="xsd:string"/>
+																<xsd:element name="Aziendali" type="xsd:string"/>
+																<xsd:element name="Blog" type="xsd:string"/>
+															</xsd:choice>
+														</xsd:complexType>
+													</xsd:element>
 													<xsd:element name="data">
 														<xsd:simpleType>
 															<xsd:restriction base="xsd:date">
