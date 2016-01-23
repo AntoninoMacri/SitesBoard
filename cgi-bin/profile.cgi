@@ -51,13 +51,13 @@ my $username = getSessionUsername($session);
 print <<EOF;
 
 
-				<!-- Da caricare nel caso l utente sia loggato  -->
+				<!-- Da caricare nel caso l utente sia loggato (se è qui sicuramente ha una sessione valida, altrimenti viene redirectato a login.cgi) -->
 				<div id="header_login">
 					<div>
 						Benvenuto <span class="notable">$username</span>
 					</div>
 					<div class="minimal">
-						<a href="profileChange.cgi" hreflang="it" type="application/xhtml+xml">Modifica Profilo<img id="header_PEL" src="../../media/profile_edit.png" alt="Iconcina di modifica profilo" title = "Modifica i dati del profilo"/></a>
+						<a class="edit" href="profileChange.cgi" hreflang="it" type="application/xhtml+xml">Modifica Profilo <img id="header_PEL" src="media/edit_profile.png" alt="Iconcina di modifica profilo" title = "Modifica i dati del profilo"/></a>
 					</div>
 				</div>
 
@@ -104,18 +104,17 @@ print <<EOF;
 					<p class="info" id="underline">
 					In particolare puoi: visualizzare gli annunci da te inseriti. Visualizzare gli annunci che hai accettato in attesa di conclusione asta. Aggiungere un nuovo annuncio che apparirà nella bacheca di <span xml:lang="en">SitesBoard</span> in ordine, dal più vicino al più lontano, di scadenza. Cancellare i tuoi annunci che per qualche motivo non ti interessa più condividere. 
 					</p>
-					<form method="post" action="profileChanges.cgi">
-					<label for="name">Nome: $name</label>
-  					<br><br>
-  					<label for="surname">Cognome: $surname</label>
-  					<br><br>
-  					<label for="age">Età: $date</label id="age" >
-  					<br><br>
-  					<label for="username">Username: $username</label>
-  					<br><br>
-  					<label for="email">Email: $email</label>
-  					<br><br>
-					</form>
+					<ul>
+					<li><label for="name">Nome: <span class="bold"> $name </span> </label></li>
+  					
+  					<li><label for="surname">Cognome: <span class="bold"> $surname </span> </label></li>
+  					
+  					<li><label for="age">Data di nascita: <span class="bold"> $date</span> </label id="age"></li>
+  					
+  					<li><label for="username">Username: <span class="bold"> $username</span> </label></li>
+  					
+  					<li><label for="email">Email: <span class="bold"> $email</span> </label></li>
+  					</ul>
 				</div>
 			</div>
 			<!-- Div necessario per spostare il footer in fondo alla pagina -->

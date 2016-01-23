@@ -60,7 +60,7 @@ div {
 	#header{
 		background-color: #F0F8FF;
 
-		padding: 1px 20px 1px 20px;
+		padding: 1px 20px 20px 20px;
 		height: 11em;
 	}
 		#header_logo{
@@ -89,9 +89,23 @@ div {
 			text-align: right;
 		}
 
+		#header_login .edit{
+			margin-bottom: 10px;
+		}
+
 			#header_login div{
 				margin-top: 10px;
 			}
+
+			#header_login img{
+				max-height: 25px;
+				vertical-align: middle;
+			}
+
+				#header_login #home_profile_logo{
+					max-height: 20px;
+				}
+
 
 	/*---------------------------------------------------
 	------------------------PATH-------------------------
@@ -222,6 +236,8 @@ div {
 /*---------------------------------------------------
 -----------------CONTENUTO AGGIUNTIVO----------------
 -----------------------------------------------------*/
+
+
 /*-------------- login.html-------------------*/
 #cont_login {
 }
@@ -342,8 +358,8 @@ div {
 #cont_profile_change .buttons{
 	width: 100px;
 
+	margin-top: 10px;
 	margin-bottom: 0px;
-
 	margin-right: 10px;
 
 	float: left;
@@ -366,6 +382,37 @@ div {
 	#cont_profile_change form age{   /*<--------errore*/
 		width: 20px;
 	}
+
+
+/*--------------insertion.cgi-------------------*/
+
+
+#contents h3.resizable{
+	font-size: 0.8em;
+	text-align: justify;
+	padding: 10px 0px 27px 0px;
+}
+
+	#contents #ins_author{
+		float: left;
+	}
+
+	#contents #ins_date{
+		float: right;					
+	}
+
+		#cont_insertion #object{
+			border-style: solid;
+			border-color: #D3D3D3;
+			border-width: 0px;
+			border-bottom-width: 1px;
+
+			padding-bottom: 20px;
+		}
+
+		#cont_insertion fieldset{
+			margin:10px 0px 0px 0px;
+		}
 
 
 /*--------------addInsertion.cgi-------------------*/
@@ -438,3 +485,22 @@ div {
 
 	padding-bottom: 20px;
 }
+
+	#cont_profile ul{
+		list-style: none;
+		padding-left: 0;	
+	}
+
+		#cont_profile ul li{
+			padding: 10px 0px 20px 0px;
+		}
+			#cont_profile ul li label span.bold{
+				font-weight: bold;
+			}
+
+
+
+
+
+
+

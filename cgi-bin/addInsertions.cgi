@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 
-require "functions/session_function.cgi";
+require 'functions/session_function.cgi';
+
 print "Content-type: text/html\n\n";
 my $session=getSession();
 
@@ -36,15 +37,14 @@ print <<PRIMA_PARTE;
 PRIMA_PARTE
 
 if($session != undef){
-my $name = getSessionName($session);
-my $surname = getSessionSurname($session);
+my $username = getSessionUsername($session);
 
 print <<PEZZO;
 
 				<!-- Da caricare nel caso l utente sia loggato  -->
 				<div id="header_login">
 					<div>
-						Benvenuto <span class="notable">Nome Cognome</span>
+						Benvenuto <span class="notable">$username</span>
 					</div>
 					
 				</div>
@@ -116,10 +116,10 @@ print <<EOF;
 						<input class="buttons" id="submit_new" type="submit" value="Crea annuncio">
 						<input class="buttons" id="reset_new" type="reset" value="Reset">
 					</fieldset>
-
 					</form>
 				</div>
 			</div>
+
 			<!-- Div necessario per spostare il footer in fondo alla pagina -->
 			<div id="push_block">
 			</div>
