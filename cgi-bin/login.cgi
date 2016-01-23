@@ -78,7 +78,7 @@ print <<EOF;
 						<span xml:lang="en" lang="en">Password</span> e <span xml:lang="en" lang="en">Username</span> errati
 					</p>
 					<!-- Form da compilare  -->
-					<form onsubmit="return loginControl()" method="post" action="checkLogin.cgi">
+					<form onsubmit="return loginContro()" method="post" action="checkLogin.cgi">
 						<fieldset title="Campi da compilare per effettuare il Login">
 							<legend>Campi da compilare per effettuare il Login</legend>
 							<label for="login_user">Username</label>

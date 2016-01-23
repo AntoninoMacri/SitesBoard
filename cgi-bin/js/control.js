@@ -231,12 +231,12 @@ function checkAge (par, err) {
     var tag= document.getElementById(par);
     var b=true;
     if (tag.value == null || tag.value == "") {
-        document.getElementById(err).innerHTML = "*campo eta&#768; vuoto";
+        document.getElementById(err).innerHTML = "*campo Data di Nascita vuoto";
         b=false;
     }
-    var re=/^[0-9]{2,3}$/;
+    var re=/^[0-9]{1,3}$/;
     if(b && !re.test(tag.value)){
-        document.getElementById(err).innerHTML = "*eta&#768; campo numerico di massimo 3 cifre";
+        document.getElementById(err).innerHTML = "*Data di Nascita campo numerico di massimo 3 cifre";
         b=false;
     }
     if(b && tag.value<18){

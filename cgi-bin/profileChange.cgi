@@ -101,7 +101,7 @@ print <<EOF;
 	  					<input id="age" type="text" name="age" value="">
 	  					<br><br>
 	  					<label for="username">Username</label>
-	  					<input type="text" name="username" value="">
+	  					<input id="username" type="text"  name="username" value="">
 	  					<br><br>
 	  					<label for="email">Email</label>
 	  					<input id="email" type="text" name="email" value="">

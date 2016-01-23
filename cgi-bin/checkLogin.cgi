@@ -6,6 +6,12 @@ use CGI qw(:standard Vars);
 use CGI::Session;
 use XML::LibXML;
 use warnings;
+
+use XML::XPath;
+use File::Basename;
+
+
+require 'functions/function.cgi';
 require 'functions/session_function.cgi';
 
 $username = "";	# Per il messaggio con user vuoto
@@ -16,14 +22,22 @@ my $s = getSession();
 
 $page = new CGI;
 
-
 if(! defined $s)
 {
 	$username = $page->param('login_user');
 	$password = $page->param('login_password');
-	if($username!="" || $password!=""){
-		my $sessione = createSession($username,$password);
-		print $sessione->header(-location=>"profile.cgi");
+	$temp=checkLog($username,$password);
+	my $xp = XML::XPath->new(filename => '../data/progetto.xml');
+	$xpath_exp='/bacheca/persona[user/text()="'.$username.'" and password/text()="'.$password.'"]';
+
+	my $nodeset = $xp->find($xpath_exp);
+
+	$boolPassLenght=length $password>1;
+	if ($nodeset->size eq 1){
+		if(($username!="" || $password!="" )&& $boolPassLenght){
+			my $sessione = createSession($username,$password);
+			print $sessione->header(-location=>"profile.cgi");
+		}
 	}
 	$url = "login.cgi";
 	print "Location: $url\n\n";
@@ -31,8 +45,5 @@ if(! defined $s)
 else
 {
 	$url = "login.cgi";
-	my $id = $s->id;
-	print "Content-type: text/html\n\n";
-	print $id;
-	#print "Location: $url\n\n";
+	print "Location: $url\n\n";
 }
