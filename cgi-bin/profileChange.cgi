@@ -1,7 +1,11 @@
 #!/usr/bin/perl
 
+<<<<<<< HEAD
 require 'functions/session_function.cgi';
 
+=======
+require "functions/session_function.cgi";
+>>>>>>> origin/master
 print "Content-type: text/html\n\n";
 my $session=getSession();
 
@@ -37,14 +41,23 @@ print <<PRIMA_PARTE;
 PRIMA_PARTE
 
 if($session != undef){
+<<<<<<< HEAD
 my $username = getSessionUsername($session);
+=======
+my $name = getSessionName($session);
+my $surname = getSessionSurname($session);
+>>>>>>> origin/master
 
 print <<PEZZO;
 
 				<!-- Da caricare nel caso utente sia loggato  -->
 				<div id="header_login">
 					<div>
+<<<<<<< HEAD
 						Benvenuto <span class="notable">$username</span>
+=======
+						Benvenuto <span class="notable">Nome Cognome</span>
+>>>>>>> origin/master
 					</div>
 					
 				</div>
@@ -94,7 +107,11 @@ print <<EOF;
 	  					<label for="surname">Cognome</label>
 	  					<input id="surname" type="text" name="surname" value="">
 	  					<br><br>
+<<<<<<< HEAD
 	  					<label for="age">Data di nascita</label>
+=======
+	  					<label for="age">Età</label>
+>>>>>>> origin/master
 	  					<input id="age" type="text" name="age" value="">
 	  					<br><br>
 	  					<label for="username">Username</label>

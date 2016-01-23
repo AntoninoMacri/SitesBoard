@@ -60,7 +60,11 @@ div {
 	#header{
 		background-color: #F0F8FF;
 
+<<<<<<< HEAD
 		padding: 1px 20px 20px 20px;
+=======
+		padding: 1px 20px 1px 20px;
+>>>>>>> origin/master
 		height: 11em;
 	}
 		#header_logo{
@@ -89,14 +93,18 @@ div {
 			text-align: right;
 		}
 
+<<<<<<< HEAD
 		#header_login .edit{
 			margin-bottom: 10px;
 		}
 
+=======
+>>>>>>> origin/master
 			#header_login div{
 				margin-top: 10px;
 			}
 
+<<<<<<< HEAD
 			#header_login img{
 				max-height: 25px;
 				vertical-align: middle;
@@ -107,6 +115,8 @@ div {
 				}
 
 
+=======
+>>>>>>> origin/master
 	/*---------------------------------------------------
 	------------------------PATH-------------------------
 	-----------------------------------------------------*/
@@ -236,8 +246,11 @@ div {
 /*---------------------------------------------------
 -----------------CONTENUTO AGGIUNTIVO----------------
 -----------------------------------------------------*/
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> origin/master
 /*-------------- login.html-------------------*/
 #cont_login {
 }
@@ -358,8 +371,13 @@ div {
 #cont_profile_change .buttons{
 	width: 100px;
 
+<<<<<<< HEAD
 	margin-top: 10px;
 	margin-bottom: 0px;
+=======
+	margin-bottom: 0px;
+
+>>>>>>> origin/master
 	margin-right: 10px;
 
 	float: left;
@@ -384,6 +402,7 @@ div {
 	}
 
 
+<<<<<<< HEAD
 /*--------------insertion.cgi-------------------*/
 
 
@@ -415,6 +434,8 @@ div {
 		}
 
 
+=======
+>>>>>>> origin/master
 /*--------------addInsertion.cgi-------------------*/
 
 #cont_add form{
@@ -484,6 +505,7 @@ div {
 	border-bottom-width: 1px;
 
 	padding-bottom: 20px;
+<<<<<<< HEAD
 }
 
 	#cont_profile ul{
@@ -504,3 +526,6 @@ div {
 
 
 
+=======
+}
+>>>>>>> origin/master
