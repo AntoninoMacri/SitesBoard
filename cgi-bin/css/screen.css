@@ -401,7 +401,8 @@ div {
 		float: right;					
 	}
 
-		#cont_insertion #object{
+		#cont_insertion #object,
+		#cont_insertion #type{
 			border-style: solid;
 			border-color: #D3D3D3;
 			border-width: 0px;

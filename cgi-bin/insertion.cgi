@@ -84,6 +84,10 @@ print <<EOF;
 				<h3 class="resizable"><span id="ins_author" xml:lang="it" lang="it">da: userUtente</span> <span id="ins_date" xml:lang="it" lang="it">in data: date </span></h3>
 				<div id="cont_insertion">
 
+					<p id="type">
+					Tipologia: insertionType
+					</p>
+
 					<p id="title">
 					Titolo: title
 					</p>
