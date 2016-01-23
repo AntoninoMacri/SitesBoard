@@ -1,9 +1,18 @@
 #!/usr/bin/perl
 
+require 'functions/function.cgi';
 require 'functions/session_function.cgi';
 
-print "Content-type: text/html\n\n";
 my $session=getSession();
+
+if($session == undef)
+{
+    print redirect(-url => 'login.cgi');
+}
+
+my @info=getAd(); #ritorna un array{username,titolo,oggetto,descrizione,tipologia,data} per le info dell annuncio
+
+print "Content-type: text/html\n\n";
 
 print <<PRIMA_PARTE;
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
@@ -81,23 +90,23 @@ print <<EOF;
 			<!-- Contenuti della pagina -->
 			<div id="contents">
 
-				<h3 class="resizable"><span id="ins_author" xml:lang="it" lang="it">da: userUtente</span> <span id="ins_date" xml:lang="it" lang="it">in data: date </span></h3>
+				<h3 class="resizable"><span id="ins_author" xml:lang="it" lang="it">da: <a href="profile.cgi" hreflang="it" type="application/xhtml+xml"> @info[0] </a> </span> <span id="ins_date" xml:lang="it" lang="it">in data: @info[5] </span></h3>
 				<div id="cont_insertion">
 
 					<p id="type">
-					Tipologia: insertionType
+					Tipologia: @info[4]
 					</p>
 
 					<p id="title">
-					Titolo: title
+					Titolo: @info[1]
 					</p>
 
 					<p id="object">
-					Oggetto: object
+					Oggetto: @info[2]
 					</p>
 
 					<p id="description">
-					Descrizione: insertionDescription.................
+					Descrizione: </br> @info[3]
 					</p>
 
 					<form name="modulo" method="post" action="showInsertion.cgi">

@@ -48,7 +48,7 @@ sub checkLog(){ #controlla se l utente esiste nel database
 
 #parametro1 in ingresso prendo l'id di una persona da cui trovrerò il relativo annuncio
 #parametro2 in ingresso prendo l'id di un annuncio, e restituisce il nodo dell'annuncio 
-sub getAd(){  #ritorna un array{username,titolo,oggetto,descrizione,data}
+sub getAd(){  #ritorna un array{username,titolo,oggetto,descrizione,tipologia,data}
 	my $id_persona= $_[0];
 	my $ad= $_[1]; 
 	
@@ -57,9 +57,10 @@ sub getAd(){  #ritorna un array{username,titolo,oggetto,descrizione,data}
 	$titolo=$query->findnodes('titolo/text()');
 	$oggetto=$query->findnodes('oggetto/text()');
 	$descrizione=$query->findnodes('descrizione/text()');
+	$tipologia=query->findnodes('tipologia/text()');
 	$data=$query->findnodes('data/text()');
 
-	@var = ($username,$titolo,$oggetto,$descrizione,$data);
+	@var = ($username,$titolo,$oggetto,$descrizione,$tipologia,$data);
 	return @var;
 }
 

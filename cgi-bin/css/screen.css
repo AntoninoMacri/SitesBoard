@@ -390,12 +390,8 @@ div {
 #contents h3.resizable{
 	font-size: 0.8em;
 	text-align: justify;
-	padding: 10px 0px 27px 0px;
+	padding: 10px 0px 10px 0px;
 }
-
-	#contents #ins_author{
-		float: left;
-	}
 
 	#contents #ins_date{
 		float: right;					
