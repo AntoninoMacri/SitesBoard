@@ -4,7 +4,6 @@ use CGI qw(:standard);
 use CGI::Carp qw(warningsToBrowser fatalsToBrowser);
 use CGI;
 
-<<<<<<< HEAD
 require 'functions/session_function.cgi';
 require 'functions/function.cgi';
 
@@ -15,25 +14,7 @@ if($session != undef)
 {
 	   $name = getSessionUsername($session); 
 	   my $id = $session->id;
-=======
-require "functions/session_function.cgi";
-require "functions/function.cgi";
-my $session=getSession();
-my $name;
-if($session != undef)
-{
-	   $name = getSessionUsername($session); 
-        my $id = $session->id;
-		#destroySession($s);
-		#print "Content-type: text/html\n\n";
-        #print "Prova sessione trovata: <br/> Nome: $name <br/> ID: $id <br/>";
-       # print $session->param('username');
-	#my $name = getName($session);
-	#my $surname = getSurname($session);
-	#my $id = $session->id;
-	#print $id;
-	#print $session->param('username');
->>>>>>> origin/master
+
 }
 print "Content-type: text/html\n\n";
 
@@ -69,10 +50,7 @@ print <<PRIMA_PARTE;
 				<h2>La <span xml:lang="en" lang="en">Sites Board</span> per richiedere Siti <span xml:lang="en" lang="en">Web</span></h2>
 
 PRIMA_PARTE
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/master
 if($session != undef){
 
 print <<PEZZO;
@@ -87,13 +65,9 @@ print <<PEZZO2;
 			</span>
 					</div>
 					<div class="minimal">
-<<<<<<< HEAD
 						<a class="edit" href="profile.cgi" hreflang="it" type="application/xhtml+xml">Il tuo profilo <img id="home_profile_logo" src="media/header_profile.png" alt="Iconcina del profilo" title = "Vai al tuo profilo"/></a>
 						&nbsp&nbsp&nbsp<a class="edit" href="logout.cgi" hreflang="it" type="application/xhtml+xml">Logout <img id="home_logout_logo" src="media/logout.png" alt="Iconcina del logout" title = "esegui il logout"/></a>
-=======
-						<a href="profileChange.cgi" hreflang="it" >Modifica Profilo</a>
-						o <a href="logout.cgi" hreflang="it" >Esci</a>
->>>>>>> origin/master
+
 					</div>
 				</div>
 			

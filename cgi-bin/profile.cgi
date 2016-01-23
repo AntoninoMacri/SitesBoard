@@ -51,21 +51,15 @@ my $username = getSessionUsername($session);
 print <<EOF;
 
 
-<<<<<<< HEAD
 				<!-- Da caricare nel caso l utente sia loggato (se è qui sicuramente ha una sessione valida, altrimenti viene redirectato a login.cgi) -->
-=======
-				<!-- Da caricare nel caso l utente sia loggato  -->
->>>>>>> origin/master
+
 				<div id="header_login">
 					<div>
 						Benvenuto <span class="notable">$username</span>
 					</div>
 					<div class="minimal">
-<<<<<<< HEAD
 						<a class="edit" href="profileChange.cgi" hreflang="it" type="application/xhtml+xml">Modifica Profilo <img id="header_PEL" src="media/edit_profile.png" alt="Iconcina di modifica profilo" title = "Modifica i dati del profilo"/></a>
-=======
-						<a href="profileChange.cgi" hreflang="it" type="application/xhtml+xml">Modifica Profilo<img id="header_PEL" src="../../media/profile_edit.png" alt="Iconcina di modifica profilo" title = "Modifica i dati del profilo"/></a>
->>>>>>> origin/master
+
 					</div>
 				</div>
 
@@ -112,7 +106,6 @@ print <<EOF;
 					<p class="info" id="underline">
 					In particolare puoi: visualizzare gli annunci da te inseriti. Visualizzare gli annunci che hai accettato in attesa di conclusione asta. Aggiungere un nuovo annuncio che apparirà nella bacheca di <span xml:lang="en">SitesBoard</span> in ordine, dal più vicino al più lontano, di scadenza. Cancellare i tuoi annunci che per qualche motivo non ti interessa più condividere. 
 					</p>
-<<<<<<< HEAD
 					<ul>
 					<li><label for="name">Nome: <span class="bold"> $name </span> </label></li>
   					
@@ -124,20 +117,6 @@ print <<EOF;
   					
   					<li><label for="email">Email: <span class="bold"> $email</span> </label></li>
   					</ul>
-=======
-					<form method="post" action="profileChanges.cgi">
-					<label for="name">Nome: $name</label>
-  					<br><br>
-  					<label for="surname">Cognome: $surname</label>
-  					<br><br>
-  					<label for="age">Età: $date</label id="age" >
-  					<br><br>
-  					<label for="username">Username: $username</label>
-  					<br><br>
-  					<label for="email">Email: $email</label>
-  					<br><br>
-					</form>
->>>>>>> origin/master
 				</div>
 			</div>
 			<!-- Div necessario per spostare il footer in fondo alla pagina -->
