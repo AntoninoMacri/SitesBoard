@@ -29,30 +29,38 @@ print getAd($id_persona,$ad);
 @var=getAd($id_persona,$ad);
 print "<br/><br/><br/>";
 print $var[0];
+print "<br/>";
+print $var[4];
+print "<br/>";
+print $var[5];
 
 print "<br/>checkLog(): ";	
 print checkLog($username,$password);
 
 print "<br/>".length $var[0];
 $t=length $var[0]>7;
-print "<br/>".$t;
+print "<br/>".$t."<br />";
 
-#my $s = getSession();
-#
-#if(! defined $s)
-#{
-#	print "Content-type: text/html\n\n";
-#        print "Prova sessione vuota";
-#}
-#else
-#{
-#        #my $username = getSessionName($s); 
-#        #my $id = $s->id;
-#        #my $name= getName($s);
-#		#destroySession($s);
-#	    print "Content-type: text/html\n\n";
-#        print $s->param('username');
-#       #print "Prova sessione trovata <br/> Username: $username <br/> ID: $id <br/>";
-##        print "Prova sessione trovata <br/> Username: $username <br/> ID: $id <br/><br/>Ottenuto da Function<br/> Nome: $name <br/>";
-#}
-#
+print "<br /><br />";
+print "getBoard(): <br />";
+@board=getBoard();
+print @{ $board[0] };
+print "<br /><br />";
+
+print "Lista annunci<br />";
+print $board[0][0];
+print "<br />";
+print "TITOLO:   ".$board[0][1]."   OGGETTO:  ".$board[0][2];
+print "<br /><br />";
+print $board[1][0];
+print "<br />";
+print $board[1][1];
+
+print "<br /><br />";
+print $board[2][0];
+print "<br />";
+print $board[2][1];
+print "<br /><br />";
+print $board[3][0];
+print "<br />";
+print $board[3][1];

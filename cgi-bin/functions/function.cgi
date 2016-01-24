@@ -57,7 +57,7 @@ sub getAd(){  #ritorna un array{username,titolo,oggetto,descrizione,tipologia,da
 	$titolo=$query->findnodes('titolo/text()');
 	$oggetto=$query->findnodes('oggetto/text()');
 	$descrizione=$query->findnodes('descrizione/text()');
-	$tipologia=query->findnodes('tipologia/text()');
+	$tipologia=$query->findnodes('tipologiatext()');
 	$data=$query->findnodes('data/text()');
 
 	@var = ($username,$titolo,$oggetto,$descrizione,$tipologia,$data);
@@ -66,4 +66,32 @@ sub getAd(){  #ritorna un array{username,titolo,oggetto,descrizione,tipologia,da
 
 sub getBoard(){
 	
+}
+
+
+sub getBoard(){
+	my @board;
+
+	$persona=$doc->findnodes('/bacheca/persona/@id'); #ottengo tutti gli id di tutte le persone
+	for (my $y=1; $y <= $persona->size; $y++) {
+    	$id_persona=$persona->get_node($y); #ottengo il nodo di una sola persona
+
+		$id_annuncio=$doc->findnodes('/bacheca/persona[@id="'.$id_persona->to_literal.'"]/listaAnnunci/annuncio/@id'); #ottengo tutti gli id di tutti gli annunci
+		$query=$doc->findnodes('/bacheca/persona[@id="'.$id_persona->to_literal.'"]/listaAnnunci/annuncio');
+		
+		$username=$doc->findnodes('/bacheca/persona[@id="'.$id_persona->to_literal.'"]/user');
+		
+		for (my $x=1; $x <= $id_annuncio->size; $x++) {
+			$annuncio=$query->get_node($x);
+			$titolo=$annuncio->findnodes('titolo/text()');
+			$oggetto=$annuncio->findnodes('oggetto/text()');
+			$descrizione=$annuncio->findnodes('descrizione/text()');
+			$tipologia=$annuncio->findnodes('tipologia/text()');
+			$data=$annuncio->findnodes('data/text()');
+			my @var = ($username,$titolo,$oggetto,$descrizione,$tipologia,$data); #array contenente un annuncio
+			push @board, \@var;
+		}
+    }
+    return @board;
+ #   print @{ $board[0] };
 }
