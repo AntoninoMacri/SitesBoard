@@ -57,7 +57,7 @@ sub getAd(){  #ritorna un array{username,titolo,oggetto,descrizione,tipologia,da
 	$titolo=$query->findnodes('titolo/text()');
 	$oggetto=$query->findnodes('oggetto/text()');
 	$descrizione=$query->findnodes('descrizione/text()');
-	$tipologia=$query->findnodes('tipologiatext()');
+	$tipologia=$query->findnodes('tipologia/text()');
 	$data=$query->findnodes('data/text()');
 
 	@var = ($username,$titolo,$oggetto,$descrizione,$tipologia,$data);
