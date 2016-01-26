@@ -1,5 +1,6 @@
 #!/usr/bin/perl -w
 
+use CGI::Carp qw(fatalsToBrowser);
 
 require 'functions/function.cgi';
 require 'functions/session_function.cgi';
@@ -44,7 +45,8 @@ print "<br/>".$t."<br />";
 print "<br /><br />";
 print "getBoard(): <br />";
 @board=getBoard();
-print @{ $board[0] };
+print "numero elementi riga : ".@board;
+print "<br/>numero elementi colonna : ".@{ $board[0] };
 print "<br /><br />";
 
 print "Lista annunci<br />";
@@ -64,3 +66,63 @@ print "<br /><br />";
 print $board[3][0];
 print "<br />";
 print $board[3][1];
+
+my $data1='2015-10-07';
+my $data2='2015-10-17';
+print "<br />isMin(): ";
+print isMin($data1,$data2);
+print "<br />";
+$giorno1=substr($data1, 8, 2);
+$giorno2=substr($data2, 8, 2);
+print $giorno1."<br />";
+print $giorno2."<br />";
+$b=$giorno1<$giorno2;
+print $b;
+
+#print "<br />";
+#print $data1;
+#print "<br />";
+#$anno1=substr($data1, 0, 4);
+#$anno2=substr($data2, 0, 4);
+#print "<br />";
+#$mese1=substr($data1, 5, 2);
+#print "<br />";
+#$giorno1=substr($data1, 8, 2);
+#print "<br />";
+#print $anno1;
+#print "<br />";
+#print $mese1;
+#print "<br />";
+#print $giorno1;
+#
+#print "<br />";
+#print $anno1<$anno2;
+
+
+print "<br /> InsertionSort: <br />";
+@order=InsertionSort(\@board);
+print "<br />";
+print "<br />Numero elementi in \@order: ";
+print scalar @order ;
+print "<br />";
+for (my $i=0; $i <scalar(@order); $i++) {
+	#print @{ $order[i] };
+	print $i.") ";
+	print $order[$i][5];
+	print "<br />";
+}
+
+print "<br />";
+print "<br />";
+print "test se viene passata correttamente una matrice(\@order)";
+print "<br />";
+print @{@order[0]};
+print "<br />";
+print @{@order[1]};
+print "<br />";
+print @{@order[2]};
+print "<br />";
+print @{@order[3]};
+print "<br />";
+
+# print @{ $board[0] };

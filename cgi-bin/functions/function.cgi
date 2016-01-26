@@ -7,7 +7,6 @@ use CGI::Carp qw(fatalsToBrowser);
 use XML::LibXML;
 use File::Basename;
 
-use CGI::Carp qw(fatalsToBrowser);
 
 my $file = '../data/progetto.xml';  
 my $parser = XML::LibXML->new();
@@ -65,11 +64,6 @@ sub getAd(){  #ritorna un array{username,titolo,oggetto,descrizione,tipologia,da
 }
 
 sub getBoard(){
-	
-}
-
-
-sub getBoard(){
 	my @board;
 
 	$persona=$doc->findnodes('/bacheca/persona/@id'); #ottengo tutti gli id di tutte le persone
@@ -79,7 +73,7 @@ sub getBoard(){
 		$id_annuncio=$doc->findnodes('/bacheca/persona[@id="'.$id_persona->to_literal.'"]/listaAnnunci/annuncio/@id'); #ottengo tutti gli id di tutti gli annunci
 		$query=$doc->findnodes('/bacheca/persona[@id="'.$id_persona->to_literal.'"]/listaAnnunci/annuncio');
 		
-		$username=$doc->findnodes('/bacheca/persona[@id="'.$id_persona->to_literal.'"]/user');
+		$username=$doc->findnodes('/bacheca/persona[@id="'.$id_persona->to_literal.'"]/user/text()');
 		
 		for (my $x=1; $x <= $id_annuncio->size; $x++) {
 			$annuncio=$query->get_node($x);
@@ -92,6 +86,52 @@ sub getBoard(){
 			push @board, \@var;
 		}
     }
-    return @board;
- #   print @{ $board[0] };
+    return @board; 
+}
+
+
+sub InsertionSort() #passo un riferimento alla matrice
+{
+	my @board=@{$_[0]}; #deferenzio il riferimento alla matrice
+	my $i;
+	my $j;
+	my @temp;
+	for (my $i=1; $i <scalar(@board); $i++) {
+		$j=$i;
+		while ($j>0 && isMin($board[$j-1][5],$board[$j][5])){
+			@temp=\@{@board[$j]};
+			@board[$j]=\@{ @board[$j-1] };
+			@board[$j-1]=@temp;
+			$j--;
+		}
+	}
+	return @board;
+}
+
+
+sub isMin()
+{
+	my $data1= $_[0];
+	my $data2= $_[1];
+
+	$true='1';
+	$false='0';
+
+	$anno1=substr($data1, 0, 4);
+	$anno2=substr($data2, 0, 4);
+	if($anno1<$anno2){return $true;}
+	if($anno1>$anno2){return $false;}
+	
+	$mese1=substr($data1, 5, 2);
+	$mese2=substr($data2, 5, 2);
+	if($mese1<$mese2){return $true;}
+	if($mese1>$mese2){return $false;}
+
+
+	$giorno1=substr($data1, 8, 2);
+	$giorno2=substr($data2, 8, 2);
+	if($giorno1<$giorno2){return $true;}
+	if($giorno1>$giorno2){return $false;}
+	
+	if($giorno1==$giorno2){return $false;}
 }
