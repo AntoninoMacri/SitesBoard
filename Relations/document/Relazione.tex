@@ -1,0 +1,248 @@
+\documentclass[12pt]{article}
+
+
+\usepackage[english,italian]{babel} %lingue utilizzabili
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+
+
+\usepackage[utf8]{inputenc} %codifica e input
+
+\usepackage{hyperref} %indice linkato ai paragrafi di riferimento
+\hypersetup{
+  colorlinks,
+  citecolor=gray,
+  filecolor=brown,
+  linkcolor=black,
+  urlcolor=cyan
+}
+
+\usepackage{lastpage} %per sapere il numero di pagine totali
+
+\usepackage{parcolumns} %testo affiancato in colonna
+
+\usepackage{listings} %Per inserire codice
+\usepackage[usenames]{color} %Per permettere la colorazione dei caratteri 
+
+\usepackage[a4paper,top=3cm,bottom=2cm,left=2cm,right=2cm] {geometry} %imposta pagina formato A4 e setta margini a piacimento
+\usepackage[pdftex]{lscape} %per settare pagine in landscape
+
+\renewcommand{\familydefault}{\sfdefault}   %mette tutto il carattere con uno stile ''grazioso'' <-----------------------------------molto bello
+
+\definecolor{editorGray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{editorOrange}{rgb}{1, 0.5, 0} % #FF7F00 -> rgb(239, 169, 0)
+\definecolor{editorGreen}{rgb}{0, 0.6, 0} % #007C00 -> rgb(0, 124, 0)
+
+
+
+
+%personalizzazione classe per il codice SQL
+\lstnewenvironment{sql}[1][] 
+{\lstset{basicstyle=\scriptstyle \ttfamily, columns=fullflexible, keywordstyle=\color{blue}\bfseries, ndkeywordstyle=\color{blue}\bfseries , ndkeywords={references}, numberstyle=\color{red}, commentstyle=\color{editorGreen}, showstringspaces=false, stringstyle=\color{editorOrange},
+language=SQL, basicstyle=\small,
+numbers=left, numberstyle=\tiny,
+tabsize=2, stepnumber=10, numbersep=5pt, breaklines=true, frame=single, rulecolor=\color{black}, #1}}
+{\lstset {language=SQL,morekeywords={INT,CHAR,varchar,smallint,numeric}}}{}
+
+
+%personalizzazione classe per il codice HTML
+\lstnewenvironment{html}[1][] 
+{\lstset{basicstyle=\scriptstyle \ttfamily, columns=fullflexible,
+keywordstyle=\color{blue}\bfseries, ndkeywords={content,=,charset=, id=, width=, height=},	 ndkeywordstyle=\color{editorGreen}\bfseries , numberstyle=\color{red} commentstyle=\color{red}, showstringspaces=false, stringstyle=\color{editorOrange},
+language=HTML, basicstyle=\small,
+numbers=left, numberstyle=\tiny,
+tabsize=2, stepnumber=10, numbersep=5pt, breaklines=true, frame=single, rulecolor=\color{black}, #1}}{}
+
+%personalizzazione classe per il codice PERL
+\lstnewenvironment{perl}[1][] 
+{\lstset{basicstyle=\scriptstyle \ttfamily, columns=fullflexible,
+keywordstyle=\color{blue}\bfseries, ndkeywords={content,=,charset=, id=, width=, height=},	 ndkeywordstyle=\color{editorGreen}\bfseries , numberstyle=\color{red} commentstyle=\color{red}, showstringspaces=false, stringstyle=\color{editorGreen},
+language=PHP, basicstyle=\small,
+numbers=left, numberstyle=\tiny,
+tabsize=2, stepnumber=10, numbersep=5pt, breaklines=true, frame=single, rulecolor=\color{black}, #1}}{}
+
+
+
+
+
+\begin{document}
+
+\begin{figure}
+\centering
+\includegraphics[angle=0,scale=.30]{Logo.png}
+\end{figure} 
+
+\title{ \textbf{{\Huge SitesBoard}}\vspace{2cm} \\ {\Huge Tecnologie Web \\ Relazione del progetto} \\ {\Large Anno accademico 2015/2016} }
+%\date{}
+ 
+\author{
+\begin{tabular}{r|l}
+\textbf{Componenti} & Fasolato Francesco\\
+&Macrì Antonino\\
+&Rigoni Davide\\
+&Zecchin Giacomo
+\end{tabular}\vspace{0.5cm} \\
+	Indirizzo Web: \url{http://tecnologie-web.studenti.math.unipd. it/tecweb/~drigoni}\vspace{0.3cm} \\
+		Email responsabile: \href{mailto:zecchin.giacomo93@hotmail.it}{zecchin.giacomo93@hotmail.it} 
+}
+
+\maketitle
+\thispagestyle{empty}
+
+
+\newpage
+
+
+%da qui stile intestazione e piè di pagina cosi definiti
+\pagestyle{fancy}
+\lhead{}
+\lfoot{\emph{\large SitesBoard}} 
+\cfoot{}
+\rfoot{Pagina: \thepage\ di \pageref{LastPage}}
+\renewcommand{\footrulewidth}{0.5pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tableofcontents %CREA INDICE
+
+
+
+\newpage
+
+\section{Abstract}
+Come suggerisce il nome, SitesBoard è una bacheca digitale contenente inserzioni che offrono opportunità lavorative concernenti la realizzazione di siti web.\\
+SitesBoard permette agli utenti registrati al suo interno di inserire nuovi annunci oppure accettare quelli proposti da altri utenti.\\\\
+Ogni utente ha un’area personale, nella quale sono presenti i propri dati profilo.\\
+Da quest’area può accedere alla pagina degli annunci che ha inserito o a quella degli annunci che ha accettato.\\\\
+Per ogni annuncio proposto, è visibile la lista degli utenti che hanno dato la loro disponibilità. Una volta scaduto, spetta a chi l’ha pubblicato contattare il candidato che ritiene essere più adatto per quel lavoro.\\
+Un utente ha anche la possibilità di cancellare un annuncio prima della data di scadenza.\\\\
+Gli annunci sono divisi in categorie per aiutare gli sviluppatori a trovare quelli più adatti alle loro abilità. Le categorie sono: E-commerce, Forum, Social, Personali, Aziendali e Blog.\\
+In ogni categoria gli annunci appaiono all’utente ordinati secondo la data di inserimento.\\
+%\selectlanguage{italian}	%%%%inserirlo causerebbe errore in compilazione per lettere accentate-->non risolto
+
+
+\section{Utenti destinatari}
+Il nostro sito si rivolge per lo più ad un’utenza formata da persone abbastanza abili nell’uso di linguaggi di programmazione. \\
+Una piccola parte di utenti sarà formata anche da persone che non hanno molte conoscenze informatiche e che, proprio per questo, usufruiranno del nostro servizio per contattare qualcuno in grado di realizzare un sito web.
+\newpage
+
+\section{Progettazione}
+	\subsection{Struttura}
+		\subsubsection{Organizzazione cartelle}
+		
+I file che compongono il sito sono organizzati su 3 cartelle:
+
+\begin{itemize}
+
+\item \textbf{public\textunderscore html}: che contiene le pagine statiche, gli stili, il codice javaScript e le immagini contenute nel sito;
+\item \textbf{data}: che contiene i documenti accessibili solo internamente al server, quin- di i file xml, i fogli di trasformazione, la definizione degli schemi e le pagine 				   html private;
+\item \textbf{cgi-bin}: che contiene gli script scritti in Perl.
+
+\end{itemize}
+
+
+	\subsubsection{Definizione}
+	\subsubsection{Database}
+	Il database è stato realizzato utilizzando un unico file chiamato “database.xml”.\\\\
+	La nostra scelta è stata dovuta alla maggiore praticità nel gestire un singolo file e al fatto che interrogare più database in quasi tutte le query sarebbe stato 		troppo dispendioso.\\
+	Avremmo potuto infatti dividere il nostro database in 2 file distinti, ad esempio “utenti.xml” e “annunci.xml”. Il problema della doppia interrogazione, però, si 		sarebbe manifestato visualizzando un annuncio, nel quale è presente il nome dell’utente che l’ha inserito, con il relativo link alla pagina del profilo personale.\\\\
+	Il file è stato strutturato seguendo il modello a bambole russe, scelto per la maggiore leggibilità, (vedi slide)\\
+	
+	Abbiamo realizzato la parte… con xml-schema, poiché fornisce
+
+	\subsection{Presentazione}
+	\subsection{Javascript}
+	\subsection{Perl}
+	\subsection{XSLT}
+
+
+\section{Accessibilità}
+[..]
+	\subsection{Struttura}
+	\begin{itemize}
+	\item Le pagine Web hanno tutte dei titoli che ne descrivono l’argomento o la finalità.
+	\item Per ogni immagine presente è stato associato l'attributo “alt” in modo da fornire un’alternativa testuale per contenuti non testuali.
+	\item Uso di attributo “xml:lang” per identificare le parole in lingua straniera, in modo che uno screen reader possa leggerle correttamente.
+	\item Uso di breadcrumb (path) per permettere all’utente di sapere sempre dove si trova nel sito.
+	\item Le form son tutte divise in fieldset ed anche se non sono esteticamente belle le
+	\end{itemize}
+
+	\subsection{Presentazione}
+
+	\subsection{Comportamento}
+
+	\subsection{Test effettuati}
+		\subsubsection{Conformità standard WCAG}
+		\subsubsection{Contrato testo e sfondo}
+		\subsubsection{Screen reader}		
+		\subsubsection{Disturbi visivi}
+		
+\section{Usabilità}
+Particolare attenzione è stata posta all’usabilità del sito e si è cercato dunque di rispettare il più possibile le sue raccomandazioni:
+
+\begin{itemize}
+\item \textbf{Le sei W}: La home page del sito risponde alle seguenti domande:
+
+\begin{itemize}
+\item Where: Il breve testo presente nelle pagina di apertura illustra in maniera esaustiva ciò che il sito si propone di rappresentare, ovvero la Scuola delle 9 Armonie Conselve, dove si praticano arti marziali cinesi e tibetane;
+\item Who: Un utente che accede per la prima volta ad un sito sente la necessità di conoscere chi o quale entità il esso rappresenta. Abbiamo quindi posizionato, come di consueto, in alto a sinistra il logo della scuola e subito affianco il nome. Il logo è cliccabile in ogni pagina e riporta sempre alla home page;
+\item When: Nella sezione news vengono riportate le ultime comunicazioni che la scuola manda ai propri allievi, soprattutto per quanto riguarda attività extra ordinarie e stage nel fine settimana. A queste comunicazioni sono associate le relative date, in modo da dare all’utente l’idea di quando è stato aggiornato l’ultima volta il sito;
+\item How: La barra di navigazione illustra tutte le sezioni principali del sito alle quali un utente non autenticato può accedere;
+\item What: Un utente, quando accede alla home page riesce a farsi un’idea delle offerte del sito, infatti, grazie al titolo La Scuola e alle varie sezioni della navbar: Sedi e Corsi, Kung Fu e T’ai C’hi Chuan è facilmente intuibile che il sito offra delle informazioni riguardo ad una scuola di arti marziali.
+\end{itemize}
+
+\item \textbf{Navbar}:
+
+\item \textbf{Breadcrumbs}:
+
+\item \textbf{Link}
+
+\item \textbf{Foto}
+
+
+\end{itemize}
+
+		
+\section{Validazione}
+	\subsection{XHTML}
+	\subsection{CSS}
+	\subsection{XML e XSD}
+
+\section{xmlSchema}
+
+pregi: (guarda lucidi xml sul sito)
+è il più semplice da comprendere\\
+difetti: non è possibile riutilizzare le strutture precedentemente definite e il contenuto è opaco---->nel nostro caso tutti i tipi complessi nn si ripetono quindi il problema di riscrivere la stessa definizione di una struttura non si pone.
+
+
+
+
+\section{Ruoli}
+
+	
+%per inserire un'immagine
+%\begin{landscape}
+%\begin{figure}
+%\subsection{Schema E-R iniziale del database}
+%\centering
+%\includegraphics[angle=0,scale=.40]{projBasi.jpg}
+%\hspace{1in}
+%\label{schema}
+%\caption{schema E-R}
+%\end{figure}
+%\end{landscape}
+
+
+\newpage
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
