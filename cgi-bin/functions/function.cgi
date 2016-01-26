@@ -86,7 +86,8 @@ sub getBoard(){
 			push @board, \@var;
 		}
     }
-    return @board; 
+    return InsertionSort(\@board);
+    #return @board; 
 }
 
 

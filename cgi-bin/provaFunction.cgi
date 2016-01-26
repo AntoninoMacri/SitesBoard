@@ -126,3 +126,13 @@ print @{@order[3]};
 print "<br />";
 
 # print @{ $board[0] };
+
+
+print "<br />";
+print "<br />";
+print "<br />";
+print "<br />";
+for (my $i=0; $i <scalar(@order); $i++) {
+	print @{ $board[$i] };
+	print "<br />";
+}
