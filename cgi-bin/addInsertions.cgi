@@ -1,9 +1,16 @@
 #!/usr/bin/perl
 
+require 'functions/function.cgi';
 require 'functions/session_function.cgi';
 
-print "Content-type: text/html\n\n";
 my $session=getSession();
+
+if($session == undef)
+{
+    print redirect(-url => 'login.cgi');
+}
+
+print "Content-type: text/html\n\n";
 
 print <<PRIMA_PARTE;
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
@@ -36,11 +43,11 @@ print <<PRIMA_PARTE;
 
 PRIMA_PARTE
 
-if($session != undef){
 my $username = getSessionUsername($session);
+utf8::encode($username);
 
-print <<PEZZO;
 
+print <<EOF;
 				<!-- Da caricare nel caso l utente sia loggato  -->
 				<div id="header_login">
 					<div>
@@ -48,10 +55,8 @@ print <<PEZZO;
 					</div>
 					
 				</div>
-PEZZO
-}
 
-print <<EOF;
+
 			
 			</div>
 

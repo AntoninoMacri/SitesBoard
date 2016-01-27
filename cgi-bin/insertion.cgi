@@ -45,10 +45,12 @@ print <<PRIMA_PARTE;
 
 PRIMA_PARTE
 
-if($session != undef){
-my $username = getSessionUsername($session);
 
-print <<PEZZO;
+my $username = getSessionUsername($session);
+utf8::encode($username);
+
+
+print <<EOF;
 
 				<!-- Da caricare nel caso l utente sia loggato  -->
 				<div id="header_login">
@@ -57,11 +59,8 @@ print <<PEZZO;
 					</div>
 					
 				</div>
-PEZZO
-}
 
-print <<EOF;
-			
+
 			</div>
 
 			<!-- PATH  -->

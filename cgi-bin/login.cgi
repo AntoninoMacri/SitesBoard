@@ -1,5 +1,10 @@
 #!/usr/bin/perl
 
+require 'functions/function.cgi';
+require 'functions/session_function.cgi';
+
+my $session=getSession();
+
 print "Content-type: text/html\n\n";
 print <<EOF;
 
@@ -62,10 +67,6 @@ print <<EOF;
 				</div>
 
 			</div>
-
-
-
-
 			<!-- CONTENUTI DELLA PAGINA -->
 			<div id="contents">
 				<h3><span xml:lang="en" lang="en">Login</span></h3>
@@ -76,7 +77,14 @@ print <<EOF;
 					Se hai dimenticato la <span xml:lang="en" lang="en">password</span> allora prima di effettuare il <span xml:lang="en" lang="en">login</span> devi <a href="pass_recovery.html" hreflang="it">recuperarla</a>.
 					<!-- Messaggio di errore  -->
 					<p id="logErr" title="Messaggio di errore compilazione form login">
-						<span xml:lang="en" lang="en">Password</span> e <span xml:lang="en" lang="en">Username</span> errati
+EOF
+
+$err="Sei gi&agrave; loggato";
+if($session == undef)
+{
+$err="<span xml:lang='en' lang='en'>Password</span> e <span xml:lang='en' lang='en'>Username</span> errati";
+print $err;
+print <<EOF;
 					</p>
 					<!-- Form da compilare  -->
 					<form onsubmit="return loginContro()" method="post" action="checkLogin.cgi">
@@ -90,6 +98,14 @@ print <<EOF;
 							<input type="reset" name="login_reset" id="login_reset" value="Cancella i Campi" />
 						</fieldset>
 					</form>
+EOF
+}
+else
+	{
+		print $err;
+		print "</p>";
+	}
+print <<EOF;
 				</div>
 			</div>
 
