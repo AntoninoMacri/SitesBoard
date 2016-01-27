@@ -44,6 +44,6 @@ if(! defined $s)
 }
 else
 {
-	$url = "login.cgi";
+	$url = "home.cgi";
 	print "Location: $url\n\n";
 }
