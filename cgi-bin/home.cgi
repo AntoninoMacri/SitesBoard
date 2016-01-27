@@ -16,6 +16,9 @@ if($session != undef)
 	   my $id = $session->id;
 
 }
+
+my @info=getBoard();
+
 print "Content-type: text/html\n\n";
 
 print <<PRIMA_PARTE;
@@ -65,9 +68,9 @@ print <<PEZZO2;
 			</span>
 					</div>
 					<div class="minimal">
-						<a class="edit" href="profile.cgi" hreflang="it" type="application/xhtml+xml">Il tuo profilo <img id="home_profile_logo" src="media/header_profile.png" alt="Iconcina del profilo" title = "Vai al tuo profilo"/></a>
-						&nbsp&nbsp&nbsp<a class="edit" href="logout.cgi" hreflang="it" type="application/xhtml+xml">Logout <img id="home_logout_logo" src="media/logout.png" alt="Iconcina del logout" title = "esegui il logout"/></a>
-
+						<a class="edit" href="profile.cgi" hreflang="it" type="application/xhtml+xml">Il tuo profilo <img id="profile_logo" src="media/header_profile.png" alt="Iconcina del profilo" title = "Vai al tuo profilo"/></a>
+						&nbsp&nbsp&nbsp
+						<a class="edit" href="logout.cgi" hreflang="it" type="application/xhtml+xml">Logout <img id="logout_logo" src="media/logout.png" alt="Iconcina del logout" title = "esegui il logout"/></a>
 					</div>
 				</div>
 			
@@ -152,8 +155,33 @@ print <<FINE;
 			<!-- CONTENUTI DELLA PAGINA -->
 			<div id="contents">
 				<h3><span xml:lang="en" lang="en">Home</span></h3>
-				<div id="cont_welcome">Benvenuti nella sito SitesBoard. In questo sito potete vedere, proporre e anche accettare richieste di creazione di siti web.
-				</div>
+				<div id="cont_welcome">Benvenuti nella sito SitesBoard. In questo sito potete vedere, proporre e anche accettare richieste di creazione di siti web.</div>
+
+				
+FINE
+for (my $i=0; $i <scalar(@info); $i++) {
+	$autore=$info[$i][0];
+	$titolo=$info[$i][1];
+	$oggetto=$info[$i][2];
+	$tipologia=$info[$i][4];
+	$data=$info[$i][5];
+
+	utf8::encode($autore);
+	utf8::encode($titolo);
+	utf8::encode($oggetto);
+	utf8::encode($tipologia);
+	utf8::encode($data);
+
+	print	"<p class='HInsertions'>
+			<span id='title'>Titolo: $titolo</span>
+			<span id='obj'>Oggetto: $oggetto</span>
+			</span><span id='date'>Data: $data</span>
+			</span><span id='author'>Autore: $autore</span>
+			</span><span id='obj'>Oggetto: $tipologia</span>
+			</p>";
+}
+
+print <<FINE;
 			</div>
 
 			<!-- Div necessario per spostare il footer in fondo alla pagina -->
@@ -189,6 +217,6 @@ print <<FINE;
 <!-- 
 Aggiungere:
 	- colori della pagina -> PROBLEMA
-	
+--> 	
 FINE
 exit;
