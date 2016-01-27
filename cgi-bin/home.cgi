@@ -26,9 +26,9 @@ print <<PRIMA_PARTE;
 	<head>
 		<title xml:lang="en" lang="en">Home Page - SitesBoard</title> 
 
-		<link href="css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
-		<link href="css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
-		<link href="css/print.css" rel="stylesheet" type="text/css" media="print"/>
+		<link href="../css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
+		<link href="../css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
+		<link href="../css/print.css" rel="stylesheet" type="text/css" media="print"/>
 
 
 		<!-- Meta Tag -->
@@ -39,7 +39,7 @@ print <<PRIMA_PARTE;
 		<meta name="keywords" content="Home, Bacheca, Siti, Web" />
 		<meta name="language" content="italian it" />
 		
-		<script type="text/javascript" src="js/control.js"></script>
+		<script type="text/javascript" src="../js/control.js"></script>
 	</head>
 	<body>
 		<div id="container">
@@ -48,7 +48,7 @@ print <<PRIMA_PARTE;
 
 			<!-- HEADER-->
 			<div id="header">
-				<img id="header_logo" src="media/logo.png" alt="Logo del sito SitesBoard" title = "Logo del sito"/>
+				<img id="header_logo" src="../media/logo.png" alt="Logo del sito SitesBoard" title = "Logo del sito"/>
 				<h1>SitesBoard</h1>
 				<h2>La <span xml:lang="en" lang="en">Sites Board</span> per richiedere Siti <span xml:lang="en" lang="en">Web</span></h2>
 
@@ -68,9 +68,9 @@ print <<PEZZO2;
 			</span>
 					</div>
 					<div class="minimal">
-						<a class="edit" href="profile.cgi" hreflang="it" type="application/xhtml+xml">Il tuo profilo <img id="profile_logo" src="media/header_profile.png" alt="Iconcina del profilo" title = "Vai al tuo profilo"/></a>
+						<a class="edit" href="profile.cgi" hreflang="it" type="application/xhtml+xml">Il tuo profilo <img id="profile_logo" src="../media/header_profile.png" alt="Iconcina del profilo" title = "Vai al tuo profilo"/></a>
 						&nbsp&nbsp&nbsp
-						<a class="edit" href="logout.cgi" hreflang="it" type="application/xhtml+xml">Logout <img id="logout_logo" src="media/logout.png" alt="Iconcina del logout" title = "esegui il logout"/></a>
+						<a class="edit" href="logout.cgi" hreflang="it" type="application/xhtml+xml">Logout <img id="logout_logo" src="../media/logout.png" alt="Iconcina del logout" title = "esegui il logout"/></a>
 					</div>
 				</div>
 			
@@ -91,6 +91,9 @@ print <<SECONDA_PARTE;
 				<!-- MENÙ DI NAVIGAZIONE -->
 				<div id="nav_menu" class="menu" title ="Menù di navigazione del sito">
 					<h3>Menù</h3>
+
+					Home
+
 					<p>Tipologia Siti:</p>
 					<ul>
 						<li><a href="bacheca_ecommerce.cgi" hreflang="it" ><span xml:lang="en" lang="en">E-commerce</span></a></li>
@@ -129,8 +132,8 @@ print <<PEZZO;
 							<input type="submit" name="login_submit" id="login_submit" value="Accedi al sito" />
 						</fieldset>
 					</form>
-					<a class ="minimal" href="../../html/registration.html" hreflang="it" >Non ti sei ancora registrato?</a>
-					<a class = "minimal" href="../../html/pass_recovery.html" hreflang="it" >Non trovi più la <span xml:lang="en" lang="en">password?</span></a>
+					<a class ="minimal" href="../html/registration.html" hreflang="it" >Non ti sei ancora registrato?</a>
+					<a class = "minimal" href="../html/pass_recovery.html" hreflang="it" >Non trovi più la <span xml:lang="en" lang="en">password?</span></a>
 				</div>
 PEZZO
 }

@@ -15,6 +15,11 @@ my $surname=getSurname($session);
 my $email=getEmail($session);
 my $date=getDate($session);
 
+utf8::encode($name);
+utf8::encode($surname);
+utf8::encode($email);
+utf8::encode($date);
+
 
 print "Content-type: text/html\n\n";
 
@@ -23,9 +28,9 @@ print <<PRIMA_PARTE;
 	<head>
 		<title xml:lang="en" lang="it">Profilo utente - SitesBoard</title> 
 
-		<link href="css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
-		<link href="css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
-		<link href="css/print.css" rel="stylesheet" type="text/css" media="print"/>
+		<link href="../css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
+		<link href="../css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
+		<link href="../css/print.css" rel="stylesheet" type="text/css" media="print"/>
 
 
 		<!-- Meta Tag -->
@@ -40,7 +45,7 @@ print <<PRIMA_PARTE;
 		<div id="container">
 			<!-- HEADER  -->
 			<div id="header">
-				<a href="home.cgi" hreflang="it"><img id="header_logo" src="media/logo.png" alt="Logo del sito SitesBoard" title = "Logo del sito"/></a>
+				<a href="home.cgi" hreflang="it"><img id="header_logo" src="../media/logo.png" alt="Logo del sito SitesBoard" title = "Logo del sito"/></a>
 				<h1>SitesBoard</h1>
 				<h2>La <span xml:lang="en" lang="en">Sites Board</span> per richiedere Siti <span xml:lang="en" lang="en">Web</span></h2>
 
@@ -48,6 +53,8 @@ PRIMA_PARTE
 
 
 my $username = getSessionUsername($session);
+utf8::encode($username);
+
 print <<EOF;
 
 
@@ -58,7 +65,7 @@ print <<EOF;
 						Benvenuto <span class="notable">$username</span>
 					</div>
 					<div class="minimal">
-						<a class="edit" href="profileChange.cgi" hreflang="it" type="application/xhtml+xml">Modifica Profilo <img id="header_PEL" src="media/edit_profile.png" alt="Iconcina di modifica profilo" title = "Modifica i dati del profilo"/></a>
+						<a class="edit" href="profileChange.cgi" hreflang="it" type="application/xhtml+xml">Modifica Profilo <img id="header_PEL" src="../media/edit_profile.png" alt="Iconcina di modifica profilo" title = "Modifica i dati del profilo"/></a>
 
 					</div>
 				</div>
@@ -72,9 +79,10 @@ print <<EOF;
 				Ti trovi in: <span class="notable" xml:lang="en" lang="it">Profilo utente</span>
 			</div>
 			<div id="nav_panel">
-				<!-- MENU DI NAVIGAZIONE -->
+				<!-- MENÙ DI NAVIGAZIONE --> 
 				<div id="nav_menu" class="menu" title ="Menù di navigazione del sito">
-					<h3>Menu</h3>
+					<h3>Menù</h3>
+					<a href="home.cgi" xml:lang="en" lang="en" hreflang="it" >Home</a>
 					<p>Annunci:</p>
 					<ul>
 						<li><a href="addInsertions.cgi" hreflang="it" type="application/xhtml+xml">Nuovo</a></li>

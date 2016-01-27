@@ -27,7 +27,7 @@ if(! defined $s)
 	$username = $page->param('login_user');
 	$password = $page->param('login_password');
 	$temp=checkLog($username,$password);
-	my $xp = XML::XPath->new(filename => '../data/progetto.xml');
+	my $xp = XML::XPath->new(filename => '../data/database.xml');
 	$xpath_exp='/bacheca/persona[user/text()="'.$username.'" and password/text()="'.$password.'"]';
 
 	my $nodeset = $xp->find($xpath_exp);

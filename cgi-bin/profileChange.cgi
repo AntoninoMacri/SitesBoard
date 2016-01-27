@@ -10,9 +10,9 @@ print <<PRIMA_PARTE;
 	<head>
 		<title xml:lang="en" lang="it">Modifica informazioni - SitesBoard</title> 
 
-		<link href="css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
-		<link href="css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
-		<link href="css/print.css" rel="stylesheet" type="text/css" media="print"/>		
+		<link href="../css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
+		<link href="../css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
+		<link href="../css/print.css" rel="stylesheet" type="text/css" media="print"/>		
 
 
 		<!-- Meta Tag -->
@@ -23,14 +23,14 @@ print <<PRIMA_PARTE;
 		<meta name="keywords" content="Changes, Profile, Logged, Siti, Web" />
 		<meta name="language" content="italian it" />
 
-		<script type="text/javascript" src="js/control.js"></script>
+		<script type="text/javascript" src="../js/control.js"></script>
 		
 	</head>
 	<body>
 		<div id="container">
 			<!-- HEADER-->
 			<div id="header">
-				<a href="home.cgi" hreflang="it"><img id="header_logo" src="media/logo.png" alt="Logo del sito SitesBoard" title = "Logo del sito"/></a>
+				<a href="home.cgi" hreflang="it"><img id="header_logo" src="../media/logo.png" alt="Logo del sito SitesBoard" title = "Logo del sito"/></a>
 				<h1>SitesBoard</h1>
 				<h2>La <span xml:lang="en" lang="en">Sites Board</span> per richiedere Siti <span xml:lang="en" lang="en">Web</span></h2>
 
@@ -64,9 +64,10 @@ print <<EOF;
 
 			<div id="nav_panel">
 				
-				<!-- MENÙ DI NAVIGAZIONE -->
+				<!-- MENÙ DI NAVIGAZIONE --> 
 				<div id="nav_menu" class="menu" title ="Menù di navigazione del sito">
 					<h3>Menù</h3>
+					<a href="home.cgi" xml:lang="en" lang="en" hreflang="it" >Home</a>
 					<p>Tipologia Siti:</p>
 					<ul>
 						<li><a href="" hreflang="it" type="application/xhtml+xml"><span xml:lang="en" lang="en">E-commerce</span></a></li>

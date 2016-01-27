@@ -8,7 +8,7 @@ use XML::LibXML;
 use File::Basename;
 
 
-my $file = '../data/progetto.xml';  
+my $file = '../data/database.xml';  
 my $parser = XML::LibXML->new();
 my $doc= $parser->parse_file($file);
 
@@ -87,7 +87,6 @@ sub getBoard(){
 		}
     }
     return InsertionSort(\@board);
-    #return @board; 
 }
 
 

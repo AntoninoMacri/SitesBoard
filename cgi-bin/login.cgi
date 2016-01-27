@@ -7,9 +7,9 @@ print <<EOF;
 	<head>
 		<title>Login - SitesBoard</title> 
 
-		<link href="css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
-		<link href="css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
-		<link href="css/print.css" rel="stylesheet" type="text/css" media="print"/>
+		<link href="../css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
+		<link href="../css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
+		<link href="../css/print.css" rel="stylesheet" type="text/css" media="print"/>
 
 
 		<!-- Meta Tag -->
@@ -19,7 +19,8 @@ print <<EOF;
 		<meta name="description" content="Form login utente per SitesBoard, il sito per la richiesta di Siti Web Professionali" />
 		<meta name="keywords" content="Login, Password, Bacheca, Siti, Web" />
 		<meta name="language" content="italian it" />
-		<script type="text/javascript" src="js/control.js"></script>
+
+		<script type="text/javascript" src="../js/control.js"></script>
 	</head>
 	<body>
 		<div id="container">
@@ -48,7 +49,7 @@ print <<EOF;
 				<!-- MENÙ DI NAVIGAZIONE --> 
 				<div id="nav_menu" class="menu" title ="Menù di navigazione del sito">
 					<h3>Menù</h3>
-					<a href="home.html" xml:lang="en" lang="en" hreflang="it" >Home</a>
+					<a href="home.cgi" xml:lang="en" lang="en" hreflang="it" >Home</a>
 					<p>Tipologia Siti:</p>
 					<ul>
 						<li><a href="" hreflang="it" ><span xml:lang="en" lang="en">E-commerce</span></a></li>
