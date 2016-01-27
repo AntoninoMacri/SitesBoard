@@ -39,7 +39,6 @@ print <<PRIMA_PARTE;
 		<meta name="keywords" content="Home, Bacheca, Siti, Web" />
 		<meta name="language" content="italian it" />
 		
-		<script type="text/javascript" src="../js/control.js"></script>
 	</head>
 	<body>
 		<div id="container">

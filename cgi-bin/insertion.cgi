@@ -10,7 +10,7 @@ if($session == undef)
     print redirect(-url => 'login.cgi');
 }
 
-my @info=getAd(); #ritorna un array{username,titolo,oggetto,descrizione,tipologia,data} per le info dell annuncio
+my @info=getAd(1,1); #ritorna un array{username,titolo,oggetto,descrizione,tipologia,data} per le info dell annuncio
 
 print "Content-type: text/html\n\n";
 
