@@ -12,7 +12,7 @@ my $session = getSession();
 my $cgi = CGI->new();
 
 #controllo se si è loggati
-if($session != undef)
+if(defined($session))
 {
 
 	#creazione oggetto e dichiarazione variabili
@@ -20,8 +20,8 @@ if($session != undef)
 	my $parser = XML::LibXML->new();
 	
 	#parser
-	my $doc = $parser->parse_file($file);
-	my $userNode = $doc->findnodes('/bacheca/persona[user/text()="'.$session->param('username').'" and password/text()="'.$session->param('password').'"]')->get_node(1);
+	my $doc = $parser->parse_file($file) || die("File non trovato");
+	my $userNode = $doc->findnodes('/bacheca/persona[user/text()="'.$session->param('username').'" and password/text()="'.$session->param('password').'"]')->get_node(1) || die("Nodo non trovato");
 
 
 	my $bacheca = $userNode->parentNode;
@@ -30,7 +30,10 @@ if($session != undef)
 	$bacheca->removeChild($userNode);
 
 	#serializzazione
+	open(OUT, ">../data/database.xml");
 	print OUT $doc->toString;
+	close(OUT);
+	
 
 	print $cgi->redirect( 'logout.cgi' );
 }
