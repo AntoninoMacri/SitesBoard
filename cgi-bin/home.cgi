@@ -215,10 +215,6 @@ print <<FINE;
 		</div>
 	</body>
 </html>
-
-<!-- 
-Aggiungere:
-	- colori della pagina -> PROBLEMA
---> 	
+	
 FINE
 exit;
