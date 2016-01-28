@@ -1,10 +1,23 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
+use CGI qw(:standard);
+use CGI::Carp qw(fatalsToBrowser);
+use strict;
 
 require 'functions/function.cgi';
 require 'functions/session_function.cgi';
 
-my $session=getSession();
+#prendo eventuali parametri in ingresso con il GET
+my $cgi = new CGI;
+my $msgParam = $cgi->param('msgError');
 
+#ridireziono l'utente loggato alla home
+my $session=getSession();
+if($session != undef)
+{
+	print $cgi->redirect( 'home.cgi' );
+}
+
+#altrimenti continuo la stapa della pagina
 print "Content-type: text/html\n\n";
 print <<EOF;
 
@@ -25,6 +38,7 @@ print <<EOF;
 		<meta name="keywords" content="Login, Password, Bacheca, Siti, Web" />
 		<meta name="language" content="italian it" />
 
+		<!-- JS -->
 		<script type="text/javascript" src="../js/control.js"></script>
 	</head>
 	<body>
@@ -78,12 +92,10 @@ print <<EOF;
 					<!-- Messaggio di errore  -->
 					<p id="logErr" title="Messaggio di errore compilazione form login">
 EOF
-
-$err="Sei gi&agrave; loggato";
-if($session == undef)
+if(defined($msgParam))
 {
-$err="<span xml:lang='en' lang='en'>Password</span> e <span xml:lang='en' lang='en'>Username</span> errati";
-print $err;
+	print $msgParam;
+}
 print <<EOF;
 					</p>
 					<!-- Form da compilare  -->
@@ -94,18 +106,10 @@ print <<EOF;
 							<input type="text" name="login_user" id="login_user"/><br/>
 							<label for="login_password">Password</label>
 							<input type="password" name="login_password" id="login_password"/><br/>
-							<input type="submit" name="login_submit" id="login_submit" value="Accedi al sito" onkeypress="return loginControl()" />
+							<input type="submit" name="login_submit" id="login_submit" value="Accedi al sito" />
 							<input type="reset" name="login_reset" id="login_reset" value="Cancella i Campi" />
 						</fieldset>
 					</form>
-EOF
-}
-else
-	{
-		print $err;
-		print "</p>";
-	}
-print <<EOF;
 				</div>
 			</div>
 
@@ -137,7 +141,5 @@ print <<EOF;
 		</div>
 	</body>
 </html>
-
-
 EOF
 exit;
