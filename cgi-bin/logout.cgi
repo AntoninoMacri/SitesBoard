@@ -1,6 +1,8 @@
 #!/usr/bin/perl  -w
 require 'functions/session_function.cgi';
-#my $session=getSession();
-#destroySession($session);
-destroySession();
-print "Location: login.cgi\n\n";
+
+#chiama la funzione che distrugge la sessione corrente se esiste
+destroySession($session);
+
+#redirect alla home
+print "Location: home.cgi\n\n";
