@@ -136,3 +136,18 @@ for (my $i=0; $i <scalar(@order); $i++) {
 	print @{ $board[$i] };
 	print "<br />";
 }
+
+
+
+print "<br />";
+print "<br />";
+print "<br />";
+print "<br />";
+print "<br />Social: <br/>";
+
+$tipo='Social';
+@social=getBoardTipologia($tipo);
+for (my $i=0; $i <scalar(@social); $i++) {
+	print @{ $social[$i] };
+	print "<br />";
+}
