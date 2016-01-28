@@ -39,7 +39,7 @@ if(! defined $s)
 			print $sessione->header(-location=>"profile.cgi");
 		}
 	}
-	$url = "login.cgi";
+	$url = "login.cgi?msgError=*Username e Password errati";
 	print "Location: $url\n\n";
 }
 else
