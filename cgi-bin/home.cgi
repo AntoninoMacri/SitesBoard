@@ -12,9 +12,7 @@ my $name;
 
 if($session != undef)
 {
-	   $name = getSessionUsername($session); 
-	   my $id = $session->id;
-
+   $name = getSessionUsername($session);
 }
 
 my @info=getBoard();

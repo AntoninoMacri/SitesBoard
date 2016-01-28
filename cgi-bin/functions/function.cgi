@@ -55,7 +55,7 @@ sub getAd(){  #ritorna un array{username,titolo,oggetto,descrizione,tipologia,da
 	$query=$doc->findnodes('/bacheca/persona[@id="'.$id_persona.'"]/listaAnnunci/annuncio[@id="'.$ad.'"]')->get_node(1) or die "Annuncio non trovato";
 	$titolo=$query->findnodes('titolo/text()');
 	$oggetto=$query->findnodes('oggetto/text()');
-	$descrizione=$query->findnodes('descrizione/text()');
+	$descrizione=$query->findnodes('descrizione/text()')->to_literal;
 	$tipologia=$query->findnodes('tipologia/text()');
 	$data=$query->findnodes('data/text()');
 
@@ -80,7 +80,7 @@ sub getBoard(){
 			$titolo=$annuncio->findnodes('titolo/text()');
 			$oggetto=$annuncio->findnodes('oggetto/text()');
 			$descrizione=$annuncio->findnodes('descrizione/text()');
-			$tipologia=$annuncio->findnodes('tipologia/text()');
+			$tipologia=$annuncio->findnodes('tipologia/text()')->to_literal;
 			$data=$annuncio->findnodes('data/text()');
 			my @var = ($username,$titolo,$oggetto,$descrizione,$tipologia,$data); #array contenente un annuncio
 			push @board, \@var;
@@ -104,6 +104,18 @@ sub InsertionSort() #passo un riferimento alla matrice
 			@board[$j-1]=@temp;
 			$j--;
 		}
+	}
+	return @board;
+}
+
+sub getBoardTipologia()
+{
+	my $tipo= $_[0];
+
+	my @board=getBoard();
+	for (my $i=0; $i <scalar(@board); $i++) {
+		my $type=$board[$i][4];
+		if($type ne $tipo){ splice (@board, $i, 1); } 
 	}
 	return @board;
 }
