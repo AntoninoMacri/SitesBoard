@@ -45,11 +45,13 @@ sub getSessionPassword(){
 }
 
 sub destroySession(){
-	$session=CGI::Session->load() or die $!;
-	$SID = $session->id;
-	$session->close();
-	$session->delete();
-	$session->flush();
+	$session=getSession();
+	if(defined($session))
+	{
+		$session->close();
+		$session->delete();
+		$session->flush();
+	}
 }
 #necessario per far tornare true... altrimenti perl da errore
 1;
