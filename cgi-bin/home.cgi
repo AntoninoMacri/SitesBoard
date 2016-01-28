@@ -213,6 +213,7 @@ print <<FINE;
 		</div>
 	</body>
 </html>
-
+	
+>>>>>>> 0997371d868b0fd1438d3cfb20210dc3ad9f9940
 FINE
 exit;
