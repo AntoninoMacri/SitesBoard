@@ -27,7 +27,7 @@ sub getSession() {
         $sessione = CGI::Session->load() or die $!; #CGI::Session->errstr
         if ($sessione->is_expired || $sessione->is_empty) { # Se manca la sessione torno in home
                 #print redirect(-url=>'login.cgi');
-                
+                return undef;
         } else {
                 # print $sessione->param('username');
                 return $sessione;
