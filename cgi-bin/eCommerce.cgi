@@ -15,7 +15,11 @@ if($session != undef)
    $name = getSessionUsername($session);
 }
 
-my @info=getBoard();
+#my @info=getBoard();
+
+my $tipo='E-commerce';
+my @info=getBoardTipologia($tipo);
+
 
 print "Content-type: text/html\n\n";
 
@@ -214,5 +218,9 @@ print <<FINE;
 	</body>
 </html>
 
+<!-- 
+Aggiungere:
+	- colori della pagina -> PROBLEMA
+--> 	
 FINE
 exit;
