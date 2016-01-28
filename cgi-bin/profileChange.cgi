@@ -54,7 +54,11 @@ print <<EOF;
 				<div id="header_login">
 					<div>
 						Benvenuto <span class="notable">$username</span>
-
+					</div>
+					<div class="minimal">
+						<a class="edit" href="profile.cgi" hreflang="it" type="application/xhtml+xml">Il tuo profilo <img id="profile_logo" src="../media/header_profile.png" alt="Iconcina del profilo" title = "Vai al tuo profilo"/></a>
+						&nbsp&nbsp&nbsp
+						<a class="edit" href="logout.cgi" hreflang="it" type="application/xhtml+xml">Logout <img id="logout_logo" src="../media/logout.png" alt="Iconcina del logout" title = "esegui il logout"/></a>
 					</div>
 					
 				</div>
@@ -114,7 +118,7 @@ print <<EOF;
 	  					<input id="email" type="text" name="email" value="">
 	  					<br><br>
 
-	  					<input class="buttons" type="submit" value="Salva">
+	  					<input class="buttons" type="submit" value="Salva" onkeypress="return profileChangeControl()">
 
 						<input class="buttons" type="reset" value="Reset">
 

@@ -53,6 +53,11 @@ print <<EOF;
 					<div>
 						Benvenuto <span class="notable">$username</span>
 					</div>
+					<div class="minimal">
+						<a class="edit" href="profile.cgi" hreflang="it" type="application/xhtml+xml">Il tuo profilo <img id="profile_logo" src="../media/header_profile.png" alt="Iconcina del profilo" title = "Vai al tuo profilo"/></a>
+						&nbsp&nbsp&nbsp
+						<a class="edit" href="logout.cgi" hreflang="it" type="application/xhtml+xml">Logout <img id="logout_logo" src="../media/logout.png" alt="Iconcina del logout" title = "esegui il logout"/></a>
+					</div>
 					
 				</div>
 
@@ -100,7 +105,7 @@ print <<EOF;
 					Ricordati di fare salva quando hai portato a termine tutte le eventuali operazioni!
 					</p>
 
-					<form name="modulo" method="post" action="showInsertion.cgi">
+					<form name="modulo" method="post" action="showInsertion.cgi" onsubmit="return addInsertionControl()">
 					<fieldset title="Campi da compilare per creare un nuovo annuncio">
 						<legend>Campi da compilare</legend>
 
@@ -113,14 +118,14 @@ print <<EOF;
 	  					</ul>
 
 	  					<label for="descrizione">Descrizione (max 2000 caratteri)</label>
-	  					<textarea name="testo" onkeyup="ContaCaratteri()" onkeydown="ContaCaratteri()" onkeypress="ContaCaratteri()"></textarea>
-						<input id="conta_caratteri" type="text" name="conta" value="0" readonly>
+	  					<textarea id="testo" name="testo" onkeyup="ContaCaratteri()" onkeydown="ContaCaratteri()" onkeypress="ContaCaratteri()"></textarea>
+						Caratteri utilizzati : <input id="conta_caratteri" type="text" name="conta" value="0" readonly>
 					</fieldset>
 
 					<fieldset id="new" title="Crea nuovo annuncio">
 						<legend id="new_insertion">Crea nuovo annuncio</legend>
 
-						<input class="buttons" id="submit_new" type="submit" value="Crea annuncio">
+						<input class="buttons" id="submit_new" type="submit" value="Crea" onkeypress="return addInsertionControl()">
 						<input class="buttons" id="reset_new" type="reset" value="Reset">
 					</fieldset>
 					</form>

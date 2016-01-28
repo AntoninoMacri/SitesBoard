@@ -12,6 +12,16 @@ if($session == undef)
 
 my @info=getAd(1,1); #ritorna un array{username,titolo,oggetto,descrizione,tipologia,data} per le info dell annuncio
 
+$tipologia=$info[4];
+$titolo=$info[1];
+$oggetto=$info[2];
+$descrizione=$info[3];
+
+utf8::encode($tipologia);
+utf8::encode($titolo);
+utf8::encode($oggetto);
+utf8::encode($descrizione);
+
 print "Content-type: text/html\n\n";
 
 print <<PRIMA_PARTE;
@@ -57,7 +67,11 @@ print <<EOF;
 					<div>
 						Benvenuto <span class="notable">$username</span>
 					</div>
-					
+					<div class="minimal">
+						<a class="edit" href="profileChange.cgi" hreflang="it" type="application/xhtml+xml">Modifica Profilo <img id="header_PEL" src="../media/edit_profile.png" alt="Iconcina di modifica profilo" title = "Modifica i dati del profilo"/></a>
+						&nbsp&nbsp&nbsp
+						<a class="edit" href="logout.cgi" hreflang="it" type="application/xhtml+xml">Logout <img id="logout_logo" src="../media/logout.png" alt="Iconcina del logout" title = "esegui il logout"/></a>
+					</div>
 				</div>
 
 
@@ -94,19 +108,19 @@ print <<EOF;
 				<div id="cont_insertion">
 
 					<p id="type">
-					Tipologia: @info[4]
+					Tipologia: $tipologia
 					</p>
 
 					<p id="title">
-					Titolo: @info[1]
+					Titolo: $titolo
 					</p>
 
 					<p id="object">
-					Oggetto: @info[2]
+					Oggetto: $oggetto
 					</p>
 
 					<p id="description">
-					Descrizione: </br> @info[3]
+					Descrizione: </br> $descrizione
 					</p>
 
 					<form name="modulo" method="post" action="showInsertion.cgi">
