@@ -45,7 +45,7 @@ sub getSessionPassword(){
 }
 
 sub destroySession(){
-	$session=getSession();
+	my $session=getSession();
 	if(defined($session))
 	{
 		$session->close();
