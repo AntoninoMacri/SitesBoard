@@ -51,37 +51,37 @@ sub getAd(){  #ritorna un array{username,titolo,oggetto,descrizione,tipologia,da
 	my $id_persona= $_[0];
 	my $ad= $_[1]; 
 	
-	$username=$doc->findnodes('/bacheca/persona[@id="'.$id_persona.'"]/user');
-	$query=$doc->findnodes('/bacheca/persona[@id="'.$id_persona.'"]/listaAnnunci/annuncio[@id="'.$ad.'"]')->get_node(1) or die "Annuncio non trovato";
-	$titolo=$query->findnodes('titolo/text()');
-	$oggetto=$query->findnodes('oggetto/text()');
-	$descrizione=$query->findnodes('descrizione/text()')->to_literal;
-	$tipologia=$query->findnodes('tipologia/text()');
-	$data=$query->findnodes('data/text()');
+	my $username=$doc->findnodes('/bacheca/persona[@id="'.$id_persona.'"]/user');
+	my $query=$doc->findnodes('/bacheca/persona[@id="'.$id_persona.'"]/listaAnnunci/annuncio[@id="'.$ad.'"]')->get_node(1) or die "Annuncio non trovato";
+	my $titolo=$query->findnodes('titolo/text()');
+	my $oggetto=$query->findnodes('oggetto/text()');
+	my $descrizione=$query->findnodes('descrizione/text()')->to_literal;
+	my $tipologia=$query->findnodes('tipologia/text()');
+	my $data=$query->findnodes('data/text()');
 
-	@var = ($username,$titolo,$oggetto,$descrizione,$tipologia,$data);
+	my @var = ($username,$titolo,$oggetto,$descrizione,$tipologia,$data);
 	return @var;
 }
 
 sub getBoard(){
 	my @board;
 
-	$persona=$doc->findnodes('/bacheca/persona/@id'); #ottengo tutti gli id di tutte le persone
+	my $persona=$doc->findnodes('/bacheca/persona/@id'); #ottengo tutti gli id di tutte le persone
 	for (my $y=1; $y <= $persona->size; $y++) {
-    	$id_persona=$persona->get_node($y); #ottengo il nodo di una sola persona
+    	my $id_persona=$persona->get_node($y); #ottengo il nodo di una sola persona
 
-		$id_annuncio=$doc->findnodes('/bacheca/persona[@id="'.$id_persona->to_literal.'"]/listaAnnunci/annuncio/@id'); #ottengo tutti gli id di tutti gli annunci
-		$query=$doc->findnodes('/bacheca/persona[@id="'.$id_persona->to_literal.'"]/listaAnnunci/annuncio');
+		my $id_annuncio=$doc->findnodes('/bacheca/persona[@id="'.$id_persona->to_literal.'"]/listaAnnunci/annuncio/@id'); #ottengo tutti gli id di tutti gli annunci
+		my $query=$doc->findnodes('/bacheca/persona[@id="'.$id_persona->to_literal.'"]/listaAnnunci/annuncio');
 		
-		$username=$doc->findnodes('/bacheca/persona[@id="'.$id_persona->to_literal.'"]/user/text()');
+		my $username=$doc->findnodes('/bacheca/persona[@id="'.$id_persona->to_literal.'"]/user/text()');
 		
 		for (my $x=1; $x <= $id_annuncio->size; $x++) {
-			$annuncio=$query->get_node($x);
-			$titolo=$annuncio->findnodes('titolo/text()');
-			$oggetto=$annuncio->findnodes('oggetto/text()');
-			$descrizione=$annuncio->findnodes('descrizione/text()');
-			$tipologia=$annuncio->findnodes('tipologia/text()')->to_literal;
-			$data=$annuncio->findnodes('data/text()');
+			my $annuncio=$query->get_node($x);
+			my $titolo=$annuncio->findnodes('titolo/text()');
+			my $oggetto=$annuncio->findnodes('oggetto/text()');
+			my $descrizione=$annuncio->findnodes('descrizione/text()');
+			my $tipologia=$annuncio->findnodes('tipologia/text()')->to_literal;
+			my $data=$annuncio->findnodes('data/text()');
 			my @var = ($username,$titolo,$oggetto,$descrizione,$tipologia,$data); #array contenente un annuncio
 			push @board, \@var;
 		}
@@ -126,22 +126,22 @@ sub isMin()
 	my $data1= $_[0];
 	my $data2= $_[1];
 
-	$true='1';
-	$false='0';
+	my $true='1';
+	my $false='0';
 
-	$anno1=substr($data1, 0, 4);
-	$anno2=substr($data2, 0, 4);
+	my $anno1=substr($data1, 0, 4);
+	my $anno2=substr($data2, 0, 4);
 	if($anno1<$anno2){return $true;}
 	if($anno1>$anno2){return $false;}
 	
-	$mese1=substr($data1, 5, 2);
-	$mese2=substr($data2, 5, 2);
+	my $mese1=substr($data1, 5, 2);
+	my $mese2=substr($data2, 5, 2);
 	if($mese1<$mese2){return $true;}
 	if($mese1>$mese2){return $false;}
 
 
-	$giorno1=substr($data1, 8, 2);
-	$giorno2=substr($data2, 8, 2);
+	my $giorno1=substr($data1, 8, 2);
+	my $giorno2=substr($data2, 8, 2);
 	if($giorno1<$giorno2){return $true;}
 	if($giorno1>$giorno2){return $false;}
 	
@@ -155,10 +155,7 @@ sub getPersonalAd()
 
 	my @board;
 
-	print $sessionUsername;
-
 	my $query=$doc->findnodes('/bacheca/persona[user/text()="'.$sessionUsername.'"]/listaAnnunci/annuncio');
-	print $query->size;
 	for (my $x=1; $x <= $query->size; $x++) {
 		my $annuncio=$query->get_node($x);
 		my $titolo=$annuncio->findnodes('titolo/text()')->to_literal;
