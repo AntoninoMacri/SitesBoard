@@ -12,12 +12,15 @@ my $session = getSession();
 my $cgi = CGI->new();
 
 my $idInsertion = $cgi->param('idInsertion');
-my $idUserInsertion = $cgi->param('idUser');
+my $usernameUserInsertion = $cgi->param('idUsername');
 
 #controllo se si è loggati
 if(defined($session))
 {
 
+	my $userUsername = $session->param('username');
+	my $userPassword = $session->param('password');
+	
 	#creazione oggetto e dichiarazione variabili
 	my $file = '../data/database.xml';  
 	my $parser = XML::LibXML->new();
@@ -27,7 +30,7 @@ if(defined($session))
 	my $idUser=$doc->findnodes('/bacheca/persona[user/text()="'.$userUsername.'" and password/text()="'.$userPassword.'"]/@id'); 
 
 	#trovo l'annuncio
-	my $nodoInsertion=$doc->findnodes('/bacheca/persona[user/text()="'.$idUserInsertion.'"]/listaAnnunci/annuncio[@id="'.$idInsertion.'"]/listaDisponibili/idProgrammatore[text()="'.$idUser.'"]'); 
+	my $nodoInsertion=$doc->findnodes('/bacheca/persona[user/text()="'.$usernameUserInsertion.'"]/listaAnnunci/annuncio[@id="'.$idInsertion.'"]/listaDisponibili/idProgrammatore[text()="'.$idUser.'"]'); 
 
 	if(!defined($nodoInsertion))
 	{
