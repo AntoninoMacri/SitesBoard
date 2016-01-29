@@ -162,7 +162,7 @@ sub getPersonalAd()
 		my $oggetto=$annuncio->findnodes('oggetto/text()')->to_literal;
 		my $tipologia=$annuncio->findnodes('tipologia/text()')->to_literal;
 		my $data=$annuncio->findnodes('data/text()')->to_literal;
-		my $id=$doc->findnodes('/bacheca/persona[user/text()="'.$sessionUsername.'"]/@id');->to_literal;
+		my $id=$doc->findnodes('/bacheca/persona[user/text()="'.$sessionUsername.'"]/@id')->to_literal;
 		my @var = ($sessionUsername,$titolo,$oggetto,$tipologia,$data,$id); #array contenente un annuncio
 		push @board, \@var;
 	}
@@ -178,7 +178,7 @@ sub getPersonalAd()
 #
 #	my $query=$doc->findnodes('/bacheca/persona[user/text()="'.$sessionUsername.'"]/listaAnnunci/annuncio/listaDisponibili/idProgrammatore');
 #	
-#
+#	my 
 #
 #	my $nome=$doc->findnodes('/bacheca/persona[@id="'.$sessionUsername.'"]/listaAnnunci/annuncio/listaDisponibili/idProgrammatore');
 #	
