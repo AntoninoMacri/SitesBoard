@@ -53,6 +53,8 @@ div {
 	font-size: 0.8em;
 }
 
+.underline{}
+
 
 	/*---------------------------------------------------
 	----------------------HEADER-------------------------
@@ -225,6 +227,10 @@ div {
 
 		#contents #cont_error{ /* messaggi di errore in rosso*/
 			color: red;
+		}
+
+		#contents fieldset input.buttons{
+			font-size: inherit;
 		}
 
 		#contents #infoBold{ /*informazioni importanti nelle info dei contenuti da evidenziare mettendo in blod il font*/
@@ -466,13 +472,12 @@ div {
 
 	#cont_profile fieldset#remove_profile{
 		text-align: center;
-		width: 40%;
+		width: 30%;
 		margin: auto;
 	}
 
 		#cont_profile input #rmProfile.buttons{
 			color: red;
-			font-size: inherit;
 		}
 
 	#cont_profile ul{

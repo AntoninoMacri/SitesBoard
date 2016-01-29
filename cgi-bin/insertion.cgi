@@ -107,28 +107,28 @@ print <<EOF;
 				<h3 class="resizable"><span id="ins_author" xml:lang="it" lang="it">da: <a href="profile.cgi" hreflang="it" type="application/xhtml+xml"> @info[0] </a> </span> <span id="ins_date" xml:lang="it" lang="it">in data: @info[5] </span></h3>
 				<div id="cont_insertion">
 
-					<p id="type">
-					Tipologia: $tipologia
+					<p id="underline">
+					<span class="insInfo">Tipologia:</span> $tipologia
 					</p>
 
 					<p id="title">
-					Titolo: $titolo
+					<span class="insInfo">Titolo:</span> $titolo
 					</p>
 
-					<p id="object">
-					Oggetto: $oggetto
+					<p id="underline">
+					<span class="insInfo">Oggetto:</span> $oggetto
 					</p>
 
-					<p id="description">
-					Descrizione: </br> $descrizione
+					<p id="underline">
+					<span class="insInfo" id="description">Descrizione:</span> </br> $descrizione
 					</p>
 
-					<form name="modulo" method="post" action="showInsertion.cgi">
+					<form name="modulo" method="post" action="acceptedInsertions.cgi">
 					<fieldset id="accept" title="Accetta annuncio">
 						<legend id="accept_insertion">Ti interessa?</legend>
 
 						<input class="buttons" id="submit_new" type="submit" value="Accetta">
-						</fieldset>
+					</fieldset>
 					</form>
 
 				</div>
