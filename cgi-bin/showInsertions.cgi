@@ -21,6 +21,8 @@ my $userName=getUsername($session);
 
 utf8::encode($userName);
 
+@annunciPersonali=getPersonalAd(getSessionUsername($session));
+
 
 print "Content-type: text/html\n\n";
 
@@ -110,18 +112,47 @@ print <<EOF;
 
 				<h3><span xml:lang="it" lang="it">I tuoi annunci</span></h3>
 				<div id="cont_annunci">
+
+
 					<!-- Messaggio di errore  -->
 					<p id="cont_error" title="Messaggio di errore">
+
+					</p>
+					<p class="info">
+					Questi sono gli annunci che hai inserito.
+					</p>
 EOF
 if(defined($msgParam))
 {
 	print $msgParam;
 }
+
+					for (my $i=0; $i <scalar(@annunciPersonali); $i++) {
+					$autore=$annunciPersonali[$i][0];
+					$titolo=$annunciPersonali[$i][1];
+					$oggetto=$annunciPersonali[$i][2];
+					$tipologia=$annunciPersonali[$i][3];
+					$data=$annunciPersonali[$i][4];
+					$id_persona=$annunciPersonali[$i][5];
+					$id_annuncio=$annunciPersonali[$i][6];
+				
+					utf8::encode($autore);
+					utf8::encode($titolo);
+					utf8::encode($oggetto);
+					utf8::encode($tipologia);
+					utf8::encode($data);
+					utf8::encode($id_persona);
+					utf8::encode($id_annuncio);
+				
+					print	"<p class='HInsertions'>
+							<span id='title'>Titolo: <a href='insertion.cgi?idUser=id_persona$idInsertion=id_annuncio' hreflang='it' >$titolo</a></span>
+							<span id='obj'>Oggetto: $oggetto</span>
+							<span id='date'>Data: $data</span>
+							<span id='author'>Autore: $autore</span>
+							<span id='obj'>Oggetto: $tipologia</span>
+							</p>";
+				}
 print <<EOF;
-					</p>
-					<p class="info">
-					Questi sono gli annunci che hai inserito.
-					</p>
 				</div>
 			</div>
 			<!-- Div necessario per spostare il footer in fondo alla pagina -->
