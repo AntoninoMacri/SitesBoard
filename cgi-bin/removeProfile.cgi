@@ -21,21 +21,26 @@ if(defined($session))
 	
 	#parser
 	my $doc = $parser->parse_file($file) || die("File non trovato");
-	my $userNode = $doc->findnodes('/bacheca/persona[user/text()="'.$session->param('username').'" and password/text()="'.$session->param('password').'"]')->get_node(1) || die("Nodo non trovato");
+	my $userNode = $doc->findnodes('/bacheca/persona[user/text()="'.$session->param('username').'" and password/text()="'.$session->param('password').'"]')->get_node(1);
+	if(!defined($userNode))
+	{
+		print $cgi->redirect( 'profile.cgi?msgError=Errore cancellazione del profilo.' );
+	}
+	else
+	{
+		my $bacheca = $userNode->parentNode;
 
+		#elimino il figlio
+		$bacheca->removeChild($userNode);
 
-	my $bacheca = $userNode->parentNode;
+		#serializzazione
+		open(OUT, ">../data/database.xml");
+		print OUT $doc->toString;
+		close(OUT);
+		
 
-	#elimino il figlio
-	$bacheca->removeChild($userNode);
-
-	#serializzazione
-	open(OUT, ">../data/database.xml");
-	print OUT $doc->toString;
-	close(OUT);
-	
-
-	print $cgi->redirect( 'logout.cgi' );
+		print $cgi->redirect( 'logout.cgi' );
+	}
 }
 else
 {
