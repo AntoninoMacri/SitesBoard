@@ -22,11 +22,7 @@ if(defined($session))
 	#parser
 	my $doc = $parser->parse_file($file) || die("File non trovato");
 	my $userNode = $doc->findnodes('/bacheca/persona[user/text()="'.$session->param('username').'" and password/text()="'.$session->param('password').'"]')->get_node(1);
-	if(!defined($userNode))
-	{
-		print $cgi->redirect( 'profile.cgi?msgError=Errore cancellazione del profilo.' );
-	}
-	else
+	if(defined($userNode))
 	{
 		my $bacheca = $userNode->parentNode;
 
@@ -40,6 +36,10 @@ if(defined($session))
 		
 
 		print $cgi->redirect( 'logout.cgi' );
+	}
+	else
+	{
+		print $cgi->redirect( 'profile.cgi?msgError=Errore cancellazione del profilo.' );
 	}
 }
 else
