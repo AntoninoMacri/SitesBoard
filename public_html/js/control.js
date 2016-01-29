@@ -411,12 +411,3 @@ function checkDescrizione(par, err){
     }
     return b;
 }
-
-function alertOnRmProfile()
-{
-    var x = confirm("Sei sicuro di cancellare definitivamente il tuo profilo da SitesBoard?");
-      if (x)
-          return true;
-      else
-        return false;
-}
