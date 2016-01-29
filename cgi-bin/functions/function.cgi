@@ -115,7 +115,7 @@ sub getBoardTipologia()
 	my @board=getBoard();
 	for (my $i=0; $i <scalar(@board); $i++) {
 		my $type=$board[$i][4];
-		if($type ne $tipo){ splice (@board, $i, 1); } 
+		if($type ne $tipo){ splice (@board, $i, 1); $i--;} 
 	}
 	return @board;
 }
