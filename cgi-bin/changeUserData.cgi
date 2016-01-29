@@ -40,12 +40,9 @@ if(defined($session) && define($newUserName) && define($newUserSurname) && defin
 	my $nodeChangeEmail=$doc->findnodes('/bacheca/persona[@id="'.$idUser.'"]/email');
 
 
-	if(!defined($nodeChangeName) || !defined($nodeChangeSurname)|| !defined($nodeChangeAge)|| !defined($nodeChangeUsername) || !defined($nodeChangeEmail))
+	if(defined($nodeChangeName) || defined($nodeChangeSurname)|| defined($nodeChangeAge)|| defined($nodeChangeUsername) || defined($nodeChangeEmail))
 	{
-		print $cgi->redirect( 'profileChange.cgi?msgError=Errore modifica del profilo.' );
-	}
-	else
-	{
+
 		#modifica i campi
 		$nodeChangeName->setData($newUserName); 
 		$nodeChangeSurname->setData($newUserSurname); 
@@ -60,6 +57,10 @@ if(defined($session) && define($newUserName) && define($newUserSurname) && defin
 		
 
 		print $cgi->redirect( 'logout.cgi' );
+	}
+	else
+	{
+		print $cgi->redirect( 'profileChange.cgi?msgError=Errore modifica del profilo.' );
 	}
 }
 else

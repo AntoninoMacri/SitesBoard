@@ -25,7 +25,7 @@ if(defined($session) &&  defined($userInsertion))
 	my $doc = $parser->parse_file($file) || die("File non trovato");
 	my $userNode = $doc->findnodes('/bacheca/persona[user/text()="'.$session->param('username').'" and password/text()="'.$session->param('password').'"]/listaAnnunci/annuncio[@id="'.$userInsertion.'"]')->get_node(1);
 
-	if(!defined($userNode))
+	if(defined($userNode))
 	{
 		print $cgi->redirect( 'showInsertions.cgi?msgError=Inserzione non trovata.' );
 	}

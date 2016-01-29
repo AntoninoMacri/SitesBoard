@@ -12,10 +12,10 @@ my $session = getSession();
 my $cgi = CGI->new();
 
 my $idInsertion = $cgi->param('idInsertion');
-my $usernameUserInsertion = $cgi->param('idUsername');
+my $idUserInsertion = $cgi->param('idUser');
 
 #controllo se si è loggati
-if(defined($session))
+if(defined($session) && defined($idInsertion) && defined($idUserInsertion))
 {
 
 	my $userUsername = $session->param('username');
@@ -30,13 +30,9 @@ if(defined($session))
 	my $idUser=$doc->findnodes('/bacheca/persona[user/text()="'.$userUsername.'" and password/text()="'.$userPassword.'"]/@id'); 
 
 	#trovo l'annuncio
-	my $nodoInsertion=$doc->findnodes('/bacheca/persona[user/text()="'.$usernameUserInsertion.'"]/listaAnnunci/annuncio[@id="'.$idInsertion.'"]/listaDisponibili/idProgrammatore[text()="'.$idUser.'"]'); 
+	my $nodoInsertion=$doc->findnodes('/bacheca/persona[@id="'.$idUserInsertion.'"]/listaAnnunci/annuncio[@id="'.$idInsertion.'"]/listaDisponibili/idProgrammatore[text()="'.$idUser.'"]')->get_node(1); 
 
-	if(!defined($nodoInsertion))
-	{
-		print $cgi->redirect( 'profile.cgi?msgError=Errore nella rimozione dell\'accetazione.' );
-	}
-	else
+	if(defined($nodoInsertion))
 	{
 		my $bacheca = $nodoInsertion->parentNode;
 
@@ -50,6 +46,10 @@ if(defined($session))
 		
 
 		print $cgi->redirect( 'showInsertions.cgi' );
+	}
+	else
+	{
+		print $cgi->redirect( 'showAcceptions.cgi?msgError=Errore nella rimozione dell\'accetazione.' );
 	}
 }
 else

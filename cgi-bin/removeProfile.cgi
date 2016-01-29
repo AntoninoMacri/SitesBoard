@@ -31,9 +31,8 @@ if(defined($session))
 
 		#serializzazione
 		open(OUT, ">../data/database.xml");
-		print OUT $doc->toString;
+		print OUT $bacheca->toString;
 		close(OUT);
-		
 
 		print $cgi->redirect( 'logout.cgi' );
 	}

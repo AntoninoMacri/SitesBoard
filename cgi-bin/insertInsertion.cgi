@@ -13,17 +13,15 @@ require 'functions/session_function.cgi';
 my $session = getSession();
 my $cgi = CGI->new();
 
-#my $titleInsertion = $cgi->param('titolo');
-#my $objectInsertion = $cgi->param('oggetto');
-#my $descriptionInsertion = $cgi->param('descrizione');
+my $titleInsertion = $cgi->param('addTitolo');
+my $objectInsertion = $cgi->param('addOggetto');
+my $descriptionInsertion = $cgi->param('addDescrizione');
+my $TipoInsertion = $cgi->param('addTipologia');
 
-my $titleInsertion = "prova";
-my $objectInsertion = "prova";
-my $descriptionInsertion = "prova";
 
 
 #controllo se si è loggati
-if(defined($session) &&  defined($titleInsertion)&&  defined($objectInsertion)&&  defined($descriptionInsertion))
+if(defined($session) &&  defined($titleInsertion)&&  defined($objectInsertion)&&  defined($descriptionInsertion)&&  defined($TipoInsertion))
 {
 	my $userUsername = $session->param('username');
 	my $userPassword = $session->param('password');
@@ -35,26 +33,24 @@ if(defined($session) &&  defined($titleInsertion)&&  defined($objectInsertion)&&
 	my $doc = $parser->parse_file($file) || die("File non trovato");
 
 	#ottengo tutti gli id di tutti gli annunci
-	my $id_annuncio=$doc->findnodes('/bacheca/persona[user/text()="'.$userUsername.'" and password/text()="'.$userPassword.'"]/listaAnnunci/annuncio/@id'); 
+	my @id_annuncio=$doc->findnodes('/bacheca/persona[user/text()="'.$userUsername.'" and password/text()="'.$userPassword.'"]/listaAnnunci/annuncio/@id'); 
 	#scorro la lista per ottenere l'id più grande
 	my $highest;
-	for (my $x=1; $x <= $id_annuncio->size; $x++) {
-		if($id_annuncio > $highest)
+
+	for (@id_annuncio) {
+		if($_->nodeValue > $highest)
 		{
-			$highest = $id_annuncio->to_literal;
+			$highest = $_->nodeValue;
 		}
 	}
 
-	print "Content-type: text/html\n\n";
-	print $id_annuncio;
+	$highest = $highest + 1;
+	
 
 	my $userNode = $doc->findnodes('/bacheca/persona[user/text()="'.$userUsername.'" and password/text()="'.$userPassword.'"]/listaAnnunci')->get_node(1);
 
-	if(!defined($userNode))
-	{
-		print $cgi->redirect( 'addInsertions.cgi?msgError=Errore nell\'inserimento dell\'inserzione.' );
-	}
-	else
+	#controlla se la ricerca è andata a buon fine
+	if(defined($userNode))
 	{
 		my $data = strftime "%F", gmtime;
 
@@ -62,10 +58,9 @@ if(defined($session) &&  defined($titleInsertion)&&  defined($objectInsertion)&&
 							<titolo>'.$titleInsertion.'</titolo>
 							<oggetto>'.$objectInsertion.'</oggetto>
 							<descrizione>'.$descriptionInsertion.'</descrizione>
-							<tipologia>Social</tipologia>
+							<tipologia>"'.$TipoInsertion.'"</tipologia>
 							<data>'.$data.'</data>
 							<listaDisponibili>
-								<idProgrammatore>1</idProgrammatore>
 							</listaDisponibili>
 						</annuncio>';
 
@@ -79,10 +74,16 @@ if(defined($session) &&  defined($titleInsertion)&&  defined($objectInsertion)&&
 
 		#serializzazione
 		open(OUT, ">../data/database.xml");
-		print OUT $doc->toString;
+		print OUT $userNode->toString;
 		close(OUT);
 
-		print $cgi->redirect( 'showInsertion.cgi' );
+		print $cgi->redirect( 'showInsertions.cgi' );
+
+	}
+	else
+	{
+
+		print $cgi->redirect( 'addInsertions.cgi?msgError=Errore nell\'inserimento dell\'inserzione.' );
 	}
 }
 else
