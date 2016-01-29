@@ -92,12 +92,12 @@ print <<EOF;
 					</ul>
 					<p>Tipologia Siti:</p>
 					<ul>
-						<li><a href="" hreflang="it" type="application/xhtml+xml"><span xml:lang="en" lang="en">E-commerce</span></a></li>
-						<li><a href="" hreflang="it" type="application/xhtml+xml"><span xml:lang="en" lang="en">Forum</span></a></li>
-						<li><a href="" hreflang="it" type="application/xhtml+xml"><span xml:lang="en" lang="en">Social</span></a></li>
-						<li><a href="" hreflang="it" type="application/xhtml+xml">Personali</a></li>
-						<li><a href="" hreflang="it" type="application/xhtml+xml">Aziendali</a></li>
-						<li><a href="" hreflang="it" type="application/xhtml+xml"><span xml:lang="en" lang="en">Blog</span></a></li>
+						<li><a href="eCommerce.cgi" hreflang="it" type="application/xhtml+xml"><span xml:lang="en" lang="en">E-commerce</span></a></li>
+						<li><a href="forum.cgi" hreflang="it" type="application/xhtml+xml"><span xml:lang="en" lang="en">Forum</span></a></li>
+						<li><a href="social.cgi" hreflang="it" type="application/xhtml+xml"><span xml:lang="en" lang="en">Social</span></a></li>
+						<li><a href="personali.cgi" hreflang="it" type="application/xhtml+xml">Personali</a></li>
+						<li><a href="aziendali.cgi" hreflang="it" type="application/xhtml+xml">Aziendali</a></li>
+						<li><a href="blog.cgi" hreflang="it" type="application/xhtml+xml"><span xml:lang="en" lang="en">Blog</span></a></li>
 					</ul>
 					
 				</div>
@@ -115,7 +115,8 @@ print <<EOF;
 					<p class="info" id="underline">
 					In particolare puoi: visualizzare gli annunci da te inseriti. Visualizzare gli annunci che hai accettato in attesa di conclusione asta. Aggiungere un nuovo annuncio che apparirà nella bacheca di <span xml:lang="en">SitesBoard</span> in ordine, dal più vicino al più lontano, di scadenza. Cancellare i tuoi annunci che per qualche motivo non ti interessa più condividere. 
 					</p>
-					<ul>
+
+					<ul id="underline">
 					<li><label for="name">Nome: <span class="bold"> $name </span> </label></li>
   					
   					<li><label for="surname">Cognome: <span class="bold"> $surname </span> </label></li>
@@ -126,6 +127,14 @@ print <<EOF;
   					
   					<li><label for="email">Email: <span class="bold"> $email</span> </label></li>
   					</ul>
+
+					<form name="modulo" method="post" action="removeProfile.cgi">
+					<fieldset id="remove_profile" title="Elimina il tuo profilo">
+						<legend id="remove_profile">Vuoi eliminare il tuo profilo?</legend>
+
+						<input class="buttons" id="rmProfile" type="submit" value="Elimina profilo">
+					</fieldset>
+					</form>
 				</div>
 			</div>
 			<!-- Div necessario per spostare il footer in fondo alla pagina -->
