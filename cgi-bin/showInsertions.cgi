@@ -17,15 +17,9 @@ if($session == undef)
     print redirect(-url => 'login.cgi');
 }
 
-my $name=getName($session);
-my $surname=getSurname($session);
-my $email=getEmail($session);
-my $date=getDate($session);
+my $userName=getUsername($session);
 
-utf8::encode($name);
-utf8::encode($surname);
-utf8::encode($email);
-utf8::encode($date);
+utf8::encode($userName);
 
 
 print "Content-type: text/html\n\n";
