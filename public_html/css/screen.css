@@ -57,13 +57,13 @@ div {
 	/*---------------------------------------------------
 	----------------------HEADER-------------------------
 	-----------------------------------------------------*/
+	
 	#header{
 		background-color: #F0F8FF;
-
 		padding: 1px 20px 20px 20px;
-
-		height: 11em;
+		height: auto;
 	}
+
 		#header_logo{
 			float: left;
 			margin-top: 1.5em;
@@ -103,7 +103,7 @@ div {
 				vertical-align: middle;
 			}
 
-				#header_login #home_profile_logo{
+				#header_login #profile_logo{
 					max-height: 20px;
 				}
 
@@ -146,6 +146,10 @@ div {
 			.menu a{
 				display: block;
 				padding-bottom: 0.5em;
+			}
+
+			.menu li{
+				margin-bottom: 5px;
 			}
 
 		/*menu per il login*/
@@ -199,6 +203,14 @@ div {
 		background-color: #F0F8FF;
 	}
 
+		#contents #underline{
+			border-style: solid;
+			border-color: #D3D3D3;
+			border-width: 0px;
+			border-bottom-width: 1px;
+			padding-bottom: 20px;
+		}
+
 		#contents h3 {
 			text-align: center;
 			padding-bottom:10px;
@@ -206,6 +218,10 @@ div {
 			border-color: #D3D3D3;
 			border-width: 0px;
 			border-bottom-width: 1px;
+		}
+
+		#contents #infoBold{ /*informazioni importanti nelle info dei contenuti da evidenziare mettendo in blod il font*/
+			font-weight: bold;
 		}
 
 
@@ -349,41 +365,6 @@ div {
 			}
 
 
-
-/*--------------profile_change.cgi-------------------*/
-#cont_profile_change .info{
-	font-size: small;
-}
-
-#cont_profile_change .buttons{
-	width: 100px;
-
-	margin-top: 10px;
-	margin-bottom: 0px;
-	margin-right: 10px;
-
-	float: left;
-}
-
-
-#cont_profile_change form{
-
-	width: 250px;
-
-	margin-top: 20px;
-
-	margin-bottom: 20px;
-}
-
-	#cont_profile_change form input{
-		float: right;
-	}
-
-	#cont_profile_change form age{   /*<--------errore*/
-		width: 20px;
-	}
-
-
 /*--------------insertion.cgi-------------------*/
 
 
@@ -397,18 +378,10 @@ div {
 		float: right;					
 	}
 
-		#cont_insertion #object,
-		#cont_insertion #type{
-			border-style: solid;
-			border-color: #D3D3D3;
-			border-width: 0px;
-			border-bottom-width: 1px;
-
-			padding-bottom: 20px;
-		}
-
 		#cont_insertion fieldset{
-			margin:10px 0px 0px 0px;
+			width: 15%;
+			margin: 40px auto 20px 0px;
+			text-align: center;
 		}
 
 /*--------------addInsertion.cgi-------------------*/
@@ -473,6 +446,8 @@ div {
 
 
 /*--------------profile.cgi-------------------*/
+
+
 #cont_profile #underline{
 	border-style: solid;
 	border-color: #D3D3D3;
@@ -482,16 +457,68 @@ div {
 	padding-bottom: 20px;
 }
 
+	#cont_profile fieldset#remove_profile{
+		text-align: center;
+		width: 40%;
+		margin: auto;
+	}
+
+		#cont_profile input #rmProfile.buttons{
+			color: red;
+			font-size: inherit;
+		}
+
 	#cont_profile ul{
 		list-style: none;
 		padding-left: 0;	
 	}
 
 		#cont_profile ul li{
-			padding: 10px 0px 20px 0px;
+			padding: 15px 0px 15px 0px;
 		}
 			#cont_profile ul li label span.bold{
 				font-weight: bold;
 			}
+
+
+			
+
+			#cont_profile form fieldset input{
+				font-size: inherit;
+				color: red;
+			}
+
+
+/*--------------profile_change.cgi-------------------*/
+
+
+#cont_profile_change .info{
+	font-size: small;
+	margin: 0px;
+}
+
+#cont_profile_change .buttons{
+	width: 100px;
+
+	margin-top: 10px;
+	margin-bottom: 0px;
+	margin-right: 10px;
+
+	float: left;
+}
+
+
+#cont_profile_change form{
+
+	width: 290px;
+
+	margin-top: 20px;
+
+	margin-bottom: 20px;
+}
+
+	#cont_profile_change form input{
+		float: right;
+	}
 
 
