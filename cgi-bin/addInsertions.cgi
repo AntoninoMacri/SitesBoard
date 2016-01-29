@@ -1,8 +1,16 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
+use CGI qw(:standard);
+use CGI::Carp qw(fatalsToBrowser);
+use strict;
 
 require 'functions/function.cgi';
 require 'functions/session_function.cgi';
 
+#prendo eventuali parametri in ingresso con il GET
+my $cgi = new CGI;
+my $msgParam = $cgi->param('msgError');
+
+#ridireziono l'utente loggato alla home
 my $session=getSession();
 
 if($session == undef)
@@ -101,11 +109,21 @@ print <<EOF;
 					<p class="info">
 					In particolare un annuncio si compone di: un titolo, un oggetto ed una descrizione.  
 					</p>
-					<p class="info" id="underline">
+					<p class="info underline">
 					Ricordati di fare salva quando hai portato a termine tutte le eventuali operazioni!
 					</p>
 
-					<form name="modulo" method="post" action="showInsertion.cgi" onsubmit="return addInsertionControl()">
+					<!-- Messaggio di errore  -->
+					<p id="cont_error" title="Messaggio di errore">
+EOF
+if(defined($msgParam))
+{
+	print $msgParam;
+}
+print <<EOF;
+					</p>
+
+					<form name="modulo" method="post" action="insertInsertion.cgi" onsubmit="return addInsertionControl()">
 					<fieldset title="Campi da compilare per creare un nuovo annuncio">
 						<legend>Campi da compilare</legend>
 
