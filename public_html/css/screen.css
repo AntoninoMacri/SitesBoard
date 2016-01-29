@@ -153,8 +153,8 @@ div {
 			margin-top: 20px;
 		}
 
-			#nav_login p{
-				color: black;
+			#nav_login p{	/* logErr */
+				color: red;
 				text-align: center;
 			}
 
