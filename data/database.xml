@@ -28,6 +28,9 @@
 				<descrizione>Stiamo cercando qualcuno con conoscenze di c++, html, javascript e css3 in grado di creare un nuovo social che un giorno possa competere con Facebook2</descrizione>
 				<tipologia>Blog</tipologia>
 				<data>2015-12-15</data>
+				<listaDisponibili>
+					<idProgrammatore>2</idProgrammatore>
+				</listaDisponibili>
 			</annuncio>
 		</listaAnnunci>
 	</persona>
@@ -56,6 +59,9 @@
 				<descrizione>Stiamo cercando qualcuno con conoscenze di c++, html, javascript e css3 in grado di creare un nuovo social che un giorno possa competere con Facebook2</descrizione>
 				<tipologia>E-commerce</tipologia>
 				<data>2015-12-09</data>
+				<listaDisponibili>
+					<idProgrammatore>2</idProgrammatore>
+				</listaDisponibili>
 			</annuncio>
 			<annuncio id="3">
 				<titolo>Facebook6</titolo>
