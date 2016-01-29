@@ -1,10 +1,17 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
 
-require 'functions/function.cgi';
+use CGI qw(:standard);
+use CGI::Carp qw(warningsToBrowser fatalsToBrowser);
+use CGI;
+
 require 'functions/session_function.cgi';
+require 'functions/function.cgi';
+
+#prendo eventuali parametri in ingresso con il GET
+my $cgi = new CGI;
+my $msgParam = $cgi->param('msgError');
 
 my $session=getSession();
-
 if($session == undef)
 {
     print redirect(-url => 'login.cgi');
@@ -113,6 +120,15 @@ print <<EOF;
 
 				<h3><span xml:lang="it" lang="it">Il tuo profilo</span></h3>
 				<div id="cont_profile">
+					<!-- Messaggio di errore  -->
+					<p id="cont_error" title="Messaggio di errore">
+EOF
+if(defined($msgParam))
+{
+	print $msgParam;
+}
+print <<EOF;
+					</p>
 					<p class="info">
 					Ti trovi all'interno dell'area personale del tuo profilo. Da qui è possibile gestire tutti i tuoi annunci o quelli a cui sei interessato.
 					</p>

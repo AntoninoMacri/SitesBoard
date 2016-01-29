@@ -90,7 +90,7 @@ print <<EOF;
 					Se non disponi di un <span xml:lang="en" lang="en">username</span> e di una <span xml:lang="en" lang="en">password</span> allora prima di effettuare il <span xml:lang="en" lang="en">login</span> devi <a href="registration.html" hreflang="it">registrarti</a>.<br/>
 					Se hai dimenticato la <span xml:lang="en" lang="en">password</span> allora prima di effettuare il <span xml:lang="en" lang="en">login</span> devi <a href="pass_recovery.html" hreflang="it">recuperarla</a>.
 					<!-- Messaggio di errore  -->
-					<p id="logErr" title="Messaggio di errore compilazione form login">
+					<p id="cont_error" title="Messaggio di errore compilazione form login">
 EOF
 if(defined($msgParam))
 {

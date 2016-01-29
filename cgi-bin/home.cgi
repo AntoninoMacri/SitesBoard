@@ -112,7 +112,7 @@ print <<PEZZO;
 				<div id="nav_login" class="menu" title="Menù di Login del sito">
 					<h3><span xml:lang="en" lang="en">Login</span></h3>
 					<!-- Messaggio di errore -->
-					<p id="logErr" title="Messaggio di errore compilazione form login">
+					<p id="cont_error" title="Messaggio di errore compilazione form login">
 						inserisci <span xml:lang="en" lang="en">Password</span> ed <span xml:lang="en" lang="en">Username</span>
 					</p>
 					<!-- Form da compilare -->

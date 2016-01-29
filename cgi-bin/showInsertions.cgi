@@ -117,7 +117,7 @@ print <<EOF;
 				<h3><span xml:lang="it" lang="it">I tuoi annunci</span></h3>
 				<div id="cont_annunci">
 					<!-- Messaggio di errore  -->
-					<p id="logErr" title="Messaggio di errore">
+					<p id="cont_error" title="Messaggio di errore">
 EOF
 if(defined($msgParam))
 {
