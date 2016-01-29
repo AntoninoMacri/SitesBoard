@@ -19,7 +19,7 @@
 				<tipologia>Social</tipologia>
 				<data>2015-12-29</data>
 				<listaDisponibili>
-					<idProgrammatore>1</idProgrammatore>
+					<idProgrammatore>2</idProgrammatore>
 				</listaDisponibili>
 			</annuncio>
 			<annuncio id="2">
@@ -63,6 +63,9 @@
 				<descrizione>Stiamo cercando qualcuno con conoscenze di c++, html, javascript e css3 in grado di creare un nuovo social che un giorno possa competere con Facebook2</descrizione>
 				<tipologia>Forum</tipologia>
 				<data>2015-12-09</data>
+				<listaDisponibili>
+					<idProgrammatore>1</idProgrammatore>
+				</listaDisponibili>
 			</annuncio>
 		</listaAnnunci>
 	</persona>

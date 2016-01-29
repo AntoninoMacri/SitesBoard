@@ -160,11 +160,40 @@ sub getPersonalAd()
 		my $annuncio=$query->get_node($x);
 		my $titolo=$annuncio->findnodes('titolo/text()')->to_literal;
 		my $oggetto=$annuncio->findnodes('oggetto/text()')->to_literal;
-		my $descrizione=$annuncio->findnodes('descrizione/text()')->to_literal;
 		my $tipologia=$annuncio->findnodes('tipologia/text()')->to_literal;
 		my $data=$annuncio->findnodes('data/text()')->to_literal;
-		my @var = ($sessionUsername,$titolo,$oggetto,$descrizione,$tipologia,$data); #array contenente un annuncio
+		my $id=$doc->findnodes('/bacheca/persona[user/text()="'.$sessionUsername.'"]/@id');->to_literal;
+		my @var = ($sessionUsername,$titolo,$oggetto,$tipologia,$data,$id); #array contenente un annuncio
 		push @board, \@var;
 	}
 	return @board;
 }
+
+
+#sub getDisponibili()
+#{
+#	my $sessionUsername = $_[0];
+#
+#	my @board;
+#
+#	my $query=$doc->findnodes('/bacheca/persona[user/text()="'.$sessionUsername.'"]/listaAnnunci/annuncio/listaDisponibili/idProgrammatore');
+#	
+#
+#
+#	my $nome=$doc->findnodes('/bacheca/persona[@id="'.$sessionUsername.'"]/listaAnnunci/annuncio/listaDisponibili/idProgrammatore');
+#	
+#	my $cognome=$doc->findnodes('/bacheca/persona[user/text()="'.$sessionUsername.'"]/listaAnnunci/annuncio/listaDisponibili/idProgrammatore');
+#
+#
+##	for (my $x=1; $x <= $query->size; $x++) {
+##		my $annuncio=$query->get_node($x);
+##		my $titolo=$annuncio->findnodes('titolo/text()')->to_literal;
+##		my $oggetto=$annuncio->findnodes('oggetto/text()')->to_literal;
+##		my $descrizione=$annuncio->findnodes('descrizione/text()')->to_literal;
+##		my $tipologia=$annuncio->findnodes('tipologia/text()')->to_literal;
+##		my $data=$annuncio->findnodes('data/text()')->to_literal;
+##		my @var = ($sessionUsername,$titolo,$oggetto,$descrizione,$tipologia,$data); #array contenente un annuncio
+##		push @board, \@var;
+##	}
+#	return @board;
+#}
