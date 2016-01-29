@@ -36,9 +36,7 @@ print <<PRIMA_PARTE;
 		<meta name="description" content="Home Page di SitesBoard per la richiesta di Siti Web Professionali" />
 		<meta name="keywords" content="Home, Bacheca, Siti, Web" />
 		<meta name="language" content="italian it" />
-
-				<!-- JS -->
-		<script type="text/javascript" src="../js/control.js"></script>
+		
 	</head>
 	<body>
 		<div id="container">
@@ -95,12 +93,12 @@ print <<SECONDA_PARTE;
 
 					<p>Tipologia Siti:</p>
 					<ul>
-						<li><a href="bacheca_ecommerce.cgi" hreflang="it" ><span xml:lang="en" lang="en">E-commerce</span></a></li>
-						<li><a href="bacheca_forum.cgi" hreflang="it" ><span xml:lang="en" lang="en">Forum</span></a></li>
-						<li><a href="bacheca_social.cgi" hreflang="it" ><span xml:lang="en" lang="en">Social</span></a></li>
-						<li><a href="bacheca_personali.cgi" hreflang="it" >Personali</a></li>
-						<li><a href="bacheca_aziendali.cgi" hreflang="it" >Aziendali</a></li>
-						<li><a href="bacheca_blog.cgi" hreflang="it" ><span xml:lang="en" lang="en">Blog</span></a></li>
+						<li><a href="eCommerce.cgi" hreflang="it" ><span xml:lang="en" lang="en">E-commerce</span></a></li>
+						<li><a href="forum.cgi" hreflang="it" ><span xml:lang="en" lang="en">Forum</span></a></li>
+						<li><a href="social.cgi" hreflang="it" ><span xml:lang="en" lang="en">Social</span></a></li>
+						<li><a href="personali.cgi" hreflang="it" >Personali</a></li>
+						<li><a href="aziendali.cgi" hreflang="it" >Aziendali</a></li>
+						<li><a href="blog.cgi" hreflang="it" ><span xml:lang="en" lang="en">Blog</span></a></li>
 					</ul>
 					
 				</div>

@@ -26,7 +26,7 @@
 				<titolo>Facebook3</titolo>
 				<oggetto>Social network che dovrà competere con Facebook2</oggetto>
 				<descrizione>Stiamo cercando qualcuno con conoscenze di c++, html, javascript e css3 in grado di creare un nuovo social che un giorno possa competere con Facebook2</descrizione>
-				<tipologia>Social</tipologia>
+				<tipologia>Blog</tipologia>
 				<data>2015-12-15</data>
 			</annuncio>
 		</listaAnnunci>
@@ -54,7 +54,14 @@
 				<titolo>Facebook5</titolo>
 				<oggetto>Social network che dovrà competere con Facebook2</oggetto>
 				<descrizione>Stiamo cercando qualcuno con conoscenze di c++, html, javascript e css3 in grado di creare un nuovo social che un giorno possa competere con Facebook2</descrizione>
-				<tipologia>Social</tipologia>
+				<tipologia>E-commerce</tipologia>
+				<data>2015-12-09</data>
+			</annuncio>
+			<annuncio id="3">
+				<titolo>Facebook6</titolo>
+				<oggetto>Social network che dovrà competere con Facebook2</oggetto>
+				<descrizione>Stiamo cercando qualcuno con conoscenze di c++, html, javascript e css3 in grado di creare un nuovo social che un giorno possa competere con Facebook2</descrizione>
+				<tipologia>Forum</tipologia>
 				<data>2015-12-09</data>
 			</annuncio>
 		</listaAnnunci>

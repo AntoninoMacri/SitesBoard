@@ -15,7 +15,7 @@ if($session != undef)
    $name = getSessionUsername($session);
 }
 
-my $tipo='E-commerce';
+my $tipo='Social';
 my @info=getBoardTipologia($tipo);
 
 
@@ -24,7 +24,7 @@ print "Content-type: text/html\n\n";
 print <<PRIMA_PARTE;
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 	<head>
-		<title xml:lang="en" lang="en">E-Commerce - SitesBoard</title> 
+		<title xml:lang="en" lang="en">Social - SitesBoard</title> 
 
 		<link href="../css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
 		<link href="../css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
@@ -33,10 +33,10 @@ print <<PRIMA_PARTE;
 
 		<!-- Meta Tag -->
 		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
-		<meta name="title" content="E-Commerce - SitesBoard" />
+		<meta name="title" content="Social - SitesBoard" />
 		<meta name="author" content="Davide Rigoni, Francesco Fasolato, Giacomo Zecchin, Antonino Macrì" />
-		<meta name="description" content="Bacheca E-Commerce di SitesBoard per la richiesta di Siti Web Professionali" />
-		<meta name="keywords" content="E-Commerce, Bacheca, Siti, Web" />
+		<meta name="description" content="Bacheca Social di SitesBoard per la richiesta di Siti Web Professionali" />
+		<meta name="keywords" content="Social, Bacheca, Siti, Web" />
 		<meta name="language" content="italian it" />
 		
 	</head>
@@ -81,7 +81,7 @@ print <<SECONDA_PARTE;
 			</div>
 			<!-- PATH -->
 			<div id="path" title="Sezione del sito in cui ti trovi in questo momento">
-				Ti trovi in: <span class="notable" xml:lang="en" lang="en">Home -> Bacheca E-Commerce</span>
+				Ti trovi in: <span class="notable" xml:lang="en" lang="en">Home -> Bacheca Social</span>
 			</div>
 
 
@@ -95,9 +95,9 @@ print <<SECONDA_PARTE;
 
 					<p>Tipologia Siti:</p>
 					<ul>
-						<li><span xml:lang="en" lang="en">E-commerce</span></li>
+						<li><a href="eCommerce.cgi" hreflang="it" ><span xml:lang="en" lang="en">E-Commerce</span></a></li>
 						<li><a href="forum.cgi" hreflang="it" ><span xml:lang="en" lang="en">Forum</span></a></li>
-						<li><a href="social.cgi" hreflang="it" ><span xml:lang="en" lang="en">Social</span></a></li>
+						<li><span xml:lang="en" lang="en">Social</span></li>
 						<li><a href="personali.cgi" hreflang="it" >Personali</a></li>
 						<li><a href="aziendali.cgi" hreflang="it" >Aziendali</a></li>
 						<li><a href="blog.cgi" hreflang="it" ><span xml:lang="en" lang="en">Blog</span></a></li>
@@ -156,7 +156,7 @@ print <<FINE;
 			</div>
 			<!-- CONTENUTI DELLA PAGINA -->
 			<div id="contents">
-				<h3><span xml:lang="en" lang="en">E-Commerce</span></h3>
+				<h3><span xml:lang="en" lang="en">Social</span></h3>
 				<div id="cont_welcome">Benvenuti nella sito SitesBoard. In questo sito potete vedere, proporre e anche accettare richieste di creazione di siti web.</div>
 
 				
@@ -215,6 +215,6 @@ print <<FINE;
 		</div>
 	</body>
 </html>
-
+	
 FINE
 exit;
