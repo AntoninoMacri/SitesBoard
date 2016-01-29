@@ -40,6 +40,10 @@ print <<PRIMA_PARTE;
 		<meta name="description" content="Pagina personale dell'utente loggato" />
 		<meta name="keywords" content="Profile, Logged, Siti, Web" />
 		<meta name="language" content="italian it" />
+
+		<!-- JS -->
+		<script type="text/javascript" src="../js/control.js"></script>
+
 	</head>
 	<body>
 		<div id="container">
@@ -128,11 +132,11 @@ print <<EOF;
   					<li><label for="email">Email: <span class="bold"> $email</span> </label></li>
   					</ul>
 
-					<form name="modulo" method="post" action="removeProfile.cgi">
+					<form name="modulo" method="post" onclick="return alertOnRmProfile()" action="removeProfile.cgi">
 					<fieldset id="remove_profile" title="Elimina il tuo profilo">
 						<legend id="remove_profile">Vuoi eliminare il tuo profilo?</legend>
 
-						<input class="buttons" id="rmProfile" type="submit" value="Elimina profilo">
+						<input class="buttons" id="rmProfile" type="submit" onkeypress="return alertOnRmProfile()" value="Elimina profilo">
 					</fieldset>
 					</form>
 				</div>
