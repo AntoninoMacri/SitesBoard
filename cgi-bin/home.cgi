@@ -175,8 +175,8 @@ for (my $i=0; $i <scalar(@info); $i++) {
 	print	"<p class='HInsertions'>
 			<span id='title'>Titolo: $titolo</span>
 			<span id='obj'>Oggetto: $oggetto</span>
-			span id='date'>Data: $data</span>
-			span id='author'>Autore: $autore</span>
+			<span id='date'>Data: $data</span>
+			<span id='author'>Autore: $autore</span>
 			<span id='obj'>Oggetto: $tipologia</span>
 			</p>";
 }
