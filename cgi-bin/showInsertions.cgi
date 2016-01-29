@@ -1,10 +1,17 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
 
-require 'functions/function.cgi';
+use CGI qw(:standard);
+use CGI::Carp qw(warningsToBrowser fatalsToBrowser);
+use CGI;
+
 require 'functions/session_function.cgi';
+require 'functions/function.cgi';
+
+#prendo eventuali parametri in ingresso con il GET
+my $cgi = new CGI;
+my $msgParam = $cgi->param('msgError');
 
 my $session=getSession();
-
 if($session == undef)
 {
     print redirect(-url => 'login.cgi');
@@ -109,10 +116,18 @@ print <<EOF;
 
 				<h3><span xml:lang="it" lang="it">I tuoi annunci</span></h3>
 				<div id="cont_annunci">
+					<!-- Messaggio di errore  -->
+					<p id="logErr" title="Messaggio di errore">
+EOF
+if(defined($msgParam))
+{
+	print $msgParam;
+}
+print <<EOF;
+					</p>
 					<p class="info">
 					Questi sono gli annunci che hai inserito.
 					</p>
-					
 				</div>
 			</div>
 			<!-- Div necessario per spostare il footer in fondo alla pagina -->
