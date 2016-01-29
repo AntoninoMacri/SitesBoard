@@ -157,9 +157,12 @@ div {
 			margin-top: 20px;
 		}
 
-			#nav_login p{	/* logErr */
-				color: red;
+			#nav_login p{
 				text-align: center;
+			}
+
+			#nav_login #nav_error{
+				color: red;
 			}
 
 			#nav_login form{
@@ -218,6 +221,10 @@ div {
 			border-color: #D3D3D3;
 			border-width: 0px;
 			border-bottom-width: 1px;
+		}
+
+		#contents #cont_error{ /* messaggi di errore in rosso*/
+			color: red;
 		}
 
 		#contents #infoBold{ /*informazioni importanti nelle info dei contenuti da evidenziare mettendo in blod il font*/
