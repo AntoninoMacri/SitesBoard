@@ -20,7 +20,7 @@ if(defined($session))
 
 	my $userUsername = $session->param('username');
 	my $userPassword = $session->param('password');
-	
+
 	#creazione oggetto e dichiarazione variabili
 	my $file = '../data/database.xml';  
 	my $parser = XML::LibXML->new();
@@ -34,7 +34,7 @@ if(defined($session))
 
 	if(!defined($nodoInsertion))
 	{
-		print $cgi->redirect( 'profile.cgi?msgError=Errore cancellazione del profilo.' );
+		print $cgi->redirect( 'profile.cgi?msgError=Errore nella rimozione dell\'accetazione.' );
 	}
 	else
 	{
@@ -49,7 +49,7 @@ if(defined($session))
 		close(OUT);
 		
 
-		print $cgi->redirect( 'logout.cgi' );
+		print $cgi->redirect( 'showInsertions.cgi' );
 	}
 }
 else
