@@ -149,7 +149,7 @@ sub isMin()
 }
 
 
-sub getAdPersonali()
+sub getPersonalAd()
 {
 	my $sessionUsername = $_[0];
 
