@@ -10,8 +10,7 @@ require 'functions/session_function.cgi';
 #ottengo la sessione
 my $session = getSession();
 my $cgi = CGI->new();
-#$userInsertion = $cgi->param('idInsertion');
-$userInsertion = "1";
+$userInsertion = $cgi->param('idInsertion');
 
 
 #controllo se si è loggati
