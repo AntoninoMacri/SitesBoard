@@ -132,11 +132,11 @@ print <<EOF;
 					<p class="info">
 					Ti trovi all'interno dell'area personale del tuo profilo. Da qui è possibile gestire tutti i tuoi annunci o quelli a cui sei interessato.
 					</p>
-					<p class="info" id="underline">
+					<p class="info underline">
 					In particolare puoi: visualizzare gli annunci da te inseriti. Visualizzare gli annunci che hai accettato in attesa di conclusione asta. Aggiungere un nuovo annuncio che apparirà nella bacheca di <span xml:lang="en">SitesBoard</span> in ordine, dal più vicino al più lontano, di scadenza. Cancellare i tuoi annunci che per qualche motivo non ti interessa più condividere. 
 					</p>
 
-					<ul id="underline">
+					<ul class="underline">
 					<li><label for="name">Nome: <span class="bold"> $name </span> </label></li>
   					
   					<li><label for="surname">Cognome: <span class="bold"> $surname </span> </label></li>

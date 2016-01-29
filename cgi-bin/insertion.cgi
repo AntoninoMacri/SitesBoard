@@ -112,15 +112,15 @@ print <<EOF;
 					</p>
 
 					<p id="title">
-					<span class="insInfo">Titolo:</span> $titolo
+					<span>Titolo:</span> $titolo
 					</p>
 
-					<p id="underline">
-					<span class="insInfo">Oggetto:</span> $oggetto
+					<p class="underline">
+					<span>Oggetto:</span> $oggetto
 					</p>
 
-					<p id="underline">
-					<span class="insInfo" id="description">Descrizione:</span> </br> $descrizione
+					<p class="underline">
+					<span>Descrizione:</span> </br> $descrizione
 					</p>
 
 					<form name="modulo" method="post" action="acceptedInsertions.cgi">

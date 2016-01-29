@@ -366,19 +366,6 @@ function checkData(y, m, d, err){
     return b;
 }
 
-
-function ContaCaratteri()
-{
-    document.modulo.conta.value = document.modulo.testo.value.length;
-    var massimo = 2000;
-    if (document.modulo.testo.value.length > massimo)
-    {
-        document.modulo.testo.value = document.modulo.testo.value.substr(0, massimo);
-        document.modulo.conta.value = massimo;
-        alert("Massimo " + massimo + " caratteri!");
-    }
-}
-
 function checkTitolo(par, err){
     var tag= document.getElementById(par);
 	document.getElementById(par).focus();
@@ -410,4 +397,13 @@ function checkDescrizione(par, err){
         b=false;
     }
     return b;
+}
+
+function alertOnRmProfile()
+{
+    var x = confirm("Sei sicuro di cancellare definitivamente il tuo profilo da SitesBoard?");
+      if (x)
+          return true;
+      else
+        return false;
 }

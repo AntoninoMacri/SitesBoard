@@ -53,7 +53,13 @@ div {
 	font-size: 0.8em;
 }
 
-.underline{}
+.underline{
+	border-style: solid;
+	border-color: #D3D3D3;
+	border-width: 0px;
+	border-bottom-width: 1px;
+	padding-bottom: 20px;
+}
 
 
 	/*---------------------------------------------------
@@ -207,14 +213,6 @@ div {
 		padding:1px 20px 20px 20px;
 		background-color: #F0F8FF;
 	}
-
-		#contents #underline{
-			border-style: solid;
-			border-color: #D3D3D3;
-			border-width: 0px;
-			border-bottom-width: 1px;
-			padding-bottom: 20px;
-		}
 
 		#contents h3 {
 			text-align: center;
@@ -405,16 +403,6 @@ div {
 	margin-bottom: 20px;
 }
 
-
-#cont_add #underline{
-	border-style: solid;
-	border-color: #D3D3D3;
-	border-width: 0px;
-	border-bottom-width: 1px;
-
-	padding-bottom: 20px;
-}
-
 	#cont_add form fieldset{
 		margin:10px 0px 0px 0px;
 	}
@@ -460,15 +448,6 @@ div {
 
 /*--------------profile.cgi-------------------*/
 
-
-#cont_profile #underline{
-	border-style: solid;
-	border-color: #D3D3D3;
-	border-width: 0px;
-	border-bottom-width: 1px;
-
-	padding-bottom: 20px;
-}
 
 	#cont_profile fieldset#remove_profile{
 		text-align: center;

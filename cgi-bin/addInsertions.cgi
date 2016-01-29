@@ -123,30 +123,40 @@ if(defined($msgParam))
 print <<EOF;
 					</p>
 
-					<form name="modulo" method="post" action="insertInsertion.cgi" onsubmit="return addInsertionControl()">
+					<form name="addForm" method="post" action="insertInsertion.cgi" onsubmit="return addInsertionControl()">
 					<fieldset title="Campi da compilare per creare un nuovo annuncio">
 						<legend>Campi da compilare</legend>
 
-						<ul>
-						<label for="titolo">Titolo</label>
-		  				<li> <input id="titolo" type="text" name="titolo" value=""> </li>
-		  				
-		  				<label for="oggetto">Oggetto</label>
-		  				<li> <input id="oggetto" type="text" name="oggetto" value=""> </li>
-	  					</ul>
+						<label for="addTitolo">Titolo</label>
+		  				<input id="addTitolo" type="text" name="addTitolo" value="">
 
-	  					<label for="descrizione">Descrizione (max 2000 caratteri)</label>
-	  					<textarea id="testo" name="testo" onkeyup="ContaCaratteri()" onkeydown="ContaCaratteri()" onkeypress="ContaCaratteri()"></textarea>
-						Caratteri utilizzati : <input id="conta_caratteri" type="text" name="conta" value="0" readonly>
+		  				<laber for="addTipologia">Tipologia</label>
+			  			<select id="addTipologia" name="addTipologia">
+							<option value="eCommerce" selected>E-commerce</option>
+							<option value="forum">Forum</option>
+							<option value="social">Social</option>
+							<option value="personali">Personali</option>
+  							<option value="aziendali">Aziendali</option>
+							<option value="blog">Blog</option>
+						</select>
+		  				
+		  				<label for="addOggetto">Oggetto</label>
+		  				<input id="addOggetto" type="text" name="addOggetto" value="">
+
+	  					<label for="addDescrizione">Descrizione (max 2000 caratteri)</label>
+	  					<textarea id="addDescrizione" name="addDescrizione" onkeyup="ContaCaratteri()" onkeydown="ContaCaratteri()" onkeypress="ContaCaratteri()"></textarea>
 					</fieldset>
 
-					<fieldset id="new" title="Crea nuovo annuncio">
+					<fieldset id="addNew" title="Crea nuovo annuncio">
 						<legend id="new_insertion">Crea nuovo annuncio</legend>
 
 						<input class="buttons" id="submit_new" type="submit" value="Crea" onkeypress="return addInsertionControl()">
 						<input class="buttons" id="reset_new" type="reset" value="Reset">
 					</fieldset>
 					</form>
+
+					<span>Caratteri utilizzati: <span id="contaCaratteri" value="0" readonly>
+
 				</div>
 			</div>
 
