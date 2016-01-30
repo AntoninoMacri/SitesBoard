@@ -25,7 +25,7 @@
 
 			<!-- HEADER-->
 			<div id="header">
-				<a href="home.html" hreflang="it" ><img id="header_logo" src="../media/logo.png" alt="Logo del sito SitesBoard" title = "Logo del sito"/></a>
+				<a href="../cgi-bin/home.cgi" hreflang="it" ><img id="header_logo" src="../media/logo.png" alt="Logo del sito SitesBoard" title = "Logo del sito"/></a>
 				<h1>SitesBoard</h1>
 				<h2>La <span xml:lang="en" lang="en">Sites Board</span> per richiedere Siti <span xml:lang="en" lang="en">Web</span></h2>
 			</div>
@@ -45,15 +45,15 @@
 				<!-- MENÙ DI NAVIGAZIONE -->
 				<div id="nav_menu" class="menu" title ="Menù di navigazione del sito">
 					<h3>Menù</h3>
-					<a href="home.html" xml:lang="en" lang="en" hreflang="it" >Home</a>
+					<a href="../cgi-bin/home.cgi" xml:lang="en" lang="en" hreflang="it" >Home</a>
 					<p>Tipologia Siti:</p>
 					<ul>
-						<li><a href="" hreflang="it" ><span xml:lang="en" lang="en">E-commerce</span></a></li>
-						<li><a href="" hreflang="it" ><span xml:lang="en" lang="en">Forum</span></a></li>
-						<li><a href="" hreflang="it" ><span xml:lang="en" lang="en">Social</span></a></li>
-						<li><a href="" hreflang="it" >Personali</a></li>
-						<li><a href="" hreflang="it" >Aziendali</a></li>
-						<li><a href="" hreflang="it" ><span xml:lang="en" lang="en">Blog</span></a></li>
+						<li><a href="../cgi-bin/eCommerce.cgi" hreflang="it" ><span xml:lang="en" lang="en">E-commerce</span></a></li>
+						<li><a href="../cgi-bin/forum.cgi" hreflang="it" ><span xml:lang="en" lang="en">Forum</span></a></li>
+						<li><a href="../cgi-bin/social.cgi" hreflang="it" ><span xml:lang="en" lang="en">Social</span></a></li>
+						<li><a href="../cgi-bin/personali.cgi" hreflang="it" >Personali</a></li>
+						<li><a href="../cgi-bin/aziendali.cgi" hreflang="it" >Aziendali</a></li>
+						<li><a href="../cgi-bin/blog.cgi" hreflang="it" ><span xml:lang="en" lang="en">Blog</span></a></li>
 					</ul>
 				</div>
 
@@ -64,8 +64,7 @@
 				<div id="nav_login" class="menu" title="Menù di Login del sito">
 					<h3><span xml:lang="en" lang="en">Login</span></h3>
 					<!-- Messaggio di errore -->
-					<p id="logErr" title="Messaggio di errore compilazione form login"> Inserire
-						<span xml:lang="en" lang="en">Password</span> e <span xml:lang="en" lang="en">Username</span>
+					<p id="nav_error" title="Messaggio di errore compilazione form login"> Inserire
 					</p>
 					<!-- Form da compilare -->
 					<form onsubmit="return loginControl()" method="post" action="login.html">
@@ -78,8 +77,7 @@
 							<input type="submit" name="login_submit" id="login_submit" value="Accedi al sito" />
 						</fieldset>
 					</form>
-					<a class ="minimal" href="registration.html" hreflang="it" >Non ti sei ancora registrato?</a>
-					<a class = "minimal" href="pass_recovery.html" hreflang="it" >Non trovi più la <span xml:lang="en" lang="en">password?</span></a>
+					<a class ="minimal" href="../cgi-bin/registration.cgi" hreflang="it" >Non ti sei ancora registrato?</a>
 				</div>
 
 			</div>
@@ -93,9 +91,8 @@
 
 				<!-- Div contenuto della registrazione -->
 				<div id="cont_pass_recovery" title="Form da compilare per il recupero della password">
-					<!-- Form di registrazione -->
-					Inserire Nome, Cognome e Indirizzo <span xml:lang="en" lang="en">email</span> dell'<span xml:lang="en" lang="en">account</span> di cui si sta cercando di recuperare la <span xml:lang="en" lang="en">password</span>.<br/>
-					Se i dati inseriti sono corretti, le verrà inviata un'<span xml:lang="en" lang="en">email</span> con il nuovo codice di accesso.
+					Inserire i dati relativi al proprio profilo e la nuova password.<br />
+					Se i dati sono corretti verrà reimpostata automaticamente la password.
 					<!-- Messaggio di errore -->
 					<p id="cont_error" title="Messaggio di errore compilazione form di recupero password">
 					</p>

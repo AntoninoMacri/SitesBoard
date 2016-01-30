@@ -48,7 +48,7 @@ print <<EOF;
 
 			<!-- HEADER-->
 			<div id="header">
-				<a href="home.html" hreflang="it" ><img id="header_logo" src="../media/logo.png" alt="Logo del sito SitesBoard" title = "Logo del sito"/></a>
+				<a href="home.cgi" hreflang="it" ><img id="header_logo" src="../media/logo.png" alt="Logo del sito SitesBoard" title = "Logo del sito"/></a>
 				<h1>SitesBoard</h1>
 				<h2>La <span xml:lang="en" lang="en">Sites Board</span> per richiedere Siti <span xml:lang="en" lang="en">Web</span></h2>
 			</div>
@@ -65,16 +65,37 @@ print <<EOF;
 				<!-- MENÙ DI NAVIGAZIONE -->
 				<div id="nav_menu" class="menu" title ="Menù di navigazione del sito">
 					<h3>Menù</h3>
-					<a href="home.html" xml:lang="en" lang="en" hreflang="it" >Home</a>
+					<a href="../cgi-bin/home.cgi" xml:lang="en" lang="en" hreflang="it" >Home</a>
 					<p>Tipologia Siti:</p>
 					<ul>
-						<li><a href="" hreflang="it" ><span xml:lang="en" lang="en">E-commerce</span></a></li>
-						<li><a href="" hreflang="it" ><span xml:lang="en" lang="en">Forum</span></a></li>
-						<li><a href="" hreflang="it" ><span xml:lang="en" lang="en">Social</span></a></li>
-						<li><a href="" hreflang="it" >Personali</a></li>
-						<li><a href="" hreflang="it" >Aziendali</a></li>
-						<li><a href="" hreflang="it" ><span xml:lang="en" lang="en">Blog</span></a></li>
+						<li><a href="eCommerce.cgi" hreflang="it" ><span xml:lang="en" lang="en">E-commerce</span></a></li>
+						<li><a href="forum.cgi" hreflang="it" ><span xml:lang="en" lang="en">Forum</span></a></li>
+						<li><a href="social.cgi" hreflang="it" ><span xml:lang="en" lang="en">Social</span></a></li>
+						<li><a href="personali.cgi" hreflang="it" >Personali</a></li>
+						<li><a href="aziendali.cgi" hreflang="it" >Aziendali</a></li>
+						<li><a href="blog.cgi" hreflang="it" ><span xml:lang="en" lang="en">Blog</span></a></li>
 					</ul>
+				</div>
+
+				<!-- MENÙ DI LOGIN-->
+				<!-- Da caricare solo se l'utente non è loggato-->
+				<div id="nav_login" class="menu" title="Menù di Login del sito">
+					<h3><span xml:lang="en" lang="en">Login</span></h3>
+					<!-- Messaggio di errore -->
+					<p id="nav_error" title="Messaggio di errore compilazione form login">
+					</p>
+					<!-- Form da compilare -->
+					<form onsubmit="return loginControl()" method="post" action="login.html">
+						<fieldset title="Campi da compilare per effettuare il Login">
+							<legend>Campi da compilare per effettuare il Login</legend>
+							<label for="login_user">Username</label>
+							<input type="text" name="login_user" id="login_user"/><br/>
+							<label for="login_password">Password</label>
+							<input type="password" name="login_password" id="login_password"/><br/>
+							<input type="submit" name="login_submit" id="login_submit" value="Accedi al sito" />
+						</fieldset>
+					</form>
+					<a class = "minimal" href="../html/pass_recovery.html" hreflang="it" >Non trovi più la <span xml:lang="en" lang="en">password?</span></a>
 				</div>
 
 			</div>
@@ -89,6 +110,7 @@ print <<EOF;
 				<!-- Div contenuto della registrazione -->
 				<div id="cont_registration" title="Form da compilare per eseguire la registrazione utente">
 					<!-- Form di registrazione -->
+					Compilare la <span xml:lang="en" lang="en">form</span> per procedere con la registrazione.
 					<!-- Messaggio di errore -->
 					<p id="cont_error" title="Messaggio di errore compilazione form di registrazione utente">
 EOF

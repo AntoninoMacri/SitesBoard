@@ -88,9 +88,7 @@ print <<SECONDA_PARTE;
 				<!-- MENÙ DI NAVIGAZIONE -->
 				<div id="nav_menu" class="menu" title ="Menù di navigazione del sito">
 					<h3>Menù</h3>
-
-					Home
-
+					<span>Home<span>
 					<p>Tipologia Siti:</p>
 					<ul>
 						<li><a href="eCommerce.cgi" hreflang="it" ><span xml:lang="en" lang="en">E-commerce</span></a></li>
@@ -128,7 +126,7 @@ print <<PEZZO;
 							<input type="submit" name="login_submit" id="login_submit" value="Accedi al sito" />
 						</fieldset>
 					</form>
-					<a class ="minimal" href="../html/registration.html" hreflang="it" >Non ti sei ancora registrato?</a>
+					<a class ="minimal" href="registration.cgi" hreflang="it" >Non ti sei ancora registrato?</a>
 					<a class = "minimal" href="../html/pass_recovery.html" hreflang="it" >Non trovi più la <span xml:lang="en" lang="en">password?</span></a>
 				</div>
 PEZZO
