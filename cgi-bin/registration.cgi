@@ -90,7 +90,7 @@ print <<EOF;
 				<div id="cont_registration" title="Form da compilare per eseguire la registrazione utente">
 					<!-- Form di registrazione -->
 					<!-- Messaggio di errore -->
-					<p id="regErr" title="Messaggio di errore compilazione form di registrazione utente">
+					<p id="cont_error" title="Messaggio di errore compilazione form di registrazione utente">
 EOF
 if(defined($msgParam))
 {
