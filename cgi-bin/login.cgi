@@ -71,12 +71,12 @@ print <<EOF;
 					<a href="home.cgi" xml:lang="en" lang="en" hreflang="it" >Home</a>
 					<p>Tipologia Siti:</p>
 					<ul>
-						<li><a href="" hreflang="it" ><span xml:lang="en" lang="en">E-commerce</span></a></li>
-						<li><a href="" hreflang="it" ><span xml:lang="en" lang="en">Forum</span></a></li>
-						<li><a href="" hreflang="it" ><span xml:lang="en" lang="en">Social</span></a></li>
-						<li><a href="" hreflang="it" >Personali</a></li>
-						<li><a href="" hreflang="it" >Aziendali</a></li>
-						<li><a href="" hreflang="it" ><span xml:lang="en" lang="en">Blog</span></a></li>
+						<li><a href="eCommerce.cgi" hreflang="it" ><span xml:lang="en" lang="en">E-commerce</span></a></li>
+						<li><a href="forum.cgi" hreflang="it" ><span xml:lang="en" lang="en">Forum</span></a></li>
+						<li><a href="social.cgi" hreflang="it" ><span xml:lang="en" lang="en">Social</span></a></li>
+						<li><a href="personali.cgi" hreflang="it" >Personali</a></li>
+						<li><a href="aziendali.cgi" hreflang="it" >Aziendali</a></li>
+						<li><a href="blog.cgi" hreflang="it" ><span xml:lang="en" lang="en">Blog</span></a></li>
 					</ul>
 				</div>
 
@@ -87,8 +87,8 @@ print <<EOF;
 
 				<!-- Div contenuto del Login -->
 				<div id="cont_login" title="Form da compilare per effettuare il Login">
-					Se non disponi di un <span xml:lang="en" lang="en">username</span> e di una <span xml:lang="en" lang="en">password</span> allora prima di effettuare il <span xml:lang="en" lang="en">login</span> devi <a href="registration.html" hreflang="it">registrarti</a>.<br/>
-					Se hai dimenticato la <span xml:lang="en" lang="en">password</span> allora prima di effettuare il <span xml:lang="en" lang="en">login</span> devi <a href="pass_recovery.html" hreflang="it">recuperarla</a>.
+					Se non disponi di un <span xml:lang="en" lang="en">username</span> e di una <span xml:lang="en" lang="en">password</span> allora prima di effettuare il <span xml:lang="en" lang="en">login</span> devi <a href="registration.cgi" hreflang="it">registrarti</a>.<br/>
+					Se hai dimenticato la <span xml:lang="en" lang="en">password</span> allora prima di effettuare il <span xml:lang="en" lang="en">login</span> devi <a href="../html/pass_recovery.html" hreflang="it">recuperarla</a>.
 					<!-- Messaggio di errore  -->
 					<p id="cont_error" title="Messaggio di errore compilazione form login">
 EOF

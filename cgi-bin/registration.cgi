@@ -65,7 +65,7 @@ print <<EOF;
 				<!-- MENÙ DI NAVIGAZIONE -->
 				<div id="nav_menu" class="menu" title ="Menù di navigazione del sito">
 					<h3>Menù</h3>
-					<a href="../cgi-bin/home.cgi" xml:lang="en" lang="en" hreflang="it" >Home</a>
+					<a href="home.cgi" xml:lang="en" lang="en" hreflang="it" >Home</a>
 					<p>Tipologia Siti:</p>
 					<ul>
 						<li><a href="eCommerce.cgi" hreflang="it" ><span xml:lang="en" lang="en">E-commerce</span></a></li>
