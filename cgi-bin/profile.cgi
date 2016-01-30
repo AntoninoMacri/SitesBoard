@@ -45,7 +45,7 @@ print <<PRIMA_PARTE;
 		<meta name="title" content="Profilo Utente - SitesBoard" />
 		<meta name="author" content="Davide Rigoni, Francesco Fasolato, Giacomo Zecchin, Antonino Macrì" />
 		<meta name="description" content="Pagina personale dell'utente loggato" />
-		<meta name="keywords" content="Profile, Logged, Siti, Web" />
+		<meta name="keywords" content="Profilo, Logged, Siti, Web" />
 		<meta name="language" content="italian it" />
 
 		<!-- JS -->
@@ -95,12 +95,6 @@ print <<EOF;
 				<div id="nav_menu" class="menu" title ="Menù di navigazione del sito">
 					<h3>Menù</h3>
 					<a href="home.cgi" xml:lang="en" lang="en" hreflang="it" >Home</a>
-					<p>Annunci:</p>
-					<ul>
-						<li><a href="addInsertions.cgi" hreflang="it" type="application/xhtml+xml">Nuovo</a></li>
-						<li><a href="showInsertions.cgi" hreflang="it" type="application/xhtml+xml">Inseriti</a></li>
-						<li><a href="acceptedInsertions.cgi" hreflang="it" type="application/xhtml+xml">Accettati</a></li>
-					</ul>
 					<p>Tipologia Siti:</p>
 					<ul>
 						<li><a href="eCommerce.cgi" hreflang="it" type="application/xhtml+xml"><span xml:lang="en" lang="en">E-commerce</span></a></li>
@@ -110,7 +104,18 @@ print <<EOF;
 						<li><a href="aziendali.cgi" hreflang="it" type="application/xhtml+xml">Aziendali</a></li>
 						<li><a href="blog.cgi" hreflang="it" type="application/xhtml+xml"><span xml:lang="en" lang="en">Blog</span></a></li>
 					</ul>
-					
+				</div>
+
+				<!-- MENÙ AMMINISTRAZIONE-->
+				<!-- Da caricare se l utente è loggato-->
+				<div id="nav_administration" class="menu" title="Menù di amministrazione del sito">
+					<h3>Amministrazione</h3>
+					<p>Annunci:</p>
+					<ul>
+						<li><a href="addInsertions.cgi" hreflang="it" type="application/xhtml+xml">Nuovo</a></li>
+						<li><a href="showInsertions.cgi" hreflang="it" type="application/xhtml+xml">Inseriti</a></li>
+						<li><a href="acceptedInsertions.cgi" hreflang="it" type="application/xhtml+xml">Accettati</a></li>
+					</ul>
 				</div>
 
 			</div>
