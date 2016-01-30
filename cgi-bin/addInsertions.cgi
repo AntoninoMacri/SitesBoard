@@ -128,7 +128,7 @@ print <<EOF;
 						<legend>Campi da compilare per creare un nuovo annuncio</legend>
 
 						<label for="addTitolo">Titolo</label>
-		  				<input id="addTitolo" type="text" name="addTitolo" value="" tabindex="1" />
+		  				<input id="addTitolo" type="text" name="addTitolo" maxlength="100" value="" tabindex="1" />
 
 		  				<label for="addTipologia">Tipologia</label>
 			  			<select id="addTipologia" name="addTipologia" tabindex="2" />
@@ -141,7 +141,7 @@ print <<EOF;
 						</select>
 		  				
 		  				<label for="addOggetto">Oggetto</label>
-		  				<input id="addOggetto" type="text" name="addOggetto" value="" tabindex="3" />
+		  				<input id="addOggetto" type="text" name="addOggetto" maxlength="300" value="" tabindex="3" />
 
 	  					<label for="addDescrizione">Descrizione (max 2000 caratteri)</label>
 	  					<textarea id="addDescrizione" name="addDescrizione" onkeyup="addCharCountdown()" onkeydown="addCharCountdown()" onkeypress="addCharCountdown()" tabindex="4"></textarea>

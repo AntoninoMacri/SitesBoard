@@ -56,7 +56,7 @@ print <<EOF;
 						Benvenuto <span class="notable">$username</span>
 					</div>
 					<div class="minimal">
-						<a class="edit" href="profile.cgi" hreflang="it" type="application/xhtml+xml">Il tuo profilo <img id="profile_logo" src="../media/header_profile.png" alt="Iconcina del profilo" title = "Vai al tuo profilo"/></a>
+						<a class="edit" href="profile.cgi" hreflang="it" type="application/xhtml+xml">Il tuo profilo <img id="profile_logo" src="../media/header_profile.png" alt="Iconcina del profilo" title = "Torna al tuo profilo"/></a>
 						&nbsp&nbsp&nbsp
 						<a class="edit" href="logout.cgi" hreflang="it" type="application/xhtml+xml">Logout <img id="logout_logo" src="../media/logout.png" alt="Iconcina del logout" title = "esegui il logout"/></a>
 					</div>
@@ -100,27 +100,29 @@ print <<EOF;
 					Ricordati di cliccare su salva una volta che avrai terminato le modifiche
 					</p>
 
-					 <form onsubmit="return profileChangeControl()" name="profileChange" method="post" action="profile_change.cgi">
+					 <form onsubmit="return profileChangeControl()" name="profileChange" method="post" action="profileChange.cgi">
 						<label for="name">Nome</label>
-	  					<input id="name" type="text" name="name" value="">
+	  					<input id="name" type="text" name="name" maxlength="30" value="" tabindex="1"/>
 	  					<br><br>
 	  					<label for="surname">Cognome</label>
-	  					<input id="surname" type="text" name="surname" value="">
+	  					<input id="surname" type="text" name="surname" maxlength="30" value="" tabindex="2" />
 	  					<br><br>
 	  					<label for="age">Data di nascita</label>
-
-	  					<input id="age" type="text" name="age" value="">
+	  					<input id="age" type="text" name="age" value="" tabindex="3" />
 	  					<br><br>
 	  					<label for="username">Username</label>
-	  					<input id="username" type="text"  name="username" value="">
+	  					<input id="username" type="text"  name="username" maxlength="40" value="" tabindex="4" >
 	  					<br><br>
 	  					<label for="email">Email</label>
-	  					<input id="email" type="text" name="email" value="">
+	  					<input id="email" type="text" name="email" value="" tabindex="5" />
+	  					<br><br>
+	  					<label for="bio">Biografia</label>
+	  					<textarea id="bio" rows="10" cols="70" type="text" name="bio" value="" tabindex="6"></textarea>
 	  					<br><br>
 
 	  					<input class="buttons" type="submit" value="Salva" onkeypress="return profileChangeControl()">
 
-						<input class="buttons" type="reset" value="Reset">
+						<input class="buttons" type="reset" value="Azzera">
 
 					</form>
 				</div>

@@ -294,7 +294,7 @@ div {
 
 		#cont_welcome div.HInsertions span#title{
 			display: block;
-			
+
 			border-style: solid;
 			border-color: blue;
 			border-width: 0px;
@@ -459,11 +459,11 @@ div {
 				display: block;
 			}
 
-			#cont_add form fieldset textarea{
+			#cont_add form fieldset textarea#addDescrizione{
 				min-width: 845px ;
 				min-height: 250px;
 				max-width: 845px;
-				max-height: 250px;
+				max-height: 500px;
 				margin:10px 0px 0px 0px;
 			}
 
@@ -548,16 +548,23 @@ div {
 
 
 #cont_profile_change form{
-
-	width: 290px;
-
 	margin-top: 20px;
-
 	margin-bottom: 20px;
 }
 
-	#cont_profile_change form input{
-		float: right;
+	#cont_profile_change form label{
+		display: block;
 	}
+
+	#cont_profile_change form input{
+		width: 200px;
+	}
+
+		#cont_profile_change form textarea#bio{
+			max-width: 850px;
+			max-height: 500px;
+		}
+
+	
 
 
