@@ -171,30 +171,23 @@ sub getPersonalAd()
 }
 
 
-#sub getDisponibili()
-#{
-#	my $sessionUsername = $_[0];
-#
-#	my @board;
-#
-#	my $query=$doc->findnodes('/bacheca/persona[user/text()="'.$sessionUsername.'"]/listaAnnunci/annuncio/listaDisponibili/idProgrammatore');
-#	
-#	my id_programmatore=
-#
-#	my $nome=$doc->findnodes('/bacheca/persona[@id="'.$sessionUsername.'"]/listaAnnunci/annuncio/listaDisponibili/idProgrammatore');
-#	
-#	my $cognome=$doc->findnodes('/bacheca/persona[user/text()="'.$sessionUsername.'"]/listaAnnunci/annuncio/listaDisponibili/idProgrammatore');
-#
-#
-##	for (my $x=1; $x <= $query->size; $x++) {
-##		my $annuncio=$query->get_node($x);
-##		my $titolo=$annuncio->findnodes('titolo/text()')->to_literal;
-##		my $oggetto=$annuncio->findnodes('oggetto/text()')->to_literal;
-##		my $descrizione=$annuncio->findnodes('descrizione/text()')->to_literal;
-##		my $tipologia=$annuncio->findnodes('tipologia/text()')->to_literal;
-##		my $data=$annuncio->findnodes('data/text()')->to_literal;
-##		my @var = ($sessionUsername,$titolo,$oggetto,$descrizione,$tipologia,$data); #array contenente un annuncio
-##		push @board, \@var;
-##	}
-#	return @board;
-#}
+sub getDisponibili()
+{
+	my $idUtente = $_[0];
+	my $idAnnuncio = $_[1];
+
+
+	my $ann=$doc->findnodes('/bacheca/persona[@id="'.$idUtente.'"]/listaAnnunci');
+	
+	my $listaDisp=$ann->findnodes('annuncio[@id="'.$idAnnuncio.'"]/listaDisponibili');
+
+	my @lista;
+
+	for (my $x=1; $x <= $listaDisp->size; $x++) {
+		my $l=$listaDisp->get_node($x);
+		my $idProg=$l->findnodes('idProgrammatore/text()')->to_literal;
+		my $username==$doc->findnodes('/bacheca/persona[@id="'.$idProg.'"]/user')->to_literal;
+		push @lista, $username;
+	}
+	return @lista;
+}
