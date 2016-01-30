@@ -74,7 +74,7 @@ if(defined($session) &&  defined($titleInsertion)&&  defined($objectInsertion)&&
 
 		#serializzazione
 		open(OUT, ">../data/database.xml");
-		print OUT $userNode->toString;
+		print OUT $doc->toString;
 		close(OUT);
 
 		print $cgi->redirect( 'showInsertions.cgi' );
