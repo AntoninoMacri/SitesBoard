@@ -145,11 +145,11 @@ if(defined($msgParam))
 					utf8::encode($id_annuncio);
 				
 					print	"<p class='HInsertions'>
-							<span id='title'>Titolo: <a href='insertion.cgi?idUser=id_persona$idInsertion=id_annuncio' hreflang='it' >$titolo</a></span>
+							<span id='title'>Titolo: <a href='insertion.cgi?idUser=$id_persona&idInsertion=$id_annuncio' hreflang='it' >$titolo</a></span>
 							<span id='obj'>Oggetto: $oggetto</span>
 							<span id='date'>Data: $data</span>
 							<span id='author'>Autore: $autore</span>
-							<span id='obj'>Oggetto: $tipologia</span>
+							<span id='obj'>Tipologia: $tipologia</span>
 							</p>";
 				}
 print <<EOF;

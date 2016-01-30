@@ -10,19 +10,30 @@ if($session == undef)
     print redirect(-url => 'login.cgi');
 }
 
-my @info=getAd(1,1); #ritorna un array{username,titolo,oggetto,descrizione,tipologia,data} per le info dell annuncio
+my $cgi = new CGI;
+my $idUser = $cgi->param('idUser');
+my $idInsertion = $cgi->param('idInsertion');
 
-$tipologia=$info[4];
+if(defined($idUser) && defined($idInsertion)){
+my @info=getAd($idUser, $idInsertion); #ritorna un array{username,titolo,oggetto,descrizione,tipologia,data} per le info dell annuncio
+
+$autore=$info[0];
 $titolo=$info[1];
 $oggetto=$info[2];
 $descrizione=$info[3];
+$tipologia=$info[4];
+$data=$info[5];
 
-utf8::encode($tipologia);
+utf8::encode($autore);
 utf8::encode($titolo);
 utf8::encode($oggetto);
 utf8::encode($descrizione);
+utf8::encode($tipologia);
+utf8::encode($data);
+}
 
 print "Content-type: text/html\n\n";
+
 
 print <<PRIMA_PARTE;
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
@@ -104,7 +115,7 @@ print <<EOF;
 			<!-- Contenuti della pagina -->
 			<div id="contents">
 
-				<h3 class="resizable"><span id="ins_author" xml:lang="it" lang="it">da: <a href="profile.cgi" hreflang="it" type="application/xhtml+xml"> @info[0] </a> </span> <span id="ins_date" xml:lang="it" lang="it">in data: @info[5] </span></h3>
+				<h3 class="resizable"><span id="ins_author" xml:lang="it" lang="it">da: <a href="profile.cgi" hreflang="it" type="application/xhtml+xml"> $autore</a> </span> <span id="ins_date" xml:lang="it" lang="it">in data: $data</span></h3>
 				<div id="cont_insertion">
 
 					<p id="underline">
