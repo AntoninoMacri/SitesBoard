@@ -155,7 +155,8 @@ print <<FINE;
 			<!-- CONTENUTI DELLA PAGINA -->
 			<div id="contents">
 				<h3><span xml:lang="en" lang="en">Home</span></h3>
-				<div id="cont_welcome">Benvenuti nella sito SitesBoard. In questo sito potete vedere, proporre e anche accettare richieste di creazione di siti web.</div>
+				<div id="cont_welcome"> 
+				<h4 class="underline">Benvenuti nella <span xml:lang="en" lang="en">Home</span>di <span xml:lang="en" lang="en">SitesBoard</span>. In questo sito potete vedere, proporre e anche accettare richieste di creazione di siti <span xml:lang="en" lang="en">web</span>.</h4>
 
 				
 FINE
@@ -172,16 +173,19 @@ for (my $i=0; $i <scalar(@info); $i++) {
 	utf8::encode($tipologia);
 	utf8::encode($data);
 
-	print	"<p class='HInsertions'>
+	print	"<div class='HInsertions'>
+			<span id='type'>Tipologia: $tipologia</span>
+			<p>
+			<span id='author'>Autore: $autore</span>
+			<span id='date'>Data: $data</span>
+			</p>
 			<span id='title'>Titolo: $titolo</span>
 			<span id='obj'>Oggetto: $oggetto</span>
-			<span id='date'>Data: $data</span>
-			<span id='author'>Autore: $autore</span>
-			<span id='type'>Tipologia: $tipologia</span>
-			</p>";
+			</div>";
 }
 
 print <<FINE;
+				</div>
 			</div>
 
 			<!-- Div necessario per spostare il footer in fondo alla pagina -->
