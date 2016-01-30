@@ -134,6 +134,7 @@ PEZZO
 else
 {
 print <<PEZZO;
+				<!-- MENÙ DI AMMINISTRAZIONE-->
 				<!-- Da caricare se l utente è loggato-->
 				<div id="nav_administration" class="menu" title="Menù di amministrazione del sito">
 					<h3>Amministrazione</h3>
