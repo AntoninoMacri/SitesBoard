@@ -171,29 +171,6 @@ sub getPersonalAd()
 }
 
 
-#sub getDisponibili()
-#{
-#	my $idUtente = $_[0];
-#	my $idAnnuncio = $_[1];
-#
-#
-#	my $ann=$doc->findnodes('/bacheca/persona[@id="'.$idUtente.'"]/listaAnnunci');
-#	
-#	my $listaDisp=$ann->findnodes('annuncio[@id="'.$idAnnuncio.'"]/listaDisponibili');
-#
-#	my @lista;
-#
-#	for (my $x=1; $x <= $listaDisp->size; $x++) {
-#		my $l=$listaDisp->get_node($x);
-#		my $idProg=$l->findnodes('idProgrammatore/text()')->to_literal;
-#		my $username==$doc->findnodes('/bacheca/persona[@id="'.$idProg.'"]/user')->to_literal;
-#		push @lista, $username;
-#	}
-#	return @lista;
-#}
-
-
-
 sub getDisponibili()
 
 {
