@@ -113,7 +113,6 @@ print <<PEZZO;
 					<h3><span xml:lang="en" lang="en">Login</span></h3>
 					<!-- Messaggio di errore -->
 					<p id="nav_error" title="Messaggio di errore compilazione form login">
-						inserisci <span xml:lang="en" lang="en">Password</span> ed <span xml:lang="en" lang="en">Username</span>
 					</p>
 					<!-- Form da compilare -->
 					<form onsubmit="return loginControl()" method="post" action="checkLogin.cgi">
