@@ -84,6 +84,7 @@ if(defined($recover_name)&&  defined($recover_surname)&&  defined($recover_email
 }
 else
 {
+	#redirect
 	print $cgi->redirect( 'home.cgi' );
 }
 
