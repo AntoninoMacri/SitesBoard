@@ -19,7 +19,7 @@ my $newUserUsername = $cgi->param('username');
 my $newUserEmail = $cgi->param('email');
 
 #controllo se si è loggati
-if(defined($session) && define($newUserName) && define($newUserSurname) && define($newUserAge) && define($newUserUsername) && define($newUserEmail))
+if(defined($session) && defined($newUserName) && defined($newUserSurname) && defined($newUserAge) && defined($newUserUsername) && defined($newUserEmail))
 {
 	my $userUsername = $session->param('username');
 	my $userPassword = $session->param('password');
@@ -30,18 +30,42 @@ if(defined($session) && define($newUserName) && define($newUserSurname) && defin
 	
 	#parser per ottenere l'id utente loggato
 	my $doc = $parser->parse_file($file) || die("File non trovato");
-	my $idUser=$doc->findnodes('/bacheca/persona[user/text()="'.$userUsername.'" and password/text()="'.$userPassword.'"]/@id'); 
+	my $idUser=$doc->findnodes('/bacheca/persona[user/text()="'.$userUsername.'" and password/text()="'.$userPassword.'"]/@id')->get_node(1);
+	#nodo non trovato
+	if(!defined($idUser))
+	{
+		print $cgi->redirect( 'profileChange.cgi?msgError=Errore modifica del profilo.' );
+	}
 
 	#trovo i nodi che si devono cambiare
-	my $nodeChangeName=$doc->findnodes('/bacheca/persona[@id="'.$idUser.'"]/name');
-	my $nodeChangeSurname=$doc->findnodes('/bacheca/persona[@id="'.$idUser.'"]/surname');
-	my $nodeChangeAge=$doc->findnodes('/bacheca/persona[@id="'.$idUser.'"]/age');
-	my $nodeChangeUsername=$doc->findnodes('/bacheca/persona[@id="'.$idUser.'"]/user');
-	my $nodeChangeEmail=$doc->findnodes('/bacheca/persona[@id="'.$idUser.'"]/email');
+	my $nodeChangeName=$doc->findnodes('/bacheca/persona[@id="'.$idUser->nodeValue.'"]/nome/text()')->get_node(1);
+	my $nodeChangeSurname=$doc->findnodes('/bacheca/persona[@id="'.$idUser->nodeValue.'"]/cognome/text()')->get_node(1);
+	my $nodeChangeAge=$doc->findnodes('/bacheca/persona[@id="'.$idUser->nodeValue.'"]/dataNascita/text()')->get_node(1);
+	my $nodeChangeUsername=$doc->findnodes('/bacheca/persona[@id="'.$idUser->nodeValue.'"]/user/text()')->get_node(1);
+	my $nodeChangeEmail=$doc->findnodes('/bacheca/persona[@id="'.$idUser->nodeValue.'"]/mail/text()')->get_node(1);
 
 
-	if(defined($nodeChangeName) || defined($nodeChangeSurname)|| defined($nodeChangeAge)|| defined($nodeChangeUsername) || defined($nodeChangeEmail))
+	if(defined($nodeChangeName) && defined($nodeChangeSurname)&& defined($nodeChangeAge)&& defined($nodeChangeUsername) &&defined($nodeChangeEmail))
 	{
+
+		#Ottengo tutti gli id e gli user con i stessi dati del nuovo utente
+		# se ritorna qualcosa allora significa che segnalo all'utente che i campi username ed email sono già presenti nel DB
+		my @check_result=$doc->findnodes('/bacheca/persona[user/text()="'.$newUserUsername.'"]'); 
+		if(@check_result == 0)
+		{
+			#username non presente dunque controllo l'email
+			my @check_result2 =$doc->findnodes('/bacheca/persona[mail/text()="'.$newUserEmail.'"]'); 
+			if(@check_result2  != 0)
+			{
+				#email già in uso
+				print $cgi->redirect( 'proffileChange.cgi?msgError=Email già presente nel sistema' );
+			}
+			#altrimenti continua
+		}
+		else{
+			#username già in uso
+			print $cgi->redirect( 'proffileChange.cgi?msgError=Username già presente nel sistema');
+		}
 
 		#modifica i campi
 		$nodeChangeName->setData($newUserName); 
@@ -54,9 +78,6 @@ if(defined($session) && define($newUserName) && define($newUserSurname) && defin
 		open(OUT, ">../data/database.xml");
 		print OUT $doc->toString;
 		close(OUT);
-		
-
-		print $cgi->redirect( 'logout.cgi' );
 	}
 	else
 	{
