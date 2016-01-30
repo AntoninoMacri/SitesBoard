@@ -179,7 +179,7 @@ for (my $i=0; $i <scalar(@info); $i++) {
 			<span id='obj'>Oggetto: $oggetto</span>
 			</span><span id='date'>Data: $data</span>
 			</span><span id='author'>Autore: $autore</span>
-			</span><span id='obj'>Oggetto: $tipologia</span>
+			</span><span id='obj'>Tipologia: $tipologia</span>
 			</p>";
 }
 

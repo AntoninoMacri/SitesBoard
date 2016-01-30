@@ -41,7 +41,7 @@ div {
 }
 
 
-/*definisco delle classi generali di grandezza per le scritte*/
+/*definisco delle classi generali di grandezza per le scritte e per underline*/
 .notable{
 	font-weight: bold;
 	padding-left: 10px;
@@ -452,6 +452,10 @@ div {
 						}
 
 /*--------------profile.cgi-------------------*/
+
+#cont_profile{
+	height: auto;
+}
 
 
 	#cont_profile fieldset#remove_profile{
