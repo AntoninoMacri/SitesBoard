@@ -69,7 +69,7 @@ print <<EOF;
 
 			<!-- PATH -->
 			<div id="path" title="Sezione del sito in cui ti trovi in questo momento">
-				Ti trovi in: <span class="notable" xml:lang="en" lang="it">Modifica informazioni</span>
+				Ti trovi in: <span class="notable">Profilo utente &ndash;&gt; Modifica profilo</span>
 			</div>
 
 			<div id="nav_panel">
@@ -89,6 +89,17 @@ print <<EOF;
 					</ul>
 				</div>
 
+				<!-- MENÙ AMMINISTRAZIONE-->
+				<!-- Da caricare se l utente è loggato-->
+				<div id="nav_administration" class="menu" title="Menù di amministrazione del sito">
+					<h3>Amministrazione</h3>
+					<p>Annunci:</p>
+					<ul>
+						<li><a href="addInsertions.cgi" hreflang="it" type="application/xhtml+xml">Nuovo</a></li>
+						<li><a href="showInsertions.cgi" hreflang="it" type="application/xhtml+xml">Inseriti</a></li>
+						<li><a href="acceptedInsertions.cgi" hreflang="it" type="application/xhtml+xml">Accettati</a></li>
+					</ul>
+				</div>
 			</div>
 
 			<!-- Contenuti della pagina -->
