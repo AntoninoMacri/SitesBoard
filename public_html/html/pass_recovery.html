@@ -97,20 +97,35 @@
 					Inserire Nome, Cognome e Indirizzo <span xml:lang="en" lang="en">email</span> dell'<span xml:lang="en" lang="en">account</span> di cui si sta cercando di recuperare la <span xml:lang="en" lang="en">password</span>.<br/>
 					Se i dati inseriti sono corretti, le verrà inviata un'<span xml:lang="en" lang="en">email</span> con il nuovo codice di accesso.
 					<!-- Messaggio di errore -->
-					<p id="recErr" title="Messaggio di errore compilazione form di recupero password">
+					<p id="cont_error" title="Messaggio di errore compilazione form di recupero password">
 						<span xml:lang="en" lang="en">Password</span> e <span xml:lang="en" lang="en">Username</span> errati
 					</p>
 					<form onsubmit="return recoveryControl()" method="post" action="pass_recovery.html">
 						<fieldset title="Dati dell'Utente Obbligatori">
 							<legend>Dati dell'Utente:</legend>
-							<label for="recover_name">Nome</label>
-							<input type="text" name="recover_name" id="recover_name" tabindex="1" />
-							<label for="recover_surname">Cognome</label>
-							<input type="text" name="recover_surname" id="recover_surname" tabindex="2" />
-							<label for="recover_email" xml:lang="en" lang="en">Email</label>
-							<input type="text" name="recover_email" id="recover_email" maxlength="32" tabindex="3" />
-							<input type="submit" name="recover_submit" id="recover_submit" value="Recupera Passowrd" tabindex="4"  title="Procedi con il recupero della password" />
-							<input type="reset" name="recover_reset" id="recover_reset" value="Cancella i Campi"  tabindex="5" title="Resetta i valori dei campi" />
+							<label for="recovery_name">Nome</label>
+							<input type="text" name="reg_name" id="reg_name" tabindex="1" />
+							<label for="reg_surname">Cognome</label>
+							<input type="text" name="reg_surname" id="reg_surname" tabindex="2" />
+							<label for="reg_year">Anno di Nascita</label>
+							<input type="text" name="reg_year" id="reg_year" tabindex="3"/>
+							<label for="reg_month">Mese di Nascita</label>
+							<input type="text" name="reg_month" id="reg_month" tabindex="4"/>
+							<label for="reg_day">Giorno di Nascita</label>
+							<input type="text" name="reg_day" id="reg_day" tabindex="5"/>
+						</fieldset>
+						<fieldset title="Dati Riguardanti il Sito Obbligatori">
+							<legend>Dati Riguardanti il Sito:</legend>
+							<label for="reg_username" xml:lang="en" lang="en">Username</label>
+							<input type="text" name="reg_username" id="reg_username" tabindex="6" />
+							<label for="reg_email" xml:lang="en" lang="en">Email</label>
+							<input type="text" name="reg_email" id="reg_email" maxlength="32" tabindex="7" />
+							<label for="reg_pass" xml:lang="en" lang="en">Password</label>
+							<input type="password" name="reg_pass" id="reg_pass" maxlength="16" tabindex="8" />
+							<label for="reg_re_pass">Ripeti la <span xml:lang="en" lang="en">Password</span></label>
+							<input type="password" name="reg_re_pass" id="reg_re_pass" maxlength="16" tabindex="9" />
+							<input type="submit" name="reg_submit" id="reg_submit" value="Registra" tabindex="10"  title="Procedi con la registrazione dei dati utente inseriti"/>
+							<input type="reset" name="reg_reset" id="reg_reset" value="Cancella i Campi" tabindex="11" title="Resetta i valori dei campi" />
 						</fieldset>
 					</form>
 				</div>
