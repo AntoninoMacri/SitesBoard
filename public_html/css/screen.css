@@ -265,6 +265,45 @@ div {
 -----------------------------------------------------*/
 
 
+/*-------------- home.cgi-------------------*/
+#cont_welcome{
+	height: auto;
+}
+
+	#cont_welcome div.HInsertions{
+		border-style: solid;
+		border-color: blue;
+		border-width: 5px;
+		padding: 10px;
+		margin-bottom: 20px;
+		margin-top: 40px;
+	}
+
+		#cont_welcome span#date{
+			float: right;
+		}
+
+		#cont_welcome div.HInsertions p{
+			border-style: solid;
+			border-color: blue;
+			border-width: 0px;
+			border-top-width: 1px;
+			padding-top: 10px;
+			margin: 10px 0px 10px 0px;
+		}
+
+		#cont_welcome div.HInsertions span#title{
+			display: block;
+			
+			border-style: solid;
+			border-color: blue;
+			border-width: 0px;
+			border-top-width: 1px;
+			padding-top: 10px;
+			margin: 10px 0px 10px 0px;
+		}
+
+
 /*-------------- login.html-------------------*/
 #cont_login {
 }
@@ -293,7 +332,7 @@ div {
 			}
 
 
-/*-------------- registration.html-------------------*/
+/*-------------- registration.cgi-------------------*/
 #cont_registration {
 }
 
