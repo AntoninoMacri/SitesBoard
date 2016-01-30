@@ -171,23 +171,51 @@ sub getPersonalAd()
 }
 
 
+#sub getDisponibili()
+#{
+#	my $idUtente = $_[0];
+#	my $idAnnuncio = $_[1];
+#
+#
+#	my $ann=$doc->findnodes('/bacheca/persona[@id="'.$idUtente.'"]/listaAnnunci');
+#	
+#	my $listaDisp=$ann->findnodes('annuncio[@id="'.$idAnnuncio.'"]/listaDisponibili');
+#
+#	my @lista;
+#
+#	for (my $x=1; $x <= $listaDisp->size; $x++) {
+#		my $l=$listaDisp->get_node($x);
+#		my $idProg=$l->findnodes('idProgrammatore/text()')->to_literal;
+#		my $username==$doc->findnodes('/bacheca/persona[@id="'.$idProg.'"]/user')->to_literal;
+#		push @lista, $username;
+#	}
+#	return @lista;
+#}
+
+
+
 sub getDisponibili()
+
 {
-	my $idUtente = $_[0];
-	my $idAnnuncio = $_[1];
+	my $sessionUsername = $_[0];
+	my $id_annuncio=$_[1];
 
+	my @board;
 
-	my $ann=$doc->findnodes('/bacheca/persona[@id="'.$idUtente.'"]/listaAnnunci');
-	
-	my $listaDisp=$ann->findnodes('annuncio[@id="'.$idAnnuncio.'"]/listaDisponibili');
+	my $query=$doc->findnodes('/bacheca/persona[user/text()="'.$sessionUsername.'"]/listaAnnunci/annuncio[@id="'.$id_annuncio.'"]/listaDisponibili')->get_node(1) or die "listaAnnunci non trovata";
+	my $idp=$query->findnodes('idProgrammatore');
 
-	my @lista;
+	for (my $x=1; $x <= $idp->size; $x++) {
+		my $id=$idp->get_node($x)->to_literal;
 
-	for (my $x=1; $x <= $listaDisp->size; $x++) {
-		my $l=$listaDisp->get_node($x);
-		my $idProg=$l->findnodes('idProgrammatore/text()')->to_literal;
-		my $username==$doc->findnodes('/bacheca/persona[@id="'.$idProg.'"]/user')->to_literal;
-		push @lista, $username;
+		print "<br />\$id: ";
+		print $id;
+
+		my $nome=$doc->findnodes('/bacheca/persona[@id="'.$id.'"]/nome')->to_literal;
+		my $cognome=$doc->findnodes('/bacheca/persona[@id="'.$id.'"]/cognome')->to_literal;
+		my $user=$doc->findnodes('/bacheca/persona[@id="'.$id.'"]/user')->to_literal;
+		my @var = ($user,$id,$nome,$cognome); #array contenente un programmatore con i dati personali
+		push @board, \@var;
 	}
-	return @lista;
+	return @board;
 }
