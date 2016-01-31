@@ -19,7 +19,7 @@
 				<tipologia>Social</tipologia>
 				<data>2015-12-29</data>
 				<listaDisponibili>
-					<idProgrammatore>2</idProgrammatore>
+					<idProgrammatore>3</idProgrammatore>
 				</listaDisponibili>
 			</annuncio>
 			<annuncio id="2">
@@ -30,6 +30,7 @@
 				<data>2015-12-15</data>
 				<listaDisponibili>
 					<idProgrammatore>2</idProgrammatore>
+					<idProgrammatore>3</idProgrammatore>
 				</listaDisponibili>
 			</annuncio>
 		</listaAnnunci>
@@ -41,7 +42,7 @@
 		<user>ffasolat</user>
 		<password>12345678</password>
 		<mail>fran_fas93@hotmail.it</mail>
-		<biografia>Sono un programmatore esperto in Java, C++ e ho lavorato per la Google (5 minuti perché mi avevano scambiato per un dipendente)</biografia>
+		<biografia>Sono un programmatore esperto in Java, C++ e ho lavorato per la Google (5 minuti perché mi avevano scambiato per un dipendente2)</biografia>
 		<listaAnnunci>
 			<annuncio id="1">
 				<titolo>Facebook4</titolo>
@@ -60,7 +61,8 @@
 				<tipologia>E-commerce</tipologia>
 				<data>2015-12-09</data>
 				<listaDisponibili>
-					<idProgrammatore>2</idProgrammatore>
+					<idProgrammatore>3</idProgrammatore>
+					<idProgrammatore>1</idProgrammatore>
 				</listaDisponibili>
 			</annuncio>
 			<annuncio id="3">
@@ -72,6 +74,39 @@
 				<listaDisponibili>
 				</listaDisponibili>
 			</annuncio>
+		</listaAnnunci>
+	</persona>
+	<persona id="3">
+		<nome>Jack</nome>
+		<cognome>Zec</cognome>
+		<dataNascita>1993-04-04</dataNascita>
+		<user>gzecchin</user>
+		<password>87654321</password>
+		<mail>princess_93@hotmail.it</mail>
+		<biografia>Sono un programmatore esperto in Java, C++ e ho lavorato per la Google (5 minuti perché mi avevano scambiato per un dipendente3)</biografia>
+		<listaAnnunci>
+			<annuncio id="1">
+				<titolo>Facebook7</titolo>
+				<oggetto>Social network che dovrà competere con Facebook</oggetto>
+				<descrizione>Stiamo cercando qualcuno con conoscenze di c++, html, javascript e css3 in grado di creare un nuovo social che un giorno possa competere con Facebook</descrizione>
+				<tipologia>Forum</tipologia>
+				<data>2015-02-28</data>
+				<listaDisponibili>
+					<idProgrammatore>1</idProgrammatore>
+					<idProgrammatore>2</idProgrammatore>
+				</listaDisponibili>
+			</annuncio>
+			<annuncio id="2">
+				<titolo>Facebook8</titolo>
+				<oggetto>Social network che dovrà competere con Facebook2</oggetto>
+				<descrizione>Stiamo cercando qualcuno con conoscenze di c++, html, javascript e css3 in grado di creare un nuovo social che un giorno possa competere con Facebook2</descrizione>
+				<tipologia>Aziendali</tipologia>
+				<data>2015-07-09</data>
+				<listaDisponibili>
+					<idProgrammatore>2</idProgrammatore>
+				</listaDisponibili>
+			</annuncio>
+
 		</listaAnnunci>
 	</persona>
 

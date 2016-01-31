@@ -155,6 +155,15 @@ if(defined($msgParam))
 							<span id='author'>Autore: $autore</span>
 							<span id='obj'>Tipologia: $tipologia</span>
 							</p>";
+
+					my @disp = getDisponibili($autore, $id_annuncio);
+					print "<p>Disponibili:</p>
+						   <ul>";
+					for (my $i=0; $i <scalar(@disp); $i++) {
+						print "<li>$disp[i][0]</li>"
+					}
+					print "</ul>";
+
 				}
 print <<EOF;
 				</div>

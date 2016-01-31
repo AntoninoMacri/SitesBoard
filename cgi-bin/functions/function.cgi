@@ -185,9 +185,6 @@ sub getDisponibili()
 	for (my $x=1; $x <= $idp->size; $x++) {
 		my $id=$idp->get_node($x)->to_literal;
 
-		print "<br />\$id: ";
-		print $id;
-
 		my $nome=$doc->findnodes('/bacheca/persona[@id="'.$id.'"]/nome')->to_literal;
 		my $cognome=$doc->findnodes('/bacheca/persona[@id="'.$id.'"]/cognome')->to_literal;
 		my $user=$doc->findnodes('/bacheca/persona[@id="'.$id.'"]/user')->to_literal;
