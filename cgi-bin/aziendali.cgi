@@ -171,11 +171,13 @@ print <<FINE;
 				
 FINE
 for (my $i=0; $i <scalar(@info); $i++) {
-	$autore=$info[$i][0];
-	$titolo=$info[$i][1];
-	$oggetto=$info[$i][2];
-	$tipologia=$info[$i][4];
-	$data=$info[$i][5];
+	my $autore=$info[$i][0];
+	my $titolo=$info[$i][1];
+	my $oggetto=$info[$i][2];
+	my $tipologia=$info[$i][4];
+	my $data=$info[$i][5];
+	my $id_annuncio=$info[$i][6];
+	my $id_persona=$info[$i][7];
 
 	utf8::encode($autore);
 	utf8::encode($titolo);
@@ -186,13 +188,14 @@ for (my $i=0; $i <scalar(@info); $i++) {
 	print	"<div class='block_insertions underline'>
 				<div class='block_insertion'>
 					<div class='BI_date'>Data: $data </div>
-					<div class='BI_title'>Titolo: <a href=''>$titolo</a></div>
+					<div class='BI_title'>Titolo: <a href='insertion.cgi?idUser=$id_persona&amp;idInsertion=$id_annuncio'>$titolo</a></div>
 					<div class='BI_object'>Oggetto: $oggetto</div>
 					<div class='BI_type'>Tipologia: $tipologia</div>
 					<div class='BI_auth'>Autore: $autore</div>
 				</div>
 			</div>";
 }
+
 
 print <<FINE;
 				</div>

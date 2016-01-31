@@ -83,12 +83,13 @@ sub getBoard(){
 		
 		for (my $x=1; $x <= $id_annuncio->size; $x++) {
 			my $annuncio=$query->get_node($x);
+			my $id_annuncio=$annuncio->findnodes('@id')->to_literal;
 			my $titolo=$annuncio->findnodes('titolo/text()');
 			my $oggetto=$annuncio->findnodes('oggetto/text()');
 			my $descrizione=$annuncio->findnodes('descrizione/text()');
 			my $tipologia=$annuncio->findnodes('tipologia/text()')->to_literal;
 			my $data=$annuncio->findnodes('data/text()');
-			my @var = ($username,$titolo,$oggetto,$descrizione,$tipologia,$data); #array contenente un annuncio
+			my @var = ($username,$titolo,$oggetto,$descrizione,$tipologia,$data,$id_annuncio,$id_persona->to_literal); #array contenente un annuncio
 			push @board, \@var;
 		}
     }
