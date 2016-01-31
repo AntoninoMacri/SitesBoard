@@ -23,15 +23,9 @@ if(!defined($user))
 if(defined($user)){
 my @utente=getUtente($user);
 
-$nome=$utente[0];
-$cognome=$utente[1];
-$dataNascita=$utente[2];
 $email=$utente[3];
 $biografia=$utente[4];
 
-utf8::encode($nome);
-utf8::encode($cognome);
-utf8::encode($dataNascita);
 utf8::encode($email);
 utf8::encode($biografia);
 
@@ -165,10 +159,6 @@ print <<EOF;
 					<p class="info" id="underline">
 					Ti trovi all interno della pagina profilo di un altro utente iscritto a SitesBoard. Da qui puoi visualizzare i suoi dati.
  					</p>
-
-					<span>Nome: $nome </span><br/>
-  					<span>Cognome: $cognome </span><br/>
-  					<span>Data di nascita: $dataNascita</span><br/>
   					<span><span xml:lang="en" lang="en">Username</span>: $user</span><br/>
   					<span><span xml:lang="en" lang="en">Email</span>: $email</span><br/>
   					<span>Biografia: $biografia</span><br/>
