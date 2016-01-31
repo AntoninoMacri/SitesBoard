@@ -132,19 +132,19 @@ if(defined($msgParam))
 }
 
 					for (my $i=0; $i <scalar(@annunciAccettati); $i++) {
-					$autore=$annunciAccettati[$i][0];
-					$titolo=$annunciAccettati[$i][1];
-					$oggetto=$annunciAccettati[$i][2];
-					$tipologia=$annunciAccettati[$i][3];
-					$data=$annunciAccettati[$i][4];
-					$id_persona=$annunciAccettati[$i][5];
-					$id_annuncio=$annunciAccettati[$i][6];
+					$titolo=$annunciAccettati[$i][0];
+					$oggetto=$annunciAccettati[$i][1];
+					$tipologia=$annunciAccettati[$i][2];
+					$data=$annunciAccettati[$i][3];
+					$autore=$annunciAccettati[$i][4];
+					$id_annuncio=$annunciAccettati[$i][5];
+					$id_persona=$annunciAccettati[$i][6];
 				
-					utf8::encode($autore);
 					utf8::encode($titolo);
 					utf8::encode($oggetto);
 					utf8::encode($tipologia);
 					utf8::encode($data);
+					utf8::encode($autore);
 					utf8::encode($id_persona);
 					utf8::encode($id_annuncio);
 				
@@ -152,7 +152,7 @@ if(defined($msgParam))
 							<span id='title'>Titolo: <a href='insertion.cgi?idUser=$id_persona&idInsertion=$id_annuncio' hreflang='it' >$titolo</a></span>
 							<span id='obj'>Oggetto: $oggetto</span>
 							<span id='date'>Data: $data</span>
-							<span id='author'>Autore: $autore</span>
+							<span id='author'>Autore: <a href='userProfile.cgi?user=$autore' hreflang='it' >$autore</a></span>
 							<span id='obj'>Tipologia: $tipologia</span>
 							</p>";
 				}
