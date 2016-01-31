@@ -176,13 +176,13 @@ for (my $i=0; $i <scalar(@info); $i++) {
 	utf8::encode($tipologia);
 	utf8::encode($data);
 
-	print	"<div class='block_insertions'>
+	print	"<div class='block_insertions underline'>
 				<div class='block_insertion'>
-					<div class='BI_title'>Titolo: <a href=''>$titolo</a></div>
 					<div class='BI_date'>Data: $data </div>
-					<div  class='BI_object'>Oggetto: $oggetto</div>
-					<div  class='BI_type'>Tipologia: $tipologia</div>
-					<div  class='BI_auth'>Autore: $autore</div>
+					<div class='BI_title'>Titolo: <a href=''>$titolo</a></div>
+					<div class='BI_object'>Oggetto: $oggetto</div>
+					<div class='BI_type'>Tipologia: $tipologia</div>
+					<div class='BI_auth'>Autore: $autore</div>
 				</div>
 			</div>";
 }

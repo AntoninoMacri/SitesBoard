@@ -61,6 +61,10 @@ div {
 	padding-bottom: 20px;
 }
 
+.msgError{
+
+}
+
 
 	/*---------------------------------------------------
 	----------------------HEADER-------------------------
@@ -157,7 +161,7 @@ div {
 			}
 
 			.menu li{
-				margin-bottom: 5px;
+				padding-bottom: 0.5em;
 			}
 
 		/*menu per il login*/
@@ -266,43 +270,10 @@ div {
 
 
 /*-------------- home.cgi-------------------*/
+
 #cont_welcome{
 	height: auto;
 }
-
-	#cont_welcome div.HInsertions{
-		border-style: solid;
-		border-color: blue;
-		border-width: 5px;
-		padding: 10px;
-		margin-bottom: 20px;
-		margin-top: 40px;
-	}
-
-		#cont_welcome span#date{
-			float: right;
-		}
-
-		#cont_welcome div.HInsertions p{
-			border-style: solid;
-			border-color: blue;
-			border-width: 0px;
-			border-top-width: 1px;
-			padding-top: 10px;
-			margin: 10px 0px 10px 0px;
-		}
-
-		#cont_welcome div.HInsertions span#title{
-			display: block;
-
-			border-style: solid;
-			border-color: blue;
-			border-width: 0px;
-			border-top-width: 1px;
-			padding-top: 10px;
-			margin: 10px 0px 10px 0px;
-		}
-
 
 /*-------------- login.html-------------------*/
 #cont_login {
@@ -565,6 +536,22 @@ div {
 			max-height: 500px;
 		}
 
-	
+
+/*--------------REGOLE GENERALI PER I BLOCCHI DELLE INSERZIONI-------------------*/
+
+div.block_insertions{
+	padding-bottom: 30px;
+	padding-top: 30px;
+}
+
+		div.BI_date{
+			float: right;
+		}
+
+		div.BI_title,
+		div.BI_object,
+		div.BI_type{
+			margin-bottom: 15px;
+		}
 
 
