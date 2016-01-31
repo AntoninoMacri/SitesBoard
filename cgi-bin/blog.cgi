@@ -189,7 +189,7 @@ for (my $i=0; $i <scalar(@info); $i++) {
 					<div class='BI_title'>Titolo: <a href='insertion.cgi?idUser=$id_persona&amp;idInsertion=$id_annuncio'>$titolo</a></div>
 					<div class='BI_object'>Oggetto: $oggetto</div>
 					<div class='BI_type'>Tipologia: $tipologia</div>
-					<div class='BI_auth'>Autore: $autore</div>
+					<div class='BI_auth'>Autore: <a href='userProfile.cgi?user=$autore'>$autore</a></div>
 				</div>
 			</div>";
 }
