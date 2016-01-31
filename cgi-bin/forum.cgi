@@ -22,6 +22,8 @@ my @info=getBoardTipologia($tipo);
 print "Content-type: text/html\n\n";
 
 print <<PRIMA_PARTE;
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 	<head>
 		<title xml:lang="en" lang="en">Forum - SitesBoard</title> 
@@ -33,6 +35,7 @@ print <<PRIMA_PARTE;
 
 		<!-- Meta Tag -->
 		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<meta name="title" content="Forum - SitesBoard" />
 		<meta name="author" content="Davide Rigoni, Francesco Fasolato, Giacomo Zecchin, Antonino Macrì" />
 		<meta name="description" content="Bacheca Forum di SitesBoard per la richiesta di Siti Web Professionali" />
@@ -68,7 +71,6 @@ print <<PEZZO2;
 					</div>
 					<div class="minimal">
 						<a class="edit" href="profile.cgi" hreflang="it" type="application/xhtml+xml">Il tuo profilo <img id="profile_logo" src="../media/header_profile.png" alt="Iconcina del profilo" title = "Vai al tuo profilo"/></a>
-						&nbsp&nbsp&nbsp
 						<a class="edit" href="logout.cgi" hreflang="it" type="application/xhtml+xml">Logout <img id="logout_logo" src="../media/logout.png" alt="Iconcina del logout" title = "esegui il logout"/></a>
 					</div>
 				</div>
@@ -81,7 +83,7 @@ print <<SECONDA_PARTE;
 			</div>
 			<!-- PATH -->
 			<div id="path" title="Sezione del sito in cui ti trovi in questo momento">
-				Ti trovi in: <span class="notable" xml:lang="en" lang="en">Home -> Bacheca Forum</span>
+				Ti trovi in: <span class="notable" xml:lang="en" lang="en">Home</span> &gt;&gt; <span class="notable">Bacheca Forum</span>
 			</div>
 
 
@@ -131,7 +133,7 @@ print <<PEZZO;
 							<input type="submit" name="login_submit" id="login_submit" value="Accedi al sito" />
 						</fieldset>
 					</form>
-					<a class ="minimal" href="../html/registration.html" hreflang="it" >Non ti sei ancora registrato?</a>
+					<a class ="minimal" href="registration.cgi" hreflang="it" >Non ti sei ancora registrato?</a>
 					<a class = "minimal" href="../html/pass_recovery.html" hreflang="it" >Non trovi più la <span xml:lang="en" lang="en">password?</span></a>
 				</div>
 PEZZO
@@ -182,9 +184,9 @@ for (my $i=0; $i <scalar(@info); $i++) {
 	print	"<p class='HInsertions'>
 			<span id='title'>Titolo: $titolo</span>
 			<span id='obj'>Oggetto: $oggetto</span>
-			</span><span id='date'>Data: $data</span>
-			</span><span id='author'>Autore: $autore</span>
-			</span><span id='type'>Tipologia: $tipologia</span>
+			<span id='date'>Data: $data</span>
+			<span id='author'>Autore: $autore</span>
+			<span id='type'>Tipologia: $tipologia</span>
 			</p>";
 }
 
