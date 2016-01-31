@@ -62,7 +62,7 @@ div {
 }
 
 .msgError{
-
+	color: red;
 }
 
 
@@ -468,9 +468,9 @@ div {
 }
 
 
-	#cont_profile fieldset#remove_profile{
+	#cont_profile form#remove_profile{
 		text-align: center;
-		width: 30%;
+		width: 40%;
 		margin: auto;
 	}
 
@@ -484,19 +484,8 @@ div {
 	}
 
 		#cont_profile ul li{
-			padding: 15px 0px 15px 0px;
+			padding: 15px 0px 10px 0px;
 		}
-			#cont_profile ul li label span.bold{
-				font-weight: bold;
-			}
-
-
-			
-
-			#cont_profile form fieldset input{
-				font-size: inherit;
-				color: red;
-			}
 
 
 /*--------------profile_change.cgi-------------------*/

@@ -135,7 +135,7 @@ print <<EOF;
 						In particolare puoi: visualizzare gli annunci da te inseriti. Visualizzare gli annunci che hai accettato in attesa di conclusione asta. Aggiungere un nuovo annuncio che apparirà nella bacheca di <span xml:lang="en" lang="en">SitesBoard</span> in ordine, dal più vicino al più lontano, di scadenza. Cancellare i tuoi annunci che per qualche motivo non ti interessa più condividere. 
 					</p>
 					<!-- Messaggio di errore  -->
-					<p id="cont_error" title="Messaggio di errore">
+					<p class="msgError" title="Messaggio di errore">
 EOF
 if(defined($msgParam))
 {
@@ -143,16 +143,24 @@ if(defined($msgParam))
 }
 print <<EOF;
 					</p>
-					<span>Nome: $name </span><br/>
-  					<span>Cognome: $surname </span><br/>
-  					<span>Data di nascita: $date</span><br/>
-  					<span><span xml:lang="en" lang="en">Username</span>: $username</span><br/>
-  					<span><span xml:lang="en" lang="en">Email</span>: $email</span><br/>
-  					<span>Biografia: $bio</span><br/>
+
+					<ul class="underline" id="profile_info">
+					<li><label for="name">Nome: <span class="notable">$name</span></label></li>
+  					
+  					<li><label for="surname">Cognome: <span class="notable">$surname</span></label></li>
+  					
+  					<li><label for="age">Data di nascita: <span class="notable">$date</span></label></li>
+  					
+  					<li><label for="username">Username: <span class="notable">$username</span></label></li>
+  					
+  					<li><label for="email">Email:  <span class="notable">$email</span></label></li>
+
+  					<li><label for="bio">Biografia: <span class="notable">$bio</span></label>
+  					</ul>
   					
 
 					<form id="remove_profile" method="post" onclick="return alertOnRmProfile()" action="removeProfile.cgi">
-						<fieldset  title="Elimina il tuo profilo">
+						<fieldset title="Elimina il tuo profilo">
 							<legend>Clicca qui per rimuovere il tuo profilo</legend>
 							<input class="buttons" id="rmProfile" type="submit" onkeypress="return alertOnRmProfile()" value="Elimina profilo" />
 						</fieldset>
