@@ -250,4 +250,26 @@ sub getAcceptedAd(){
 	return @insertions;
 }
 
+sub isAccepted{
+	my $idUtente = $_[0];
+	my $id_autore = $_[1];
+	my $id_annuncio = $_[2];
+
+	my $query=$doc->findnodes('/bacheca/persona[@id="'.$id_autore.'"]/listaAnnunci/annuncio[@id="'.$id_annuncio.'"]/listaDisponibili/idProgrammatore');
+
+	for (my $x=1; $x <= $query->size; $x++) {
+		my $id=$query->get_node($x)->to_literal;
+		if($id==$idUtente){return true;}
+	}
+	return false;
+}
+
+
+
+
+
+
+
+
+
 
