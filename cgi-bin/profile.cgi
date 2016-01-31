@@ -145,18 +145,18 @@ print <<EOF;
 					</p>
 
 					<ul class="underline" id="profile_info">
-					<li><label for="name">Nome: <span class="notable">$name</span></label></li>
+						<li><div>Nome: <span class="notable">$name</span></div></li>
   					
-  					<li><label for="surname">Cognome: <span class="notable">$surname</span></label></li>
+  					<li><div>Cognome: <span class="notable">$surname</span></div></li>
   					
-  					<li><label for="age">Data di nascita: <span class="notable">$date</span></label></li>
+  					<li><div>Data di nascita: <span class="notable">$date</span></div></li>
   					
-  					<li><label for="username">Username: <span class="notable">$username</span></label></li>
+  					<li><div>Username: <span class="notable">$username</span></div></li>
   					
-  					<li><label for="email">Email:  <span class="notable">$email</span></label></li>
+  					<li><div>Email:  <span class="notable">$email</span></div></li>
 
-  					<li><label for="bio">Biografia: <span class="notable">$bio</span></label>
-  					</ul>
+  					<li><div>Biografia: <span class="notable">$bio</span></div>
+  				</ul>
   					
 
 					<form id="remove_profile" method="post" onclick="return alertOnRmProfile()" action="removeProfile.cgi">
