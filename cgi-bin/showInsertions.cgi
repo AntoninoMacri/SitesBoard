@@ -69,7 +69,7 @@ print <<EOF;
 						Benvenuto <span class="notable">$username</span>
 					</div>
 					<div class="minimal">
-						<a class="edit" href="profileChange.cgi" hreflang="it" type="application/xhtml+xml">Modifica Profilo <img id="header_PEL" src="../media/edit_profile.png" alt="Iconcina di modifica profilo" title = "Modifica i dati del profilo"/></a>
+						<a class="edit" href="profile.cgi" hreflang="it" type="application/xhtml+xml">Il tuo profilo <img id="profile_logo" src="../media/header_profile.png" alt="Iconcina del profilo" title = "Vai al tuo profilo"/></a>
 						<a class="edit" href="logout.cgi" hreflang="it" type="application/xhtml+xml">Logout <img id="logout_logo" src="../media/logout.png" alt="Iconcina del logout" title = "esegui il logout"/></a>
 					</div>
 				</div>
@@ -80,7 +80,7 @@ print <<EOF;
 
 			<!-- PATH  -->
 			<div id="path" title="Sezione del sito in cui ti trovi in questo momento">
-				Ti trovi in: <span class="notable">Profilo utente</span>&nbsp;&ndash;&gt;<span class="notable">Annunci Inseriti</span>
+				Ti trovi in: <span class="notable">Annunci Inseriti</span>
 			</div>
 			<div id="nav_panel">
 				<!-- MENÙ DI NAVIGAZIONE --> 

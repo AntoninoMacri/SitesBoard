@@ -12,7 +12,7 @@ my $session = getSession();
 my $cgi = CGI->new();
 
 my $idInsertion = $cgi->param('idInsertion');
-my $idUserInsertion = $cgi->param('idUser');
+my $idUserInsertion = $cgi->param('idUserInsertion');
 
 #controllo se si è loggati
 if(defined($session) && defined($idInsertion) && defined($idUserInsertion))
@@ -45,11 +45,11 @@ if(defined($session) && defined($idInsertion) && defined($idUserInsertion))
 		close(OUT);
 		
 
-		print $cgi->redirect( 'showInsertions.cgi' );
+		print $cgi->redirect( 'acceptedInsertions.cgi' );
 	}
 	else
 	{
-		print $cgi->redirect( 'showAcceptions.cgi?msgError=Errore nella rimozione dell\'accetazione.' );
+		print $cgi->redirect( 'acceptedInsertions.cgi?msgError=Errore nella rimozione dell\'accetazione.' );
 	}
 }
 else

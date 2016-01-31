@@ -251,9 +251,11 @@ sub getAcceptedAd(){
 }
 
 sub isAccepted{
-	my $idUtente = $_[0];
+	my $user_Username = $_[0];
 	my $id_autore = $_[1];
 	my $id_annuncio = $_[2];
+
+	my $idUtente=$doc->findnodes('/bacheca/persona[user/text()="'.$user_Username.'"]/@id')->to_literal;
 
 	my $query=$doc->findnodes('/bacheca/persona[@id="'.$id_autore.'"]/listaAnnunci/annuncio[@id="'.$id_annuncio.'"]/listaDisponibili/idProgrammatore');
 

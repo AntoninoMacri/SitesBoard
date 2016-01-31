@@ -13,6 +13,9 @@ my $userUsername;
 if($session == undef)
 {
     print redirect(-url => 'login.cgi');
+}
+else
+{
     $userUsername = getSessionUsername($session);
 }
 
@@ -20,23 +23,28 @@ if($session == undef)
 my $cgi = new CGI;
 my $idUserParam = $cgi->param('idUser');
 my $idInsertionParam = $cgi->param('idInsertion');
+my $msgErrorParam = $cgi->param('msgError');
 
 if(defined($idUserParam) && defined($idInsertionParam)){
-my @info=getAd($idUserParam, $idInsertionParam); #ritorna un array{username,titolo,oggetto,descrizione,tipologia,data} per le info dell annuncio
+	my @info=getAd($idUserParam, $idInsertionParam); #ritorna un array{username,titolo,oggetto,descrizione,tipologia,data} per le info dell annuncio
 
-$autore=$info[0];
-$titolo=$info[1];
-$oggetto=$info[2];
-$descrizione=$info[3];
-$tipologia=$info[4];
-$data=$info[5];
+	$autore=$info[0];
+	$titolo=$info[1];
+	$oggetto=$info[2];
+	$descrizione=$info[3];
+	$tipologia=$info[4];
+	$data=$info[5];
 
-utf8::encode($autore);
-utf8::encode($titolo);
-utf8::encode($oggetto);
-utf8::encode($descrizione);
-utf8::encode($tipologia);
-utf8::encode($data);
+	utf8::encode($autore);
+	utf8::encode($titolo);
+	utf8::encode($oggetto);
+	utf8::encode($descrizione);
+	utf8::encode($tipologia);
+	utf8::encode($data);
+}
+else
+{
+	print "Location: home.cgi";
 }
 
 print "Content-type: text/html\n\n";
@@ -75,8 +83,7 @@ print <<PRIMA_PARTE;
 PRIMA_PARTE
 
 
-my $username = getSessionUsername($session);
-utf8::encode($username);
+utf8::encode($userUsername);
 
 
 print <<EOF;
@@ -182,32 +189,62 @@ print <<EOF;
 					<p class="underline">
 						<span>Descrizione:</span> </br> $descrizione
 					</p>
+					<p id="cont_error">
 EOF
-#se l'autore è la stessa persona che visualizza la pagina allora non visualizza la possibilità di accetare l'inserizione
-if($userUsername != $autore)
+if(defined($msgErrorParam))
 {
-	print <<EOF;
-						<form name="form_Accetazione" method="post" action="addAcception.cgi">
-							<fieldset title="Accetta annuncio">
+	print $msgErrorParam;	
+}
+print <<EOF;
+					</p>
+EOF
+#controllo se l'utente è loggato
+if(defined($session))
+{
+	#se l'autore è la stessa persona che visualizza la pagina allora non visualizza la possibilità di accetare l'inserizione
+	if($userUsername ne $autore)
+	{
+		#l'utente e l'autore sono diversi
+		#controllo se è già staata accettata
+		if(isAccepted($userUsername,$idUserParam,$idUserInsertion))
+		{
+print <<EOF;
+						<form name="form_RemoveAcception" method="post" action="removeAcception.cgi">
+							<fieldset title="Togli l'accettazione all'annuncio">
+							<legend id="accept_insertion">Procedi per rimuovere l'accettazione</legend>
 								<input  id="idUserInsertion" name="idUserInsertion" type="hidden" value='$idUserParam' />
-								<input  id="idInsertion" name="idInsertion" type="hidden" value='$idInsertionParam' />
-								<legend id="accept_insertion">Procedi per accettare l'annuncio</legend>
-								<input class="buttons" id="submit_new" name="submit_new" type="submit" value="Accetta" />
+								<input  id="idInsertion" name="idInsertion" type="hidden" value='$idInsertionParam' />	
+								<input class="buttons" id="submit_new" name="submit_new" type="submit" value="Rimuovi Accettazione" />
 							</fieldset>
 						</form>
 EOF
-}
-else
-{
-	print <<EOF;
-						<form name="form_Eliminazione" method="post" action="removeInsertion.cgi">
+		}
+		else
+		{
+print <<EOF;
+						<form name="form_AddAcception" method="post" action="addAcception.cgi">
+							<fieldset title="Accetta annuncio">
+							<legend id="accept_insertion">Procedi per proporti per l'annuncio</legend>
+								<input  id="idUserInsertion" name="idUserInsertion" type="hidden" value='$idUserParam' />
+								<input  id="idInsertion" name="idInsertion" type="hidden" value='$idInsertionParam' />	
+								<input class="buttons" id="submit_new" name="submit_new" type="submit" value="Proponiti" />
+							</fieldset>
+						</form>
+EOF
+		}
+	}
+	else
+	{
+print <<EOF;
+						<form name="form_RemoveInsertion" method="post" action="removeInsertion.cgi">
 							<fieldset title="Rimuovi annuncio">
+							<legend id="remove_insertion">Procedi per rimuovere l'annuncio</legend>
 								<input  id="idInsertion" name="idInsertion" type="hidden" value='$idInsertionParam' />
-								<legend id="remove_insertion">Procedi per accettare l'annuncio</legend>
-								<input class="buttons" id="submit_new" name="submit_new" type="submit" value="Rimuovi" />
+								<input class="buttons" id="submit_new" name="submit_new" type="submit" value="Rimuovi Annuncio" />
 							</fieldset>
 						</form>		
 EOF
+	}
 }
 print <<EOF;
 				</div>
