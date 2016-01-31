@@ -177,13 +177,13 @@ for (my $i=0; $i <scalar(@info); $i++) {
 	utf8::encode($data);
 
 	print	"<div class='block_insertions'>
-			<p>
-			<span id='title'>Titolo: <a href=''><span class='notable'>$titolo</span></a></span>
-			<span id='date'>Data: <span class='notable'>$data</span></span>
-			</p>
-			<p id='obj'>Oggetto: <span class='notable'>$oggetto</span></p>
-			<p id='type'>Tipologia: <span class='notable'>$tipologia</span></p>
-			<p id='author'>Autore: <span class='notable'>$autore</span></p>
+				<div class='block_insertion'>
+					<div class='BI_title'>Titolo: <a href=''>$titolo</a></div>
+					<div class='BI_date'>Data: $data </div>
+					<div  class='BI_object'>Oggetto: $oggetto</div>
+					<div  class='BI_type'>Tipologia: $tipologia</div>
+					<div  class='BI_auth'>Autore: $autore</div>
+				</div>
 			</div>";
 }
 
