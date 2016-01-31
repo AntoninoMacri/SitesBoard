@@ -227,20 +227,32 @@ sub getAcceptedAd(){
 	my $idUtente=$doc->findnodes('/bacheca/persona[user/text()="'.$sessionUsername.'"]/@id')->to_literal;
 
 	my @insertions;
-
+	
 	my $query=$doc->findnodes('/bacheca/persona[listaAnnunci/annuncio/listaDisponibili/idProgrammatore/text()="'.$idUtente.'"]');
+
 	for(my $z=1; $z <= $query->size; $z++){
-	  my $pers=$query->get_node($z);
-	  my $titolo=$pers->findnodes('listaAnnunci/annuncio/titolo/text()')->to_literal;
-	  my $oggetto=$pers->findnodes('listaAnnunci/annuncio/oggetto/text()')->to_literal;
-	  my $tipologia=$pers->findnodes('listaAnnunci/annuncio/tipologia/text()')->to_literal;
-	  my $data=$pers->findnodes('listaAnnunci/annuncio/data/text()')->to_literal;
-	  my $id_ann=$pers->findnodes('listaAnnunci/annuncio/@id')->to_literal;
-	  my $autore=$pers->findnodes('user/text()')->to_literal;
-	  my $id_autore=$pers->findnodes('@id')->to_literal;
-	  my @var = ($titolo,$oggetto,$tipologia,$data,$autore,$id_ann,$id_autore); #array contenente un annuncio
-	  push @insertions, \@var;
+		#per ogni persona mi prendo id e user
+		my $nodePers=$query->get_node($z);
+		my $autore=$nodePers->findnodes('user/text()')->to_literal;
+		my $id_autore=$nodePers->findnodes('@id')->to_literal;
+
+		#mi prendo gli annunci
+		my $nodeAnnunci=$nodePers->findnodes('listaAnnunci/annuncio[listaDisponibili/idProgrammatore/text()="'.$idUtente.'"]');
+
+		for(my $s=1; $s <= $nodeAnnunci->size; $s++){
+			#per ogni annuncio mi prendo i dati
+			my $nodeAnn=$nodeAnnunci->get_node($s);
+			my $titolo=$nodeAnn->findnodes('titolo/text()')->to_literal;
+			my $oggetto=$nodeAnn->findnodes('oggetto/text()')->to_literal;
+			my $tipologia=$nodeAnn->findnodes('tipologia/text()')->to_literal;
+			my $data=$nodeAnn->findnodes('data/text()')->to_literal;
+			my $id_ann=$nodeAnn->findnodes('@id')->to_literal;
+
+			my @var = ($titolo,$oggetto,$tipologia,$data,$autore,$id_ann,$id_autore); #array contenente un annuncio
+			push @insertions, \@var;
+		}
 	}
+	return @insertions;
 }
 
 

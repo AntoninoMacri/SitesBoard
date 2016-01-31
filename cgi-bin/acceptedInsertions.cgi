@@ -21,11 +21,10 @@ my $userName=getUsername($session);
 
 utf8::encode($userName);
 
-@annunciAccettati=getAcceptedAd(userName);
+@annunciAccettati=getAcceptedAd($userName);
 
 
 print "Content-type: text/html\n\n";
-
 
 print <<PRIMA_PARTE;
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -74,15 +73,13 @@ print <<EOF;
 						<a class="edit" href="logout.cgi" hreflang="it" type="application/xhtml+xml">Logout <img id="logout_logo" src="../media/logout.png" alt="Iconcina del logout" title = "esegui il logout"/></a>
 					</div>
 				</div>
-
-				
-			
 			</div>
 
 			<!-- PATH  -->
 			<div id="path" title="Sezione del sito in cui ti trovi in questo momento">
-				Ti trovi in: <span class="notable">Profilo utente</span>&nbsp;&ndash;&gt;<span class="notable">Annunci Accettati</span>
+				Ti trovi in: <span class="notable">Profilo utente</span>&gt;&gt;<span class="notable">Annunci Accettati</span>
 			</div>
+
 			<div id="nav_panel">
 				<!-- MENÙ DI NAVIGAZIONE --> 
 				<div id="nav_menu" class="menu" title ="Menù di navigazione del sito">
@@ -130,30 +127,29 @@ if(defined($msgParam))
 }
 					print "</p>";
 					for (my $i=0; $i <scalar(@annunciAccettati); $i++) {
-					print "$i";
-					$titolo=$annunciAccettati[$i][0];
-					$oggetto=$annunciAccettati[$i][1];
-					$tipologia=$annunciAccettati[$i][2];
-					$data=$annunciAccettati[$i][3];
-					$autore=$annunciAccettati[$i][4];
-					$id_annuncio=$annunciAccettati[$i][5];
-					$id_persona=$annunciAccettati[$i][6];
-				
-					utf8::encode($titolo);
-					utf8::encode($oggetto);
-					utf8::encode($tipologia);
-					utf8::encode($data);
-					utf8::encode($autore);
-					utf8::encode($id_persona);
-					utf8::encode($id_annuncio);
-				
-					print	"<p class='HInsertions'>
-							<span id='title'>Titolo: <a href='insertion.cgi?idUser=$id_persona&idInsertion=$id_annuncio' hreflang='it' >$titolo</a></span>
-							<span id='obj'>Oggetto: $oggetto</span>
-							<span id='date'>Data: $data</span>
-							<span id='author'>Autore: <a href='userProfile.cgi?user=$autore' hreflang='it' >$autore</a></span>
-							<span id='obj'>Tipologia: $tipologia</span>
-							</p>";
+						$titolo=$annunciAccettati[$i][0];
+						$oggetto=$annunciAccettati[$i][1];
+						$tipologia=$annunciAccettati[$i][2];
+						$data=$annunciAccettati[$i][3];
+						$autore=$annunciAccettati[$i][4];
+						$id_annuncio=$annunciAccettati[$i][5];
+						$id_persona=$annunciAccettati[$i][6];
+					
+						utf8::encode($titolo);
+						utf8::encode($oggetto);
+						utf8::encode($tipologia);
+						utf8::encode($data);
+						utf8::encode($autore);
+						utf8::encode($id_persona);
+						utf8::encode($id_annuncio);
+					
+						print	"<p class='HInsertions'>
+								<span id='title'>Titolo: <a href='insertion.cgi?idUser=$id_persona&amp;idInsertion=$id_annuncio' hreflang='it' >$titolo</a></span>
+								<span id='obj'>Oggetto: $oggetto</span>
+								<span id='date'>Data: $data</span>
+								<span id='author'>Autore: <a href='userProfile.cgi?user=$autore' hreflang='it' >$autore</a></span>
+								<span id='obj'>Tipologia: $tipologia</span>
+								</p>";
 				}
 print <<EOF;
 				</div>
