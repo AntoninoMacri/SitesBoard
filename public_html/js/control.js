@@ -105,8 +105,8 @@ function recoveryControl(){
 
 //loginControl
 function loginControl(){
-    var risultato=checkUser("login_user","logErr");
-    risultato=risultato && checkPassword("login_password","logErr");
+    var risultato=checkUser("login_user","cont_error");
+    risultato=risultato && checkPassword("login_password","cont_error");
     return risultato;
 }
 
