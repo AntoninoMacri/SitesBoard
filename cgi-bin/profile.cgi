@@ -21,12 +21,13 @@ my $name=getName($session);
 my $surname=getSurname($session);
 my $email=getEmail($session);
 my $date=getDate($session);
+my $bio=getBio($session);
 
 utf8::encode($name);
 utf8::encode($surname);
 utf8::encode($email);
 utf8::encode($date);
-
+utf8::encode($bio);
 
 print "Content-type: text/html\n\n";
 
@@ -146,7 +147,7 @@ print <<EOF;
   					<span>Data di nascita: $date</span><br/>
   					<span><span xml:lang="en" lang="en">Username</span>: $username</span><br/>
   					<span><span xml:lang="en" lang="en">Email</span>: $email</span><br/>
-  					<span>Biografia:</span><br/>
+  					<span>Biografia: $bio</span><br/>
   					
 
 					<form name="modulo" method="post" onclick="return alertOnRmProfile()" action="removeProfile.cgi">

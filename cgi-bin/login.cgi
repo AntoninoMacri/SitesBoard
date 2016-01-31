@@ -107,7 +107,7 @@ print <<EOF;
 							<label for="login_password">Password</label>
 							<input type="password" name="login_password" id="login_password"/><br/>
 							<input type="submit" name="login_submit" id="login_submit" value="Accedi al sito" />
-							<input type="reset" name="login_reset" id="login_reset" value="Cancella i Campi" />
+							<input type="reset" name="login_reset" id="login_reset" value="Cancella i Campi" onkeypress="return loginControl()"/>
 						</fieldset>
 					</form>
 				</div>

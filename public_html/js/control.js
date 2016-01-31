@@ -47,66 +47,16 @@
 //appunto di codice: document.getElementById("recErr").style.color='red';
 
 //addInsertion.cgi
-//aggiunto id="testo"
+//aggiunto id="addDescrizione"
 //onsubmit="return addInsertionControl()" 
 //onkeypress="return addInsertionControl()"
-/*
-function profileChangeControl(){
-    var x=document.forms["profileChange"]["name"].value;
-    if (x == null || x == "") {
-        document.getElementById("underline").style.color='red';
-        document.getElementById("underline").innerHTML = "*campo nome vuoto";
-        return false;
-    }
-    var x=document.forms["profileChange"]["surname"].value;
-    if (x == null || x == "") {
-        document.getElementById("underline").style.color='red';
-        document.getElementById("underline").innerHTML = "*campo cognome vuoto";
-        return false;
-    }
-    var x=document.forms["profileChange"]["age"].value;
-    if (x == null || x == "") {
-        document.getElementById("underline").style.color='red';
-        document.getElementById("underline").innerHTML = "*campo eta&#768; vuoto";
-        return false;
-    }
-    var re =/^[0-9]+$/;
-    if(!re.test(x)){
-      document.getElementById("underline").style.color='red';
-      document.getElementById("underline").innerHTML = "eta&#768; non valida";
-      return false;
-    }
-    if( x<=0 || x>140){
-      document.getElementById("underline").style.color='red';
-      document.getElementById("underline").innerHTML = "le eta&#768; accettate sono comprese tra 1 e 140";
-      return false;
-    }
-    var x=document.forms["profileChange"]["username"].value;
-    if (x == null || x == "") {
-        document.getElementById("underline").style.color='red';
-        document.getElementById("underline").innerHTML = "*campo username vuoto";
-        return false;
-    }
-    var x=document.forms["profileChange"]["email"].value;
-    if (x == null || x == "") {
-        document.getElementById("underline").style.color='red';
-        document.getElementById("underline").innerHTML = "*campo email vuoto";
-        return false;
-    }    
-    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-    if(!re.test(x)){
-      document.getElementById("underline").style.color='red';
-      document.getElementById("underline").innerHTML = "*Email non valida";
-      return false;
-    }
-}*/
 
 //addInsertion
 function addInsertionControl(){
-    document.getElementById("underline").style.color='red';
-    var risultato=checkTitolo("titolo","underline");
-    risultato=risultato && checkOggetto("oggetto","underline");
-    risultato=risultato && checkDescrizione("testo","underline");
+    document.getElementById("cont_error").style.color='red';
+    var risultato=checkTitolo("addTitolo","cont_error");
+    risultato=risultato && checkOggetto("addOggetto","cont_error");
+    risultato=risultato && checkDescrizione("addDescrizione","cont_error");
     return risultato;
 }
 
@@ -125,13 +75,13 @@ function profileChangeControl(){
 
 //registrationControl
 function registrationControl(){
-    var risultato=checkName("reg_name", "regErr");
-    risultato=risultato && checkSurname("reg_surname", "regErr");
-    risultato=risultato && checkData("reg_year", "reg_month", "reg_day", "regErr");
-    risultato=risultato && checkUser("reg_username", "regErr");
-    risultato=risultato && checkEmail("reg_email", "regErr");
-    risultato=risultato && checkPassword("reg_pass", "regErr");
-    risultato=risultato && checkConfirmPassword("reg_pass", "reg_re_pass" ,"regErr");
+    var risultato=checkName("reg_name", "cont_error");
+    risultato=risultato && checkSurname("reg_surname", "cont_error");
+    risultato=risultato && checkData("reg_year", "reg_month", "reg_day", "cont_error");
+    risultato=risultato && checkUser("reg_username", "cont_error");
+    risultato=risultato && checkEmail("reg_email", "cont_error");
+    risultato=risultato && checkPassword("reg_pass", "cont_error");
+    risultato=risultato && checkConfirmPassword("reg_pass", "reg_re_pass" ,"cont_error");
 
     //scrollo la pagina poichè la form è troppo lunga e c'è il rischio che l'utente non veda il suggerimento dell'errore
     var w = window.screen.width;
@@ -140,20 +90,23 @@ function registrationControl(){
     return risultato;
 }
 
-
 //recoveryControl
 function recoveryControl(){
-    var risultato=checkName("recover_name", "recErr");
-    risultato=risultato && checkSurname("recover_surname", "recErr");
-    risultato=risultato && checkEmail("recover_email", "recErr");
+    var risultato=checkName("recover_name", "cont_error");
+    risultato=risultato && checkSurname("recover_surname", "cont_error");
+    risultato=risultato && checkData("recover_year", "recover_month", "recover_day", "cont_error");
+    risultato=risultato && checkUser("recover_username","cont_error");
+    risultato=risultato && checkEmail("recover_email", "cont_error");
+    risultato=risultato && checkPassword("recover_pass", "cont_error");
+    risultato=risultato && checkConfirmPassword("recover_pass", "recover_re_pass" ,"cont_error");
     return risultato;
 }
-
+    
 
 //loginControl
 function loginControl(){
-    var risultato=checkUser("login_user","logErr");
-    risultato=risultato && checkPassword("login_password","logErr");
+    var risultato=checkUser("login_user","cont_error");
+    risultato=risultato && checkPassword("login_password","cont_error");
     return risultato;
 }
 

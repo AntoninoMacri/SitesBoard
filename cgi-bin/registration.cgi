@@ -40,7 +40,7 @@ print <<EOF;
 		<meta name="description" content="Form di registrazione utente per SitesBoard, il sito per la richiesta di Siti Web Professionali" />
 		<meta name="keywords" content="Registrazione, Bacheca, Siti, Web" />
 		<meta name="language" content="italian it" />
-		<script type="text/javascript" src="../javascript/control.js"></script>
+		<script type="text/javascript" src="../js/control.js"></script>
 	</head>
 	<body>
 		<div id="container">
@@ -79,7 +79,7 @@ print <<EOF;
 				</div>
 
 				<!-- MENÙ DI LOGIN-->
-				<!-- Da caricare solo se l'utente non è loggato-->
+				<!-- Da caricare solo se l utente non è loggato-->
 				<div id="nav_login" class="menu" title="Menù di Login del sito">
 					<h3><span xml:lang="en" lang="en">Login</span></h3>
 					<!-- Messaggio di errore -->
@@ -122,8 +122,8 @@ if(defined($msgParam))
 print <<EOF;
 					</p>
 					<form onsubmit="return registrationControl()" method="post" action="addUser.cgi">
-						<fieldset title="Dati dell'Utente Obbligatori">
-							<legend>Dati dell'Utente:</legend>
+						<fieldset title="Dati dell Utente Obbligatori">
+							<legend>Dati dell Utente:</legend>
 							<label for="reg_name">Nome</label>
 							<input type="text" name="reg_name" id="reg_name" tabindex="1" />
 							<label for="reg_surname">Cognome</label>
@@ -146,7 +146,7 @@ print <<EOF;
 							<input type="password" name="reg_pass" id="reg_pass" maxlength="16" tabindex="8" />
 							<label for="reg_re_pass">Ripeti la <span xml:lang="en" lang="en">Password</span></label>
 							<input type="password" name="reg_re_pass" id="reg_re_pass" maxlength="16" tabindex="9" />
-							<input type="submit" name="reg_submit" id="reg_submit" value="Registra" tabindex="10"  title="Procedi con la registrazione dei dati utente inseriti"/>
+							<input type="submit" name="reg_submit" id="reg_submit" value="Registra" tabindex="10"  title="Procedi con la registrazione dei dati utente inseriti" onkeypress="return registrationControl()"/>
 							<input type="reset" name="reg_reset" id="reg_reset" value="Cancella i Campi" tabindex="11" title="Resetta i valori dei campi" />
 						</fieldset>
 					</form>
