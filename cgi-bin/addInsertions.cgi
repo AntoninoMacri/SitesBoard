@@ -21,9 +21,10 @@ if($session == undef)
 print "Content-type: text/html\n\n";
 
 print <<PRIMA_PARTE;
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 	<head>
-		<title xml:lang="en" lang="it">Nuovo annuncio - SitesBoard</title> 
+		<title>Nuovo annuncio - SitesBoard</title> 
 
 		<link href="../css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
 		<link href="../css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
@@ -32,6 +33,7 @@ print <<PRIMA_PARTE;
 
 		<!-- Meta Tag -->
 		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<meta name="title" content="Nuovo annuncio - SitesBoard" />
 		<meta name="author" content="Davide Rigoni, Francesco Fasolato, Giacomo Zecchin, Antonino Macrì" />
 		<meta name="description" content="Pagina per creare un nuovo annuncio" />
@@ -63,7 +65,6 @@ print <<EOF;
 					</div>
 					<div class="minimal">
 						<a class="edit" href="profile.cgi" hreflang="it" type="application/xhtml+xml">Il tuo profilo <img id="profile_logo" src="../media/header_profile.png" alt="Iconcina del profilo" title = "Vai al tuo profilo"/></a>
-						&nbsp&nbsp&nbsp
 						<a class="edit" href="logout.cgi" hreflang="it" type="application/xhtml+xml">Logout <img id="logout_logo" src="../media/logout.png" alt="Iconcina del logout" title = "esegui il logout"/></a>
 					</div>
 					
@@ -100,7 +101,7 @@ print <<EOF;
 					<h3>Amministrazione</h3>
 					<p>Annunci:</p>
 					<ul>
-						<li><a href="addInsertions.cgi" hreflang="it" type="application/xhtml+xml">Nuovo</a></li>
+						<li>Nuovo</li>
 						<li><a href="showInsertions.cgi" hreflang="it" type="application/xhtml+xml">Inseriti</a></li>
 						<li><a href="acceptedInsertions.cgi" hreflang="it" type="application/xhtml+xml">Accettati</a></li>
 					</ul>
@@ -132,37 +133,36 @@ if(defined($msgParam))
 print <<EOF;
 					</p>
 
-					<form name="addForm" method="post" action="insertInsertion.cgi" onsubmit="return addInsertionControl()">
-					<fieldset title="Campi da compilare per creare un nuovo annuncio">
-						<legend>Campi da compilare per creare un nuovo annuncio</legend>
+					<form method="post" action="insertInsertion.cgi" onsubmit="return addInsertionControl()">
+						<fieldset title="Campi da compilare per creare un nuovo annuncio">
+							<legend>Campi da compilare per creare un nuovo annuncio</legend>
 
-						<label for="addTitolo">Titolo</label>
-		  				<input id="addTitolo" type="text" name="addTitolo" maxlength="100" value="" tabindex="1" />
+							<label for="addTitolo">Titolo</label>
+			  				<input id="addTitolo" type="text" name="addTitolo" maxlength="100" value="" tabindex="1" />
 
-		  				<label for="addTipologia">Tipologia</label>
-			  			<select id="addTipologia" name="addTipologia" tabindex="2" />
-							<option value="eCommerce">E-commerce</option>
-							<option value="forum">Forum</option>
-							<option value="social" selected>Social</option>
-							<option value="personali">Personali</option>
-  							<option value="aziendali">Aziendali</option>
-							<option value="blog">Blog</option>
-						</select>
-		  				
-		  				<label for="addOggetto">Oggetto</label>
-		  				<input id="addOggetto" type="text" name="addOggetto" maxlength="300" value="" tabindex="3" />
+			  				<label for="addTipologia">Tipologia</label>
+				  			<select id="addTipologia" name="addTipologia" tabindex="2" >
+								<option value="eCommerce">E-commerce</option>
+								<option value="forum">Forum</option>
+								<option value="social" selected="selected">Social</option>
+								<option value="personali">Personali</option>
+	  							<option value="aziendali">Aziendali</option>
+								<option value="blog">Blog</option>
+							</select>
+			  				
+			  				<label for="addOggetto">Oggetto</label>
+			  				<input id="addOggetto" type="text" name="addOggetto" maxlength="300" value="" tabindex="3" />
 
-	  					<label for="addDescrizione">Descrizione (max 2000 caratteri)</label>
-	  					<textarea id="addDescrizione" name="addDescrizione" onkeyup="addCharCountdown()" onkeydown="addCharCountdown()" onkeypress="addCharCountdown()" tabindex="4"></textarea>
-             			<p id="contaCaratteri">2000 caratteri ancora disponibili</p>
-					</fieldset>
+		  					<label for="addDescrizione">Descrizione (max 2000 caratteri)</label>
+		  					<label for="addDescrizione" id="contaCaratteri">2000 caratteri ancora disponibili</label>
+		  					<textarea id="addDescrizione" rows="10" cols="70" name="addDescrizione" onkeyup="addCharCountdown()" onkeydown="addCharCountdown()" onkeypress="addCharCountdown()" tabindex="4"></textarea>
+						</fieldset>
 
-					<fieldset id="addNew" title="Crea nuovo annuncio">
-						<legend id="new_insertion">Crea nuovo annuncio</legend>
-
-						<input class="buttons" id="submit_new" type="submit" value="Crea" onkeypress="return addInsertionControl()" />
-						<input class="buttons" id="reset_new" type="reset" value="Azzera" />
-					</fieldset>
+						<fieldset id="addNew" title="Crea nuovo annuncio">
+							<legend id="new_insertion">Crea nuovo annuncio</legend>
+							<input class="buttons" id="submit_new" type="submit" value="Crea" onkeypress="return addInsertionControl()" />
+							<input class="buttons" id="reset_new" type="reset" value="Azzera" />
+						</fieldset>
 					</form>
 
 				</div>

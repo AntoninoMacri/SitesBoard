@@ -27,9 +27,10 @@ utf8::encode($userName);
 print "Content-type: text/html\n\n";
 
 print <<PRIMA_PARTE;
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 	<head>
-		<title xml:lang="en" lang="it">Annunci Inseriti - SitesBoard</title> 
+		<title >Annunci Inseriti - SitesBoard</title> 
 
 		<link href="../css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
 		<link href="../css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
@@ -41,7 +42,7 @@ print <<PRIMA_PARTE;
 		<meta name="title" content="Annunci Inseriti - SitesBoard" />
 		<meta name="author" content="Davide Rigoni, Francesco Fasolato, Giacomo Zecchin, Antonino Macrì" />
 		<meta name="description" content="Pagina degli annunci inseriti dall'utente loggato" />
-		<meta name="keywords" content="Profile, Logged, Siti, Web" />
+		<meta name="keywords" content="Nuovo, Annuncio, Logged, Siti, Web" />
 		<meta name="language" content="italian it" />
 	</head>
 	<body>
@@ -69,7 +70,6 @@ print <<EOF;
 					</div>
 					<div class="minimal">
 						<a class="edit" href="profileChange.cgi" hreflang="it" type="application/xhtml+xml">Modifica Profilo <img id="header_PEL" src="../media/edit_profile.png" alt="Iconcina di modifica profilo" title = "Modifica i dati del profilo"/></a>
-						&nbsp&nbsp&nbsp
 						<a class="edit" href="logout.cgi" hreflang="it" type="application/xhtml+xml">Logout <img id="logout_logo" src="../media/logout.png" alt="Iconcina del logout" title = "esegui il logout"/></a>
 					</div>
 				</div>
@@ -80,7 +80,7 @@ print <<EOF;
 
 			<!-- PATH  -->
 			<div id="path" title="Sezione del sito in cui ti trovi in questo momento">
-				Ti trovi in: <span class="notable">Profilo utente 	&ndash;&gt; Annunci Inseriti</span>
+				Ti trovi in: <span class="notable">Profilo utente</span> &gt;&gt; <span class="notable">Annunci Inseriti</span>
 			</div>
 			<div id="nav_panel">
 				<!-- MENÙ DI NAVIGAZIONE --> 
@@ -105,7 +105,7 @@ print <<EOF;
 					<p>Annunci:</p>
 					<ul>
 						<li><a href="addInsertions.cgi" hreflang="it" type="application/xhtml+xml">Nuovo</a></li>
-						<li><a href="showInsertions.cgi" hreflang="it" type="application/xhtml+xml">Inseriti</a></li>
+						<li>Inseriti</li>
 						<li><a href="acceptedInsertions.cgi" hreflang="it" type="application/xhtml+xml">Accettati</a></li>
 					</ul>
 				</div>
@@ -120,16 +120,17 @@ print <<EOF;
 
 					<!-- Messaggio di errore  -->
 					<p id="cont_error" title="Messaggio di errore">
-
-					</p>
-					<p class="info">
-						Questi sono gli annunci che hai inserito.
-					</p>
 EOF
 if(defined($msgParam))
 {
 	print $msgParam;
 }
+print <<EOF;
+					</p>
+					<p class="info">
+						Questi sono gli annunci che hai inserito.
+					</p>
+EOF
 
 					for (my $i=0; $i <scalar(@annunciPersonali); $i++) {
 					$autore=$annunciPersonali[$i][0];
@@ -149,7 +150,7 @@ if(defined($msgParam))
 					utf8::encode($id_annuncio);
 				
 					print	"<p class='HInsertions'>
-							<span id='title'>Titolo: <a href='insertion.cgi?idUser=$id_persona&idInsertion=$id_annuncio' hreflang='it' >$titolo</a></span>
+							<span id='title'>Titolo: <a href='insertion.cgi?idUser=$id_persona&amp;idInsertion=$id_annuncio' hreflang='it' >$titolo</a></span>
 							<span id='obj'>Oggetto: $oggetto</span>
 							<span id='date'>Data: $data</span>
 							<span id='author'>Autore: $autore</span>
