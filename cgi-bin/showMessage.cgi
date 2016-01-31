@@ -24,6 +24,7 @@ my @info=getBoard();
 print "Content-type: text/html\n\n";
 
 print <<PRIMA_PARTE;
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 	<head>
 		<title xml:lang="en" lang="en">Messaggio - SitesBoard</title> 
@@ -35,6 +36,7 @@ print <<PRIMA_PARTE;
 
 		<!-- Meta Tag -->
 		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<meta name="title" content="Messaggio - SitesBoard" />
 		<meta name="author" content="Davide Rigoni, Francesco Fasolato, Giacomo Zecchin, Antonino Macrì" />
 		<meta name="description" content="Pagina Messaggio di SitesBoard per la richiesta di Siti Web Professionali" />
@@ -70,7 +72,6 @@ print <<PEZZO2;
 					</div>
 					<div class="minimal">
 						<a class="edit" href="profile.cgi" hreflang="it" type="application/xhtml+xml">Il tuo profilo <img id="profile_logo" src="../media/header_profile.png" alt="Iconcina del profilo" title = "Vai al tuo profilo"/></a>
-						&nbsp&nbsp&nbsp
 						<a class="edit" href="logout.cgi" hreflang="it" type="application/xhtml+xml">Logout <img id="logout_logo" src="../media/logout.png" alt="Iconcina del logout" title = "esegui il logout"/></a>
 					</div>
 				</div>
