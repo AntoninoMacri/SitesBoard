@@ -36,7 +36,9 @@ print <<PRIMA_PARTE;
 		<meta name="description" content="Home Page di SitesBoard per la richiesta di Siti Web Professionali" />
 		<meta name="keywords" content="Home, Bacheca, Siti, Web" />
 		<meta name="language" content="italian it" />
-		
+
+		<script type="text/javascript" src="../js/control.js"></script>		
+
 	</head>
 	<body>
 		<div id="container">
@@ -110,7 +112,7 @@ print <<PEZZO;
 				<div id="nav_login" class="menu" title="Menù di Login del sito">
 					<h3><span xml:lang="en" lang="en">Login</span></h3>
 					<!-- Messaggio di errore -->
-					<p id="nav_error" title="Messaggio di errore compilazione form login">
+					<p id="cont_error" title="Messaggio di errore compilazione form login">
 					</p>
 					<!-- Form da compilare -->
 					<form onsubmit="return loginControl()" method="post" action="checkLogin.cgi">

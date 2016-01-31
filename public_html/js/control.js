@@ -105,6 +105,7 @@ function recoveryControl(){
 
 //loginControl
 function loginControl(){
+    document.getElementById("cont_error").style.color='red';
     var risultato=checkUser("login_user","cont_error");
     risultato=risultato && checkPassword("login_password","cont_error");
     return risultato;
