@@ -121,9 +121,6 @@ print <<EOF;
 	  					<label for="age">Data di nascita</label>
 	  					<input id="age" type="text" name="age" value="" tabindex="3" />
 	  					<br><br>
-	  					<label for="username">Username</label>
-	  					<input id="username" type="text"  name="username" maxlength="40" value="" tabindex="4" >
-	  					<br><br>
 	  					<label for="email">Email</label>
 	  					<input id="email" type="text" name="email" value="" tabindex="5" />
 	  					<br><br>
