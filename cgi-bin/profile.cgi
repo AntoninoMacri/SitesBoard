@@ -138,25 +138,20 @@ print <<EOF;
 					Ti trovi all'interno dell'area personale del tuo profilo. Da qui è possibile gestire tutti i tuoi annunci o quelli a cui sei interessato.
 					</p>
 					<p class="info underline">
-					In particolare puoi: visualizzare gli annunci da te inseriti. Visualizzare gli annunci che hai accettato in attesa di conclusione asta. Aggiungere un nuovo annuncio che apparirà nella bacheca di <span xml:lang="en">SitesBoard</span> in ordine, dal più vicino al più lontano, di scadenza. Cancellare i tuoi annunci che per qualche motivo non ti interessa più condividere. 
+					In particolare puoi: visualizzare gli annunci da te inseriti. Visualizzare gli annunci che hai accettato in attesa di conclusione asta. Aggiungere un nuovo annuncio che apparirà nella bacheca di <span xml:lang="en" lang="en">SitesBoard</span> in ordine, dal più vicino al più lontano, di scadenza. Cancellare i tuoi annunci che per qualche motivo non ti interessa più condividere. 
 					</p>
 
-					<ul class="underline">
-					<li><label for="name">Nome: <span class="bold"> $name </span> </label></li>
+					<span>Nome: $name </span><br/>
+  					<span>Cognome: $surname </span><br/>
+  					<span>Data di nascita: $date</span><br/>
+  					<span><span xml:lang="en" lang="en">Username</span>: $username</span><br/>
+  					<span><span xml:lang="en" lang="en">Email</span>: $email</span><br/>
+  					<span>Biografia:</span><br/>
   					
-  					<li><label for="surname">Cognome: <span class="bold"> $surname </span> </label></li>
-  					
-  					<li><label for="age">Data di nascita: <span class="bold"> $date</span> </label id="age"></li>
-  					
-  					<li><label for="username">Username: <span class="bold"> $username</span> </label></li>
-  					
-  					<li><label for="email">Email: <span class="bold"> $email</span> </label></li>
-  					</ul>
 
 					<form name="modulo" method="post" onclick="return alertOnRmProfile()" action="removeProfile.cgi">
 					<fieldset id="remove_profile" title="Elimina il tuo profilo">
-						<legend id="remove_profile">Vuoi eliminare il tuo profilo?</legend>
-
+						<legend id="remove_profile">Clicca qui per rimuovere il tuo profilo</legend>
 						<input class="buttons" id="rmProfile" type="submit" onkeypress="return alertOnRmProfile()" value="Elimina profilo">
 					</fieldset>
 					</form>
@@ -174,13 +169,13 @@ print <<EOF;
 			</span>
 			<span title="CSS della pagina validato secondo lo standard">
 				<!--hrflang varia a seconda dello stato -->
-			    <a href="http://jigsaw.w3.org/css-validator/check/referer" type="application/xhtml+xml"> 
-			        <img id="footer_CSS_Validator" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valido!" />
-			    </a>
+			    <a href="http://jigsaw.w3.org/css-validator/check/referer" type="application/xhtml+xml">
+					<img id="footer_CSS_Validator" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valido!" />
+				</a>
 			</span>
 			<span title="Accessibile secondo lo standard WCAG2 Livello AAA">
-			    <a href="http://www.w3.org/WAI/intro/wcag" type="application/xhtml+xml" hreflang="en-US"> 
-			        <img src="https://www.totalvalidator.com/images/valid_n_wcag2_aaa.gif" alt="Pagina accessibile" />
+			    <a href="http://www.w3.org/WAI/intro/wcag" type="application/xhtml+xml" hreflang="en-US">
+			    	<img src="https://www.totalvalidator.com/images/valid_n_wcag2_aaa.gif" alt="Pagina accessibile" />
 			    </a>
 			</span>
 		</div>
