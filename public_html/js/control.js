@@ -66,8 +66,7 @@ function profileChangeControl(){
     document.getElementById("underline").style.color='red';
     var risultato=checkName("name","underline");
     risultato=risultato && checkSurname("surname","underline");
-    risultato=risultato && checkAge("age","underline");
-    risultato=risultato && checkUser("username","underline");
+    risultato=risultato && checkData("year", "month", "day", "underline");
     risultato=risultato && checkEmail("email","underline");
     return risultato;
 }

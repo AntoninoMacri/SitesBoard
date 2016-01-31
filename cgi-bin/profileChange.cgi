@@ -118,14 +118,18 @@ print <<EOF;
 	  					<label for="surname">Cognome</label>
 	  					<input id="surname" type="text" name="surname" maxlength="30" value="" tabindex="2" />
 	  					<br><br>
-	  					<label for="age">Data di nascita</label>
-	  					<input id="age" type="text" name="age" value="" tabindex="3" />
+	  					<label for="year">Anno di Nascita</label>
+						<input type="text" name="year" id="year" tabindex="3"/>
+						<label for="month">Mese di Nascita</label>
+						<input type="text" name="month" id="month" tabindex="4"/>
+						<label for="day">Giorno di Nascita</label>
+						<input type="text" name="day" id="day" tabindex="5"/>
 	  					<br><br>
 	  					<label for="email">Email</label>
-	  					<input id="email" type="text" name="email" value="" tabindex="5" />
+	  					<input id="email" type="text" name="email" value="" tabindex="6" />
 	  					<br><br>
 	  					<label for="bio">Biografia</label>
-	  					<textarea id="bio" rows="10" cols="70" type="text" name="bio" value="" tabindex="6"></textarea>
+	  					<textarea id="bio" rows="10" cols="70" type="text" name="bio" value="" tabindex="7"></textarea>
 	  					<br><br>
 
 	  					<input class="buttons" type="submit" value="Salva" onkeypress="return profileChangeControl()">
