@@ -12,14 +12,25 @@ if($session == undef)
     print redirect(-url => 'login.cgi');
 }
 
-my $name=getName($session);
-my $surname=getSurname($session);
-my $email=getEmail($session);
-my $date=getDate($session);
+my $cgi = new CGI;
+my $user = $cgi->param('user');
 
-utf8::encode($name);
-utf8::encode($surname);
+if(defined($user)){
+my @utente=getUtente($user);
+
+$nome=$utente[0];
+$cognome=$utente[1];
+$dataNascita=$utente[2];
+$email=$utente[3];
+$biografia=$utente[4];
+
+utf8::encode($nome);
+utf8::encode($cognome);
+utf8::encode($dataNascita);
 utf8::encode($email);
+utf8::encode($biografia);
+
+}
 
 print "Content-type: text/html\n\n";
 
@@ -28,9 +39,9 @@ print <<PRIMA_PARTE;
 	<head>
 		<title xml:lang="en" lang="it">Profilo di nomeUtente- SitesBoard</title> 
 
-		<link href="css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
-		<link href="css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
-		<link href="css/print.css" rel="stylesheet" type="text/css" media="print"/>
+		<link href="../css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
+		<link href="../css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
+		<link href="../css/print.css" rel="stylesheet" type="text/css" media="print"/>
 
 
 		<!-- Meta Tag -->
@@ -45,7 +56,7 @@ print <<PRIMA_PARTE;
 		<div id="container">
 			<!-- HEADER  -->
 			<div id="header">
-				<a href="home.cgi" hreflang="it"><img id="header_logo" src="media/logo.png" alt="Logo del sito SitesBoard" title = "Logo del sito"/></a>
+				<a href="home.cgi" hreflang="it"><img id="header_logo" src="../media/logo.png" alt="Logo del sito SitesBoard" title = "Logo del sito"/></a>
 				<h1>SitesBoard</h1>
 				<h2>La <span xml:lang="en" lang="en">Sites Board</span> per richiedere Siti <span xml:lang="en" lang="en">Web</span></h2>
 
@@ -63,9 +74,9 @@ print <<EOF;
 						Benvenuto <span class="notable">$username</span>
 					</div>
 					<div class="minimal">
-						<a class="edit" href="profile.cgi" hreflang="it" type="application/xhtml+xml">Il tuo profilo <img id="profile_logo" src="media/header_profile.png" alt="Iconcina del profilo" title = "Vai al tuo profilo"/></a>
+						<a class="edit" href="profile.cgi" hreflang="it" type="application/xhtml+xml">Il tuo profilo <img id="profile_logo" src="../media/header_profile.png" alt="Iconcina del profilo" title = "Vai al tuo profilo"/></a>
 						&nbsp&nbsp&nbsp
-						<a class="edit" href="logout.cgi" hreflang="it" type="application/xhtml+xml">Logout <img id="logout_logo" src="media/logout.png" alt="Iconcina del logout" title = "esegui il logout"/></a>
+						<a class="edit" href="logout.cgi" hreflang="it" type="application/xhtml+xml">Logout <img id="logout_logo" src="../media/logout.png" alt="Iconcina del logout" title = "esegui il logout"/></a>
 					</div>
 				</div>
 
@@ -106,17 +117,17 @@ print <<EOF;
  					</p>
 
 					<ul>
-					<li><label for="name">Nome: <span class="bold"> $name </span> </label></li>
+					<li><label for="name">Nome: <span class="bold"> $nome </span> </label></li>
   					
-  					<li><label for="surname">Cognome: <span class="bold"> $surname </span> </label></li>
+  					<li><label for="surname">Cognome: <span class="bold"> $cognome </span> </label></li>
   					
-  					<li><label for="age">Data di nascita: <span class="bold"> $date</span> </label></li>  					
+  					<li><label for="age">Data di nascita: <span class="bold"> $dataNascita</span> </label></li>  					
 
-  					<li><label for="username">Username: <span class="bold"> $username</span> </label></li>
+  					<li><label for="username">Username: <span class="bold"> $user</span> </label></li>
   					
   					<li><label for="email">Email: <span class="bold"> $email</span> </label></li>
 
-  					<li><label for="bio">Biografia: <span class="bold"> $email</span> </label></li>
+  					<li><label for="bio">Biografia: <span class="bold"> $biografia</span> </label></li>
 
   					</ul>
 				</div>

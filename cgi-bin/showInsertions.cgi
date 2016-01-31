@@ -161,7 +161,7 @@ if(defined($msgParam))
 						   <ul>";
 					for (my $i=0; $i <scalar(@disp); $i++) {
 						my $userDisp=$disp[i][0];
-						print "<li><a href='userProfile.cgi?user=userDisp' hreflang='it' >$userDisp</a></li>"
+						print "<li><a href='userProfile.cgi?user=$userDisp' hreflang='it' >$userDisp</a></li>"
 					}
 					print "</ul>";
 

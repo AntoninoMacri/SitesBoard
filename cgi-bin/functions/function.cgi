@@ -194,8 +194,33 @@ sub getDisponibili()
 	return @board;
 }
 
+sub getUtente{
+	my $username = $_[0];
+
+	my @utente;
+
+	my $query=$doc->findnodes('/bacheca/persona[user/text()="'.$username.'"]')->get_node(1) or die "Utente non trovato";
+	
+	my $nome=$query->findnodes('nome')->to_literal;
+	my $cognome=$query->findnodes('cognome')->to_literal;
+	my $dataNascita=$query->findnodes('dataNascita')->to_literal;
+	my $email=$query->findnodes('mail')->to_literal;
+	my $biografia=$query->findnodes('biografia')->to_literal;
+
+	push @utente, $nome;
+	push @utente, $cognome;
+	push @utente, $dataNascita;
+	push @utente, $email;
+	push @utente, $biografia;
+
+
+	return @utente;
+}
+
 sub getAcceptedAd(){
 	my $sessionUsername = $_[0];# dallo username di una persona bisogna risalire al suo id
+
+	my $query=$doc->findnodes('/bacheca/persona[user/text()="'.$sessionUsername.'"]/@id');
 
 	# bisogna interrogare ogni annuncio nel database e vedere se in listaDisponibili compare
 	# l'id trovato sopra
