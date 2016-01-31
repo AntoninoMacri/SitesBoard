@@ -11,12 +11,13 @@
 
 		<!-- Meta Tag-->
 		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<meta name="title" content="Recupero Password Utente - SitesBoard" />
 		<meta name="author" content="Davide Rigoni, Francesco Fasolato, Giacomo Zecchin, Antonino Macrì" />
 		<meta name="description" content="Form di recupero password utente per SitesBoard, il sito per la richiesta di Siti Web Professionali" />
 		<meta name="keywords" content="Recupero, Password, Bacheca, Siti, Web" />
 		<meta name="language" content="italian it" />
-		<script type="text/javascript" src="../javascript/control.js"></script>
+		<script type="text/javascript" src="../js/control.js"></script>
 	</head>
 	<body>
 		<div id="container">
@@ -64,7 +65,7 @@
 				<div id="nav_login" class="menu" title="Menù di Login del sito">
 					<h3><span xml:lang="en" lang="en">Login</span></h3>
 					<!-- Messaggio di errore -->
-					<p id="nav_error" title="Messaggio di errore compilazione form login"> Inserire
+					<p id="nav_error" title="Messaggio di errore compilazione form login">
 					</p>
 					<!-- Form da compilare -->
 					<form onsubmit="return loginControl()" method="post" action="login.html">

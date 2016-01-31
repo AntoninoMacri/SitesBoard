@@ -34,6 +34,7 @@ print <<EOF;
 
 		<!-- Meta Tag-->
 		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<meta name="title" content="Registrazione Utente - SitesBoard" />
 		<meta name="author" content="Davide Rigoni, Francesco Fasolato, Giacomo Zecchin, Antonino Macrì" />
 		<meta name="description" content="Form di registrazione utente per SitesBoard, il sito per la richiesta di Siti Web Professionali" />
