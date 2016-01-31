@@ -13,6 +13,7 @@ if($session == undef)
 print "Content-type: text/html\n\n";
 
 print <<PRIMA_PARTE;
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 	<head>
 		<title xml:lang="en" lang="it">Modifica informazioni - SitesBoard</title> 
@@ -24,10 +25,11 @@ print <<PRIMA_PARTE;
 
 		<!-- Meta Tag -->
 		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<meta name="title" content="Modifica info profilo - SitesBoard" />
 		<meta name="author" content="Davide Rigoni, Francesco Fasolato, Giacomo Zecchin, Antonino Macrì" />
 		<meta name="description" content="Pagina di modifica delle informazioni personali" />
-		<meta name="keywords" content="Changes, Profile, Logged, Siti, Web" />
+		<meta name="keywords" content="Modifica, Profile, Logged, Siti, Web" />
 		<meta name="language" content="italian it" />
 
 		<script type="text/javascript" src="../js/control.js"></script>
@@ -57,7 +59,6 @@ print <<EOF;
 					</div>
 					<div class="minimal">
 						<a class="edit" href="profile.cgi" hreflang="it" type="application/xhtml+xml">Il tuo profilo <img id="profile_logo" src="../media/header_profile.png" alt="Iconcina del profilo" title = "Torna al tuo profilo"/></a>
-						&nbsp&nbsp&nbsp
 						<a class="edit" href="logout.cgi" hreflang="it" type="application/xhtml+xml">Logout <img id="logout_logo" src="../media/logout.png" alt="Iconcina del logout" title = "esegui il logout"/></a>
 					</div>
 					
@@ -69,7 +70,7 @@ print <<EOF;
 
 			<!-- PATH -->
 			<div id="path" title="Sezione del sito in cui ti trovi in questo momento">
-				Ti trovi in: <span class="notable">Profilo utente &ndash;&gt; Modifica profilo</span>
+				Ti trovi in: <span class="notable">Profilo utente</span> &gt;&gt; <span class="notable">Modifica profilo</span>
 			</div>
 
 			<div id="nav_panel">
@@ -80,12 +81,12 @@ print <<EOF;
 					<a href="home.cgi" xml:lang="en" lang="en" hreflang="it" >Home</a>
 					<p>Tipologia Siti:</p>
 					<ul>
-						<li><a href="" hreflang="it" type="application/xhtml+xml"><span xml:lang="en" lang="en">E-commerce</span></a></li>
-						<li><a href="" hreflang="it" type="application/xhtml+xml"><span xml:lang="en" lang="en">Forum</span></a></li>
-						<li><a href="" hreflang="it" type="application/xhtml+xml"><span xml:lang="en" lang="en">Social</span></a></li>
-						<li><a href="" hreflang="it" type="application/xhtml+xml">Personali</a></li>
-						<li><a href="" hreflang="it" type="application/xhtml+xml">Aziendali</a></li>
-						<li><a href="" hreflang="it" type="application/xhtml+xml"><span xml:lang="en" lang="en">Blog</span></a></li>
+						<li><a href="eCommerce.cgi" hreflang="it" ><span xml:lang="en" lang="en">E-commerce</span></a></li>
+						<li><a href="forum.cgi" hreflang="it" ><span xml:lang="en" lang="en">Forum</span></a></li>
+						<li><a href="social.cgi" hreflang="it" ><span xml:lang="en" lang="en">Social</span></a></li>
+						<li><a href="personali.cgi" hreflang="it" >Personali</a></li>
+						<li><a href="aziendali.cgi" hreflang="it" >Aziendali</a></li>
+						<li><a href="blog.cgi" hreflang="it" ><span xml:lang="en" lang="en">Blog</span></a></li>
 					</ul>
 				</div>
 
@@ -107,35 +108,30 @@ print <<EOF;
 
 				<h3><span xml:lang="it" lang="it">Stai modificando i tuoi dati</span></h3>
 				<div id="cont_profile_change">
-					<p class="info" id="underline">
-					Ricordati di cliccare su salva una volta che avrai terminato le modifiche
+					<p id="underline">
+						Ricordati di cliccare su salva una volta che avrai terminato le modifiche
 					</p>
 
-					 <form onsubmit="return profileChangeControl()" name="profileChange" method="post" action="profileChange.cgi">
-						<label for="name">Nome</label>
-	  					<input id="name" type="text" name="name" maxlength="30" value="" tabindex="1"/>
-	  					<br><br>
-	  					<label for="surname">Cognome</label>
-	  					<input id="surname" type="text" name="surname" maxlength="30" value="" tabindex="2" />
-	  					<br><br>
-	  					<label for="year">Anno di Nascita</label>
-						<input type="text" name="year" id="year" tabindex="3"/>
-						<label for="month">Mese di Nascita</label>
-						<input type="text" name="month" id="month" tabindex="4"/>
-						<label for="day">Giorno di Nascita</label>
-						<input type="text" name="day" id="day" tabindex="5"/>
-	  					<br><br>
-	  					<label for="email">Email</label>
-	  					<input id="email" type="text" name="email" value="" tabindex="6" />
-	  					<br><br>
-	  					<label for="bio">Biografia</label>
-	  					<textarea id="bio" rows="10" cols="70" type="text" name="bio" value="" tabindex="7"></textarea>
-	  					<br><br>
-
-	  					<input class="buttons" type="submit" value="Salva" onkeypress="return profileChangeControl()">
-
-						<input class="buttons" type="reset" value="Azzera">
-
+					 <form onsubmit="return profileChangeControl()" method="post" action="profileChange.cgi">
+					 	<fieldset title="Campi da compilare per effettuare il Login">
+							<legend>Campi da compilare per poter modificare i propri dati</legend>
+							<label for="name">Nome</label>
+		  					<input id="name" type="text" name="name" maxlength="30" value="" tabindex="1"/>
+		  					<label for="surname">Cognome</label>
+		  					<input id="surname" type="text" name="surname" maxlength="30" value="" tabindex="2" />
+		  					<label for="year">Anno di Nascita</label>
+							<input type="text" name="year" id="year" tabindex="3"/>
+							<label for="month">Mese di Nascita</label>
+							<input type="text" name="month" id="month" tabindex="4"/>
+							<label for="day">Giorno di Nascita</label>
+							<input type="text" name="day" id="day" tabindex="5"/>
+		  					<label for="email">Email</label>
+		  					<input id="email" type="text" name="email" value="" tabindex="6" />
+		  					<label for="bio">Biografia</label>
+		  					<textarea id="bio" rows="10" cols="70" name="bio" tabindex="7"></textarea>
+		  					<input class="buttons" type="submit" value="Salva" onkeypress="return profileChangeControl()" />
+							<input class="buttons" type="reset" value="Azzera" />
+	  					</fieldset>
 					</form>
 				</div>
 
@@ -149,12 +145,14 @@ print <<EOF;
 		<!-- FOOTER -->
 		<div id="footer">
 			<span title="Pagina validata con lo standard XHTML 1.0 Strict">
-			    <a href="http://validator.w3.org/check?uri=referer" hreflang="en" type="application/xhtml+xml"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
+			    <a href="http://validator.w3.org/check?uri=referer" hreflang="en" type="application/xhtml+xml">
+			    	<img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" />
+			    </a>
 			</span>
 			<span title="CSS della pagina validato secondo lo standard">
 				<!--hrflang varia a seconda dello stato -->
 			    <a href="http://jigsaw.w3.org/css-validator/check/referer" type="application/xhtml+xml"> 
-			        <img id="footer_CSS_Validator" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valido!" />
+			        <img src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valido!" />
 			    </a>
 			</span>
 			<span title="Accessibile secondo lo standard WCAG2 Livello AAA">

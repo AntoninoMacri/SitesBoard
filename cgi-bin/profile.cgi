@@ -32,6 +32,7 @@ utf8::encode($bio);
 print "Content-type: text/html\n\n";
 
 print <<PRIMA_PARTE;
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 	<head>
 		<title xml:lang="en" lang="it">Profilo utente - SitesBoard</title> 
@@ -149,7 +150,7 @@ print <<EOF;
   					<span>Biografia: $bio</span><br/>
   					
 
-					<form id="remove_profile" name="remove_profile" method="post" onclick="return alertOnRmProfile()" action="removeProfile.cgi">
+					<form id="remove_profile" method="post" onclick="return alertOnRmProfile()" action="removeProfile.cgi">
 						<fieldset  title="Elimina il tuo profilo">
 							<legend>Clicca qui per rimuovere il tuo profilo</legend>
 							<input class="buttons" id="rmProfile" type="submit" onkeypress="return alertOnRmProfile()" value="Elimina profilo" />
