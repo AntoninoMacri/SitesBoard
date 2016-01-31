@@ -47,11 +47,11 @@ if(defined($session) && defined($idInsertion) && defined($idUserInsertion))
 		close(OUT);
 		
 
-		print $cgi->redirect( 'showAcceptions.cgi' );
+		print $cgi->redirect( 'acceptedInsertions.cgi' );
 	}
 	else
 	{
-		print $cgi->redirect( 'showAcceptions.cgi?msgError=Errore nella rimozione dell\'accetazione.' );
+		print $cgi->redirect( 'acceptedInsertions.cgi?msgError=Errore nell\' aggiunta della accettazione.' );
 	}
 }
 else

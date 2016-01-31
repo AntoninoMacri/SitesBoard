@@ -1,21 +1,28 @@
-#!/usr/bin/perl
-
+#!/usr/bin/perl -w
+use CGI qw(:standard);
+use CGI::Carp qw(fatalsToBrowser);
+use CGI::Session;
+use XML::LibXML;
+use XML::XPath;
 require 'functions/function.cgi';
 require 'functions/session_function.cgi';
 
+#ottengo dati dalla sessione
 my $session=getSession();
-
+my $userUsername;
 if($session == undef)
 {
     print redirect(-url => 'login.cgi');
+    $userUsername = getSessionUsername($session);
 }
 
+#ottengo i dati passati alla pagina
 my $cgi = new CGI;
-my $idUser = $cgi->param('idUser');
-my $idInsertion = $cgi->param('idInsertion');
+my $idUserParam = $cgi->param('idUser');
+my $idInsertionParam = $cgi->param('idInsertion');
 
-if(defined($idUser) && defined($idInsertion)){
-my @info=getAd($idUser, $idInsertion); #ritorna un array{username,titolo,oggetto,descrizione,tipologia,data} per le info dell annuncio
+if(defined($idUserParam) && defined($idInsertionParam)){
+my @info=getAd($idUserParam, $idInsertionParam); #ritorna un array{username,titolo,oggetto,descrizione,tipologia,data} per le info dell annuncio
 
 $autore=$info[0];
 $titolo=$info[1];
@@ -36,9 +43,10 @@ print "Content-type: text/html\n\n";
 
 
 print <<PRIMA_PARTE;
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 	<head>
-		<title xml:lang="en" lang="it">Annuncio- SitesBoard</title> 
+		<title>Annuncio- SitesBoard</title> 
 
 		<link href="../css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
 		<link href="../css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
@@ -80,7 +88,6 @@ print <<EOF;
 					</div>
 					<div class="minimal">
 						<a class="edit" href="profileChange.cgi" hreflang="it" type="application/xhtml+xml">Modifica Profilo <img id="header_PEL" src="../media/edit_profile.png" alt="Iconcina di modifica profilo" title = "Modifica i dati del profilo"/></a>
-						&nbsp&nbsp&nbsp
 						<a class="edit" href="logout.cgi" hreflang="it" type="application/xhtml+xml">Logout <img id="logout_logo" src="../media/logout.png" alt="Iconcina del logout" title = "esegui il logout"/></a>
 					</div>
 				</div>
@@ -100,48 +107,109 @@ print <<EOF;
 
 					<p>Tipologia Siti:</p>
 					<ul>
-						<li><a href="" hreflang="it" type="application/xhtml+xml"><span xml:lang="en" lang="en">E-commerce</span></a></li>
-						<li><a href="" hreflang="it" type="application/xhtml+xml"><span xml:lang="en" lang="en">Forum</span></a></li>
-						<li><a href="" hreflang="it" type="application/xhtml+xml"><span xml:lang="en" lang="en">Social</span></a></li>
-						<li><a href="" hreflang="it" type="application/xhtml+xml">Personali</a></li>
-						<li><a href="" hreflang="it" type="application/xhtml+xml">Aziendali</a></li>
-						<li><a href="" hreflang="it" type="application/xhtml+xml"><span xml:lang="en" lang="en">Blog</span></a></li>
+						<li><a href="eCommerce.cgi" hreflang="it" ><span xml:lang="en" lang="en">E-commerce</span></a></li>
+						<li><a href="forum.cgi" hreflang="it" ><span xml:lang="en" lang="en">Forum</span></a></li>
+						<li><a href="social.cgi" hreflang="it" ><span xml:lang="en" lang="en">Social</span></a></li>
+						<li><a href="personali.cgi" hreflang="it" >Personali</a></li>
+						<li><a href="aziendali.cgi" hreflang="it" >Aziendali</a></li>
+						<li><a href="blog.cgi" hreflang="it" ><span xml:lang="en" lang="en">Blog</span></a></li>
 					</ul>
 					
 				</div>
+EOF
+if($session == undef){
+	print <<PEZZO;
+					<!-- MENÙ DI LOGIN-->
+					<!-- Da caricare solo se l utente non è loggato-->
+					<div id="nav_login" class="menu" title="Menù di Login del sito">
+						<h3><span xml:lang="en" lang="en">Login</span></h3>
+						<!-- Messaggio di errore -->
+						<p id="cont_error" title="Messaggio di errore compilazione form login">
+						</p>
+						<!-- Form da compilare -->
+						<form onsubmit="return loginControl()" method="post" action="checkLogin.cgi">
+							<fieldset title="Campi da compilare per effettuare il Login">
+								<legend>Campi da compilare per effettuare il Login</legend>
+								<label for="login_user">Username</label>
+								<input type="text" name="login_user" id="login_user"/><br/>
+								<label for="login_password">Password</label>
+								<input type="password" name="login_password" id="login_password"/><br/>
+							</fieldset>
+							<fieldset title="Procedi su Login per effetturare l'accesso">
+								<legend>Operazione di Login</legend>
+								<input type="submit" name="login_submit" id="login_submit" value="Accedi al sito" onkeypress="return loginControl()" />
+							</fieldset>
+						</form>
+						<a class ="minimal" href="registration.cgi" hreflang="it" >Non ti sei ancora registrato?</a>
+						<a class = "minimal" href="../html/pass_recovery.html" hreflang="it" >Non trovi più la <span xml:lang="en" lang="en">password?</span></a>
+					</div>
+PEZZO
+}
+else
+{
+	print <<PEZZO;
+					<!-- MENÙ DI AMMINISTRAZIONE-->
+					<!-- Da caricare se l utente è loggato-->
+					<div id="nav_administration" class="menu" title="Menù di amministrazione del sito">
+						<h3>Amministrazione</h3>
+						<p>Annunci:</p>
+						<ul>
+							<li><a href="addInsertions.cgi" hreflang="it" type="application/xhtml+xml">Nuovo</a></li>
+							<li><a href="showInsertions.cgi" hreflang="it" type="application/xhtml+xml">Inseriti</a></li>
+							<li><a href="acceptedInsertions.cgi" hreflang="it" type="application/xhtml+xml">Accettati</a></li>
+						</ul>
+					</div>
+PEZZO
+}
+print <<EOF;
 
 			</div>
 
 			<!-- Contenuti della pagina -->
 			<div id="contents">
-
-				<h3 class="resizable"><span id="ins_author" xml:lang="it" lang="it">da: <a href="profile.cgi" hreflang="it" type="application/xhtml+xml"> $autore</a> </span> <span id="ins_date" xml:lang="it" lang="it">in data: $data</span></h3>
+				<span id="ins_author">da: <a href="profile.cgi" hreflang="it" type="application/xhtml+xml">$autore</a> </span> 
+				<span id="ins_date">in data: $data</span>
 				<div id="cont_insertion">
-
 					<p id="underline">
-					<span class="insInfo">Tipologia:</span> $tipologia
+						<span class="insInfo">Tipologia:</span> $tipologia
 					</p>
-
 					<p id="title">
-					<span>Titolo:</span> $titolo
+						<span>Titolo:</span> $titolo
 					</p>
-
 					<p class="underline">
-					<span>Oggetto:</span> $oggetto
+						<span>Oggetto:</span> $oggetto
 					</p>
-
 					<p class="underline">
-					<span>Descrizione:</span> </br> $descrizione
+						<span>Descrizione:</span> </br> $descrizione
 					</p>
-
-					<form name="modulo" method="post" action="acceptedInsertions.cgi">
-					<fieldset id="accept" title="Accetta annuncio">
-						<legend id="accept_insertion">Ti interessa?</legend>
-
-						<input class="buttons" id="submit_new" type="submit" value="Accetta">
-					</fieldset>
-					</form>
-
+EOF
+#se l'autore è la stessa persona che visualizza la pagina allora non visualizza la possibilità di accetare l'inserizione
+if($userUsername != $autore)
+{
+	print <<EOF;
+						<form name="form_Accetazione" method="post" action="addAcception.cgi">
+							<fieldset title="Accetta annuncio">
+								<input  id="idUserInsertion" name="idUserInsertion" type="hidden" value='$idUserParam' />
+								<input  id="idInsertion" name="idInsertion" type="hidden" value='$idInsertionParam' />
+								<legend id="accept_insertion">Procedi per accettare l'annuncio</legend>
+								<input class="buttons" id="submit_new" name="submit_new" type="submit" value="Accetta" />
+							</fieldset>
+						</form>
+EOF
+}
+else
+{
+	print <<EOF;
+						<form name="form_Eliminazione" method="post" action="removeInsertion.cgi">
+							<fieldset title="Rimuovi annuncio">
+								<input  id="idInsertion" name="idInsertion" type="hidden" value='$idInsertionParam' />
+								<legend id="remove_insertion">Procedi per accettare l'annuncio</legend>
+								<input class="buttons" id="submit_new" name="submit_new" type="submit" value="Rimuovi" />
+							</fieldset>
+						</form>		
+EOF
+}
+print <<EOF;
 				</div>
 			</div>
 
