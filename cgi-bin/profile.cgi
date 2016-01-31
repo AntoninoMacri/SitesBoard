@@ -127,6 +127,13 @@ print <<EOF;
 
 				<h3><span xml:lang="it" lang="it">Il tuo profilo</span></h3>
 				<div id="cont_profile">
+					
+					<p class="info">
+						Ti trovi all'interno dell'area personale del tuo profilo. Da qui è possibile gestire tutti i tuoi annunci o quelli a cui sei interessato.
+					</p>
+					<p class="info underline">
+						In particolare puoi: visualizzare gli annunci da te inseriti. Visualizzare gli annunci che hai accettato in attesa di conclusione asta. Aggiungere un nuovo annuncio che apparirà nella bacheca di <span xml:lang="en" lang="en">SitesBoard</span> in ordine, dal più vicino al più lontano, di scadenza. Cancellare i tuoi annunci che per qualche motivo non ti interessa più condividere. 
+					</p>
 					<!-- Messaggio di errore  -->
 					<p id="cont_error" title="Messaggio di errore">
 EOF
@@ -136,13 +143,6 @@ if(defined($msgParam))
 }
 print <<EOF;
 					</p>
-					<p class="info">
-					Ti trovi all'interno dell'area personale del tuo profilo. Da qui è possibile gestire tutti i tuoi annunci o quelli a cui sei interessato.
-					</p>
-					<p class="info underline">
-					In particolare puoi: visualizzare gli annunci da te inseriti. Visualizzare gli annunci che hai accettato in attesa di conclusione asta. Aggiungere un nuovo annuncio che apparirà nella bacheca di <span xml:lang="en" lang="en">SitesBoard</span> in ordine, dal più vicino al più lontano, di scadenza. Cancellare i tuoi annunci che per qualche motivo non ti interessa più condividere. 
-					</p>
-
 					<span>Nome: $name </span><br/>
   					<span>Cognome: $surname </span><br/>
   					<span>Data di nascita: $date</span><br/>
