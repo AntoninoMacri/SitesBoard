@@ -222,6 +222,27 @@ sub getUtente{
 
 	return @utente;
 }
+sub getAcceptedAd(){
+	my $sessionUsername = $_[0];
+	my $idUtente=$doc->findnodes('/bacheca/persona[user/text()="'.$sessionUsername.'"]/@id')->to_literal;
+
+	my @insertions;
+
+	my $query=$doc->findnodes('/bacheca/persona[listaAnnunci/annuncio/listaDisponibili/idProgrammatore/text()="'.$idUtente.'"]');
+	for(my $z=1; $z <= $query->size; $z++){
+	  my $pers=$query->get_node($z);
+	  my $titolo=$pers->findnodes('listaAnnunci/annuncio/titolo/text()')->to_literal;
+	  my $oggetto=$pers->findnodes('listaAnnunci/annuncio/oggetto/text()')->to_literal;
+	  my $tipologia=$pers->findnodes('listaAnnunci/annuncio/tipologia/text()')->to_literal;
+	  my $data=$pers->findnodes('listaAnnunci/annuncio/data/text()')->to_literal;
+	  my $id_ann=$pers->findnodes('listaAnnunci/annuncio/@id')->to_literal;
+	  my $autore=$pers->findnodes('user/text()')->to_literal;
+	  my $id_autore=$pers->findnodes('@id')->to_literal;
+	  my @var = ($titolo,$oggetto,$tipologia,$data,$autore,$id_ann,$id_autore); #array contenente un annuncio
+	  push @insertions, \@var;
+	}
+}
+
 
 #sub getAcceptedAd(){
 #	my $sessionUsername = $_[0];

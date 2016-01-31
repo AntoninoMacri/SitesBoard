@@ -21,10 +21,11 @@ my $userName=getUsername($session);
 
 utf8::encode($userName);
 
-@annunciAccettati=getAcceptedAd(getSessionUsername($session));
+@annunciAccettati=getAcceptedAd(userName);
 
 
 print "Content-type: text/html\n\n";
+
 
 print <<PRIMA_PARTE;
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -80,7 +81,7 @@ print <<EOF;
 
 			<!-- PATH  -->
 			<div id="path" title="Sezione del sito in cui ti trovi in questo momento">
-				Ti trovi in: <span class="notable">Profilo utente</span>&ndash;&gt;<span class="notable">Annunci Accettati</span>
+				Ti trovi in: <span class="notable">Profilo utente</span>&nbsp;&ndash;&gt;<span class="notable">Annunci Accettati</span>
 			</div>
 			<div id="nav_panel">
 				<!-- MENÙ DI NAVIGAZIONE --> 
@@ -129,6 +130,7 @@ if(defined($msgParam))
 }
 					print "</p>";
 					for (my $i=0; $i <scalar(@annunciAccettati); $i++) {
+					print "$i";
 					$titolo=$annunciAccettati[$i][0];
 					$oggetto=$annunciAccettati[$i][1];
 					$tipologia=$annunciAccettati[$i][2];
