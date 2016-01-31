@@ -21,7 +21,7 @@ my $userName=getUsername($session);
 
 utf8::encode($userName);
 
-@annunciPersonali=getPersonalAd(getSessionUsername($session));
+@annunciAccettati=getAcceptedAd(getSessionUsername($session));
 
 
 print "Content-type: text/html\n\n";
@@ -29,7 +29,7 @@ print "Content-type: text/html\n\n";
 print <<PRIMA_PARTE;
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 	<head>
-		<title xml:lang="en" lang="it">Annunci Inseriti - SitesBoard</title> 
+		<title xml:lang="en" lang="it">Annunci Accettati - SitesBoard</title> 
 
 		<link href="../css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
 		<link href="../css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
@@ -38,10 +38,10 @@ print <<PRIMA_PARTE;
 
 		<!-- Meta Tag -->
 		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
-		<meta name="title" content="Annunci Inseriti - SitesBoard" />
+		<meta name="title" content="Annunci Accettati - SitesBoard" />
 		<meta name="author" content="Davide Rigoni, Francesco Fasolato, Giacomo Zecchin, Antonino Macrì" />
-		<meta name="description" content="Pagina degli annunci inseriti dall'utente loggato" />
-		<meta name="keywords" content="Profile, Logged, Siti, Web" />
+		<meta name="description" content="Pagina degli annunci accettati dall'utente loggato" />
+		<meta name="keywords" content="Annunci, Logged, Siti, Web" />
 		<meta name="language" content="italian it" />
 	</head>
 	<body>
@@ -80,7 +80,7 @@ print <<EOF;
 
 			<!-- PATH  -->
 			<div id="path" title="Sezione del sito in cui ti trovi in questo momento">
-				Ti trovi in: <span class="notable">Profilo utente 	&ndash;&gt; Annunci Inseriti</span>
+				Ti trovi in: <span class="notable">Profilo utente 	&ndash;&gt; Annunci Accettati</span>
 			</div>
 			<div id="nav_panel">
 				<!-- MENÙ DI NAVIGAZIONE --> 
@@ -114,7 +114,7 @@ print <<EOF;
 			<!-- Contenuti della pagina -->
 			<div id="contents">
 
-				<h3><span xml:lang="it" lang="it">I tuoi annunci</span></h3>
+				<h3><span xml:lang="it" lang="it">Qui sono presenti gli annunci per cui ti sei candidato.</span></h3>
 				<div id="cont_annunci">
 
 
@@ -123,7 +123,7 @@ print <<EOF;
 
 					</p>
 					<p class="info">
-						Questi sono gli annunci che hai inserito.
+						Questi sono gli annunci che hai accettato.
 					</p>
 EOF
 if(defined($msgParam))
@@ -131,14 +131,14 @@ if(defined($msgParam))
 	print $msgParam;
 }
 
-					for (my $i=0; $i <scalar(@annunciPersonali); $i++) {
-					$autore=$annunciPersonali[$i][0];
-					$titolo=$annunciPersonali[$i][1];
-					$oggetto=$annunciPersonali[$i][2];
-					$tipologia=$annunciPersonali[$i][3];
-					$data=$annunciPersonali[$i][4];
-					$id_persona=$annunciPersonali[$i][5];
-					$id_annuncio=$annunciPersonali[$i][6];
+					for (my $i=0; $i <scalar(@annunciAccettati); $i++) {
+					$autore=$annunciAccettati[$i][0];
+					$titolo=$annunciAccettati[$i][1];
+					$oggetto=$annunciAccettati[$i][2];
+					$tipologia=$annunciAccettati[$i][3];
+					$data=$annunciAccettati[$i][4];
+					$id_persona=$annunciAccettati[$i][5];
+					$id_annuncio=$annunciAccettati[$i][6];
 				
 					utf8::encode($autore);
 					utf8::encode($titolo);
@@ -155,16 +155,6 @@ if(defined($msgParam))
 							<span id='author'>Autore: $autore</span>
 							<span id='obj'>Tipologia: $tipologia</span>
 							</p>";
-
-					my @disp = getDisponibili($autore, $id_annuncio);
-					print "<p>Disponibili:</p>
-						   <ul>";
-					for (my $i=0; $i <scalar(@disp); $i++) {
-						my $userDisp=$disp[i][0];
-						print "<li><a href='userProfile.cgi?user=userDisp' hreflang='it' >$userDisp</a></li>"
-					}
-					print "</ul>";
-
 				}
 print <<EOF;
 				</div>

@@ -193,3 +193,25 @@ sub getDisponibili()
 	}
 	return @board;
 }
+
+sub getAcceptedAd(){
+	my $sessionUsername = $_[0];# dallo username di una persona bisogna risalire al suo id
+
+	# bisogna interrogare ogni annuncio nel database e vedere se in listaDisponibili compare
+	# l'id trovato sopra
+
+	# da qui bisogna prendere quell'annuncio e metterlo in un array come in getPersonalAdd,
+	# solo che sono annunci di un altro utente
+}
+
+
+
+
+
+
+
+
+
+
+
+
