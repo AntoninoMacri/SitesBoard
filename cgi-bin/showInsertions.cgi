@@ -161,7 +161,7 @@ EOF
 					print "<p>Disponibili:</p>
 						   <ul>";
 					for (my $i=0; $i <scalar(@disp); $i++) {
-						my $userDisp=$disp[i][0];
+						my $userDisp=$disp[$i];
 						print "<li><a href='userProfile.cgi?user=$userDisp' hreflang='it' >$userDisp</a></li>"
 					}
 					print "</ul>";

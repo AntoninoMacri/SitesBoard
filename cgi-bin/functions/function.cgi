@@ -185,17 +185,12 @@ sub getDisponibili()
 
 	my @board;
 
-	my $query=$doc->findnodes('/bacheca/persona[user/text()="'.$sessionUsername.'"]/listaAnnunci/annuncio[@id="'.$id_annuncio.'"]/listaDisponibili')->get_node(1) or die "listaAnnunci non trovata";
-	my $idp=$query->findnodes('idProgrammatore');
+	my $query=$doc->findnodes('/bacheca/persona[user/text()="'.$sessionUsername.'"]/listaAnnunci/annuncio[@id="'.$id_annuncio.'"]/listaDisponibili/idProgrammatore');
 
-	for (my $x=1; $x <= $idp->size; $x++) {
-		my $id=$idp->get_node($x)->to_literal;
-
-		my $nome=$doc->findnodes('/bacheca/persona[@id="'.$id.'"]/nome')->to_literal;
-		my $cognome=$doc->findnodes('/bacheca/persona[@id="'.$id.'"]/cognome')->to_literal;
+	for (my $x=1; $x <= $query->size; $x++) {
+		my $id=$query->get_node($x)->to_literal;
 		my $user=$doc->findnodes('/bacheca/persona[@id="'.$id.'"]/user')->to_literal;
-		my @var = ($user,$id,$nome,$cognome); #array contenente un programmatore con i dati personali
-		push @board, \@var;
+		push @board, $user;
 	}
 	return @board;
 }
@@ -256,45 +251,3 @@ sub getAcceptedAd(){
 }
 
 
-#sub getAcceptedAd(){
-#	my $sessionUsername = $_[0];
-#
-#	my @insertions;
-#
-#	my $idUtente=$doc->findnodes('/bacheca/persona[user/text()="'.$sessionUsername.'"]/@id');# dallo username di una persona bisogna risalire al suo id
-#
-#	my $query=$doc->findnodes('/bacheca/persona');
-#
-#	for(my $z=1; $z <= $query->size; $z++){
-#		my $pers=$query->get_node($z);
-#		my listAnn=$pers->findnodes('/listaAnnunci/annuncio');
-#
-#		for (my $x=1; $x <= $listAnn->size; $x++) {
-#		my $ann=$listAnn->get_node($x);
-#		my $idp=$ann->findnodes('/listaDisponibili/idProgrammatore');
-#
-#			for(my $y=1; $y<=$idp->size; y++){
-#				my $id=$idp->get_node($y)->to_literal;
-#				if($id==$idUtente){
-#					my $titolo=$ann->findnodes('titolo/text()')->to_literal;
-#					my $oggetto=$ann->findnodes('oggetto/text()')->to_literal;
-#					my $tipologia=$ann->findnodes('tipologia/text()')->to_literal;
-#					my $data=$ann->findnodes('data/text()')->to_literal;
-#					my $autore=$pers->findnodes('user/text()')->to_literal;
-#					my $id_ann=$ann->findnodes('@id')->to_literal;
-#					my $id_autore=$pers->findnodes('@id')->to_literal;
-#					my @var = ($titolo,$oggetto,$tipologia,$data,$autore,$id_ann,$id_autore); #array contenente un annuncio
-#					push @insertions, \@var;
-#				}
-#			}
-#	}
-#
-#	}
-#
-#	# bisogna interrogare ogni annuncio nel database e vedere se in listaDisponibili compare
-#	# l'id trovato sopra
-#
-#	# da qui bisogna prendere quell'annuncio e metterlo in un array come in getPersonalAdd,
-#	# solo che sono annunci di un altro utente
-#	return @inserions;
-#}
