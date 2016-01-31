@@ -78,7 +78,6 @@ print <<EOF;
 					</div>
 					<div class="minimal">
 						<a class="edit" href="profileChange.cgi" hreflang="it" type="application/xhtml+xml">Modifica Profilo <img id="header_PEL" src="../media/edit_profile.png" alt="Iconcina di modifica profilo" title = "Modifica i dati del profilo"/></a>
-						&nbsp&nbsp&nbsp
 						<a class="edit" href="logout.cgi" hreflang="it" type="application/xhtml+xml">Logout <img id="logout_logo" src="../media/logout.png" alt="Iconcina del logout" title = "esegui il logout"/></a>
 					</div>
 				</div>
@@ -150,11 +149,11 @@ print <<EOF;
   					<span>Biografia: $bio</span><br/>
   					
 
-					<form name="modulo" method="post" onclick="return alertOnRmProfile()" action="removeProfile.cgi">
-					<fieldset id="remove_profile" title="Elimina il tuo profilo">
-						<legend id="remove_profile">Clicca qui per rimuovere il tuo profilo</legend>
-						<input class="buttons" id="rmProfile" type="submit" onkeypress="return alertOnRmProfile()" value="Elimina profilo">
-					</fieldset>
+					<form id="remove_profile" name="remove_profile" method="post" onclick="return alertOnRmProfile()" action="removeProfile.cgi">
+						<fieldset  title="Elimina il tuo profilo">
+							<legend>Clicca qui per rimuovere il tuo profilo</legend>
+							<input class="buttons" id="rmProfile" type="submit" onkeypress="return alertOnRmProfile()" value="Elimina profilo" />
+						</fieldset>
 					</form>
 				</div>
 			</div>
