@@ -27,9 +27,10 @@ utf8::encode($userName);
 print "Content-type: text/html\n\n";
 
 print <<PRIMA_PARTE;
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 	<head>
-		<title xml:lang="en" lang="it">Annunci Accettati - SitesBoard</title> 
+		<title>Annunci Accettati - SitesBoard</title> 
 
 		<link href="../css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
 		<link href="../css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
@@ -69,7 +70,6 @@ print <<EOF;
 					</div>
 					<div class="minimal">
 						<a class="edit" href="profileChange.cgi" hreflang="it" type="application/xhtml+xml">Modifica Profilo <img id="header_PEL" src="../media/edit_profile.png" alt="Iconcina di modifica profilo" title = "Modifica i dati del profilo"/></a>
-						&nbsp&nbsp&nbsp
 						<a class="edit" href="logout.cgi" hreflang="it" type="application/xhtml+xml">Logout <img id="logout_logo" src="../media/logout.png" alt="Iconcina del logout" title = "esegui il logout"/></a>
 					</div>
 				</div>
@@ -80,7 +80,7 @@ print <<EOF;
 
 			<!-- PATH  -->
 			<div id="path" title="Sezione del sito in cui ti trovi in questo momento">
-				Ti trovi in: <span class="notable">Profilo utente 	&ndash;&gt; Annunci Accettati</span>
+				Ti trovi in: <span class="notable">Profilo utente</span>&ndash;&gt;<span class="notable">Annunci Accettati</span>
 			</div>
 			<div id="nav_panel">
 				<!-- MENÙ DI NAVIGAZIONE --> 
@@ -106,7 +106,7 @@ print <<EOF;
 					<ul>
 						<li><a href="addInsertions.cgi" hreflang="it" type="application/xhtml+xml">Nuovo</a></li>
 						<li><a href="showInsertions.cgi" hreflang="it" type="application/xhtml+xml">Inseriti</a></li>
-						<li><a href="acceptedInsertions.cgi" hreflang="it" type="application/xhtml+xml">Accettati</a></li>
+						<li>Accettati</li>
 					</ul>
 				</div>
 			</div>
@@ -117,20 +117,17 @@ print <<EOF;
 				<h3><span xml:lang="it" lang="it">Qui sono presenti gli annunci per cui ti sei candidato.</span></h3>
 				<div id="cont_annunci">
 
-
-					<!-- Messaggio di errore  -->
-					<p id="cont_error" title="Messaggio di errore">
-
-					</p>
 					<p class="info">
 						Questi sono gli annunci che hai accettato.
 					</p>
+					<!-- Messaggio di errore  -->
+					<p id="cont_error" title="Messaggio di errore">
 EOF
 if(defined($msgParam))
 {
 	print $msgParam;
 }
-
+					print "</p>";
 					for (my $i=0; $i <scalar(@annunciAccettati); $i++) {
 					$titolo=$annunciAccettati[$i][0];
 					$oggetto=$annunciAccettati[$i][1];
@@ -167,12 +164,14 @@ print <<EOF;
 		<!-- FOOTER -->
 		<div id="footer">
 			<span title="Pagina validata con lo standard XHTML 1.0 Strict">
-			    <a href="http://validator.w3.org/check?uri=referer" hreflang="en" type="application/xhtml+xml"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
+			    <a href="http://validator.w3.org/check?uri=referer" hreflang="en" type="application/xhtml+xml">
+			    	<img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" />
+			    </a>
 			</span>
 			<span title="CSS della pagina validato secondo lo standard">
 				<!--hrflang varia a seconda dello stato -->
 			    <a href="http://jigsaw.w3.org/css-validator/check/referer" type="application/xhtml+xml"> 
-			        <img id="footer_CSS_Validator" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valido!" />
+			        <img src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valido!" />
 			    </a>
 			</span>
 			<span title="Accessibile secondo lo standard WCAG2 Livello AAA">
