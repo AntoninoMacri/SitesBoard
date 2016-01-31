@@ -125,7 +125,7 @@ print <<PEZZO;
 						</fieldset>
 						<fieldset title="Procedi su Login per effetturare l'accesso">
 							<legend>Operazione di Login</legend>
-							<input type="submit" name="login_submit" id="login_submit" value="Accedi al sito" />
+							<input type="submit" name="login_submit" id="login_submit" value="Accedi al sito" onkeypress="return loginControl()" />
 						</fieldset>
 					</form>
 					<a class ="minimal" href="registration.cgi" hreflang="it" >Non ti sei ancora registrato?</a>

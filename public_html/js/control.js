@@ -100,7 +100,6 @@ function recoveryControl(){
     risultato=risultato && checkConfirmPassword("recover_pass", "recover_re_pass" ,"cont_error");
     return risultato;
 }
-    
 
 //loginControl
 function loginControl(){
