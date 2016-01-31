@@ -10,11 +10,7 @@ require 'functions/session_function.cgi';
 #ottengo dati dalla sessione
 my $session=getSession();
 my $userUsername;
-if($session == undef)
-{
-    print redirect(-url => 'login.cgi');
-}
-else
+if(defined($session))
 {
     $userUsername = getSessionUsername($session);
 }
@@ -82,24 +78,30 @@ print <<PRIMA_PARTE;
 
 PRIMA_PARTE
 
+if($session != undef)
+{
 
-utf8::encode($userUsername);
-
-
-print <<EOF;
-
-				<!-- Da caricare nel caso l utente sia loggato  -->
+print <<PEZZO;
+				<!-- Da caricare nel caso l utente sia loggato -->
 				<div id="header_login">
 					<div>
-						Benvenuto <span class="notable">$username</span>
+						Benvenuto <span class="notable">
+PEZZO
+print $userUsername;			
+print <<PEZZO2;
+			</span>
 					</div>
 					<div class="minimal">
-						<a class="edit" href="profileChange.cgi" hreflang="it" type="application/xhtml+xml">Modifica Profilo <img id="header_PEL" src="../media/edit_profile.png" alt="Iconcina di modifica profilo" title = "Modifica i dati del profilo"/></a>
+						<a class="edit" href="profile.cgi" hreflang="it" type="application/xhtml+xml">Il tuo profilo <img id="profile_logo" src="../media/header_profile.png" alt="Iconcina del profilo" title = "Vai al tuo profilo"/></a>
+						&nbsp&nbsp&nbsp
 						<a class="edit" href="logout.cgi" hreflang="it" type="application/xhtml+xml">Logout <img id="logout_logo" src="../media/logout.png" alt="Iconcina del logout" title = "esegui il logout"/></a>
 					</div>
 				</div>
+			
+PEZZO2
+}
 
-
+print <<EOF;
 			</div>
 
 			<!-- PATH  -->
@@ -174,9 +176,9 @@ print <<EOF;
 
 			<!-- Contenuti della pagina -->
 			<div id="contents">
-				<span id="ins_author">da: <a href="profile.cgi" hreflang="it" type="application/xhtml+xml">$autore</a> </span> 
-				<span id="ins_date">in data: $data</span>
 				<div id="cont_insertion">
+					<span id="ins_author">da: <a href="profile.cgi" hreflang="it" type="application/xhtml+xml">$autore</a> </span> 
+					<span id="ins_date">in data: $data</span>
 					<p id="underline">
 						<span class="insInfo">Tipologia:</span> $tipologia
 					</p>
@@ -195,18 +197,20 @@ if(defined($msgErrorParam))
 {
 	print $msgErrorParam;	
 }
-print <<EOF;
-					</p>
-EOF
+
+					print "</p>";
+
 #controllo se l'utente è loggato
 if(defined($session))
 {
 	#se l'autore è la stessa persona che visualizza la pagina allora non visualizza la possibilità di accetare l'inserizione
+
 	if($userUsername ne $autore)
 	{
 		#l'utente e l'autore sono diversi
 		#controllo se è già staata accettata
-		if(isAccepted($userUsername,$idUserParam,$idUserInsertion))
+		my $check_accepted = isAccepted($userUsername,$idUserParam,$idInsertionParam);
+		if($check_accepted eq "true")
 		{
 print <<EOF;
 						<form name="form_RemoveAcception" method="post" action="removeAcception.cgi">

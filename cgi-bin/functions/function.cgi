@@ -256,15 +256,14 @@ sub isAccepted{
 	my $id_autore = $_[1];
 	my $id_annuncio = $_[2];
 
-	my $idUtente=$doc->findnodes('/bacheca/persona[user/text()="'.$user_Username.'"]/@id')->to_literal;
+	my $idUtente=$doc->findnodes('/bacheca/persona[user/text()="'.$user_Username.'"]/@id')->get_node(1)->to_literal;
 
-	my $query=$doc->findnodes('/bacheca/persona[@id="'.$id_autore.'"]/listaAnnunci/annuncio[@id="'.$id_annuncio.'"]/listaDisponibili/idProgrammatore');
-
-	for (my $x=1; $x <= $query->size; $x++) {
-		my $id=$query->get_node($x)->to_literal;
-		if($id==$idUtente){return true;}
+	my $query=$doc->findnodes('/bacheca/persona[@id="'.$id_autore.'"]/listaAnnunci/annuncio[@id="'.$id_annuncio.'"]/listaDisponibili/idProgrammatore[text()="'.$idUtente.'"]/text()');
+	if(defined($query) && $query->size > 0)
+	{
+		return "true";
 	}
-	return false;
+	return "false";
 }
 
 
