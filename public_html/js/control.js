@@ -90,15 +90,18 @@ function registrationControl(){
     return risultato;
 }
 
-
 //recoveryControl
 function recoveryControl(){
-    var risultato=checkName("recover_name", "recErr");
-    risultato=risultato && checkSurname("recover_surname", "recErr");
-    risultato=risultato && checkEmail("recover_email", "recErr");
+    var risultato=checkName("recover_name", "cont_error");
+    risultato=risultato && checkSurname("recover_surname", "cont_error");
+    risultato=risultato && checkData("recover_year", "recover_month", "recover_day", "cont_error");
+    risultato=risultato && checkUser("recover_username","cont_error");
+    risultato=risultato && checkEmail("recover_email", "cont_error");
+    risultato=risultato && checkPassword("recover_pass", "cont_error");
+    risultato=risultato && checkConfirmPassword("recover_pass", "recover_re_pass" ,"cont_error");
     return risultato;
 }
-
+    
 
 //loginControl
 function loginControl(){
