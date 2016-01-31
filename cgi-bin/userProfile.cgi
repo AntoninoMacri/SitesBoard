@@ -37,7 +37,7 @@ print "Content-type: text/html\n\n";
 print <<PRIMA_PARTE;
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 	<head>
-		<title xml:lang="en" lang="it">Profilo di nomeUtente- SitesBoard</title> 
+		<title>Profilo di nomeUtente- SitesBoard</title> 
 
 		<link href="../css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
 		<link href="../css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
@@ -49,7 +49,7 @@ print <<PRIMA_PARTE;
 		<meta name="title" content="Profilo Utente - SitesBoard" />
 		<meta name="author" content="Davide Rigoni, Francesco Fasolato, Giacomo Zecchin, Antonino Macrì" />
 		<meta name="description" content="Pagina profilo di un altro utente" />
-		<meta name="keywords" content="User, Profile, Siti, Web" />
+		<meta name="keywords" content="Utente, Profile, Siti, Web" />
 		<meta name="language" content="italian it" />
 	</head>
 	<body>
@@ -89,47 +89,84 @@ print <<EOF;
 				Ti trovi in: <span class="notable" xml:lang="en" lang="it">Profilo di nomeUtente</span>
 			</div>
 			<div id="nav_panel">
-				<!-- MENU DI NAVIGAZIONE -->
+				<!-- MENÙ DI NAVIGAZIONE --> 
 				<div id="nav_menu" class="menu" title ="Menù di navigazione del sito">
-					<h3>Menu</h3>
+					<h3>Menù</h3>
+					<a href="home.cgi" xml:lang="en" lang="en" hreflang="it" >Home</a>
 
 					<p>Tipologia Siti:</p>
 					<ul>
-						<li><a href="" hreflang="it" type="application/xhtml+xml"><span xml:lang="en" lang="en">E-commerce</span></a></li>
-						<li><a href="" hreflang="it" type="application/xhtml+xml"><span xml:lang="en" lang="en">Forum</span></a></li>
-						<li><a href="" hreflang="it" type="application/xhtml+xml"><span xml:lang="en" lang="en">Social</span></a></li>
-						<li><a href="" hreflang="it" type="application/xhtml+xml">Personali</a></li>
-						<li><a href="" hreflang="it" type="application/xhtml+xml">Aziendali</a></li>
-						<li><a href="" hreflang="it" type="application/xhtml+xml"><span xml:lang="en" lang="en">Blog</span></a></li>
+						<li><a href="eCommerce.cgi" hreflang="it" ><span xml:lang="en" lang="en">E-commerce</span></a></li>
+						<li><a href="forum.cgi" hreflang="it" ><span xml:lang="en" lang="en">Forum</span></a></li>
+						<li><a href="social.cgi" hreflang="it" ><span xml:lang="en" lang="en">Social</span></a></li>
+						<li><a href="personali.cgi" hreflang="it" >Personali</a></li>
+						<li><a href="aziendali.cgi" hreflang="it" >Aziendali</a></li>
+						<li><a href="blog.cgi" hreflang="it" ><span xml:lang="en" lang="en">Blog</span></a></li>
 					</ul>
-
 				</div>
-
+EOF
+if($session == undef){
+	print <<PEZZO;
+					<!-- MENÙ DI LOGIN-->
+					<!-- Da caricare solo se l utente non è loggato-->
+					<div id="nav_login" class="menu" title="Menù di Login del sito">
+						<h3><span xml:lang="en" lang="en">Login</span></h3>
+						<!-- Messaggio di errore -->
+						<p id="cont_error" title="Messaggio di errore compilazione form login">
+						</p>
+						<!-- Form da compilare -->
+						<form onsubmit="return loginControl()" method="post" action="checkLogin.cgi">
+							<fieldset title="Campi da compilare per effettuare il Login">
+								<legend>Campi da compilare per effettuare il Login</legend>
+								<label for="login_user">Username</label>
+								<input type="text" name="login_user" id="login_user"/><br/>
+								<label for="login_password">Password</label>
+								<input type="password" name="login_password" id="login_password"/><br/>
+							</fieldset>
+							<fieldset title="Procedi su Login per effetturare l'accesso">
+								<legend>Operazione di Login</legend>
+								<input type="submit" name="login_submit" id="login_submit" value="Accedi al sito" onkeypress="return loginControl()" />
+							</fieldset>
+						</form>
+						<a class ="minimal" href="registration.cgi" hreflang="it" >Non ti sei ancora registrato?</a>
+						<a class = "minimal" href="../html/pass_recovery.html" hreflang="it" >Non trovi più la <span xml:lang="en" lang="en">password?</span></a>
+					</div>
+PEZZO
+}
+else
+{
+	print <<PEZZO;
+					<!-- MENÙ DI AMMINISTRAZIONE-->
+					<!-- Da caricare se l utente è loggato-->
+					<div id="nav_administration" class="menu" title="Menù di amministrazione del sito">
+						<h3>Amministrazione</h3>
+						<p>Annunci:</p>
+						<ul>
+							<li><a href="addInsertions.cgi" hreflang="it" type="application/xhtml+xml">Nuovo</a></li>
+							<li><a href="showInsertions.cgi" hreflang="it" type="application/xhtml+xml">Inseriti</a></li>
+							<li><a href="acceptedInsertions.cgi" hreflang="it" type="application/xhtml+xml">Accettati</a></li>
+						</ul>
+					</div>
+PEZZO
+}
+print <<EOF;
 			</div>
 
 			<!-- Contenuti della pagina -->
 			<div id="contents">
 
-				<h3><span xml:lang="it" lang="it">Profilo utente di nomeUtente</span></h3>
+				<h3><span xml:lang="it" lang="it">Profilo utente di $user</span></h3>
 				<div id="cont_profile">
 					<p class="info" id="underline">
 					Ti trovi all interno della pagina profilo di un altro utente iscritto a SitesBoard. Da qui puoi visualizzare i suoi dati.
  					</p>
 
-					<ul>
-					<li><label for="name">Nome: <span class="bold"> $nome </span> </label></li>
-  					
-  					<li><label for="surname">Cognome: <span class="bold"> $cognome </span> </label></li>
-  					
-  					<li><label for="age">Data di nascita: <span class="bold"> $dataNascita</span> </label></li>  					
-
-  					<li><label for="username">Username: <span class="bold"> $user</span> </label></li>
-  					
-  					<li><label for="email">Email: <span class="bold"> $email</span> </label></li>
-
-  					<li><label for="bio">Biografia: <span class="bold"> $biografia</span> </label></li>
-
-  					</ul>
+					<span>Nome: $nome </span><br/>
+  					<span>Cognome: $cognome </span><br/>
+  					<span>Data di nascita: $dataNascita</span><br/>
+  					<span><span xml:lang="en" lang="en">Username</span>: $user</span><br/>
+  					<span><span xml:lang="en" lang="en">Email</span>: $email</span><br/>
+  					<span>Biografia: $biografia</span><br/>
 				</div>
 			</div>
 			<!-- Div necessario per spostare il footer in fondo alla pagina -->
