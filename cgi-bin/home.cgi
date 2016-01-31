@@ -159,7 +159,7 @@ print <<FINE;
 			<div id="contents">
 				<h3><span xml:lang="en" lang="en">Home</span></h3>
 				<div id="cont_welcome"> 
-				<h4 class="underline">Benvenuti nella <span xml:lang="en" lang="en">Home</span>di <span xml:lang="en" lang="en">SitesBoard</span>. In questo sito potete vedere, proporre e anche accettare richieste di creazione di siti <span xml:lang="en" lang="en">web</span>.</h4>
+				<p class="underline">Benvenuti nella <span xml:lang="en" lang="en">Home</span> di <span xml:lang="en" lang="en">SitesBoard</span>. In questo sito potete vedere, proporre e anche accettare richieste di creazione di siti <span xml:lang="en" lang="en">web</span>.</p>
 
 				
 FINE
@@ -176,14 +176,14 @@ for (my $i=0; $i <scalar(@info); $i++) {
 	utf8::encode($tipologia);
 	utf8::encode($data);
 
-	print	"<div class='HInsertions'>
-			<span id='type'>Tipologia: $tipologia</span>
+	print	"<div class='block_insertions'>
 			<p>
-			<span id='author'>Autore: $autore</span>
-			<span id='date'>Data: $data</span>
+			<span id='title'>Titolo: <a href=''><span class='notable'>$titolo</span></a></span>
+			<span id='date'>Data: <span class='notable'>$data</span></span>
 			</p>
-			<span id='title'>Titolo: $titolo</span>
-			<span id='obj'>Oggetto: $oggetto</span>
+			<p id='obj'>Oggetto: <span class='notable'>$oggetto</span></p>
+			<p id='type'>Tipologia: <span class='notable'>$tipologia</span></p>
+			<p id='author'>Autore: <span class='notable'>$autore</span></p>
 			</div>";
 }
 
