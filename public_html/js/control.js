@@ -322,14 +322,14 @@ function checkData(y, m, d, err){
 function addCharCountdown()
 {
     var massimo=2000;
-    document.getElementById("contaCaratteri").innerHTML = massimo - document.addForm.addDescrizione.value.length + " caratteri ancora disponibili";
-    if (document.addForm.addDescrizione.value.length > massimo)
+    document.getElementById('contaCaratteri').innerHTML =massimo - document.getElementById('addDescrizione').value.length + " caratteri ancora disponibili";
+    if (document.getElementById('addDescrizione').value.length > massimo)
     {
-        document.addForm.addDescrizione.value=document.addForm.addDescrizione.value.substr(0, massimo);
-        document.getElementById("contaCaratteri").innerHTML = 0;
+        document.getElementById('addDescrizione').value=document.getElementById('addDescrizione').value.substr(0, massimo);
+        document.getElementById('contaCaratteri').innerHTML = 0;
         alert("Massimo " + massimo + " caratteri!");
     }
-    document.getElementById("contaCaratteri").innerHTML=massimo -document.addForm.addDescrizione.value.length + " caratteri ancora disponibili";
+    document.getElementById('contaCaratteri').innerHTML=massimo -document.getElementById('addDescrizione').value.length + " caratteri ancora disponibili";
 }
 
 function checkTitolo(par, err){
