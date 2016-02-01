@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?xml-stylesheet type="text/xsl" href="home.xsl"?>
-<bacheca xmlns="http://www.sitesboard.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-         xsi:noNamespaceSchemaLocation="schema.xsd">
+<bacheca xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" 
+         xs:noNamespaceSchemaLocation="schema.xsd">
 	<persona id="1">
 		<nome>Antonino</nome>
 		<cognome>Macrì</cognome>

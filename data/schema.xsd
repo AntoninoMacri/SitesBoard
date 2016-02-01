@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.sitesboard.com" xmlns="http://www.dominio.com" elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
 	<xs:element name="bacheca">
 		<xs:complexType>
 			<xs:sequence minOccurs="0" maxOccurs="unbounded">
@@ -50,19 +50,19 @@
 													<xs:element name="listaDisponibili" minOccurs="1" maxOccurs="1">
 														<xs:complexType>
 															<xs:sequence minOccurs="0" maxOccurs="unbounded">
-																<xs:element name="idProgrammatore" type="xs:string"/>
+																<xs:element name="idProgrammatore" type="xs:integer"/>
 															</xs:sequence>
 														</xs:complexType>
 													</xs:element>
 												</xs:sequence>
-											<xs:attribute name="id" type="xs:string" use="required"/>
+											<xs:attribute name="id" type="xs:integer" use="required"/>
 											</xs:complexType>
 										</xs:element>
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
 						</xs:sequence>
-					<xs:attribute name="id" type="xs:string" use="required"/>
+					<xs:attribute name="id" type="xs:integer" use="required"/>
 					</xs:complexType>
 				</xs:element>
 			</xs:sequence>

@@ -53,7 +53,7 @@
 						inserisci <span xml:lang="en" lang="en">Password</span> ed <span xml:lang="en" lang="en">Username</span>
 					</p>
 					<!-- Form da compilare -->
-					<form onsubmit="return loginControl()" method="post" action="checkLogin.cgi">
+					<form onsubmit="return loginControl()" method="post" action="../cgi-bin/checkLogin.cgi">
 						<fieldset title="Campi da compilare per effettuare il Login">
 							<legend>Campi da compilare per effettuare il Login</legend>
 							<label for="login_user">Username</label>
