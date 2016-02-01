@@ -269,9 +269,44 @@ sub isAccepted{
 
 
 
+sub getMyBoard()
+{
+	my $user_Username = $_[0];
+	print "<br />username: ";
+	print $user_Username;
+	print "<br />";
+
+	my $idUtente=$doc->findnodes('/bacheca/persona[user/text()="'.$user_Username.'"]/@id')->get_node(1) or die "utente non trovato"; #ottengo l'id dell'utente loggato
+
+	my @board;
+
+	my $persona=$doc->findnodes('/bacheca/persona/@id'); #ottengo tutti gli id di tutte le persone
+	for (my $y=1; $y <= $persona->size; $y++) {
+    	my $id_persona=$persona->get_node($y); #ottengo il nodo di una sola persona
 
 
+		my $query=$doc->findnodes('/bacheca/persona[@id!="'.$idUtente->to_literal.'" and @id="'.$id_persona->to_literal.'"]/listaAnnunci/annuncio');
 
 
-
-
+		my $username=$doc->findnodes('/bacheca/persona[@id="'.$id_persona->to_literal.'"]/user/text()');
+		
+		for(my $x=1; $x <= $query->size; $x++){
+			my $annuncio=$query->get_node($x);
+			my $ann_presente=$annuncio->findnodes('listaDisponibili/idProgrammatore[text()="'.$idUtente->to_literal.'"]');
+			if($ann_presente->size==0)
+				{
+					my $annuncio=$query->get_node($x);
+					my $id_annuncio=$annuncio->findnodes('@id')->to_literal;
+					my $titolo=$annuncio->findnodes('titolo/text()');
+					my $oggetto=$annuncio->findnodes('oggetto/text()');
+					my $descrizione=$annuncio->findnodes('descrizione/text()');
+					my $tipologia=$annuncio->findnodes('tipologia/text()')->to_literal;
+					my $data=$annuncio->findnodes('data/text()');
+					my @var = ($username,$titolo,$oggetto,$descrizione,$tipologia,$data,$id_annuncio,$id_persona->to_literal); #array contenente un annuncio
+					push @board, \@var;
+				}
+		}
+	}
+    #return InsertionSort(\@board);
+	return @board;
+}
