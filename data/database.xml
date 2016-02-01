@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?xml-stylesheet type="text/xsl" href="home.xsl"?>
-<bacheca xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-         xsi:noNamespaceSchemaLocation="schema.xml">
+<bacheca xmlns="http://www.sitesboard.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:noNamespaceSchemaLocation="schema.xsd">
 	<persona id="1">
 		<nome>Antonino</nome>
 		<cognome>Macrì</cognome>
@@ -38,7 +38,7 @@
 		<persona id="2">
 		<nome>France</nome>
 		<cognome>faso</cognome>
-		<dataNascita>1994-6-26</dataNascita>
+		<dataNascita>1994-06-26</dataNascita>
 		<user>ffasolat</user>
 		<password>12345678</password>
 		<mail>fran_fas93@hotmail.it</mail>
