@@ -69,7 +69,7 @@ tabsize=2, stepnumber=10, numbersep=5pt, breaklines=true, frame=single, rulecolo
 
 \begin{figure}
 \centering
-\includegraphics[angle=0,scale=.30]{Logo.png}
+\includegraphics[angle=0,scale=.30]{logo.png}
 \end{figure} 
 
 \title{ \textbf{{\Huge SitesBoard}}\vspace{2cm} \\ {\Huge Tecnologie Web \\ Relazione del progetto} \\ {\Large Anno accademico 2015/2016} }
@@ -122,34 +122,65 @@ In ogni categoria gli annunci appaiono all’utente ordinati secondo la data di 
 
 \section{Utenti destinatari}
 Il nostro sito si rivolge per lo più ad un’utenza formata da persone abbastanza abili nell’uso di linguaggi di programmazione. \\
-Una piccola parte di utenti sarà formata anche da persone che non hanno molte conoscenze informatiche e che, proprio per questo, usufruiranno del nostro servizio per contattare qualcuno in grado di realizzare un sito web.
+Una piccola parte di utenti sarà formata anche da persone che non hanno molte conoscenze informatiche e che, proprio per questo, usufruiranno del nostro servizio digitale per contattare qualcuno in grado di realizzare un sito web.
 \newpage
 
 \section{Progettazione}
 	\subsection{Struttura}
 		\subsubsection{Organizzazione cartelle}
 		
-I file che compongono il sito sono organizzati su 3 cartelle:
+		I file che compongono il sito sono organizzati su 3 cartelle:
 
-\begin{itemize}
+		\begin{itemize}
 
-\item \textbf{public\textunderscore html}: che contiene le pagine statiche, gli stili, il codice javaScript e le immagini contenute nel sito;
-\item \textbf{data}: che contiene i documenti accessibili solo internamente al server, quindi i file xml, i fogli di trasformazione, la definizione degli schemi e le pagine html private;
-\item \textbf{cgi-bin}: che contiene gli script scritti in Perl.
+			\item \textbf{public\textunderscore html}: contiene le pagine statiche, gli stili, il codice javaScript e le immagini contenute nel sito;
+			\item \textbf{data}: contiene i files accessibili solo internamente al server, quindi i file xml, i fogli di trasformazione e la definizione dello schema;
+			\item \textbf{cgi-bin}: contiene gli script cgi che generano dinamicamente le pagine del sito, uno script in Perl per il controllo e la gestione della sessione, uno contenente le funzioni utilizzate da più pagine ed alcuni script di controllo e gestione delle altre pagine.
 
-\end{itemize}
+		\end{itemize}
 
 
-	\subsubsection{Definizione}
-	\subsubsection{Database}
-	Il database è stato realizzato utilizzando un unico file chiamato “database.xml”.\\\\
-	La nostra scelta è stata dovuta alla maggiore praticità nel gestire un singolo file e al fatto che interrogare più database in quasi tutte le query sarebbe stato troppo dispendioso.\\
-	Avremmo potuto infatti dividere il nostro database in 2 file distinti, ad esempio “utenti.xml” e “annunci.xml”. Il problema della doppia interrogazione, però, si sarebbe manifestato visualizzando un annuncio, nel quale è presente il nome dell’utente che l’ha inserito, con il relativo link alla pagina del profilo personale.\\\\
-	Il file è stato strutturato seguendo il modello a bambole russe, scelto per la maggiore leggibilità, (vedi slide)\\
+		\subsubsection{Definizione}
 	
-	Abbiamo realizzato la parte… con xml-schema, poiché fornisce
+		Il sito visualizzabile da un utente comune non registrato/loggato si compone di 10 pagine:
+		
+		\begin{itemize}
+			\item \textbf{home.cgi}: È la homepage del sito; mostra gli annunci di tutti gli utenti in ordine di data.
+			\item \textbf{pagine suddivise per le diverse categorie di annunci}: Le pagine eCommerce.cgi, forum.cgi, social.cgi, personali.cgi, aziendali.cgi e blog.cgi mostrano gli annunci della loro tipologia.
+			\item \textbf{registration.cgi}: È la pagina che contiene la form per la registrazione al sito di SitesBoard.
+			\item \textbf{login.cgi}: È la pagina che contiene la form per eseguire la login al sito.
+			\item \textbf{pass\textunderscore recovery.html}: È la pagina che contiene la form per il recupero della password utente eventualmente dimenticata.\\
+		\end{itemize}
+		Le pagine alle quali hanno accesso solamente gli utenti che hanno effettuato il login sono 7:
+		
+		\begin{itemize}
+			\item \textbf{profile.cgi}: È la pagina che mostra i dati personali dell'utente che ha effettuato il login.
+			\item \textbf{profileChange.cgi}: È la pagina che contiene la form per la modifica dei dati personali dell'utente.
+			\item \textbf{addInsertions.cgi}: È la pagina che contiene la form per l'inserimento di un nuovo annuncio.
+			\item \textbf{showInsertions.cgi}: È la pagina che mostra gli annunci che ha inserito l'utente.
+			\item \textbf{acceptedInsertions.cgi}: È la pagina che mostra gli annunci accettati dall'utente.
+			\item \textbf{userProfile.cgi}: È la pagina che mostra i dati di un altro utente registrato al sito.
+			\item \textbf{insertion.cgi}: È la pagina che mostra un singolo annuncio inserito da un altro utente.
+		\end{itemize}
+		
+	
+		\subsubsection{Database}
+		Il database è stato realizzato utilizzando un unico file chiamato “database.xml”.\\\\
+		Avremmo potuto infatti dividere il nostro database in 2 file distinti, ad esempio “utenti.xml” e “annunci.xml”.
+		La nostra scelta è stata dovuta alla maggiore praticità nel gestire un singolo file e al fatto che interrogare più database in quasi tutte le query sarebbe stato troppo dispendioso.\\
+		Il file è stato strutturato seguendo il modello a bambole russe.
+		Le motivazioni che hanno portato a questa scelta sono dovute alle caratteristiche di questo modello:
+		\begin{itemize}
+			\item Semplifica la leggibilità della struttura poiché rispecchia la struttura del documento XML.
+			\item Ogni tipo complesso ha una struttura diversa dagli altri tipi complessi perciò ogni elemento è definito localmente.\\
+		\end{itemize}
+		La struttura del documento XML è stata definita con XML Schema poiché esso fornisce una descrizione più dettagliata di quella che avrebbe potuto definire un file DTD.
 
 	\subsection{Presentazione}
+	
+	Per una maggiore usabilità sono presenti due diversi layout del sito, a seconda del dispositivo utilizzato per la navigazione.\\
+	È stato impostato un punto di rottura a 800px di larghezza
+	
 	\subsection{Javascript}
 	\subsection{Perl}
 	\subsection{XSLT}
