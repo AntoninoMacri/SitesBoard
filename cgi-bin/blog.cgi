@@ -83,7 +83,7 @@ print <<SECONDA_PARTE;
 			</div>
 			<!-- PATH -->
 			<div id="path" title="Sezione del sito in cui ti trovi in questo momento">
-				Ti trovi in: <span class="notable" xml:lang="en" lang="en">Home</span> &gt;&gt; <span class="notable">Bacheca Blog</span>
+				Ti trovi in: <span class="notable" xml:lang="en" lang="en"><a href="home.cgi" hreflang="it" type="application/xhtml+xml">Home</a></span> &gt;&gt; <span class="notable">Bacheca Blog</span>
 			</div>
 
 
@@ -102,7 +102,7 @@ print <<SECONDA_PARTE;
 						<li><a href="social.cgi" hreflang="it" ><span xml:lang="en" lang="en">Social</span></a></li>
 						<li><a href="personali.cgi" hreflang="it" >Personali</a></li>
 						<li><a href="aziendali.cgi" hreflang="it" ><span xml:lang="en" lang="en">Aziendali</span></a></li>
-						<li><span xml:lang="en" lang="en">Blog</span></li>
+						<li><span class="current_pageL" xml:lang="en" lang="en">Blog</span></li>
 					</ul>
 					
 				</div>

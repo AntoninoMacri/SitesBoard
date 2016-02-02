@@ -66,12 +66,14 @@ div {
 	padding-bottom: 20px;
 }
 
-.msgError{
+.msgError{	/*messaggi di modifica non andata a buon fine*/
 	color: red;
+	text-align: center;
 }
 
 .current_pageL{
-
+	display: block;
+	margin-bottom: 15px;
 }
 
 
@@ -214,12 +216,14 @@ div {
 
 		/*span nel menu nav e nel menu amministraz*/
 
-		#nav_menu a span,
-		#nav_menu a
-		#nav_administration li{
+		#nav_menu a span{
 			display: block;
-			margin-top: 5px;
-			margin-bottom: 5px;
+		}
+
+		#nav_menu a,
+		#nav_administration li {
+			margin-top: 10px;
+			margin-bottom: 10px;
 		}
 
 

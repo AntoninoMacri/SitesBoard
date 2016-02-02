@@ -83,7 +83,7 @@ print <<SECONDA_PARTE;
 			</div>
 			<!-- PATH -->
 			<div id="path" title="Sezione del sito in cui ti trovi in questo momento">
-				Ti trovi in: <span class="notable" xml:lang="en" lang="en">Home</span> &gt;&gt; <span class="notable">Bacheca Forum</span>
+				Ti trovi in: <span class="notable" xml:lang="en" lang="en"><a href="home.cgi" hreflang="it" type="application/xhtml+xml">Home</a></span> &gt;&gt; <span class="notable">Bacheca Forum</span>
 			</div>
 
 
@@ -98,7 +98,7 @@ print <<SECONDA_PARTE;
 					<p>Tipologia Siti:</p>
 					<ul>
 						<li><a href="eCommerce.cgi" hreflang="it" ><span xml:lang="en" lang="en">E-Commerce</span></a></li>
-						<li><span xml:lang="en" lang="en">Forum</span></li>
+						<li><span class="current_pageL" xml:lang="en" lang="en">Forum</span></li>
 						<li><a href="social.cgi" hreflang="it" ><span xml:lang="en" lang="en">Social</span></a></li>
 						<li><a href="personali.cgi" hreflang="it" >Personali</a></li>
 						<li><a href="aziendali.cgi" hreflang="it" >Aziendali</a></li>

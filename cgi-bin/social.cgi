@@ -71,7 +71,7 @@ print <<PEZZO2;
 					</div>
 					<div class="minimal">
 						<a class="edit" href="profile.cgi" hreflang="it" type="application/xhtml+xml">Il tuo profilo <img id="profile_logo" src="../media/header_profile.png" alt="Iconcina del profilo" title = "Vai al tuo profilo"/></a>
-						<a class="edit" href="logout.cgi" hreflang="it" type="application/xhtml+xml">Logout <img id="logout_logo" src="../media/logout.png" alt="Iconcina del logout" title = "esegui il logout"/></a>
+						<a class="edit" href="logout.cgi" hreflang="it" type="application/xhtml+xml">Esci <img id="logout_logo" src="../media/logout.png" alt="Iconcina del logout" title = "esegui il logout"/></a>
 					</div>
 				</div>
 			
@@ -83,7 +83,7 @@ print <<SECONDA_PARTE;
 			</div>
 			<!-- PATH -->
 			<div id="path" title="Sezione del sito in cui ti trovi in questo momento">
-				Ti trovi in: <span class="notable" xml:lang="en" lang="en">Home</span> &gt;&gt; <span class="notable">Bacheca Social</span>
+				Ti trovi in: <span class="notable" xml:lang="en" lang="en"><a href="home.cgi" hreflang="it" type="application/xhtml+xml">Home</a></span> &gt;&gt; <span class="notable">Bacheca Social</span>
 			</div>
 
 
@@ -99,7 +99,7 @@ print <<SECONDA_PARTE;
 					<ul>
 						<li><a href="eCommerce.cgi" hreflang="it" ><span xml:lang="en" lang="en">E-Commerce</span></a></li>
 						<li><a href="forum.cgi" hreflang="it" ><span xml:lang="en" lang="en">Forum</span></a></li>
-						<li><span xml:lang="en" lang="en">Social</span></li>
+						<li><span class="current_pageL" xml:lang="en" lang="en">Social</span></li>
 						<li><a href="personali.cgi" hreflang="it" >Personali</a></li>
 						<li><a href="aziendali.cgi" hreflang="it" >Aziendali</a></li>
 						<li><a href="blog.cgi" hreflang="it" ><span xml:lang="en" lang="en">Blog</span></a></li>
