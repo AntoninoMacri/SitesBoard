@@ -89,15 +89,14 @@ print <<SECONDA_PARTE;
 				<!-- MENÙ DI NAVIGAZIONE -->
 				<div id="nav_menu" class="menu" title ="Menù di navigazione del sito">
 					<h3>Menù</h3>
-					<span>Home<span>
-					<p>Tipologia Siti:</p>
 					<ul>
-						<li><a href="eCommerce.cgi" hreflang="it" ><span xml:lang="en" lang="en">E-commerce</span></a></li>
-						<li><a href="forum.cgi" hreflang="it" ><span xml:lang="en" lang="en">Forum</span></a></li>
-						<li><a href="social.cgi" hreflang="it" ><span xml:lang="en" lang="en">Social</span></a></li>
-						<li><a href="personali.cgi" hreflang="it" >Personali</a></li>
-						<li><a href="aziendali.cgi" hreflang="it" >Aziendali</a></li>
-						<li><a href="blog.cgi" hreflang="it" ><span xml:lang="en" lang="en">Blog</span></a></li>
+						<li><span xml:lang="en" lang="en" class="current_pageL">Home Page</span></li>
+						<li><a href="eCommerce.cgi" hreflang="it" ><span xml:lang="en" lang="en">Tipologia E-commerce</span></a></li>
+						<li><a href="forum.cgi" hreflang="it" ><span xml:lang="en" lang="en">Tipologia Forum</span></a></li>
+						<li><a href="social.cgi" hreflang="it" ><span xml:lang="en" lang="en">Tipologia Social</span></a></li>
+						<li><a href="personali.cgi" hreflang="it" >Tipologia Personali</a></li>
+						<li><a href="aziendali.cgi" hreflang="it" >Tipologia Aziendali</a></li>
+						<li><a href="blog.cgi" hreflang="it" ><span xml:lang="en" lang="en">Tipologia Blog</span></a></li>
 					</ul>
 					
 				</div>
@@ -116,7 +115,7 @@ print <<PEZZO;
 					<!-- Form da compilare -->
 					<form onsubmit="return loginControl()" method="post" action="checkLogin.cgi">
 						<fieldset title="Campi da compilare per effettuare il Login">
-							<legend>Campi da compilare per effettuare il Login</legend>
+							<legend>Caompilare per effettuare il Login</legend>
 							<label for="login_user">Username</label>
 							<input type="text" name="login_user" id="login_user"/><br/>
 							<label for="login_password">Password</label>
@@ -137,11 +136,10 @@ print <<PEZZO;
 				<!-- Da caricare se l utente è loggato-->
 				<div id="nav_administration" class="menu" title="Menù di amministrazione del sito">
 					<h3>Amministrazione</h3>
-					<p>Annunci:</p>
 					<ul>
-						<li><a href="addInsertions.cgi" hreflang="it" type="application/xhtml+xml">Nuovo</a></li>
-						<li><a href="showInsertions.cgi" hreflang="it" type="application/xhtml+xml">Inseriti</a></li>
-						<li><a href="acceptedInsertions.cgi" hreflang="it" type="application/xhtml+xml">Accettati</a></li>
+						<li><a href="addInsertions.cgi" hreflang="it" type="application/xhtml+xml">Nuova Inserzione</a></li>
+						<li><a href="showInsertions.cgi" hreflang="it" type="application/xhtml+xml">Inserzioni Inserite</a></li>
+						<li><a href="acceptedInsertions.cgi" hreflang="it" type="application/xhtml+xml">Inserzioni Accettate</a></li>
 					</ul>
 				</div>
 PEZZO
