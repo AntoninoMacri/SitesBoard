@@ -14,11 +14,18 @@ my $cgi = CGI->new();
 #parametri
 my $newUserName = $cgi->param('name');
 my $newUserSurname = $cgi->param('surname');
-my $newUserAge = $cgi->param('age');
+my $newUserYear= $cgi->param('year');
+my $newUserMonth = $cgi->param('month');
+my $newUserDay = $cgi->param('day');
+my $newUserPass = $cgi->param('password');
 my $newUserEmail = $cgi->param('email');
+my $newUserBio = $cgi->param('bio');
+#creo la data nel formato giusto
+my $newUserDate = $newUserYear."-".$newUserMonth."-".$newUserDay;
 
 #controllo se si è loggati
-if(defined($session) && defined($newUserName) && defined($newUserSurname) && defined($newUserAge&& defined($newUserEmail))
+if(defined($session) && defined($newUserName) && defined($newUserSurname) && defined($newUserYear) && defined($newUserMonth)
+	&& defined($newUserDay)&& defined($newUserPass)&& defined($newUserEmail)&& defined($newUserBio))
 {
 	my $userUsername = $session->param('username');
 	my $userPassword = $session->param('password');
@@ -39,16 +46,19 @@ if(defined($session) && defined($newUserName) && defined($newUserSurname) && def
 	#trovo i nodi che si devono cambiare
 	my $nodeChangeName=$doc->findnodes('/bacheca/persona[@id="'.$idUser->nodeValue.'"]/nome/text()')->get_node(1);
 	my $nodeChangeSurname=$doc->findnodes('/bacheca/persona[@id="'.$idUser->nodeValue.'"]/cognome/text()')->get_node(1);
-	my $nodeChangeAge=$doc->findnodes('/bacheca/persona[@id="'.$idUser->nodeValue.'"]/dataNascita/text()')->get_node(1);
+	my $nodeChangeDate=$doc->findnodes('/bacheca/persona[@id="'.$idUser->nodeValue.'"]/dataNascita/text()')->get_node(1);
 	my $nodeChangeEmail=$doc->findnodes('/bacheca/persona[@id="'.$idUser->nodeValue.'"]/mail/text()')->get_node(1);
+	my $nodeChangePassword=$doc->findnodes('/bacheca/persona[@id="'.$idUser->nodeValue.'"]/password/text()')->get_node(1);
+	my $nodeChangeBiografia=$doc->findnodes('/bacheca/persona[@id="'.$idUser->nodeValue.'"]/biografia/text()')->get_node(1);
 
 
-	if(defined($nodeChangeName) && defined($nodeChangeSurname)&& defined($nodeChangeAge) &&defined($nodeChangeEmail))
+	if(defined($nodeChangeName) && defined($nodeChangeSurname)&& defined($nodeChangeDate) &&defined($nodeChangeEmail)
+		&&defined($nodeChangePassword)&&defined($nodeChangeBiografia))
 	{
 
 		#Ottengo tutti gli id e gli user con i stessi dati del nuovo utente
 
-		#username non presente dunque controllo l'email
+		#controllo l'email se è gia presente
 		my @check_result2 =$doc->findnodes('/bacheca/persona[mail/text()="'.$newUserEmail.'"]'); 
 		if(@check_result2  != 0)
 		{
@@ -60,8 +70,10 @@ if(defined($session) && defined($newUserName) && defined($newUserSurname) && def
 		#modifica i campi
 		$nodeChangeName->setData($newUserName); 
 		$nodeChangeSurname->setData($newUserSurname); 
-		$nodeChangeAge->setData($newUserAge); 
+		$nodeChangeDate->setData($newUserDay); 
 		$nodeChangeEmail->setData($newUserEmail); 
+		$nodeChangePassword->setData($newUserPass); 
+		$nodeChangeBiografia->setData($newUserBio); 
 
 		#serializzazione
 		open(OUT, ">../data/database.xml");
