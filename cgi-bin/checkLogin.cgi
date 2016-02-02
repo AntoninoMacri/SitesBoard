@@ -24,23 +24,23 @@ $page = new CGI;
 
 if(! defined $s)
 {
-	$username = $page->param('login_user');
-	$password = $page->param('login_password');
-	$temp=checkLog($username,$password);
+	my $username = $page->param('login_user');
+	my $password = $page->param('login_password');
+	my $temp=checkLog($username,$password);
 	my $xp = XML::XPath->new(filename => '../data/database.xml');
-	$xpath_exp='/bacheca/persona[user/text()="'.$username.'" and password/text()="'.$password.'"]';
+	my $xpath_exp='/bacheca/persona[user/text()="'.$username.'" and password/text()="'.$password.'"]';
 
 	my $nodeset = $xp->find($xpath_exp);
-
-	$boolPassLenght=length $password>1;
-	if ($nodeset->size eq 1){
-		if(($username!="" || $password!="" )&& $boolPassLenght){
-			my $sessione = createSession($username,$password);
-			print $sessione->header(-location=>"profile.cgi");
-		}
-	}
-	$url = "login.cgi?msgError=*Username e Password errati";
+	my $boolPassLenght=length $password>7;
+	if($nodeset->size ne 1){
+		my $url="login.cgi?msgError=*Username e Password errati";
+		if(!$boolPassLenght){ $url = "login.cgi?msgError=*Il campo Password deve contenere almeno 8 caratteri"; }
+		if($password eq "") { $url = "login.cgi?msgError=*Campo Password vuoto"; }
+		if($username eq "") { $url = "login.cgi?msgError=*Campo Username vuoto"; }
 	print "Location: $url\n\n";
+	}
+	my $sessione = createSession($username,$password);
+	print $sessione->header(-location=>"profile.cgi");
 }
 else
 {
