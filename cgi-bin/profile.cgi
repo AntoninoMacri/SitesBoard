@@ -176,14 +176,12 @@ print <<EOF;
 		<div id="footer">
 			<span title="Pagina validata con lo standard XHTML 1.0 Strict">
 			    <a href="http://validator.w3.org/check?uri=referer" hreflang="en" type="application/xhtml+xml">
-			    	<img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" />
-			 	</a>
+			    	<img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
 			</span>
 			<span title="CSS della pagina validato secondo lo standard">
 				<!--hrflang varia a seconda dello stato -->
 			    <a href="http://jigsaw.w3.org/css-validator/check/referer" type="application/xhtml+xml">
-					<img src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valido!" />
-				</a>
+					<img src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valido!" /></a>
 			</span>
 			<span title="Accessibile secondo lo standard WCAG2 Livello AAA">
 			    <a href="http://www.w3.org/WAI/intro/wcag" type="application/xhtml+xml" hreflang="en-US">
