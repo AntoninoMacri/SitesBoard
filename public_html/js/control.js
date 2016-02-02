@@ -68,6 +68,8 @@ function profileChangeControl(){
     risultato=risultato && checkSurname("surname","underline");
     risultato=risultato && checkData("year", "month", "day", "underline");
     risultato=risultato && checkEmail("email","underline");
+    risultato=risultato && checkPassword("Password", "underline");
+    risultato=risultato && checkConfirmPassword("confirmPsw", "reg_re_pass" ,"underline");
     return risultato;
 }
 
