@@ -584,6 +584,7 @@ sub checkData(){
     	$url="msgError=*30 giorni al massimo";
         return $url;
     }
+    return 1;
 }
 
 #sub inputControl(){ #controllo che un input sia accettabile all'interno del database
