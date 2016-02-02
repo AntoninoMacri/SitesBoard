@@ -313,17 +313,16 @@ sub getMyBoard()
 
 #
 #Funzioni di richiamo delle funzioni di controllo dell'input
-sub profileChangeControl(){ #data,email
+sub profileChangeControl(){
 	my $url="profileChange.cgi?";
 	my $ris=checkName($_[0]);
 	if($ris ne 1){ return $url.$ris; }
 	$ris=checkSurname($_[1]);
 	if($ris ne 1){ return $url.$ris; }
-	#my $ris=checkData($_[2]);
-	#if($ris ne 1){ return $url.$ris; }
-	$ris=checkEmail($_[3]);
+	my $ris=checkData($_[2],$_[3],$_[4]);
 	if($ris ne 1){ return $url.$ris; }
-		
+	$ris=checkEmail($_[5]);
+	if($ris ne 1){ return $url.$ris; }
 	return 1;
 }
 
@@ -338,42 +337,42 @@ sub addInsertionControl(){
 	return 1;	
 }
 
-sub registrationControl(){ #data,email
+sub registrationControl(){
 	my $url="registration.cgi?";
 	my $ris=checkName($_[0]);
 	if($ris ne 1){ return $url.$ris; }
 	$ris=checkSurname($_[1]);
 	if($ris ne 1){ return $url.$ris; }
-	#$ris=checkData($_[2]);
-	#if($ris ne 1){ return $url.$ris; }
-	$ris=checkUser($_[3]);
+	my $ris=checkData($_[2],$_[3],$_[4]);
 	if($ris ne 1){ return $url.$ris; }
-	$ris=checkEmail($_[4]);
+	$ris=checkUser($_[5]);
 	if($ris ne 1){ return $url.$ris; }
-	$ris=checkPassword($_[5]);		
+	$ris=checkEmail($_[6]);
 	if($ris ne 1){ return $url.$ris; }
-	$ris=checkConfirmPassword($_[6]);
+	$ris=checkPassword($_[7]);		
+	if($ris ne 1){ return $url.$ris; }
+	$ris=checkConfirmPassword($_[8]);
 	if($ris ne 1){ return $url.$ris; }
 	return 1;	
 }
 
 
 
-sub recoveryControl(){ #data, email
+sub recoveryControl(){
 	my $url="pass_recovery.cgi?";
 	my $ris=checkName($_[0]);
 	if($ris ne 1){ return $url.$ris; }
 	$ris=checkSurname($_[1]);
 	if($ris ne 1){ return $url.$ris; }
-	#my $ris=checkData($_[2]);
-	#if($ris ne 1){ return $url.$ris; }
-	$ris=checkUser($_[3]);
+	my $ris=checkData($_[2],$_[3],$_[4]);
 	if($ris ne 1){ return $url.$ris; }
-	my $ris=checkUser($_[4]);
+	$ris=checkUser($_[5]);
 	if($ris ne 1){ return $url.$ris; }
-	$ris=checkPassword($_[5]);		
+	my $ris=checkUser($_[6]);
 	if($ris ne 1){ return $url.$ris; }
-	$ris=checkConfirmPassword($_[6]);
+	$ris=checkPassword($_[7]);		
+	if($ris ne 1){ return $url.$ris; }
+	$ris=checkConfirmPassword($_[8]);
 	if($ris ne 1){ return $url.$ris; }
 	return 1;	
 }
