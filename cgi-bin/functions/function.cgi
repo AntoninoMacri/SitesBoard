@@ -540,8 +540,6 @@ sub checkData(){
 		return $url;
 	}
 
-	if(length $month== 1){ $month='0'.$month; }
-
 	$url="msgError=*msgError=*Il campo Mese deve contenere 1 o 2 cifre";
     if(!($month=~ m/^[0-9]{1,2}$/)){
         return $url;
@@ -556,9 +554,6 @@ sub checkData(){
 	if(!defined($day) || $day eq ""){
 		return $url;
 	}
-
-
-	if(length $day== 1){ $day='0'.$day; }
 
 	$url="msgError=*Il campo Giorno deve contenere 1 o 2 cifre";
     if(!($day=~ m/^[0-9]{1,2}$/)){

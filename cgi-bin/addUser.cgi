@@ -30,6 +30,9 @@ if(defined($newUserName)&&
 	defined($newUserUsername)&&  defined($newUserEmail)&& defined($newUserPassword))
 {
 
+	if(length $newUserMonth== 1){ $newUserMonth='0'.$newUserMonth; }
+	if(length $newUserDay== 1){ $newUserDay='0'.$newUserDay; }
+
 	#creazione oggetto e dichiarazione variabili
 	my $file = '../data/database.xml';  
 	my $parser = XML::LibXML->new();
