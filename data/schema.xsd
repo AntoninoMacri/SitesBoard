@@ -67,5 +67,9 @@
 				</xs:element>
 			</xs:sequence>
 		</xs:complexType>
+		<xs:unique name="UserNameUniqueKey">
+        	<xs:selector xpath="persona"/>
+        	<xs:field xpath="username"/>
+   		</xs:unique>
 	</xs:element>
 </xs:schema>
