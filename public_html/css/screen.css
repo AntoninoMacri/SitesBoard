@@ -65,8 +65,7 @@ html, body {
 .underline{
 	border-style: solid;
 	border-color: #D3D3D3;
-	border-width: 0px;
-	border-bottom-width: 1px;
+	border-width: 0px 0px 1px 0px;
 	padding-bottom: 20px;
 }
 
@@ -80,9 +79,32 @@ html, body {
 	text-align: center;
 }
 
-.current_pageL{
+.current_pageL{ /*Classe per la voce di menù selezionata*/
 	font-style: italic;
 }
+
+/*Regole per i blocchi delle inserzioni*/
+.block_insertion{
+	padding: 30px 0px 30px 0px;
+	/* border */
+	border-style: solid;
+	border-color: #D3D3D3;
+	border-width: 0px 0px 1px 0px;
+}
+
+	.block_insertion div{
+		height: 1.1em;
+	}
+
+		.block_insertion .BI_date{
+			float: right;
+		}
+		.block_insertion .BI_title,
+		.block_insertion .BI_object,
+		.block_insertion .BI_type{
+			margin-bottom: 15px;
+		}
+
 
 
 	/*---------------------------------------------------
@@ -259,16 +281,8 @@ html, body {
 			border-bottom-width: 1px;
 		}
 
-		#contents #cont_error{ /* messaggi di errore in rosso*/
-			color: red;
-		}
-
-		#contents fieldset input.buttons{
+		#contents fieldset input .buttons{
 			font-size: inherit;
-		}
-
-		#contents #infoBold{ /*informazioni importanti nelle info dei contenuti da evidenziare mettendo in blod il font*/
-			font-weight: bold;
 		}
 
 
@@ -561,21 +575,5 @@ html, body {
 		}
 
 
-/*--------------REGOLE GENERALI PER I BLOCCHI DELLE INSERZIONI-------------------*/
-
-div.block_insertions{
-	padding-bottom: 30px;
-	padding-top: 30px;
-}
-
-		div.BI_date{
-			float: right;
-		}
-
-		div.BI_title,
-		div.BI_object,
-		div.BI_type{
-			margin-bottom: 15px;
-		}
 
 
