@@ -90,7 +90,7 @@ print <<SECONDA_PARTE;
 				<div id="nav_menu" class="menu" title ="Menù di navigazione del sito">
 					<h3>Menù</h3>
 					<ul>
-						<li><span xml:lang="en" lang="en" class="current_pageL">Home Page</span></li>
+						<li class="current_pageL"><span xml:lang="en" lang="en">Home Page</span></li>
 						<li><a href="eCommerce.cgi" hreflang="it" ><span xml:lang="en" lang="en">Tipologia E-commerce</span></a></li>
 						<li><a href="forum.cgi" hreflang="it" ><span xml:lang="en" lang="en">Tipologia Forum</span></a></li>
 						<li><a href="social.cgi" hreflang="it" ><span xml:lang="en" lang="en">Tipologia Social</span></a></li>
@@ -154,8 +154,8 @@ print <<FINE;
 			<div id="contents">
 				<h3><span xml:lang="en" lang="en">Home Page</span></h3>
 				<div id="cont_welcome"> 
-				<p class="underline">Benvenuti nella <span xml:lang="en" lang="en">Home</span> di <span xml:lang="en" lang="en">SitesBoard</span>. In questo sito potete vedere, proporre e anche accettare richieste di creazione di siti <span xml:lang="en" lang="en">web</span>.</p>
-
+					<p class="underline">Benvenuti nella <span xml:lang="en" lang="en">Home</span> di <span xml:lang="en" lang="en">SitesBoard</span>. In questo sito potete vedere, proporre e anche accettare richieste di creazione di siti <span xml:lang="en" lang="en">web</span>.</p>
+					<ul id="block_insertions">
 				
 FINE
 for (my $i=0; $i <scalar(@info); $i++) {
@@ -173,17 +173,33 @@ for (my $i=0; $i <scalar(@info); $i++) {
 	utf8::encode($tipologia);
 	utf8::encode($data);
 
-	print	"<div class='block_insertion'>
-					<div class='BI_date'>Data: $data </div>
-					<div class='BI_title'>Titolo: <a href='insertion.cgi?idUser=$id_persona&amp;idInsertion=$id_annuncio'>$titolo</a></div>
-					<div class='BI_object'>Oggetto: $oggetto</div>
-					<div class='BI_type'>Tipologia: $tipologia</div>
-					<div class='BI_auth'>Autore: <a href='userProfile.cgi?user=$autore'>$autore</a></div>
-			</div>";
+	#print	"<div class='block_insertion'>
+	#				<div class='BI_date'>Data: <span class='BI_value'> $data </span></div>
+	#				<div class='BI_title'>Titolo: <span class='BI_value'><a href='insertion.cgi?idUser=$id_persona&amp;idInsertion=$id_annuncio'>$titolo</a></span></div>
+	#				<div class='BI_object'>Oggetto: <span class='BI_value'> $oggetto</span></div>
+	#				<div class='BI_type'>Tipologia: <span class='BI_value'> $tipologia</span></div>
+	#				<div class='BI_auth'>Autore: <span class='BI_value'> <a href='userProfile.cgi?user=$autore'>$autore</a></span></div>
+	#		</div>";
+
+	print "<li>
+				<dl class='block_insertion'>
+					<dt>Titolo:</dt>
+					<dd><a href='insertion.cgi?idUser=$id_persona&amp;idInsertion=$id_annuncio'>$titolo</a></dd>
+					<dt>Tipologia:</dt>
+					<dd>$tipologia</dd>
+					<dt>Oggetto:</dt>
+					<dd>$oggetto</dd>
+					<dt>Autore:</dt>
+					<dd><a href='userProfile.cgi?user=$autore'>$autore</a></dd>
+					<dt>Data:</dt>
+					<dd>$data</dd>
+				</dl>
+			</li>";
 }
 
 
 print <<FINE;
+					</ul>
 				</div>
 			</div>
 
