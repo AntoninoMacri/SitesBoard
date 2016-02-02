@@ -7,7 +7,6 @@ use CGI::Carp qw(fatalsToBrowser);
 use XML::LibXML;
 use File::Basename;
 
-
 my $file = '../data/database.xml';  
 my $parser = XML::LibXML->new();
 my $doc= $parser->parse_file($file);
@@ -309,4 +308,192 @@ sub getMyBoard()
 	}
     #return InsertionSort(\@board);
 	return @board;
+}
+
+
+#
+#Funzioni di richiamo delle funzioni di controllo dell'input
+sub profileChangeControl(){ #data,email
+	my $url="profileChange.cgi?";
+	my $ris=checkName($_[0]);
+	if($ris ne 1){ return $url.$ris; }
+	$ris=checkSurname($_[1]);
+	if($ris ne 1){ return $url.$ris; }
+	return 1;
+}
+
+sub addInsertionControl(){
+	my $url="addInsertion.cgi?";
+	my $ris=checkTitolo($_[0]);
+	if($ris ne 1){ return $url.$ris; }
+	$ris=checkOggetto($_[1]);
+	if($ris ne 1){ return $url.$ris; }
+	$ris=checkDescrizione($_[2]);
+	if($ris ne 1){ return $url.$ris; }
+	return 1;	
+}
+
+sub registrationControl(){ #data,email
+	my $url="registration.cgi?";
+	my $ris=checkName($_[0]);
+	if($ris ne 1){ return $url.$ris; }
+	$ris=checkSurname($_[1]);
+	if($ris ne 1){ return $url.$ris; }
+	$ris=checkUser($_[2]);
+	if($ris ne 1){ return $url.$ris; }
+	$ris=checkPassword($_[3]);		
+	if($ris ne 1){ return $url.$ris; }
+	$ris=checkConfirmPassword($_[4]);
+	if($ris ne 1){ return $url.$ris; }
+	return 1;	
+}
+
+sub recoveryControl(){ #data, email
+	my $url="pass_recovery.cgi?";
+	my $ris=checkName($_[0]);
+	if($ris ne 1){ return $url.$ris; }
+	$ris=checkSurname($_[1]);
+	if($ris ne 1){ return $url.$ris; }
+	$ris=checkUser($_[2]);
+	if($ris ne 1){ return $url.$ris; }
+	$ris=checkPassword($_[3]);		
+	if($ris ne 1){ return $url.$ris; }
+	$ris=checkConfirmPassword($_[4]);
+	if($ris ne 1){ return $url.$ris; }
+	return 1;	
+}
+
+
+
+
+#Funzioni di controllo della validità dell'input
+sub checkDescrizione()
+{
+	my $par = $_[0];
+	my $url="msgError=*Campo Descrizione vuoto";
+	
+	if(!defined($par) || $par eq ""){
+		return $url;
+	}
+	return 1;
+}
+
+
+sub checkOggetto()
+{
+	my $par = $_[0];
+	my $url="msgError=*Campo oggetto vuoto";
+	
+	if(!defined($par) || $par eq ""){
+		return $url;
+	}
+	return 1;
+}
+
+
+sub checkTitolo()
+{
+	my $par = $_[0];
+	my $url="msgError=*Campo Titolo vuoto";
+	
+	if(!defined($par) || $par eq ""){
+		return $url;
+	}
+	return 1;
+}
+
+sub checkSurname()
+{
+	my $par = $_[0];
+	my $url="msgError=*Campo Cognome vuoto";
+	
+	if(!defined($par) || $par eq ""){
+		return $url;
+	}
+	return 1;
+}
+
+
+sub checkName()
+{
+	my $par = $_[0];
+	my $url="msgError=*Campo Nome vuoto";
+	
+	if(!defined($par) || $par eq ""){
+		return $url;
+	}
+	return 1;
+}
+
+
+sub checkPassword()
+{
+	my $par = $_[0];
+	my $url="msgError=*Campo password vuoto";
+	
+	if(!defined($par) || $par eq ""){
+		return $url;
+	}
+
+	my $boolPassLenght=length $password<7;
+	$url = "Il campo Password deve contenere almeno 8 caratteri"; 
+	if(!$boolPassLenght){ 
+		return $url;
+	}
+	return 1;
+}
+
+
+sub checkConfirmPassword()
+{
+	my $par = $_[0];
+	my $conferma=$_[1];
+	my $url="msgError=*Campo ripeti password vuoto";
+	
+	if(!defined($conferma) || $conferma eq ""){
+		return $url;
+	}
+
+	my $boolPassLenght=length $password<7;
+	$url = "Il campo ripeti la Password deve contenere almeno 8 caratteri"; 
+	if(!$boolPassLenght){ 
+		return $url;
+	}
+
+	$url = "campo Ripeti la Password deve coincidere con il campo Password"; 
+	if($conferma eq $conferma){
+		return $url;
+	}
+	return 1;
+}
+
+sub checkUser()
+{
+	my $par = $_[0];
+	my $url="msgError=*Campo Username vuoto";
+	
+	if(!defined($par) || $par eq ""){
+		return $url;
+	}
+	return 1;
+}
+
+
+sub checkEmail()
+{
+	my $par = $_[0];
+	#chomp($par);
+	my $url="msgError=*Campo Email vuoto";
+	if(!defined($par) || $par eq ""){
+		return $url;
+	}
+
+	$url="msgError=*Email non valida";
+
+	print $par;
+
+	if($par=~ m/^([\w\-\+\.]+)@([\w\-\+\.]+)\.([\w\-\+\.]+)$/i ){
+		return 1;
+	}
+	return $url;
 }
