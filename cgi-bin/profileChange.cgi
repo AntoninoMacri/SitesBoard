@@ -70,7 +70,7 @@ print <<EOF;
 
 			<!-- PATH -->
 			<div id="path" title="Sezione del sito in cui ti trovi in questo momento">
-				Ti trovi in: <span class="notable">Profilo utente</span> &gt;&gt; <span class="notable">Modifica profilo</span>
+				Ti trovi in: <span class="notable"><a href="profile.cgi" hreflang="it" type="application/xhtml+xml"> Profilo utente</a></span> &gt;&gt; <span class="notable">Modifica profilo</span>
 			</div>
 
 			<div id="nav_panel">

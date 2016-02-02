@@ -6,6 +6,10 @@ a{
 	font-style: italic;
 }
 
+a:hover{
+	font-variant: small-caps;
+}
+
 html, body {
 	/*Cambio eventuali valori di default della pagina*/
     height: 100%;
@@ -64,6 +68,10 @@ div {
 
 .msgError{
 	color: red;
+}
+
+.current_pageL{
+
 }
 
 
@@ -162,11 +170,6 @@ div {
 				padding-bottom: 0.5em;
 			}
 
-			.menu span{
-				display: block;
-				margin-bottom: 8px;
-			}
-
 		/*menu per il login*/
 		#nav_login{
 			margin-top: 20px;
@@ -207,6 +210,16 @@ div {
 		#nav_administration
 		{
 			margin-top: 20px;
+		}
+
+		/*span nel menu nav e nel menu amministraz*/
+
+		#nav_menu a span,
+		#nav_menu a
+		#nav_administration li{
+			display: block;
+			margin-top: 5px;
+			margin-bottom: 5px;
 		}
 
 

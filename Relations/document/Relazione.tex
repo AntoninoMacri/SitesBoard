@@ -82,8 +82,8 @@ tabsize=2, stepnumber=10, numbersep=5pt, breaklines=true, frame=single, rulecolo
 &Rigoni Davide\\
 &Zecchin Giacomo
 \end{tabular}\vspace{0.5cm} \\
-	Indirizzo Web: \url{http://tecnologie-web.studenti.math.unipd.it/tecweb/~drigoni}\vspace{0.3cm} \\
-		Email responsabile: \href{mailto:davide.rigoni.2@studenti.unipd.it}{davide.rigoni.2@studenti.unipd.it} 
+	Indirizzo Web: \\ \\ \url{http://tecnologie-web.studenti.math.unipd.it/tecweb/~drigoni}\vspace{0.3cm} \\
+	Email responsabile: \href{mailto:davide.rigoni.2@studenti.unipd.it}{davide.rigoni.2@studenti.unipd.it} 
 }
 
 \maketitle
@@ -109,20 +109,23 @@ tabsize=2, stepnumber=10, numbersep=5pt, breaklines=true, frame=single, rulecolo
 \newpage
 
 \section{Abstract}
-Come suggerisce il nome, SitesBoard è una bacheca digitale contenente inserzioni che offrono opportunità lavorative concernenti la realizzazione di siti web.\\
-SitesBoard permette agli utenti registrati al suo interno di inserire nuovi annunci oppure accettare quelli proposti da altri utenti.\\\\
-Ogni utente ha un’area personale, nella quale sono presenti i propri dati profilo.\\
-Da quest’area può accedere alla pagina degli annunci che ha inserito o a quella degli annunci che ha accettato.\\\\
-Per ogni annuncio proposto, è visibile la lista degli utenti che hanno dato la loro disponibilità. Una volta scaduto, spetta a chi l’ha pubblicato contattare il candidato che ritiene essere più adatto per quel lavoro.\\
-Un utente ha anche la possibilità di cancellare un annuncio prima della data di scadenza.\\\\
-Gli annunci sono divisi in categorie per aiutare gli sviluppatori a trovare quelli più adatti alle loro abilità. Le categorie sono: E-commerce, Forum, Social, Personali, Aziendali e Blog.\\
-In ogni categoria gli annunci appaiono all’utente ordinati secondo la data di inserimento.\\
+Come suggerisce il nome, SitesBoard è una bacheca digitale contenente inserzioni che offrono opportunità lavorative concernenti la realizzazione di siti web.
+
+SitesBoard permette agli utenti registrati al suo interno di inserire nuovi annunci oppure accettare quelli proposti da altri utenti.
+Ogni utente ha un’area personale, nella quale sono presenti i propri dati profilo e da quest’area può accedere alla pagina degli annunci che ha inserito o a quella degli annunci che ha accettato.
+Per ogni annuncio proposto, è visibile la lista degli utenti che hanno dato la loro disponibilità. 
+
+Spetta a chi l’ha pubblicato cancellare l'inserzione quando lo desidera e contattare il candidato che ritiene essere più adatto per il lavoro.
+Gli annunci sono divisi in categorie per aiutare gli sviluppatori a trovare quelli più adatti alle loro abilità. 
+
+Le categorie sono: E-commerce, Forum, Social, Personali, Aziendali e Blog.
+In ogni categoria gli annunci appaiono all’utente ordinati secondo la data di inserimento.
+
 %\selectlanguage{italian}	%%%%inserirlo causerebbe errore in compilazione per lettere accentate-->non risolto
 
 
 \section{Utenti destinatari}
-Il nostro sito si rivolge per lo più ad un’utenza formata da persone abbastanza abili nell’uso di linguaggi di programmazione. \\
-Una piccola parte di utenti sarà formata anche da persone che non hanno molte conoscenze informatiche e che, proprio per questo, usufruiranno del nostro servizio digitale per contattare qualcuno in grado di realizzare un sito web.
+Il nostro sito si rivolge ad un’utenza formata sia da utenti abbastanza abili nell’uso di linguaggi di programmazione, sia da utenti che non hanno molte conoscenze informatiche e che, proprio per questo, usufruiranno del nostro servizio digitale per contattare qualcuno in grado di realizzare un sito web.
 \newpage
 
 \section{Progettazione}
@@ -135,14 +138,14 @@ Una piccola parte di utenti sarà formata anche da persone che non hanno molte c
 
 			\item \textbf{public\textunderscore html}: contiene le pagine statiche, gli stili, il codice javaScript e le immagini contenute nel sito;
 			\item \textbf{data}: contiene i files accessibili solo internamente al server, quindi i file xml, i fogli di trasformazione e la definizione dello schema;
-			\item \textbf{cgi-bin}: contiene gli script cgi che generano dinamicamente le pagine del sito, uno script in Perl per il controllo e la gestione della sessione, uno contenente le funzioni utilizzate da più pagine ed alcuni script di controllo e gestione delle altre pagine.
+			\item \textbf{cgi-bin}: contiene gli script cgi o più precisamente perl che generano dinamicamente le pagine del sito.
 
 		\end{itemize}
 
 
 		\subsubsection{Definizione}
 	
-		Il sito visualizzabile da un utente comune non registrato/loggato si compone di 10 pagine:
+		Il sito visualizzabile da un utente comune non registrato/loggato si compone principalmente di 11 pagine:
 		
 		\begin{itemize}
 			\item \textbf{home.cgi}: È la homepage del sito; mostra gli annunci di tutti gli utenti in ordine di data.
@@ -150,8 +153,10 @@ Una piccola parte di utenti sarà formata anche da persone che non hanno molte c
 			\item \textbf{registration.cgi}: È la pagina che contiene la form per la registrazione al sito di SitesBoard.
 			\item \textbf{login.cgi}: È la pagina che contiene la form per eseguire la login al sito.
 			\item \textbf{pass\textunderscore recovery.html}: È la pagina che contiene la form per il recupero della password utente eventualmente dimenticata.\\
+			\item \textbf{insertion.cgi}: È la pagina che permette di visualizzare i dati delle inserzioni.
 		\end{itemize}
-		Le pagine alle quali hanno accesso solamente gli utenti che hanno effettuato il login sono 7:
+		
+		Le pagine aggiuntive alle quali hanno accesso solamente gli utenti che hanno effettuato il login sono 6:
 		
 		\begin{itemize}
 			\item \textbf{profile.cgi}: È la pagina che mostra i dati personali dell'utente che ha effettuato il login.
@@ -160,31 +165,31 @@ Una piccola parte di utenti sarà formata anche da persone che non hanno molte c
 			\item \textbf{showInsertions.cgi}: È la pagina che mostra gli annunci che ha inserito l'utente.
 			\item \textbf{acceptedInsertions.cgi}: È la pagina che mostra gli annunci accettati dall'utente.
 			\item \textbf{userProfile.cgi}: È la pagina che mostra i dati di un altro utente registrato al sito.
-			\item \textbf{insertion.cgi}: È la pagina che mostra un singolo annuncio inserito da un altro utente.
 		\end{itemize}
 		
 	
 		\subsubsection{Database}
-		Il database è stato realizzato utilizzando un unico file chiamato “database.xml”.\\\\
+		Il database è stato realizzato utilizzando un unico file chiamato “database.xml”.
 		Avremmo potuto infatti dividere il nostro database in 2 file distinti, ad esempio “utenti.xml” e “annunci.xml”.
 		La nostra scelta è stata dovuta alla maggiore praticità nel gestire un singolo file e al fatto che interrogare più database in quasi tutte le query sarebbe stato troppo dispendioso.\\
-		Il file è stato strutturato seguendo il modello a bambole russe.
-		Le motivazioni che hanno portato a questa scelta sono dovute alle caratteristiche di questo modello:
+		Il file è stato strutturato seguendo il modello a bambole russe e motivazioni che hanno portato a questa scelta sono dovute alle caratteristiche di questo modello:
+		
 		\begin{itemize}
 			\item Semplifica la leggibilità della struttura poiché rispecchia la struttura del documento XML.
-			\item Ogni tipo complesso ha una struttura diversa dagli altri tipi complessi perciò ogni elemento è definito localmente.\\
+			\item Ogni tipo complesso ha una struttura diversa dagli altri tipi complessi perciò ogni elemento è definito localmente.
 		\end{itemize}
+		
 		La struttura del documento XML è stata definita con XML Schema poiché esso fornisce una descrizione più dettagliata di quella che avrebbe potuto definire un file DTD.
 
 	\subsection{Presentazione}
 	
-	Il sito è impostato secondo un layout ibrido a 3 pannelli.\bigskip
+	Il sito è impostato secondo un layout ibrido a 3 pannelli.
 	
-	Per una maggiore usabilità sono presenti due differenti visualizzazioni del sito, a seconda del dispositivo utilizzato per la navigazione.\\
-	È stato impostato un punto di rottura a 800px di larghezza al di sotto del quale si passa da una visualizzazione desktop ad una adatta per dispositivi mobile o tablet con piccoli schermi.\bigskip
+	Per una maggiore usabilità sono presenti due differenti visualizzazioni del sito, a seconda del dispositivo utilizzato per la navigazione.
+	È stato impostato un punto di rottura a 800px di larghezza al di sotto del quale si passa da una visualizzazione desktop ad una adatta per dispositivi mobile o tablet con piccoli schermi.
 	
 	A sinistra c'è il menù di navigazione che permette all’utente di raggiungere varie sezioni del sito in base al suo interesse, in alto l'header e la breadcrumb, nella zona centrale il corpo del contenuto ed infine in basso il footer.
-Per quanto riguarda il layout ridotto, esso si sviluppa in verticale. Dall’alto verso il basso si trovano in ordine header, breadcrumb, il menù di navigazione, il corpo e il footer.\bigskip
+	Per quanto riguarda il layout ridotto, esso si sviluppa in verticale. Dall’alto verso il basso si trovano in ordine header, breadcrumb, il menù di navigazione, il corpo e il footer.
 		
 	La grandezza del font dell'intero corpo è stata impostata in ems invece dei pixel.
 	Essendo una misura relativa, gli ems fanno si che anche il testo si adatti alla dimensione dello schermo visualizzato. Inoltre se vogliamo cambiare successivamente la dimensione del font, mentre con i pixel dobbiamo modificarlo in ogni parte del sito web, con gli ems è sufficiente cambiarlo nel body ed una sola volta poiché tutti gli altri font si adatteranno proporzionalmente.\\
@@ -219,10 +224,9 @@ Per quanto riguarda il layout ridotto, esso si sviluppa in verticale. Dall’alt
 	\begin{itemize}
 	\item Le pagine Web hanno tutte dei titoli che ne descrivono l’argomento o la finalità.
 	\item Per ogni immagine presente è stato associato l'attributo “alt” in modo da fornire un’alternativa testuale per contenuti non testuali.
-	\item Uso di attributo “xml:lang” per identificare le parole in lingua straniera, in modo che uno screen reader possa leggerle correttamente.
+	\item Uso di attributo “xml:lang” e "lang"  come specificato nel documento \url(https://www.w3.org/TR/REC-xml/) per identificare le parole in lingua straniera, in modo che uno screen reader possa leggerle correttamente.
 	\item Uso di breadcrumb (path) per permettere all’utente di sapere sempre dove si trova nel sito.
-	\item Le form son tutte divise in fieldset ed anche se non sono esteticamente belle le
-	\item Note: The maxlength attribute of the textarea tag is not supported in Internet Explorer 9 and earlier versions, or in Opera 12 and earlier versions.
+	\item Le form son tutte divise in fieldset contenente l'attributo "title", il tag "legend" e gli altri tag "label" collegati agli "input".
 	\end{itemize}
 
 	\subsection{Presentazione}
