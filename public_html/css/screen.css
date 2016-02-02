@@ -6,6 +6,10 @@ a{
 	font-style: italic;
 }
 
+a:hover{
+	font-variant: small-caps;
+}
+
 html, body {
 	/*Cambio eventuali valori di default della pagina*/
     height: 100%;
@@ -45,6 +49,7 @@ div {
 .notable{
 	font-weight: bold;
 	padding-left: 10px;
+	padding-right: 10px;
 	font-size: 1.1em;
 }
 
@@ -63,6 +68,10 @@ div {
 
 .msgError{
 	color: red;
+}
+
+.current_pageL{
+
 }
 
 
@@ -104,6 +113,7 @@ div {
 
 		#header_login .edit{
 			margin-bottom: 10px;
+			margin-left: 10px;
 		}
 
 			#header_login div{
@@ -160,10 +170,6 @@ div {
 				padding-bottom: 0.5em;
 			}
 
-			.menu li{
-				padding-bottom: 0.5em;
-			}
-
 		/*menu per il login*/
 		#nav_login{
 			margin-top: 20px;
@@ -204,6 +210,16 @@ div {
 		#nav_administration
 		{
 			margin-top: 20px;
+		}
+
+		/*span nel menu nav e nel menu amministraz*/
+
+		#nav_menu a span,
+		#nav_menu a
+		#nav_administration li{
+			display: block;
+			margin-top: 5px;
+			margin-bottom: 5px;
 		}
 
 
@@ -416,10 +432,6 @@ div {
 		margin-bottom: 20px;
 	}
 
-		#cont_add form fieldset{
-			margin:10px 0px 0px 0px;
-		}
-
 			#cont_add form fieldset legend{
 				margin-bottom: 10px;
 			}
@@ -438,12 +450,11 @@ div {
 				margin:10px 0px 0px 0px;
 			}
 
-				#cont_add form fieldset #submit_new,
-				#cont_add form fieldset #reset_new{
-					margin: 0px;
-					margin-right: 10px;
-					display: inline;
-				}
+			#cont_add .buttons{
+				width: 10%;
+				display: inline;
+				margin-top: 20px;
+			}
 
 
 					#cont_add form fieldset legend #new_insertion{	/* tolgo margine solo dalla legend della fieldset piccola */
@@ -518,10 +529,11 @@ div {
 
 	#cont_profile_change form input{
 		width: 200px;
+		margin-bottom: 10px;
 	}
 
 		#cont_profile_change form textarea#bio{
-			max-width: 800px;
+			min-width: 100%;
 			max-height: 300px;
 
 			float: left;

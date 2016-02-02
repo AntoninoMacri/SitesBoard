@@ -269,7 +269,7 @@ function checkData(y, m, d, err){
 	document.getElementById(m).focus();
         b=false;
     }
-    if(b && tagm.value>12){
+    if(b && tagm.value>12 && tagm.value<1){
         document.getElementById(err).innerHTML = "*mese deve contenere un valore da 1 a 12";
 	document.getElementById(m).focus();
         b=false;
@@ -288,7 +288,7 @@ function checkData(y, m, d, err){
 	document.getElementById(d).focus();
         b=false;
     }
-    if(b && tagd.value>31){
+    if(b && tagd.value>31 && tagd.value<1){
         document.getElementById(err).innerHTML = "*giorno deve contenere un valore da 1 a 31";
 	document.getElementById(d).focus();
         b=false;

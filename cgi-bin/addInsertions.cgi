@@ -156,10 +156,7 @@ print <<EOF;
 		  					<label for="addDescrizione">Descrizione (max 2000 caratteri)</label>
 		  					<label for="addDescrizione" id="contaCaratteri">2000 caratteri ancora disponibili</label>
 		  					<textarea id="addDescrizione" rows="10" cols="70" name="addDescrizione" onkeyup="addCharCountdown()" onkeydown="addCharCountdown()" onkeypress="addCharCountdown()" tabindex="4"></textarea>
-						</fieldset>
-
-						<fieldset id="addNew" title="Crea nuovo annuncio">
-							<legend id="new_insertion">Crea nuovo annuncio</legend>
+					
 							<input class="buttons" id="submit_new" type="submit" value="Crea" onkeypress="return addInsertionControl()" />
 							<input class="buttons" id="reset_new" type="reset" value="Azzera" />
 						</fieldset>
