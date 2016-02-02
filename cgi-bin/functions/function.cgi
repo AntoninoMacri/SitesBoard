@@ -510,8 +510,6 @@ sub checkEmail()
 	return $url;
 }
 
-
-
 sub checkData(){
 
 	my $year = $_[0];
@@ -524,7 +522,7 @@ sub checkData(){
 	}
     
     $url="msgError=*Il campo Anno deve contenere 4 cifre";
-    if($year=~ m/^[0-9]{4}$/){
+    if(!($year=~ m/^[0-9]{4}$/)){
         return $url;
     }
 
@@ -544,7 +542,7 @@ sub checkData(){
 	}
 
 	$url="msgError=*msgError=*Il campo Mese deve contenere 1 o 2 cifre";
-    if($month=~ m/^[0-9]{1,2}$/){
+    if(!($month=~ m/^[0-9]{1,2}$/)){
         return $url;
     }
 
@@ -559,7 +557,7 @@ sub checkData(){
 	}
 
 	$url="msgError=*Il campo Giorno deve contenere 1 o 2 cifre";
-    if($day=~ m/^[0-9]{1,2}$/){
+    if(!($day=~ m/^[0-9]{1,2}$/)){
         return $url;
     }
     
@@ -588,17 +586,3 @@ sub checkData(){
         return $url;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
