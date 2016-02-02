@@ -178,11 +178,38 @@ Una piccola parte di utenti sarà formata anche da persone che non hanno molte c
 
 	\subsection{Presentazione}
 	
-	Per una maggiore usabilità sono presenti due diversi layout del sito, a seconda del dispositivo utilizzato per la navigazione.\\
-	È stato impostato un punto di rottura a 800px di larghezza
+	Il sito è impostato secondo un layout ibrido a 3 pannelli.\bigskip
+	
+	Per una maggiore usabilità sono presenti due differenti visualizzazioni del sito, a seconda del dispositivo utilizzato per la navigazione.\\
+	È stato impostato un punto di rottura a 800px di larghezza al di sotto del quale si passa da una visualizzazione desktop ad una adatta per dispositivi mobile o tablet con piccoli schermi.\bigskip
+	
+	A sinistra c'è il menù di navigazione che permette all’utente di raggiungere varie sezioni del sito in base al suo interesse, in alto l'header e la breadcrumb, nella zona centrale il corpo del contenuto ed infine in basso il footer.
+Per quanto riguarda il layout ridotto, esso si sviluppa in verticale. Dall’alto verso il basso si trovano in ordine header, breadcrumb, il menù di navigazione, il corpo e il footer.\bigskip
+		
+	La grandezza del font dell'intero corpo è stata impostata in ems invece dei pixel.
+	Essendo una misura relativa, gli ems fanno si che anche il testo si adatti alla dimensione dello schermo visualizzato. Inoltre se vogliamo cambiare successivamente la dimensione del font, mentre con i pixel dobbiamo modificarlo in ogni parte del sito web, con gli ems è sufficiente cambiarlo nel body ed una sola volta poiché tutti gli altri font si adatteranno proporzionalmente.\\
+	Dobbiamo anche considerare la non scalabilità dei pixel in IE nei browser più vecchi. Se un un utente ha bisogno di ingrandire le dimensioni di tutto il sito il font settato in pixel rimane della stessa dimensione creando gravi problemi di accessibilità poiché molti utenti con problemi alla vista non riuscirebbero ad accedere ai contenuti.
+	Anche gli ems però presentano un piccolo svantaggio che è quello di dover considerare il contesto in cui si trovano se vogliamo mantenere un testo reattivo.\\ Visto che però il contenuto di SitesBoard è rappresentato quasi unicamente da testo (sono presenti solo 3 loghi nell'header) il problema di gestire immagini o altri contenuti grafici diventa irrilevante.
+	
+	Il layout così impostato diventa molto fluido, accessibile ed adattabile ad ogni dispositivo di navigazione e ciò sta alla base di un responsive layout.
+	
+	\newpage
+	
+	
+	\begin{figure}
+	\includegraphics[angle=0,scale=.7]{layout1.png}
+	\includegraphics[angle=0,scale=.7]{layout2.png}
+	\hspace{1.5in}
+	%\caption{layout}
+	\end{figure}
 	
 	\subsection{Javascript}
+	
+	Il linguaggio javascript è stato utilizzato principalmente per i controlli	
+	
 	\subsection{Perl}
+	
+	
 	\subsection{XSLT}
 
 
@@ -227,8 +254,7 @@ Particolare attenzione è stata posta all’usabilità del sito e si è cercato 
 \item \textbf{Breadcrumbs}:
 
 \item \textbf{Link}
-
-\item \textbf{Foto}
+Inserito a:hover{font-variant: small-caps} per risaltare i link e aumentare accessibilità.
 
 
 \end{itemize}
@@ -240,11 +266,6 @@ Particolare attenzione è stata posta all’usabilità del sito e si è cercato 
 	\subsection{XML e XSD}
 
 \section{xmlSchema}
-
-pregi: (guarda lucidi xml sul sito)
-è il più semplice da comprendere\\
-difetti: non è possibile riutilizzare le strutture precedentemente definite e il contenuto è opaco---->nel nostro caso tutti i tipi complessi nn si ripetono quindi il problema di riscrivere la stessa definizione di una struttura non si pone.
-
 
 
 
