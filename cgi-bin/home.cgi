@@ -68,7 +68,6 @@ print <<PEZZO2;
 					</div>
 					<div class="minimal">
 						<a class="edit" href="profile.cgi" hreflang="it" type="application/xhtml+xml">Il tuo profilo <img id="profile_logo" src="../media/header_profile.png" alt="Iconcina del profilo" title = "Vai al tuo profilo"/></a>
-						&nbsp&nbsp&nbsp
 						<a class="edit" href="logout.cgi" hreflang="it" type="application/xhtml+xml">Logout <img id="logout_logo" src="../media/logout.png" alt="Iconcina del logout" title = "esegui il logout"/></a>
 					</div>
 				</div>
@@ -122,9 +121,7 @@ print <<PEZZO;
 							<input type="text" name="login_user" id="login_user"/><br/>
 							<label for="login_password">Password</label>
 							<input type="password" name="login_password" id="login_password"/><br/>
-						</fieldset>
-						<fieldset title="Procedi su Login per effetturare l'accesso">
-							<legend>Operazione di Login</legend>
+
 							<input type="submit" name="login_submit" id="login_submit" value="Accedi al sito" onkeypress="return loginControl()" />
 						</fieldset>
 					</form>
