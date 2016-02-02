@@ -319,6 +319,11 @@ sub profileChangeControl(){ #data,email
 	if($ris ne 1){ return $url.$ris; }
 	$ris=checkSurname($_[1]);
 	if($ris ne 1){ return $url.$ris; }
+	#my $ris=checkData($_[2]);
+	#if($ris ne 1){ return $url.$ris; }
+	$ris=checkEmail($_[3]);
+	if($ris ne 1){ return $url.$ris; }
+		
 	return 1;
 }
 
@@ -339,14 +344,20 @@ sub registrationControl(){ #data,email
 	if($ris ne 1){ return $url.$ris; }
 	$ris=checkSurname($_[1]);
 	if($ris ne 1){ return $url.$ris; }
-	$ris=checkUser($_[2]);
+	#$ris=checkData($_[2]);
+	#if($ris ne 1){ return $url.$ris; }
+	$ris=checkUser($_[3]);
 	if($ris ne 1){ return $url.$ris; }
-	$ris=checkPassword($_[3]);		
+	$ris=checkEmail($_[4]);
 	if($ris ne 1){ return $url.$ris; }
-	$ris=checkConfirmPassword($_[4]);
+	$ris=checkPassword($_[5]);		
+	if($ris ne 1){ return $url.$ris; }
+	$ris=checkConfirmPassword($_[6]);
 	if($ris ne 1){ return $url.$ris; }
 	return 1;	
 }
+
+
 
 sub recoveryControl(){ #data, email
 	my $url="pass_recovery.cgi?";
@@ -354,11 +365,15 @@ sub recoveryControl(){ #data, email
 	if($ris ne 1){ return $url.$ris; }
 	$ris=checkSurname($_[1]);
 	if($ris ne 1){ return $url.$ris; }
-	$ris=checkUser($_[2]);
+	#my $ris=checkData($_[2]);
+	#if($ris ne 1){ return $url.$ris; }
+	$ris=checkUser($_[3]);
 	if($ris ne 1){ return $url.$ris; }
-	$ris=checkPassword($_[3]);		
+	my $ris=checkUser($_[4]);
 	if($ris ne 1){ return $url.$ris; }
-	$ris=checkConfirmPassword($_[4]);
+	$ris=checkPassword($_[5]);		
+	if($ris ne 1){ return $url.$ris; }
+	$ris=checkConfirmPassword($_[6]);
 	if($ris ne 1){ return $url.$ris; }
 	return 1;	
 }
@@ -489,9 +504,6 @@ sub checkEmail()
 	}
 
 	$url="msgError=*Email non valida";
-
-	print $par;
-
 	if($par=~ m/^([\w\-\+\.]+)@([\w\-\+\.]+)\.([\w\-\+\.]+)$/i ){
 		return 1;
 	}
