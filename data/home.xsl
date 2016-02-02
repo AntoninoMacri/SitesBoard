@@ -9,10 +9,7 @@
 <head>
 		<title xml:lang="en" lang="en">Home Page - SitesBoard</title> 
 
-		<link href="../public_html/css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
-		<link href="../public_html/css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
-		<link href="../public_html/css/print.css" rel="stylesheet" type="text/css" media="print"/>
-
+		<link href="../public_html/css/screen_xsl.css" rel="stylesheet" type="text/css" media="screen"/>
 
 		<!-- Meta Tag -->
 		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
@@ -36,41 +33,7 @@
 			
 
 			</div>
-			<!-- PATH -->
-			<div id="path" title="Sezione del sito in cui ti trovi in questo momento">
-				Ti trovi in: <span class="notable" xml:lang="en" lang="en">Home</span>
-			</div>
-
-
-			<div id="nav_panel">
-
-				<!-- MENÙ DI LOGIN-->
-				<!-- Da caricare solo se l utente non è loggato-->
-				<div id="nav_login" class="menu" title="Menù di Login del sito">
-					<h3><span xml:lang="en" lang="en">Login</span></h3>
-					<!-- Messaggio di errore -->
-					<p id="logErr" title="Messaggio di errore compilazione form login">
-						inserisci <span xml:lang="en" lang="en">Password</span> ed <span xml:lang="en" lang="en">Username</span>
-					</p>
-					<!-- Form da compilare -->
-					<form onsubmit="return loginControl()" method="post" action="../cgi-bin/checkLogin.cgi">
-						<fieldset title="Campi da compilare per effettuare il Login">
-							<legend>Campi da compilare per effettuare il Login</legend>
-							<label for="login_user">Username</label>
-							<input type="text" name="login_user" id="login_user"/><br/>
-							<label for="login_password">Password</label>
-							<input type="password" name="login_password" id="login_password"/><br/>
-						</fieldset>
-						<fieldset title="Procedi su Login per effetturare l'accesso">
-							<legend>Operazione di Login</legend>
-							<input type="submit" name="login_submit" id="login_submit" value="Accedi al sito" />
-						</fieldset>
-					</form>
-					<a class ="minimal" href="../public_html/html/registration.html" hreflang="it" >Non ti sei ancora registrato?</a>
-					<a class = "minimal" href="../public_html/html/pass_recovery.html" hreflang="it" >Non trovi più la <span xml:lang="en" lang="en">password?</span></a>
-				</div>
-
-			</div>
+			
 			<!-- CONTENUTI DELLA PAGINA -->
 			<div id="contents">
 				<h3><span xml:lang="en" lang="en">Home</span></h3>
@@ -82,6 +45,12 @@
 						<h3><span style="font-weight:bold"><xsl:value-of select="titolo/text()"/></span></h3>
 						<div>
 							<xsl:value-of select="oggetto/text()"/>
+						</div>
+						<div>
+							<xsl:value-of select="tipologia/text()"/>
+						</div>
+						<div>
+							<xsl:value-of select="data/text()"/>
 						</div>
 					</div>
 				</xsl:for-each>
