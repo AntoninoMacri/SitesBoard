@@ -351,7 +351,7 @@ sub registrationControl(){
 	if($ris ne 1){ return $url.$ris; }
 	$ris=checkPassword($_[7]);		
 	if($ris ne 1){ return $url.$ris; }
-	$ris=checkConfirmPassword($_[8]);
+	$ris=checkConfirmPassword($_[7],$_[8]);
 	if($ris ne 1){ return $url.$ris; }
 	return 1;	
 }
@@ -372,7 +372,7 @@ sub recoveryControl(){
 	if($ris ne 1){ return $url.$ris; }
 	$ris=checkPassword($_[7]);		
 	if($ris ne 1){ return $url.$ris; }
-	$ris=checkConfirmPassword($_[8]);
+	$ris=checkConfirmPassword($_[7],$_[8]);
 	if($ris ne 1){ return $url.$ris; }
 	return 1;	
 }
@@ -475,7 +475,7 @@ sub checkConfirmPassword()
 	}
 
 	$url = "campo Ripeti la Password deve coincidere con il campo Password"; 
-	if($conferma eq $conferma){
+	if($par ne $conferma){
 		return $url;
 	}
 	return 1;
