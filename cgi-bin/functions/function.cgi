@@ -509,3 +509,96 @@ sub checkEmail()
 	}
 	return $url;
 }
+
+
+
+sub checkData(){
+
+	my $year = $_[0];
+	my $month = $_[1];
+	my $day = $_[2];
+
+	my $url="msgError=*Campo Anno vuoto";
+	if(!defined($year) || $year eq ""){
+		return $url;
+	}
+    
+    $url="msgError=*Il campo Anno deve contenere 4 cifre";
+    if($year=~ m/^[0-9]{4}$/){
+        return $url;
+    }
+
+    $url="msgError=*L'anno di nascita deve essere successivo al 1900";
+    if($year<1900){
+        return $url;
+    }
+
+    my $bisestile=0;
+    if($year%4==0){
+        $bisestile=1;
+    }
+
+	$url="msgError=*msgError=*Campo Mese di Nascita vuoto";
+	if(!defined($month) || $month eq ""){
+		return $url;
+	}
+
+	$url="msgError=*msgError=*Il campo Mese deve contenere 1 o 2 cifre";
+    if($month=~ m/^[0-9]{1,2}$/){
+        return $url;
+    }
+
+    $url="msgError=*Il campo Mese deve contenere un valore da 1 a 12";
+    if($month>12 || $month<1){
+        return $url;
+    }
+
+    $url="msgError=*Campo Giorno di Nascita vuoto";
+	if(!defined($day) || $day eq ""){
+		return $url;
+	}
+
+	$url="msgError=*Il campo Giorno deve contenere 1 o 2 cifre";
+    if($day=~ m/^[0-9]{1,2}$/){
+        return $url;
+    }
+    
+    $url="msgError=*Il campo Giorno deve contenere un valore da 1 a 31";
+    if($day>31 || $day<1){
+        return $url;
+    }
+
+    if($day>28 && $month==2){
+        if($day==29)
+        {
+            if($bisestile==0)
+                { 
+                	$url="msgError=*Anno NON bisestile. Febbraio ha al massimo 28 giorni";
+                    return $url;
+                }
+        }
+        else
+        { 
+        	$url="msgError=*Febbraio ha al massimo 29 giorni";
+            return $url;
+		}
+    }
+    if($day==31 && ($month==11 || $month==4 || $month==6 || $month==9)){
+    	$url="msgError=*30 giorni al massimo";
+        return $url;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
