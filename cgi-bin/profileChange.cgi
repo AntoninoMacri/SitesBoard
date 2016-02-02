@@ -127,8 +127,14 @@ print <<EOF;
 							<input type="text" name="day" id="day" tabindex="5"/>
 		  					<label for="email">Email</label>
 		  					<input id="email" type="text" name="email" value="" tabindex="6" />
+
+		  					<label for="password">Nuova password</label>
+		  					<input id="password" type="text" name="password" value="" tabindex="7" />
+		  					<label for="confirmPsw">Conferma nuova password</label>
+		  					<input id="confirmPsw" type="text" name="confirmPsw" value="" tabindex="8" />
+
 		  					<label for="bio">Biografia</label>
-		  					<textarea id="bio" rows="10" cols="70" name="bio" tabindex="7"></textarea>
+		  					<textarea id="bio" rows="10" cols="70" name="bio" tabindex="9"></textarea>
 		  					<input class="buttons" type="submit" value="Salva" onkeypress="return profileChangeControl()" />
 							<input class="buttons" type="reset" value="Azzera" />
 	  					</fieldset>

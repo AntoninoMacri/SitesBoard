@@ -162,8 +162,9 @@ div {
 				padding-bottom: 0.5em;
 			}
 
-			.menu li{
-				padding-bottom: 0.5em;
+			.menu span{
+				display: block;
+				margin-bottom: 8px;
 			}
 
 		/*menu per il login*/
@@ -515,10 +516,11 @@ div {
 
 	#cont_profile_change form input{
 		width: 200px;
+		margin-bottom: 10px;
 	}
 
 		#cont_profile_change form textarea#bio{
-			max-width: 800px;
+			min-width: 100%;
 			max-height: 300px;
 
 			float: left;
