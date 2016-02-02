@@ -521,8 +521,10 @@ div {
 	}
 
 		#cont_profile_change form textarea#bio{
-			max-width: 850px;
-			max-height: 500px;
+			max-width: 800px;
+			max-height: 300px;
+
+			float: left;
 		}
 
 
