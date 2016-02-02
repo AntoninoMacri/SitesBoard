@@ -5,10 +5,30 @@ require 'functions/session_function.cgi';
 
 my $session=getSession();
 
+#prendo eventuali parametri in ingresso con il GET
+my $cgi = new CGI;
+my $msgParam = $cgi->param('msgError');
+
 if($session == undef)
 {
     print redirect(-url => 'login.cgi');
 }
+
+my $name=getName($session);
+my $surname=getSurname($session);
+my $email=getEmail($session);
+my $date=getDate($session);
+my $bio=getBio($session);
+
+utf8::encode($name);
+utf8::encode($surname);
+utf8::encode($email);
+utf8::encode($date);
+utf8::encode($bio);
+
+my $year= substr($date,0,4);
+my $month= substr($date,5,2);
+my $day= substr($date,8,2);
 
 print "Content-type: text/html\n\n";
 
@@ -111,30 +131,38 @@ print <<EOF;
 					<p id="underline">
 						Ricordati di cliccare su salva una volta che avrai terminato le modifiche
 					</p>
+					<p class="msgError">
+EOF
+if(defined($msgParam))
+{
+	print $msgParam;
+}
+print <<EOF;
+					</p>
 
 					 <form onsubmit="return profileChangeControl()" method="post" action="profileChange.cgi">
 					 	<fieldset title="Campi da compilare per effettuare il Login">
 							<legend>Campi da compilare per poter modificare i propri dati</legend>
 							<label for="name">Nome</label>
-		  					<input id="name" type="text" name="name" maxlength="30" value="" tabindex="1"/>
+		  					<input id="name" type="text" name="name" maxlength="30" value="$name" tabindex="1"/>
 		  					<label for="surname">Cognome</label>
-		  					<input id="surname" type="text" name="surname" maxlength="30" value="" tabindex="2" />
+		  					<input id="surname" type="text" name="surname" maxlength="30"  value="$surname" tabindex="2" />
 		  					<label for="year">Anno di Nascita</label>
-							<input type="text" name="year" id="year" tabindex="3"/>
+							<input type="text" name="year" id="year" value="$year" tabindex="3"/>
 							<label for="month">Mese di Nascita</label>
-							<input type="text" name="month" id="month" tabindex="4"/>
+							<input type="text" name="month" id="month" value="$month" tabindex="4"/>
 							<label for="day">Giorno di Nascita</label>
-							<input type="text" name="day" id="day" tabindex="5"/>
+							<input type="text" name="day" id="day" value="$day" tabindex="5"/>
 		  					<label for="email">Email</label>
-		  					<input id="email" type="text" name="email" value="" tabindex="6" />
+		  					<input id="email" type="text" name="email" value="$email" tabindex="6" />
 
 		  					<label for="password">Nuova password</label>
-		  					<input id="password" type="text" name="password" value="" tabindex="7" />
+		  					<input id="password" type="text" name="password" tabindex="7" />
 		  					<label for="confirmPsw">Conferma nuova password</label>
-		  					<input id="confirmPsw" type="text" name="confirmPsw" value="" tabindex="8" />
+		  					<input id="confirmPsw" type="text" name="confirmPsw" tabindex="8" />
 
 		  					<label for="bio">Biografia</label>
-		  					<textarea id="bio" rows="10" cols="70" name="bio" tabindex="9"></textarea>
+		  					<textarea id="bio" rows="10" cols="70" name="bio" tabindex="9">$bio</textarea>
 		  					<input class="buttons" type="submit" value="Salva" onkeypress="return profileChangeControl()" />
 							<input class="buttons" type="reset" value="Azzera" />
 	  					</fieldset>
@@ -152,14 +180,12 @@ print <<EOF;
 		<div id="footer">
 			<span title="Pagina validata con lo standard XHTML 1.0 Strict">
 			    <a href="http://validator.w3.org/check?uri=referer" hreflang="en" type="application/xhtml+xml">
-			    	<img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" />
-			    </a>
+			    	<img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
 			</span>
 			<span title="CSS della pagina validato secondo lo standard">
 				<!--hrflang varia a seconda dello stato -->
 			    <a href="http://jigsaw.w3.org/css-validator/check/referer" type="application/xhtml+xml"> 
-			        <img src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valido!" />
-			    </a>
+			        <img src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valido!" /></a>
 			</span>
 			<span title="Accessibile secondo lo standard WCAG2 Livello AAA">
 			    <a href="http://www.w3.org/WAI/intro/wcag" type="application/xhtml+xml" hreflang="en-US"> 
