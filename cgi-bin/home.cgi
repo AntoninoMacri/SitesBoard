@@ -42,7 +42,7 @@ print <<PRIMA_PARTE;
 
 	</head>
 	<body>
-		<div class="screen_reader">Se desideri saltare al contenuto segui questo collegamento</div>
+		<a class="screen_reader" href="#contents" hreflang="it" type="application/xhtml+xml">Se desideri saltare al contenuto segui questo collegamento</a>
 		<div id="container">
 			<!-- HEADER-->
 			<div id="header">
@@ -122,8 +122,10 @@ print <<PEZZO;
 							<input type="submit" name="login_submit" id="login_submit" value="Accedi al sito" onkeypress="return loginControl()" />
 						</fieldset>
 					</form>
-					<a class ="minimal" href="registration.cgi" hreflang="it" >Non ti sei ancora registrato?</a>
-					<a class ="minimal" href="../html/pass_recovery.html" hreflang="it" >Non trovi più la <span xml:lang="en" lang="en">password?</span></a>
+					<div>
+						<a class ="minimal" href="registration.cgi" hreflang="it" >Non ti sei ancora registrato?</a>
+						<a class ="minimal" href="../html/pass_recovery.html" hreflang="it" >Non trovi più la <span xml:lang="en" lang="en">password?</span></a>
+					</div>
 				</div>
 PEZZO
 }

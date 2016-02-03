@@ -88,32 +88,6 @@ html, body {
 }
 
 /*Regole per i blocchi delle inserzioni*/
-/* versione div 
-.block_insertion{
-	padding: 30px 0px 30px 0px;
-	border-style: solid;
-	border-color: #D3D3D3;
-	border-width: 0px 0px 1px 0px;
-}
-
-	.block_insertion div{
-		height: 1.1em;
-	}
-
-		.block_insertion .BI_date{
-			float: right;
-		}
-		.block_insertion .BI_title,
-		.block_insertion .BI_object,
-		.block_insertion .BI_type{
-			margin-bottom: 15px;
-		}
-
-	.block_insertion .BI_value{
-		font-style: italic;
-	}
-*/
-
 /* versione migliore con dl */
 #block_insertions{
 	list-style-type: none;
@@ -137,6 +111,7 @@ html, body {
 	#block_insertions .block_insertion dt{
 		display: inline-block;
 		width: 7%;
+		height: 1.1em;
 	}
 
 	#block_insertions .block_insertion dd{
@@ -191,6 +166,7 @@ html, body {
 
 			#header_login div{
 				margin-top: 10px;
+				height: 1.1em;
 			}
 
 			#header_login img{
@@ -259,6 +235,10 @@ html, body {
 		/*menu per il login*/
 		#nav_login{
 			margin-top: 20px;
+		}
+
+		#nav_login div{
+			height: 4em;
 		}
 
 			#nav_login form{
