@@ -323,11 +323,13 @@ sub profileChangeControl(){
 	if($ris ne 1){ return $url.$ris; }
 	$ris=checkEmail($_[5]);
 	if($ris ne 1){ return $url.$ris; }
+	$ris=checkPassword($_[6]);
+	if($ris ne 1){ return $url.$ris; }
 	return 1;
 }
 
 sub addInsertionControl(){
-	my $url="addInsertion.cgi?";
+	my $url="addInsertions.cgi?";
 	my $ris=checkTitolo($_[0]);
 	if($ris ne 1){ return $url.$ris; }
 	$ris=checkOggetto($_[1]);
@@ -359,7 +361,7 @@ sub registrationControl(){
 
 
 sub recoveryControl(){
-	my $url="pass_recovery.cgi?";
+	my $url="../html/pass_recovery.html?";
 	my $ris=checkName($_[0]);
 	if($ris ne 1){ return $url.$ris; }
 	$ris=checkSurname($_[1]);
@@ -609,7 +611,10 @@ sub inputControl(){
 	return $par;
 }
 
-sub extractType(){ #presa una variabile in input la ritorna senza carattere " ad inizio e fine stringa
+
+#presa una variabile in input la ritorna senza carattere iniziale e finale.
+#Viene usata per rimuovere il carattere  " ad inizio e fine stringa
+sub extractType(){ 
 	$par=$_[0];
 	$par=substr $par,1,length $par; 
 	$par=substr $par,0,-1; 
