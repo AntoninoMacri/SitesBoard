@@ -4,6 +4,7 @@
 /*imposto i link ad essere tutti in corsivo per una maggiore usabilità*/
 a{
 	font-variant: small-caps;
+	color: rgb(15,27,194);
 }
 
 a:visited{
@@ -50,7 +51,7 @@ html, body {
 .buttons{
 	width: 150px;
 	height: 25px;
-	margin: 20px 0px 10px 20px;
+	margin: 20px 0px 0px 20px;
 }
 
 
@@ -414,14 +415,8 @@ html, body {
 			width: 100%;
 		}
 
-		#cont_registration #reg_year{
-			width: 20%
-		}
-
-		#cont_registration #reg_month{
-			width: 20%
-		}
-
+		#cont_registration #reg_year,
+		#cont_registration #reg_month,
 		#cont_registration #reg_day{
 			width: 20%
 		}
@@ -525,7 +520,7 @@ html, body {
 				margin: 20px 0px 10px 20px;
 			}
 
-/*--------------profile.cgi-------------------*/
+/*--------------profile.cgi && confirmRemoveProfile.cgi -------------------*/
 
 #cont_profile{
 	height: auto;
@@ -540,6 +535,8 @@ html, body {
 		#remove_profile .buttons{
 			color: red;
 		}
+
+
 
 /*--------------profile_change.cgi-------------------*/
 
@@ -573,6 +570,12 @@ html, body {
 				height: 25px;
 				float: right;
 				margin: 20px 0px 10px 20px;
+			}
+
+			#cont_profile_change #year,
+			#cont_profile_change #month,
+			#cont_profile_change #day{
+				width: 20%
 			}
 
 

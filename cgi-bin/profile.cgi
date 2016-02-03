@@ -158,7 +158,7 @@ print <<EOF;
 	  				</ul>
 	  					
 
-					<form id="remove_profile" method="post" onclick="return alertOnRmProfile()" action="removeProfile.cgi">
+					<form id="remove_profile" method="post" onclick="return alertOnRmProfile()" action="confirmRemoveProfile.cgi">
 						<fieldset title="Elimina il tuo profilo">
 							<legend>Clicca qui per rimuovere il tuo profilo</legend>
 							<input class="buttons" id="RM_profile_submit" type="submit" onkeypress="return alertOnRmProfile()" value="Elimina profilo" />
