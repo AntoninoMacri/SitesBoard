@@ -375,3 +375,7 @@ function alertOnRmProfile()
       else
         return false;
 }
+
+function cleanField(par){ //uso nel campo input aggiungere: onfocus="cleanField(id_del_campo)"
+    document.getElementById(par).value="";
+}
