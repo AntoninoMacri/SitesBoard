@@ -26,7 +26,12 @@ if(! defined $s)
 {
 	my $username = $page->param('login_user');
 	my $password = $page->param('login_password');
-	my $temp=checkLog($username,$password);
+
+
+	#pulizia e correzione input
+	$username = inputControl($username);
+	$password = inputControl($password);
+
 	my $xp = XML::XPath->new(filename => '../data/database.xml');
 	my $xpath_exp='/bacheca/persona[user/text()="'.$username.'" and password/text()="'.$password.'"]';
 

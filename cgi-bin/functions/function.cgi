@@ -319,11 +319,13 @@ sub profileChangeControl(){
 	if($ris ne 1){ return $url.$ris; }
 	$ris=checkSurname($_[1]);
 	if($ris ne 1){ return $url.$ris; }
-	my $ris=checkData($_[2],$_[3],$_[4]);
+	$ris=checkData($_[2],$_[3],$_[4]);
 	if($ris ne 1){ return $url.$ris; }
 	$ris=checkEmail($_[5]);
 	if($ris ne 1){ return $url.$ris; }
 	$ris=checkPassword($_[6]);
+	if($ris ne 1){ return $url.$ris; }
+	$ris=checkConfirmPassword($_[6],$_[7]);
 	if($ris ne 1){ return $url.$ris; }
 	return 1;
 }
@@ -345,7 +347,7 @@ sub registrationControl(){
 	if($ris ne 1){ return $url.$ris; }
 	$ris=checkSurname($_[1]);
 	if($ris ne 1){ return $url.$ris; }
-	my $ris=checkData($_[2],$_[3],$_[4]);
+	$ris=checkData($_[2],$_[3],$_[4]);
 	if($ris ne 1){ return $url.$ris; }
 	$ris=checkUser($_[5]);
 	if($ris ne 1){ return $url.$ris; }
@@ -366,7 +368,7 @@ sub recoveryControl(){
 	if($ris ne 1){ return $url.substr($ris,10); }
 	$ris=checkSurname($_[1]);
 	if($ris ne 1){ return $url.substr($ris,10); }
-	my $ris=checkData($_[2],$_[3],$_[4]);
+	$ris=checkData($_[2],$_[3],$_[4]);
 	if($ris ne 1){ return $url.substr($ris,10); }
 	$ris=checkUser($_[5]);
 	if($ris ne 1){ return $url.substr($ris,10); }
@@ -451,9 +453,9 @@ sub checkPassword()
 		return $url;
 	}
 
-	my $boolPassLenght=length $password<7;
+	my $boolPassLenght=length $par<7;
 	$url = "msgError=*Il campo Password deve contenere almeno 8 caratteri"; 
-	if(!$boolPassLenght){ 
+	if($boolPassLenght){ 
 		return $url;
 	}
 	return 1;
@@ -470,9 +472,9 @@ sub checkConfirmPassword()
 		return $url;
 	}
 
-	my $boolPassLenght=length $password<7;
+	my $boolPassLenght=length $conferma<7;
 	$url = "msgError=*Il campo ripeti la Password deve contenere almeno 8 caratteri"; 
-	if(!$boolPassLenght){ 
+	if($boolPassLenght){ 
 		return $url;
 	}
 

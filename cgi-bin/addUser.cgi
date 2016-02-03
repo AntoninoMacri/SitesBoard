@@ -22,6 +22,15 @@ my $newUserEmail = $cgi->param('reg_email');
 my $newUserPassword = $cgi->param('reg_pass');
 my $newUserConfirmPassword = $cgi->param('reg_re_pass');
 
+#pulizia e correzione input
+$newUserName = inputControl($newUserName);
+$newUserSurname = inputControl($newUserSurname);
+$newUserUsername = inputControl($newUserUsername);
+$newUserEmail = inputControl($newUserEmail);
+$newUserPassword = inputControl($newUserPassword);
+$newUserConfirmPassword = inputControl($newUserConfirmPassword);
+
+
 my $url=registrationControl($newUserName,$newUserSurname,$newUserYear,$newUserMonth,$newUserDay, $newUserUsername ,$newUserEmail,$newUserPassword,$newUserConfirmPassword);
 
 #controllo se ci sono tutti i dati

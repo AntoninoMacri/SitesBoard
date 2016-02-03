@@ -17,9 +17,15 @@ my $titleInsertion = $cgi->param('addTitolo');
 my $objectInsertion = $cgi->param('addOggetto');
 my $descriptionInsertion = $cgi->param('addDescrizione');
 my $TipoInsertion = $cgi->param('addTipologia');
-$TipoInsertion=extractType($TipoInsertion);
 
-my $url=registrationControl($titleInsertion,$objectInsertion, $descriptionInsertion);
+#pulizia e correzione input
+$TipoInsertion = extractType($TipoInsertion); #tolgo le virgolette inserite dalla select
+$titleInsertion = inputControl($titleInsertion);
+$objectInsertion = inputControl($objectInsertion);
+$descriptionInsertion = inputControl($descriptionInsertion);
+$TipoInsertion = inputControl($TipoInsertion);
+
+my $url=addInsertionControl($titleInsertion,$objectInsertion, $descriptionInsertion);
 
 #controllo se si è loggati
 if(defined($session))

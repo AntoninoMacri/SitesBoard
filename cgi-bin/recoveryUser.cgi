@@ -22,12 +22,21 @@ my $recover_email = $cgi->param('recover_email');
 my $recover_pass = $cgi->param('recover_pass');
 my $recover_ConfirmPassword=$cgi->param('recover_re_pass');
 
+#pulizia e correzione input
+$recover_name = inputControl($recover_name);
+$recover_surname = inputControl($recover_surname);
+$recover_username = inputControl($recover_username);
+$recover_email = inputControl($recover_email);
+$recover_pass = inputControl($recover_pass);
+$recover_ConfirmPassword = inputControl($recover_ConfirmPassword);
+
+
 my $url=recoveryControl($recover_name,$recover_surname,$recover_year,$recover_month,$recover_day, $recover_username ,$recover_email,$recover_pass,$recover_ConfirmPassword);
 
 #controllo se ci sono tutti i dati
 if($url eq 1)
 {
-	
+
 	if(length $recover_month== 1){ $recover_month='0'.$recover_month; }
 	if(length $recover_day== 1){ $recover_day='0'.$recover_day; }
 

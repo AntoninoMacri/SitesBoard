@@ -20,14 +20,24 @@ my $newUserMonth = $cgi->param('month');
 my $newUserDay = $cgi->param('day');
 my $newUserEmail = $cgi->param('email');
 my $newUserPass = $cgi->param('password');
+my $confirmPsw = $cgi->param('confirmPsw');
 my $newUserBio = $cgi->param('bio');
+
+
+#pulizia e correzione input
+$newUserName = inputControl($newUserName);
+$newUserSurname = inputControl($newUserSurname);
+$newUserEmail = inputControl($newUserEmail);
+$newUserPass = inputControl($newUserPass);
+$confirmPsw =  inputControl($confirmPsw);
+$newUserBio = inputControl($newUserBio);
 
 #creo la data nel formato giusto
 if(length $newUserMonth== 1){ $newUserMonth='0'.$newUserMonth; }
 if(length $newUserDay== 1){ $newUserDay='0'.$newUserDay; }
 my $newUserDate = $newUserYear."-".$newUserMonth."-".$newUserDay;
 
-my $url=profileChangeControl($newUserName,$newUserSurname,$newUserYear,$newUserMonth,$newUserDay, $newUserEmail, $newUserPass);
+my $url=profileChangeControl($newUserName,$newUserSurname,$newUserYear,$newUserMonth,$newUserDay, $newUserEmail, $newUserPass, $confirmPsw);
 
 
 #controllo se si è loggati

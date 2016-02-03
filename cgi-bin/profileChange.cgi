@@ -155,9 +155,9 @@ print <<EOF;
 		  					<input id="email" type="text" name="email" value="$email" tabindex="6"  onfocus="cleanField('email')"/>
 
 		  					<label for="password">Nuova password</label>
-		  					<input id="password" type="text" name="password" tabindex="7"  onfocus="cleanField('password')"/>
+		  					<input id="password" type="password" name="password" tabindex="7"  onfocus="cleanField('password')"/>
 		  					<label for="confirmPsw">Conferma nuova password</label>
-		  					<input id="confirmPsw" type="text" name="confirmPsw" tabindex="8"  onfocus="cleanField('confirmPsw')"/>
+		  					<input id="confirmPsw" type="password" name="confirmPsw" tabindex="8"  onfocus="cleanField('confirmPsw')"/>
 
 		  					<label for="bio" id="contaCaratteri">Biografia (max 2000 caratteri)</label>
 		  					<textarea id="bio" rows="10" cols="70" name="bio" tabindex="9" onkeyup="changeCharCountdown()" onkeydown="changeCharCountdown()" onkeypress="changeCharCountdown()">$bio</textarea>
