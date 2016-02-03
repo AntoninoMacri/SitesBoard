@@ -114,7 +114,7 @@ print <<PEZZO;
 				<div id="nav_login" class="menu" title="Menù di Login del sito">
 					<h3><span xml:lang="en" lang="en">Login</span></h3>
 					<!-- Messaggio di errore -->
-					<p id="msg" class="msgError" title="Messaggio di errore compilazione form login">
+					<p id="log_msg" class="msgError" title="Messaggio di errore compilazione form login">
 					</p>
 					<!-- Form da compilare -->
 					<form onsubmit="return loginControl()" method="post" action="checkLogin.cgi">

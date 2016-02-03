@@ -133,7 +133,7 @@ print <<EOF;
 						In particolare puoi: visualizzare gli annunci da te inseriti. Visualizzare gli annunci che hai accettato in attesa di conclusione asta. Aggiungere un nuovo annuncio che apparirà nella bacheca di <span xml:lang="en" lang="en">SitesBoard</span> in ordine, dal più vicino al più lontano, di scadenza. Cancellare i tuoi annunci che per qualche motivo non ti interessa più condividere. 
 					</p>
 					<!-- Messaggio di errore  -->
-					<p id="msg" class="msgError" title="Messaggio di errore">
+					<p id="cont_msg" class="msgError" title="Messaggio di errore">
 EOF
 if(defined($msgParam))
 {

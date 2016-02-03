@@ -350,11 +350,6 @@ html, body {
 /*-------------- login.html-------------------*/
 #cont_login {
 }
-
-	#cont_login p{
-		color: red;
-		text-align: center;
-	}
 	
 	#cont_login form fieldset{
 		width: 50%;
@@ -379,11 +374,6 @@ html, body {
 #cont_registration {
 }
 
-	#cont_registration p{
-		color: red;
-		text-align: center;
-	}
-	
 	#cont_registration form fieldset{
 		width: 50%;
 		margin: auto;
@@ -428,11 +418,6 @@ html, body {
 #cont_pass_recovery {
 }
 
-	#cont_pass_recovery p{
-		color: red;
-		text-align: center;
-	}
-	
 	#cont_pass_recovery form fieldset{
 		width: 50%;
 		margin: auto;
@@ -541,7 +526,7 @@ html, body {
 		margin: auto;
 	}
 
-		#cont_profile input #rmProfile.buttons{
+		#cont_profile input #rmProfile .buttons{
 			color: red;
 		}
 
