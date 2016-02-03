@@ -435,9 +435,6 @@ html, body {
 			}
 
 
-
-
-
 /*-------------- pass_recovery.html-------------------*/
 #cont_pass_recovery {
 }
@@ -546,33 +543,37 @@ html, body {
 
 /*--------------profile_change.cgi-------------------*/
 
-
-#cont_profile_change .buttons{
-	float: left;
-}
-
-
 #cont_profile_change form{
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
-
-	#cont_profile_change form label{
-		display: block;
+		width: 60%;
+		margin: 20px auto 20px auto;
 	}
 
-	#cont_profile_change form input{
-		width: 200px;
-		margin-bottom: 10px;
-	}
-
-		#cont_profile_change form textarea#bio{
-			min-width: 100%;
-			max-height: 300px;
-
-			float: left;
+		#cont_profile_change fieldset label{
+			display: block;
+			margin-top: 0.4em;
+			margin-bottom: 0.2em;
 		}
 
+
+		#cont_profile_change input{
+			width: 100%;
+		}
+
+			#cont_profile_change  #bio{
+				width:100%;
+				min-width: 100% ;
+				min-height: 250px;
+				max-width: 100%;
+				max-height: 500px;
+				margin:10px 0px 0px 0px;
+			}
+
+			#cont_profile_change form  fieldset .buttons{
+				width: 150px;
+				height: 25px;
+				float: right;
+				margin: 20px 0px 10px 20px;
+			}
 
 
 
