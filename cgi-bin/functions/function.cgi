@@ -587,8 +587,25 @@ sub checkData(){
     return 1;
 }
 
-#sub inputControl(){ #controllo che un input sia accettabile all'interno del database
-#	my $y  = $_[0];
-#
-#
-#}
+
+#controllo che un input sia accettabile all'interno del database [NON contiene <,>,&]
+#in caso siano presenti questi simboli allora ritorno una stringa che che li sostituisce con &amp; &gt; &lt;
+sub inputControl(){ 
+	my $par  = $_[0];
+
+	my $lt="\<";
+	my $lt_r="\&lt\;";
+	$par =~ s/$lt/$lt_r/g;
+
+
+	my $gt="\>";
+	my $gt_r="\&gt\;";
+	$par =~ s/$gt/$gt_r/g;
+
+
+	my $amp="\&";
+	my $amp_r="\&amp\;";
+	$par =~ s/$amp/$amp_r/g;
+
+	return $par;
+}
