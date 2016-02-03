@@ -323,11 +323,13 @@ sub profileChangeControl(){
 	if($ris ne 1){ return $url.$ris; }
 	$ris=checkEmail($_[5]);
 	if($ris ne 1){ return $url.$ris; }
+	$ris=checkPassword($_[6]);
+	if($ris ne 1){ return $url.$ris; }
 	return 1;
 }
 
 sub addInsertionControl(){
-	my $url="addInsertion.cgi?";
+	my $url="addInsertions.cgi?";
 	my $ris=checkTitolo($_[0]);
 	if($ris ne 1){ return $url.$ris; }
 	$ris=checkOggetto($_[1]);
@@ -359,21 +361,21 @@ sub registrationControl(){
 
 
 sub recoveryControl(){
-	my $url="pass_recovery.cgi?";
+	my $url="showMessage.cgi?error=";
 	my $ris=checkName($_[0]);
-	if($ris ne 1){ return $url.$ris; }
+	if($ris ne 1){ return $url.substr($ris,10); }
 	$ris=checkSurname($_[1]);
-	if($ris ne 1){ return $url.$ris; }
+	if($ris ne 1){ return $url.substr($ris,10); }
 	my $ris=checkData($_[2],$_[3],$_[4]);
-	if($ris ne 1){ return $url.$ris; }
+	if($ris ne 1){ return $url.substr($ris,10); }
 	$ris=checkUser($_[5]);
-	if($ris ne 1){ return $url.$ris; }
+	if($ris ne 1){ return $url.substr($ris,10); }
 	my $ris=checkUser($_[6]);
-	if($ris ne 1){ return $url.$ris; }
+	if($ris ne 1){ return $url.substr($ris,10); }
 	$ris=checkPassword($_[7]);		
-	if($ris ne 1){ return $url.$ris; }
+	if($ris ne 1){ return $url.substr($ris,10); }
 	$ris=checkConfirmPassword($_[7],$_[8]);
-	if($ris ne 1){ return $url.$ris; }
+	if($ris ne 1){ return $url.substr($ris,10); }
 	return 1;	
 }
 
@@ -450,7 +452,7 @@ sub checkPassword()
 	}
 
 	my $boolPassLenght=length $password<7;
-	$url = "Il campo Password deve contenere almeno 8 caratteri"; 
+	$url = "msgError=*Il campo Password deve contenere almeno 8 caratteri"; 
 	if(!$boolPassLenght){ 
 		return $url;
 	}
@@ -469,12 +471,12 @@ sub checkConfirmPassword()
 	}
 
 	my $boolPassLenght=length $password<7;
-	$url = "Il campo ripeti la Password deve contenere almeno 8 caratteri"; 
+	$url = "msgError=*Il campo ripeti la Password deve contenere almeno 8 caratteri"; 
 	if(!$boolPassLenght){ 
 		return $url;
 	}
 
-	$url = "campo Ripeti la Password deve coincidere con il campo Password"; 
+	$url = "msgError=*Il campo Ripeti la Password deve coincidere con il campo Password"; 
 	if($par ne $conferma){
 		return $url;
 	}
@@ -609,7 +611,10 @@ sub inputControl(){
 	return $par;
 }
 
-sub extractType(){ #presa una variabile in input la ritorna senza carattere " ad inizio e fine stringa
+
+#presa una variabile in input la ritorna senza carattere iniziale e finale.
+#Viene usata per rimuovere il carattere  " ad inizio e fine stringa
+sub extractType(){ 
 	$par=$_[0];
 	$par=substr $par,1,length $par; 
 	$par=substr $par,0,-1; 

@@ -6,7 +6,7 @@ use XML::LibXML;
 use XML::XPath;
 use Net::SMTP;
 
-
+require 'functions/function.cgi';
 require 'functions/session_function.cgi';
 
 #ottengo la sessione
@@ -20,12 +20,12 @@ my $recover_day = $cgi->param('recover_day');
 my $recover_username = $cgi->param('recover_username');
 my $recover_email = $cgi->param('recover_email');
 my $recover_pass = $cgi->param('recover_pass');
+my $recover_ConfirmPassword=$cgi->param('recover_re_pass');
 
-
+my $url=recoveryControl($recover_name,$recover_surname,$recover_year,$recover_month,$recover_day, $recover_username ,$recover_email,$recover_pass,$recover_ConfirmPassword);
 
 #controllo se ci sono tutti i dati
-if(defined($recover_name) &&  defined($recover_surname)&&  defined($recover_year)&&  defined($recover_month)
-	&&  defined($recover_day)&&  defined($recover_username)&&  defined($recover_email)&&  defined($recover_pass))
+if($url eq 1)
 {
 	#creazione data di nascita
 	my $dataNascita = $recover_year."-".$recover_month."-".$recover_day;
@@ -63,7 +63,7 @@ if(defined($recover_name) &&  defined($recover_surname)&&  defined($recover_year
 else
 {
 	#redirect
-	print $cgi->redirect( 'home.cgi' );
+	print $cgi->redirect($url);
 }
 
 
