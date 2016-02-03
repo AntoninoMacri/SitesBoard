@@ -144,7 +144,7 @@ print <<EOF;
 					 	<fieldset title="Campi da compilare per effettuare il Login">
 							<legend>Campi da compilare per poter modificare i propri dati</legend>
 							<label for="name">Nome</label>
-		  					<input id="name" type="text" name="name" maxlength="30" value="$name" tabindex="1"/>
+		  					<input id="name" type="text" name="name" maxlength="30" value="$name" tabindex="1" onfocus="cleanField(name)"/>
 		  					<label for="surname">Cognome</label>
 		  					<input id="surname" type="text" name="surname" maxlength="30"  value="$surname" tabindex="2" />
 		  					<label for="year">Anno di Nascita</label>
