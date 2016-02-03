@@ -593,6 +593,10 @@ sub checkData(){
 sub inputControl(){ 
 	my $par  = $_[0];
 
+	my $amp="\&";
+	my $amp_r="\&amp\;";
+	$par =~ s/$amp/$amp_r/g;
+
 	my $lt="\<";
 	my $lt_r="\&lt\;";
 	$par =~ s/$lt/$lt_r/g;
@@ -602,10 +606,6 @@ sub inputControl(){
 	my $gt_r="\&gt\;";
 	$par =~ s/$gt/$gt_r/g;
 
-
-	my $amp="\&";
-	my $amp_r="\&amp\;";
-	$par =~ s/$amp/$amp_r/g;
 
 	return $par;
 }
