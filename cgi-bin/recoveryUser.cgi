@@ -22,7 +22,7 @@ my $recover_email = $cgi->param('recover_email');
 my $recover_pass = $cgi->param('recover_pass');
 my $recover_ConfirmPassword=$cgi->param('recover_re_pass');
 
-my $url=recoveryControl($recover_name,$recover_Surname,$recover_Year,$recover_Month,$recover_Day, $recover_Username ,$recover_Email,$recover_pass,$recover_ConfirmPassword);
+my $url=recoveryControl($recover_name,$recover_surname,$recover_year,$recover_month,$recover_day, $recover_username ,$recover_email,$recover_pass,$recover_ConfirmPassword);
 
 #controllo se ci sono tutti i dati
 if($url eq 1)
