@@ -146,20 +146,20 @@ print <<EOF;
 							<label for="name">Nome</label>
 		  					<input id="name" type="text" name="name" maxlength="30" value="$name" tabindex="1" onfocus="cleanField('name')"/>
 		  					<label for="surname">Cognome</label>
-		  					<input id="surname" type="text" name="surname" maxlength="30"  value="$surname" tabindex="2" />
+		  					<input id="surname" type="text" name="surname" maxlength="30"  value="$surname" tabindex="2"  onfocus="cleanField('surname')"/>
 		  					<label for="year">Anno di Nascita</label>
-							<input type="text" name="year" id="year" value="$year" tabindex="3"/>
+							<input type="text" name="year" id="year" value="$year" tabindex="3" onfocus="cleanField('year')"/>
 							<label for="month">Mese di Nascita</label>
-							<input type="text" name="month" id="month" value="$month" tabindex="4"/>
+							<input type="text" name="month" id="month" value="$month" tabindex="4" onfocus="cleanField('month')"/>
 							<label for="day">Giorno di Nascita</label>
-							<input type="text" name="day" id="day" value="$day" tabindex="5"/>
+							<input type="text" name="day" id="day" value="$day" tabindex="5" onfocus="cleanField('day')"/>
 		  					<label for="email">Email</label>
-		  					<input id="email" type="text" name="email" value="$email" tabindex="6" />
+		  					<input id="email" type="text" name="email" value="$email" tabindex="6"  onfocus="cleanField('email')"/>
 
 		  					<label for="password">Nuova password</label>
-		  					<input id="password" type="text" name="password" tabindex="7" />
+		  					<input id="password" type="text" name="password" tabindex="7"  onfocus="cleanField('password')"/>
 		  					<label for="confirmPsw">Conferma nuova password</label>
-		  					<input id="confirmPsw" type="text" name="confirmPsw" tabindex="8" />
+		  					<input id="confirmPsw" type="text" name="confirmPsw" tabindex="8"  onfocus="cleanField('confirmPsw')"/>
 
 		  					<label for="bio">Biografia</label>
 		  					<textarea id="bio" rows="10" cols="70" name="bio" tabindex="9">$bio</textarea>

@@ -606,6 +606,13 @@ sub inputControl(){
 	my $gt_r="\&gt\;";
 	$par =~ s/$gt/$gt_r/g;
 
+	return $par;
+}
+
+sub extractType(){ #presa una variabile in input la ritorna senza carattere " ad inizio e fine stringa
+	$par=$_[0];
+	$par=substr $par,1,length $par; 
+	$par=substr $par,0,-1; 
 
 	return $par;
 }
