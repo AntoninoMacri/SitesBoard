@@ -37,24 +37,30 @@
 			<!-- CONTENUTI DELLA PAGINA -->
 			<div id="contents">
 				<h3><span xml:lang="en" lang="en">Home</span></h3>
-				<div id="cont_welcome">Benvenuti nella sito SitesBoard. In questo sito potete vedere, proporre e anche accettare richieste di creazione di siti web.</div>
+				<div id="cont_welcome">
+				<p class="underline">Benvenuti nella sito SitesBoard. In questo sito potete vedere, proporre e anche accettare richieste di creazione di siti web.
+				</p>
 
 				<!--Annunci-->
+				<ul id="block_insertions">
 				<xsl:for-each select="bacheca/persona/listaAnnunci/annuncio">
-					<div>
-						<h3><span style="font-weight:bold"><xsl:value-of select="titolo/text()"/></span></h3>
-						<div>
-							<xsl:value-of select="oggetto/text()"/>
-						</div>
-						<div>
-							<xsl:value-of select="tipologia/text()"/>
-						</div>
-						<div>
-							<xsl:value-of select="data/text()"/>
-						</div>
-					</div>
+						<li>
+							<dl class='block_insertion'>
+								<dt>Titolo: </dt>
+								<dd><xsl:value-of select="titolo/text()"/></dd>
+								<dt>Tipologia: </dt>
+								<dd><xsl:value-of select="tipologia/text()"/></dd>
+								<dt>Oggetto: </dt>
+								<dd><xsl:value-of select="oggetto/text()"/></dd>
+								<dt>Autore: </dt>
+								<dd><xsl:value-of select="../../user/text()"/></dd>
+								<dt>Data: </dt>
+								<dd><xsl:value-of select="data/text()"/></dd>
+							</dl>
+						</li>
 				</xsl:for-each>
-
+				</ul>
+				</div>
 			</div>
 
 			<!-- Div necessario per spostare il footer in fondo alla pagina -->
