@@ -44,6 +44,7 @@ print <<PRIMA_PARTE;
 
 	</head>
 	<body>
+		<a class="screen_reader" href="#contents" hreflang="it" type="application/xhtml+xml">Se desideri saltare al contenuto segui questo collegamento</a>
 		<div id="container">
 			<!-- HEADER  -->
 			<div id="header">
@@ -80,30 +81,27 @@ print <<EOF;
 			</div>
 			<div id="nav_panel">
 			
-				<!-- MENÙ DI NAVIGAZIONE --> 
+				<!-- MENÙ DI NAVIGAZIONE -->
 				<div id="nav_menu" class="menu" title ="Menù di navigazione del sito">
 					<h3>Menù</h3>
-					<a href="home.cgi" xml:lang="en" lang="en" hreflang="it" >Home</a>
-					<p>Tipologia Siti:</p>
 					<ul>
-						<li><a href="eCommerce.cgi" hreflang="it" ><span xml:lang="en" lang="en">E-commerce</span></a></li>
-						<li><a href="forum.cgi" hreflang="it" ><span xml:lang="en" lang="en">Forum</span></a></li>
-						<li><a href="social.cgi" hreflang="it" ><span xml:lang="en" lang="en">Social</span></a></li>
-						<li><a href="personali.cgi" hreflang="it" >Personali</a></li>
-						<li><a href="aziendali.cgi" hreflang="it" >Aziendali</a></li>
-						<li><a href="blog.cgi" hreflang="it" ><span xml:lang="en" lang="en">Blog</span></a></li>
+						<li><span xml:lang="en" lang="en"><a href="home.cgi" hreflang="it" >Home Page</a></span></li>
+						<li><a href="eCommerce.cgi" hreflang="it" ><span xml:lang="en" lang="en">Tipologia E-commerce</span></a></li>
+						<li><a href="forum.cgi" hreflang="it" ><span xml:lang="en" lang="en">Tipologia Forum</span></a></li>
+						<li><a href="social.cgi" hreflang="it" ><span xml:lang="en" lang="en">Tipologia Social</span></a></li>
+						<li><a href="personali.cgi" hreflang="it" >Tipologia Personali</a></li>
+						<li><a href="aziendali.cgi" hreflang="it" >Tipologia Aziendali</a></li>
+						<li><a href="blog.cgi" hreflang="it" ><span xml:lang="en" lang="en">Tipologia Blog</span></a></li>
 					</ul>
 				</div>
 				
-				<!-- MENÙ AMMINISTRAZIONE-->
-				<!-- Da caricare se l utente è loggato-->
+				<!-- MENÙ DI AMMINISTRAZIONE-->
 				<div id="nav_administration" class="menu" title="Menù di amministrazione del sito">
 					<h3>Amministrazione</h3>
-					<p>Annunci:</p>
 					<ul>
-						<li>Nuovo</li>
-						<li><a href="showInsertions.cgi" hreflang="it" type="application/xhtml+xml">Inseriti</a></li>
-						<li><a href="acceptedInsertions.cgi" hreflang="it" type="application/xhtml+xml">Accettati</a></li>
+						<li><a href="addInsertions.cgi" hreflang="it" type="application/xhtml+xml">Nuova Inserzione</a></li>
+						<li><a href="showInsertions.cgi" hreflang="it" type="application/xhtml+xml">Inserzioni Inserite</a></li>
+						<li><a href="acceptedInsertions.cgi" hreflang="it" type="application/xhtml+xml">Inserzioni Accettate</a></li>
 					</ul>
 				</div>
 			</div>
@@ -123,8 +121,7 @@ print <<EOF;
 					Ricordati di fare salva quando hai portato a termine tutte le eventuali operazioni!
 					</p>
 
-					<!-- Messaggio di errore  -->
-					<p id="cont_error" title="Messaggio di errore">
+					<p class="msgError" title="Messaggio di errore">
 EOF
 if(defined($msgParam))
 {
@@ -174,14 +171,12 @@ print <<EOF;
 		<div id="footer">
 			<span title="Pagina validata con lo standard XHTML 1.0 Strict">
 			    <a href="http://validator.w3.org/check?uri=referer" hreflang="en" type="application/xhtml+xml">
-			    	<img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" />
-			    </a>
+			    	<img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
 			</span>
 			<span title="CSS della pagina validato secondo lo standard">
 				<!--hrflang varia a seconda dello stato -->
 			    <a href="http://jigsaw.w3.org/css-validator/check/referer" type="application/xhtml+xml"> 
-			        <img src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valido!" />
-			    </a>
+			        <img src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valido!" /></a>
 			</span>
 			<span title="Accessibile secondo lo standard WCAG2 Livello AAA">
 			    <a href="http://www.w3.org/WAI/intro/wcag" type="application/xhtml+xml" hreflang="en-US"> 
