@@ -326,14 +326,27 @@ function checkData(y, m, d, err){
 function addCharCountdown()
 {
     var massimo=2000;
-    document.getElementById('contaCaratteri').innerHTML =massimo - document.getElementById('addDescrizione').value.length + " caratteri ancora disponibili";
+    document.getElementById('contaCaratteri').innerHTML ="Descrizione (" + (massimo - document.getElementById('addDescrizione').value.length) + " caratteri ancora disponibili";
     if (document.getElementById('addDescrizione').value.length > massimo)
     {
         document.getElementById('addDescrizione').value=document.getElementById('addDescrizione').value.substr(0, massimo);
         document.getElementById('contaCaratteri').innerHTML = 0;
         alert("Massimo " + massimo + " caratteri!");
     }
-    document.getElementById('contaCaratteri').innerHTML=massimo -document.getElementById('addDescrizione').value.length + " caratteri ancora disponibili";
+    document.getElementById('contaCaratteri').innerHTML="Descrizione (" + (massimo -document.getElementById('addDescrizione').value.length) + " caratteri ancora disponibili)";
+}
+
+function changeCharCountdown()
+{
+    var massimo=2000;
+    document.getElementById('contaCaratteri').innerHTML ="Biografia (" + (massimo - document.getElementById('bio').value.length) + " caratteri ancora disponibili";
+    if (document.getElementById('bio').value.length > massimo)
+    {
+        document.getElementById('bio').value=document.getElementById('bio').value.substr(0, massimo);
+        document.getElementById('contaCaratteri').innerHTML = 0;
+        alert("Massimo " + massimo + " caratteri!");
+    }
+    document.getElementById('contaCaratteri').innerHTML="Biografia (" + (massimo -document.getElementById('bio').value.length) + " caratteri ancora disponibili)";
 }
 
 function checkTitolo(par, err){

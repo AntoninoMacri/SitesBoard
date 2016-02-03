@@ -159,10 +159,11 @@ print <<EOF;
 		  					<label for="confirmPsw">Conferma nuova password</label>
 		  					<input id="confirmPsw" type="text" name="confirmPsw" tabindex="8"  onfocus="cleanField('confirmPsw')"/>
 
-		  					<label for="bio">Biografia</label>
-		  					<textarea id="bio" rows="10" cols="70" name="bio" tabindex="9">$bio</textarea>
-		  					<input class="buttons" type="submit" value="Salva" onkeypress="return profileChangeControl()" />
-							<input class="buttons" type="reset" value="Azzera" />
+		  					<label for="bio" id="contaCaratteri">Biografia (max 2000 caratteri)</label>
+		  					<textarea id="bio" rows="10" cols="70" name="bio" tabindex="9" onkeyup="changeCharCountdown()" onkeydown="changeCharCountdown()" onkeypress="changeCharCountdown()">$bio</textarea>
+
+		  					<input class="buttons" type="submit" value="Salva" onkeypress="return profileChangeControl()" tabindex="10"/>
+							<input class="buttons" type="reset" value="Azzera" tabindex="11"/>
 	  					</fieldset>
 					</form>
 				</div>
