@@ -1,0 +1,600 @@
+/*---------------------------------------------------
+---------------------- GENERALE ----------------------
+-----------------------------------------------------*/
+/*imposto i link ad essere tutti in corsivo per una maggiore usabilità*/
+a{
+	font-variant: small-caps;
+}
+
+a:visited{
+	color: #A0A;
+}
+
+#header_login a:hover,
+#path a:hover,
+#nav_panel a:hover,
+#contents a:hover
+{
+	font-size: 1.1em;
+}
+
+html, body {
+	/*Cambio eventuali valori di default della pagina*/
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    /*Imposto il font e la grandezza predefinita per tutta la pagina*/
+    font-family: "Droid Sans", Verdana, "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+    font-size: 1em;
+}
+
+
+#container {
+	/*Spingo il footer in fondo alla pagina con un gioco di dimensioni */
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -50px; 
+
+    /*Imposto la pagina*/
+    width: 95%;
+} 
+
+/*style per le immagini di validazione*/
+.img_validator{
+	border: 0px;
+	width: 88px;
+	height: 31px;
+}
+
+
+/*definisco delle classi generali di grandezza per le scritte e per underline*/
+.notable{
+	font-weight: bold;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 1.1em;
+}
+
+.minimal
+{
+	font-size: 0.9em;
+}
+
+.underline{
+	border-style: solid;
+	border-color: #D3D3D3;
+	border-width: 0px 0px 1px 0px;
+	padding-bottom: 20px;
+}
+
+.msgError{	/*messaggi di modifica non andata a buon fine*/
+	color: red;
+	text-align: center;
+}
+
+.msgConfirm{	/*messaggi di modifica andata a buon fine*/
+	color: green;
+	text-align: center;
+}
+
+.current_pageL{ /*Classe per la voce di menù selezionata*/
+	font-style: italic;
+	font-weight: bold;
+}
+
+.screen_reader{
+	display: none;
+}
+
+/*Regole per i blocchi delle inserzioni*/
+/* versione migliore con dl */
+#block_insertions{
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+#block_insertions li{
+	padding: 20px 0px 20px 0px;
+
+	border-style: solid;
+	border-color: #D3D3D3;
+	border-width: 0px 0px 1px 0px;
+}
+
+	#block_insertions .block_insertion{
+		padding: 0px;
+		margin: 0px;
+	}
+
+	#block_insertions .block_insertion dt{
+		display: inline-block;
+		width: 7%;
+		height: 1.1em;
+	}
+
+	#block_insertions .block_insertion dd{
+		padding: 0.8em 0em 0.8em 0em;
+		display: inline-block;
+		width: 85%;
+		height: 1.1em;
+	}
+
+
+
+	/*---------------------------------------------------
+	----------------------HEADER-------------------------
+	-----------------------------------------------------*/
+	
+	#header{
+		background-color: #F0F8FF;
+		padding: 20px 20px 20px 20px;
+		height: auto;
+		/* border */
+		border-style: solid;
+		border-width: 0px 1px 1px 1px;
+		border-color: #D3D3D3;
+	}
+
+		#header_logo{
+			float: left;
+			margin: 0.5em 20px 1em 20px;
+			max-height: 230px;
+			max-width: 170px;
+			width: 170px;
+			border: 0px;
+		}
+
+		#header h1{
+			margin-top: 0.5em;
+			margin-left: 250px;
+		}
+
+		#header h2{
+			margin-bottom: 0.5em;
+			margin-left: 250px;
+		}
+
+		#header_login{
+			text-align: right;
+		}
+
+		#header_login .edit{
+			padding: 0px 0px 10px 15px;
+		}
+
+			#header_login div{
+				margin-top: 10px;
+				height: 1.1em;
+			}
+
+			#header_login img{
+				max-height: 25px;
+				vertical-align: middle;
+			}
+
+				#header_login #profile_logo{
+					max-height: 20px;
+				}
+
+	/*---------------------------------------------------
+	------------------------PATH-------------------------
+	-----------------------------------------------------*/
+	#path
+	{
+		padding: 10px 20px 10px 20px;
+		clear:both;
+		background-color: #F0F8FF;
+		margin-top: 5px;
+		/* border */
+		border-style: solid;
+		border-width:1px;
+		border-color: #D3D3D3;
+	}
+
+	/*---------------------------------------------------
+	------------------------MENU-------------------------
+	-----------------------------------------------------*/
+	
+	#nav_panel{
+		margin-top: 20px;
+		float: left;
+		width: 23%;
+	}
+
+		.menu{
+			background-color: #F0F8FF;
+			padding:1px 20px 1px 20px;
+
+			/* border */
+			border-style: solid;
+			border-width:1px;
+			border-color: #D3D3D3;
+
+		}
+
+		.menu ul{
+			list-style-type: none;
+			padding: 0px;
+		}
+
+		.menu ul li{
+			padding-bottom: 1.2em;
+			height: 1em;
+		}
+
+			.menu h3{
+				text-align: center;
+				padding-bottom:10px;
+				border-style: solid;
+				border-color: #D3D3D3;
+				border-width: 0px 0px 1px 0px;
+			}
+
+		/*menu per il login*/
+		#nav_login{
+			margin-top: 20px;
+		}
+
+		#nav_login div{
+			height: 4em;
+		}
+
+			#nav_login form{
+				margin-bottom: 10px;
+			}
+
+				#nav_login fieldset{
+					padding-top: 15px;
+					border-width: 1px;
+					border-color: #D3D3D3;
+				}
+
+					#nav_login form input{
+						width: 100%;
+					} 
+
+					#login_submit{
+						width: 100px;
+						height: 25px;
+						float: right;
+						margin-top: 10px;
+					}
+
+			#nav_login a{
+				display: block;
+				text-align: right;
+				padding: 5px 0px 5px 0px;
+			}
+
+		/*menu amministrativo*/
+		#nav_administration
+		{
+			margin-top: 20px;
+		}
+
+		/*span nel menu nav e nel menu amministraz*/
+
+
+
+	/*---------------------------------------------------
+	----------------------CONTENUTO----------------------
+	-----------------------------------------------------*/
+	#contents{
+		margin-top: 20px;
+		margin-left: 25%;
+		padding:1px 20px 20px 20px;
+		background-color: #F0F8FF;
+
+		/* border */
+		border-style: solid;
+		border-width:1px;
+		border-color: #D3D3D3;
+	}
+
+		#contents h3 {
+			text-align: center;
+			padding-bottom:10px;
+			border-style: solid;
+			border-color: #D3D3D3;
+			border-width: 0px;
+			border-bottom-width: 1px;
+		}
+
+		#contents fieldset input .buttons{
+			font-size: inherit;
+		}
+
+
+	/*Div utilizzato per spingere in fondo alla pagina il footer*/
+	#push_block {
+		/*Impostazioni*/
+	    height: 50px; 
+	    clear: both;
+	}
+
+
+/*---------------------------------------------------
+----------------------FOOTER-------------------------
+-----------------------------------------------------*/
+#footer{
+
+	background-color: #F0F8FF; 
+
+	/*Set position and dimension*/
+	width: 95%;
+	margin: 75px auto 0px;
+	padding: 10px 20px 10px 20px;
+	text-align: center;
+
+	/* border */
+	border-style: solid;
+	border-width:1px 1px 0px 1px;
+	border-color: #D3D3D3;
+}
+
+
+
+/*---------------------------------------------------
+-----------------CONTENUTO AGGIUNTIVO----------------
+-----------------------------------------------------*/
+
+
+/*-------------- home.cgi-------------------*/
+
+#cont_welcome{
+	height: auto;
+}
+
+/*-------------- login.html-------------------*/
+#cont_login {
+}
+
+	#cont_login p{
+		color: red;
+		text-align: center;
+	}
+	
+	#cont_login form fieldset{
+		width: 50%;
+		margin: auto;
+		margin: 20px auto 20px auto;
+	}
+
+		#cont_login form fieldset input{
+			width: 100%;
+		}
+
+			#cont_login form #login_submit, 
+			#cont_login form #login_reset{
+				width: 150px;
+				height: 25px;
+				float: right;
+				margin: 20px 0px 10px 20px;
+			}
+
+
+/*-------------- registration.cgi-------------------*/
+#cont_registration {
+}
+
+	#cont_registration p{
+		color: red;
+		text-align: center;
+	}
+	
+	#cont_registration form fieldset{
+		width: 50%;
+		margin: auto;
+		margin: 20px auto 20px auto;
+	}
+
+		#cont_registration form fieldset label{
+			display: block;
+			margin-top: 0.4em;
+			margin-bottom: 0.2em;
+		}
+
+		#cont_registration form fieldset input{
+			width: 100%;
+		}
+
+		#cont_registration #reg_year{
+			width: 20%
+		}
+
+		#cont_registration #reg_month{
+			width: 20%
+		}
+
+		#cont_registration #reg_day{
+			width: 20%
+		}
+
+			#cont_registration form #reg_submit, 
+			#cont_registration form #reg_reset{
+				width: 150px;
+				height: 25px;
+				float: right;
+				margin: 20px 0px 10px 20px;
+			}
+
+
+
+
+
+/*-------------- pass_recovery.html-------------------*/
+#cont_pass_recovery {
+}
+
+	#cont_pass_recovery p{
+		color: red;
+		text-align: center;
+	}
+	
+	#cont_pass_recovery form fieldset{
+		width: 50%;
+		margin: auto;
+		margin: 20px auto 20px auto;
+	}
+
+		#cont_pass_recovery form fieldset label{
+			display: block;
+			margin-top: 0.4em;
+			margin-bottom: 0.2em;
+		}
+
+		#cont_pass_recovery form fieldset input{
+			width: 100%;
+		}
+
+			#cont_pass_recovery form #recover_submit, 
+			#cont_pass_recovery form #recover_reset{
+				width: 150px;
+				height: 25px;
+				float: right;
+				margin: 20px 0px 10px 20px;
+			}
+
+
+/*--------------insertion.cgi-------------------*/
+
+
+#contents h3.resizable{
+	font-size: 0.8em;
+	text-align: justify;
+	padding: 10px 0px 10px 0px;
+}
+
+	#contents #ins_date{
+		float: right;					
+	}
+
+		#cont_insertion fieldset{
+			width: 15%;
+			margin: 40px auto 20px 0px;
+			text-align: center;
+		}
+
+/*--------------addInsertion.cgi-------------------*/
+#cont_add{
+	height: auto;
+}
+
+	#cont_add form{
+		width: 250px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
+			#cont_add form fieldset legend{
+				margin-bottom: 10px;
+			}
+
+			#cont_add form fieldset input{
+				width: 40%;
+				margin: 5px 0px 15px 0px;
+				display: block;
+			}
+
+			#cont_add form fieldset textarea#addDescrizione{
+				min-width: 845px ;
+				min-height: 250px;
+				max-width: 845px;
+				max-height: 500px;
+				margin:10px 0px 0px 0px;
+			}
+
+			#cont_add .buttons{
+				width: 10%;
+				display: inline;
+				margin-top: 20px;
+			}
+
+
+					#cont_add form fieldset legend #new_insertion{	/* tolgo margine solo dalla legend della fieldset piccola */
+						margin-bottom: 0px;
+					}
+
+						#cont_add select#addTipologia{
+							display: block;
+							margin: 5px 0px 15px 0px;
+						}
+
+						#cont_add p#contaCaratteri{
+							font-size: 0.7em;
+							float: right;
+							margin-top: 7px;
+						}
+
+/*--------------profile.cgi-------------------*/
+
+#cont_profile{
+	height: auto;
+}
+
+
+	#cont_profile form#remove_profile{
+		text-align: center;
+		width: 40%;
+		margin: auto;
+	}
+
+		#cont_profile input #rmProfile.buttons{
+			color: red;
+		}
+
+	#cont_profile ul{
+		list-style: none;
+		padding-left: 0;	
+	}
+
+		#cont_profile ul li{
+			padding: 15px 0px 10px 0px;
+		}
+
+
+/*--------------profile_change.cgi-------------------*/
+
+
+#cont_profile_change .info{
+	font-size: small;
+	margin: 0px;
+}
+
+#cont_profile_change .buttons{
+	width: 100px;
+
+	margin-top: 10px;
+	margin-bottom: 0px;
+	margin-right: 10px;
+
+	float: left;
+}
+
+
+#cont_profile_change form{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+	#cont_profile_change form label{
+		display: block;
+	}
+
+	#cont_profile_change form input{
+		width: 200px;
+		margin-bottom: 10px;
+	}
+
+		#cont_profile_change form textarea#bio{
+			min-width: 100%;
+			max-height: 300px;
+
+			float: left;
+		}
+
+
+
+
