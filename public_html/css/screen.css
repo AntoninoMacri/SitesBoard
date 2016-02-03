@@ -47,6 +47,12 @@ html, body {
 	height: 31px;
 }
 
+.buttons{
+	width: 150px;
+	height: 25px;
+	margin: 20px 0px 10px 20px;
+}
+
 
 /*definisco delle classi generali di grandezza per le scritte e per underline*/
 .notable{
@@ -121,6 +127,24 @@ html, body {
 		height: 1.1em;
 	}
 
+/* regole per informazioni utente */
+ 	.block_profile{
+		padding: 0px;
+		margin: 0px;
+	}
+
+	.block_profile dt{
+		display: inline-block;
+		width: 13%;
+		height: 1em;
+	}
+
+	.block_profile dd{
+		padding: 0.8em 0em 0.8em 0em;
+		display: inline-block;
+		width: 80%;
+		height: 1em;
+	}
 
 
 	/*---------------------------------------------------
@@ -300,10 +324,6 @@ html, body {
 			border-color: #D3D3D3;
 			border-width: 0px;
 			border-bottom-width: 1px;
-		}
-
-		#contents fieldset input .buttons{
-			font-size: inherit;
 		}
 
 
@@ -491,11 +511,6 @@ html, body {
 				margin:10px 0px 0px 0px;
 			}
 
-			#cont_add .buttons{
-				width: 10%;
-				display: inline;
-				margin-top: 20px;
-			}
 
 
 					#cont_add form fieldset legend #new_insertion{	/* tolgo margine solo dalla legend della fieldset piccola */
@@ -518,27 +533,16 @@ html, body {
 #cont_profile{
 	height: auto;
 }
-
-
-	#cont_profile form#remove_profile{
+	#remove_profile{
 		text-align: center;
-		width: 40%;
+		width: 50%;
 		margin: auto;
+		margin-top: 100px;
 	}
 
-		#cont_profile input #rmProfile .buttons{
+		#remove_profile .buttons{
 			color: red;
 		}
-
-	#cont_profile ul{
-		list-style: none;
-		padding-left: 0;	
-	}
-
-		#cont_profile ul li{
-			padding: 15px 0px 10px 0px;
-		}
-
 
 /*--------------profile_change.cgi-------------------*/
 
@@ -549,12 +553,6 @@ html, body {
 }
 
 #cont_profile_change .buttons{
-	width: 100px;
-
-	margin-top: 10px;
-	margin-bottom: 0px;
-	margin-right: 10px;
-
 	float: left;
 }
 

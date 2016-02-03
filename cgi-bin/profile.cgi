@@ -142,25 +142,26 @@ if(defined($msgParam))
 print <<EOF;
 					</p>
 
-					<ul class="underline" id="profile_info">
-						<li><div>Nome: <span class="notable">$name</span></div></li>
-  					
-  					<li><div>Cognome: <span class="notable">$surname</span></div></li>
-  					
-  					<li><div>Data di nascita: <span class="notable">$date</span></div></li>
-  					
-  					<li><div>Username: <span class="notable">$username</span></div></li>
-  					
-  					<li><div>Email:  <span class="notable">$email</span></div></li>
-
-  					<li><div>Biografia: <span class="notable">$bio</span></div>
-  				</ul>
-  					
+					<dl class="block_profile">
+						<dt>Nome:</dt>
+						<dd>$name</dd>
+	  					<dt>Cognome:</dt>
+	  					<dd>$surname</dd>
+	  					<dt>Data di nascita:</dt>
+	  					<dd>$date</dd>
+	  					<dt>Username:</dt>
+	  					<dd>$username</dd>
+	  					<dt>Email:</dt>
+	  					<dd>$email</dd>
+	  					<dt>Biografia:</dt>
+	  					<dd>$bio</dd>
+	  				</ul>
+	  					
 
 					<form id="remove_profile" method="post" onclick="return alertOnRmProfile()" action="removeProfile.cgi">
 						<fieldset title="Elimina il tuo profilo">
 							<legend>Clicca qui per rimuovere il tuo profilo</legend>
-							<input class="buttons" id="rmProfile" type="submit" onkeypress="return alertOnRmProfile()" value="Elimina profilo" />
+							<input class="buttons" id="RM_profile_submit" type="submit" onkeypress="return alertOnRmProfile()" value="Elimina profilo" />
 						</fieldset>
 					</form>
 				</div>
