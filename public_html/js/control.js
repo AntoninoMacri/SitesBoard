@@ -58,7 +58,8 @@ function addInsertionControl(){
     risultato=risultato && checkOggetto("addOggetto","cont_error");
     risultato=risultato && checkDescrizione("addDescrizione","cont_error");
 
-    window.scrollTo(0, 0);
+    //scrollo la pagina poichè la form è troppo lunga e c'è il rischio che l'utente non veda il suggerimento dell'errore
+    window.scroll(0,findPos(document.getElementById("cont_error")));
     return risultato;
 }
 
@@ -73,7 +74,7 @@ function profileChangeControl(){
    risultato=risultato && checkPassword("password", "underline");
    risultato=risultato && checkConfirmPassword("password", "confirmPsw" ,"underline");
 
-   window.scrollTo(0, 0);
+   window.scroll(0,findPos(document.getElementById("underline")));
    return risultato;
 }
 
@@ -88,11 +89,8 @@ function registrationControl(){
     risultato=risultato && checkPassword("reg_pass", "cont_error");
     risultato=risultato && checkConfirmPassword("reg_pass", "reg_re_pass" ,"cont_error");
 
-    //scrollo la pagina poichè la form è troppo lunga e c'è il rischio che l'utente non veda il suggerimento dell'errore
-    var w = window.screen.width;
-    var h = window.screen.height;
-    window.scrollTo(3/5*w, 5/12*h);
-    return risultato;
+   window.scroll(0,findPos(document.getElementById("cont_error")));
+   return risultato;
 }
 
 //recoveryControl
@@ -104,6 +102,7 @@ function recoveryControl(){
     risultato=risultato && checkEmail("recover_email", "cont_error");
     risultato=risultato && checkPassword("recover_pass", "cont_error");
     risultato=risultato && checkConfirmPassword("recover_pass", "recover_re_pass" ,"cont_error");
+    window.scroll(0,findPos(document.getElementById("cont_error")));
     return risultato;
 }
 
@@ -112,6 +111,8 @@ function loginControl(){
     document.getElementById("cont_error").style.color='red';
     var risultato=checkUser("login_user","cont_error");
     risultato=risultato && checkPassword("login_password","cont_error");
+
+    window.scroll(0,findPos(document.getElementById("cont_error")));
     return risultato;
 }
 
@@ -382,4 +383,16 @@ function alertOnRmProfile()
 
 function cleanField(par){ //uso nel campo input aggiungere: onfocus="cleanField(id_del_campo)"
     document.getElementById(par).value="";
+}
+
+
+//Finds y value of given object
+function findPos(obj) {
+    var curtop = 0;
+    if (obj.offsetParent) {
+        do {
+            curtop += obj.offsetTop;
+        } while (obj = obj.offsetParent);
+    return [curtop];
+    }
 }
