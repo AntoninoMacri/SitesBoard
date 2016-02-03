@@ -21,7 +21,10 @@ my $newUserDay = $cgi->param('day');
 my $newUserEmail = $cgi->param('email');
 my $newUserPass = $cgi->param('password');
 my $newUserBio = $cgi->param('bio');
+
 #creo la data nel formato giusto
+if(length $newUserMonth== 1){ $newUserMonth='0'.$newUserMonth; }
+if(length $newUserDay== 1){ $newUserDay='0'.$newUserDay; }
 my $newUserDate = $newUserYear."-".$newUserMonth."-".$newUserDay;
 
 my $url=profileChangeControl($newUserName,$newUserSurname,$newUserYear,$newUserMonth,$newUserDay, $newUserEmail, $newUserPass);

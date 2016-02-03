@@ -27,6 +27,10 @@ my $url=recoveryControl($recover_name,$recover_surname,$recover_year,$recover_mo
 #controllo se ci sono tutti i dati
 if($url eq 1)
 {
+	
+	if(length $recover_month== 1){ $recover_month='0'.$recover_month; }
+	if(length $recover_day== 1){ $recover_day='0'.$recover_day; }
+
 	#creazione data di nascita
 	my $dataNascita = $recover_year."-".$recover_month."-".$recover_day;
 	#creazione oggetto e dichiarazione variabili
