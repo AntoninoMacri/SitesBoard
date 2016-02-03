@@ -130,7 +130,7 @@ if(defined($msgParam))
 print <<EOF;
 					</p>
 
-					<form method="post" action="insertInsertion.cgi" onsubmit="return addInsertionControl()">
+					<form id="add_Insertion" method="post" action="insertInsertion.cgi" onsubmit="return addInsertionControl()">
 						<fieldset title="Campi da compilare per creare un nuovo annuncio">
 							<legend>Campi da compilare per creare un nuovo annuncio</legend>
 
@@ -150,12 +150,11 @@ print <<EOF;
 			  				<label for="addOggetto">Oggetto</label>
 			  				<input id="addOggetto" type="text" name="addOggetto" maxlength="300" value="" tabindex="3" />
 
-		  					<label for="addDescrizione">Descrizione (max 2000 caratteri)</label>
-		  					<label for="addDescrizione" id="contaCaratteri">2000 caratteri ancora disponibili</label>
+		  					<label for="addDescrizione" id="contaCaratteri">Descrizione (max 2000 caratteri)</label>
 		  					<textarea id="addDescrizione" rows="10" cols="70" name="addDescrizione" onkeyup="addCharCountdown()" onkeydown="addCharCountdown()" onkeypress="addCharCountdown()" tabindex="4"></textarea>
 					
-							<input class="buttons" id="submit_new" type="submit" value="Crea" onkeypress="return addInsertionControl()" />
-							<input class="buttons" id="reset_new" type="reset" value="Azzera" />
+							<input class="buttons" id="submit_new" type="submit" value="Crea"  tabindex="5"  onkeypress="return addInsertionControl()" />
+							<input class="buttons" id="reset_new" type="reset"  tabindex="6"  value="Azzera" />
 						</fieldset>
 					</form>
 
