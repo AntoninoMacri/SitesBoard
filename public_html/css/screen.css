@@ -126,6 +126,12 @@ html, body {
 		width: 85%;
 	}
 
+	#block_insertions .block_insertion .BI_accepted li{
+		display: inline-block;
+		border-width: 0px;
+		margin: 5px 10px 5px 10px;
+	}
+
 /* regole per informazioni utente */
  	.block_profile{
 		padding: 0px;
@@ -540,11 +546,6 @@ html, body {
 
 /*--------------profile_change.cgi-------------------*/
 
-
-#cont_profile_change .info{
-	font-size: small;
-	margin: 0px;
-}
 
 #cont_profile_change .buttons{
 	float: left;

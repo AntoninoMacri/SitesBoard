@@ -102,7 +102,7 @@ print <<EOF;
 					<h3>Amministrazione</h3>
 					<ul>
 						<li><a href="addInsertions.cgi" hreflang="it" type="application/xhtml+xml">Nuova Inserzione</a></li>
-						<li><a href="showInsertions.cgi" hreflang="it" type="application/xhtml+xml">Inserzioni Inserite</a></li>
+						<li class="current_pageL" >Inserzioni Inserite</li>
 						<li><a href="acceptedInsertions.cgi" hreflang="it" type="application/xhtml+xml">Inserzioni Accettate</a></li>
 					</ul>
 				</div>
@@ -116,6 +116,7 @@ print <<EOF;
 					<p class="info">
 						Questi sono gli annunci che hai inserito.
 					</p>
+					<ul id="block_insertions">
 
 EOF
 					for (my $i=0; $i <scalar(@annunciPersonali); $i++) {
@@ -135,25 +136,32 @@ EOF
 					utf8::encode($id_persona);
 					utf8::encode($id_annuncio);
 				
-					print	"<p class='HInsertions'>
-							<span id='title'>Titolo: <a href='insertion.cgi?idUser=$id_persona&amp;idInsertion=$id_annuncio' hreflang='it' >$titolo</a></span>
-							<span id='obj'>Oggetto: $oggetto</span>
-							<span id='date'>Data: $data</span>
-							<span id='author'>Autore: $autore</span>
-							<span id='obj'>Tipologia: $tipologia</span>
-							</p>";
+						print "<li>
+									<dl class='block_insertion'>
+										<dt>Titolo:</dt>
+										<dd><a href='insertion.cgi?idUser=$id_persona&amp;idInsertion=$id_annuncio'>$titolo</a></dd>
+										<dt>Tipologia:</dt>
+										<dd>$tipologia</dd>
+										<dt>Oggetto:</dt>
+										<dd>$oggetto</dd>
+										<dt>Data:</dt>
+										<dd>$data</dd>";
 
-					my @disp = getDisponibili($autore, $id_annuncio);
-					print "<p>Disponibili:</p>
-						   <ul>";
-					for (my $i=0; $i <scalar(@disp); $i++) {
-						my $userDisp=$disp[$i];
-						print "<li><a href='userProfile.cgi?user=$userDisp' hreflang='it' >$userDisp</a></li>"
-					}
-					print "</ul>";
+								my @disp = getDisponibili($autore, $id_annuncio);
+								print '<p>Disponibili:</p>
+									   <ul class="BI_accepted">';
+								for (my $i=0; $i <scalar(@disp); $i++) {
+									my $userDisp=$disp[$i];
+									print "<li><a href='userProfile.cgi?user=$userDisp' hreflang='it' >$userDisp</a></li>"
+								}
+
+						print '			</ul>
+									</dl>
+								</li>';
 
 				}
 print <<EOF;
+					</ul>
 				</div>
 			</div>
 			<!-- Div necessario per spostare il footer in fondo alla pagina -->

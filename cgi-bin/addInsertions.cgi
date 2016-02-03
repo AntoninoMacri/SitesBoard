@@ -99,7 +99,7 @@ print <<EOF;
 				<div id="nav_administration" class="menu" title="Menù di amministrazione del sito">
 					<h3>Amministrazione</h3>
 					<ul>
-						<li><a href="addInsertions.cgi" hreflang="it" type="application/xhtml+xml">Nuova Inserzione</a></li>
+						<li class="current_pageL" >Nuova Inserzione</li>
 						<li><a href="showInsertions.cgi" hreflang="it" type="application/xhtml+xml">Inserzioni Inserite</a></li>
 						<li><a href="acceptedInsertions.cgi" hreflang="it" type="application/xhtml+xml">Inserzioni Accettate</a></li>
 					</ul>

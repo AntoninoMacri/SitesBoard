@@ -118,12 +118,12 @@ print <<EOF;
 					</p>
 					<!-- Messaggio di errore  -->
 					<p id="cont_msg" class="msgError" title="Messaggio di errore">
+					<ul id="block_insertions">
 EOF
 if(defined($msgParam))
 {
 	print $msgParam;
 }
-print <<EOF;
 					print "</p>";
 					for (my $i=0; $i <scalar(@annunciAccettati); $i++) {
 						$titolo=$annunciAccettati[$i][0];
@@ -142,15 +142,23 @@ print <<EOF;
 						utf8::encode($id_persona);
 						utf8::encode($id_annuncio);
 					
-						print	"<p class='HInsertions'>
-								<span id='title'>Titolo: <a href='insertion.cgi?idUser=$id_persona&amp;idInsertion=$id_annuncio' hreflang='it' >$titolo</a></span>
-								<span id='obj'>Oggetto: $oggetto</span>
-								<span id='date'>Data: $data</span>
-								<span id='author'>Autore: <a href='userProfile.cgi?user=$autore' hreflang='it' >$autore</a></span>
-								<span id='obj'>Tipologia: $tipologia</span>
-								</p>";
+						print "<li>
+									<dl class='block_insertion'>
+										<dt>Titolo:</dt>
+										<dd><a href='insertion.cgi?idUser=$id_persona&amp;idInsertion=$id_annuncio'>$titolo</a></dd>
+										<dt>Tipologia:</dt>
+										<dd>$tipologia</dd>
+										<dt>Oggetto:</dt>
+										<dd>$oggetto</dd>
+										<dt>Autore:</dt>
+										<dd><a href='userProfile.cgi?user=$autore'>$autore</a></dd>
+										<dt>Data:</dt>
+										<dd>$data</dd>
+									</dl>
+								</li>";
 				}
 print <<EOF;
+					</ul>
 				</div>
 			</div>
 			<!-- Div necessario per spostare il footer in fondo alla pagina -->
