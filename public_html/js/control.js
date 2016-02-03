@@ -57,6 +57,8 @@ function addInsertionControl(){
     var risultato=checkTitolo("addTitolo","cont_error");
     risultato=risultato && checkOggetto("addOggetto","cont_error");
     risultato=risultato && checkDescrizione("addDescrizione","cont_error");
+
+    window.scrollTo(0, 0);
     return risultato;
 }
 
@@ -70,6 +72,8 @@ function profileChangeControl(){
    risultato=risultato && checkEmail("email","underline");
    risultato=risultato && checkPassword("password", "underline");
    risultato=risultato && checkConfirmPassword("password", "confirmPsw" ,"underline");
+
+   window.scrollTo(0, 0);
    return risultato;
 }
 
