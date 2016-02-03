@@ -59,7 +59,7 @@
 				<div id="nav_login" class="menu" title="Menù di Login del sito">
 					<h3><span xml:lang="en" lang="en">Login</span></h3>
 					<!-- Messaggio di errore -->
-					<p class="msgError" title="Messaggio di errore compilazione form login">
+					<p id="msg" class="msgError" title="Messaggio di errore compilazione form login">
 					</p>
 					<!-- Form da compilare -->
 					<form onsubmit="return loginControl()" method="post" action="../cgi-bin/checkLogin.cgi">
@@ -92,7 +92,7 @@
 					<p>Inserire i dati relativi al proprio profilo e la nuova password.</p>
 					<p class="underline">Se i dati sono corretti verrà reimpostata automaticamente la password.</p>
 					<!-- Messaggio di errore -->
-					<p class="msgError" title="Messaggio di errore compilazione form di recupero password">
+					<p id="msg" class="msgError" title="Messaggio di errore compilazione form di recupero password">
 					</p>
 					<form onsubmit="return recoveryControl()" method="post" action="../cgi-bin/recoveryUser.cgi">
 						<fieldset title="Dati dell'Utente Obbligatori">
