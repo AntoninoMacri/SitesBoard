@@ -53,66 +53,63 @@
 
 //addInsertion
 function addInsertionControl(){
-    document.getElementById("cont_error").style.color='red';
-    var risultato=checkTitolo("addTitolo","cont_error");
-    risultato=risultato && checkOggetto("addOggetto","cont_error");
-    risultato=risultato && checkDescrizione("addDescrizione","cont_error");
+    var risultato=checkTitolo("addTitolo","msg");
+    risultato=risultato && checkOggetto("addOggetto","msg");
+    risultato=risultato && checkDescrizione("addDescrizione","msg");
 
     //scrollo la pagina poichè la form è troppo lunga e c'è il rischio che l'utente non veda il suggerimento dell'errore
-    window.scroll(0,findPos(document.getElementById("cont_error")));
+    window.scroll(0,findPos(document.getElementById("msg")));
     return risultato;
 }
 
 
 //profileChangeControl
 function profileChangeControl(){
-   document.getElementById("underline").style.color='red';
-   var risultato=checkName("name","underline");
-   risultato=risultato && checkSurname("surname","underline");
-   risultato=risultato && checkData("year", "month", "day", "underline");
-   risultato=risultato && checkEmail("email","underline");
-   risultato=risultato && checkPassword("password", "underline");
-   risultato=risultato && checkConfirmPassword("password", "confirmPsw" ,"underline");
+   var risultato=checkName("name","msg");
+   risultato=risultato && checkSurname("surname","msg");
+   risultato=risultato && checkData("year", "month", "day", "msg");
+   risultato=risultato && checkEmail("email","msg");
+   risultato=risultato && checkPassword("password", "msg");
+   risultato=risultato && checkConfirmPassword("password", "confirmPsw" ,"msg");
 
-   window.scroll(0,findPos(document.getElementById("underline")));
+   window.scroll(0,findPos(document.getElementById("msg")));
    return risultato;
 }
 
 
 //registrationControl
 function registrationControl(){
-    var risultato=checkName("reg_name", "cont_error");
-    risultato=risultato && checkSurname("reg_surname", "cont_error");
-    risultato=risultato && checkData("reg_year", "reg_month", "reg_day", "cont_error");
-    risultato=risultato && checkUser("reg_username", "cont_error");
-    risultato=risultato && checkEmail("reg_email", "cont_error");
-    risultato=risultato && checkPassword("reg_pass", "cont_error");
-    risultato=risultato && checkConfirmPassword("reg_pass", "reg_re_pass" ,"cont_error");
+    var risultato=checkName("reg_name", "msg");
+    risultato=risultato && checkSurname("reg_surname", "msg");
+    risultato=risultato && checkData("reg_year", "reg_month", "reg_day", "msg");
+    risultato=risultato && checkUser("reg_username", "msg");
+    risultato=risultato && checkEmail("reg_email", "msg");
+    risultato=risultato && checkPassword("reg_pass", "msg");
+    risultato=risultato && checkConfirmPassword("reg_pass", "reg_re_pass" ,"msg");
 
-   window.scroll(0,findPos(document.getElementById("cont_error")));
+   window.scroll(0,findPos(document.getElementById("msg")));
    return risultato;
 }
 
 //recoveryControl
 function recoveryControl(){
-    var risultato=checkName("recover_name", "cont_error");
-    risultato=risultato && checkSurname("recover_surname", "cont_error");
-    risultato=risultato && checkData("recover_year", "recover_month", "recover_day", "cont_error");
-    risultato=risultato && checkUser("recover_username","cont_error");
-    risultato=risultato && checkEmail("recover_email", "cont_error");
-    risultato=risultato && checkPassword("recover_pass", "cont_error");
-    risultato=risultato && checkConfirmPassword("recover_pass", "recover_re_pass" ,"cont_error");
-    window.scroll(0,findPos(document.getElementById("cont_error")));
+    var risultato=checkName("recover_name", "msg");
+    risultato=risultato && checkSurname("recover_surname", "msg");
+    risultato=risultato && checkData("recover_year", "recover_month", "recover_day", "msg");
+    risultato=risultato && checkUser("recover_username","msg");
+    risultato=risultato && checkEmail("recover_email", "msg");
+    risultato=risultato && checkPassword("recover_pass", "msg");
+    risultato=risultato && checkConfirmPassword("recover_pass", "recover_re_pass" ,"msg");
+    window.scroll(0,findPos(document.getElementById("msg")));
     return risultato;
 }
 
 //loginControl
 function loginControl(){
-    document.getElementById("cont_error").style.color='red';
-    var risultato=checkUser("login_user","cont_error");
-    risultato=risultato && checkPassword("login_password","cont_error");
+    var risultato=checkUser("login_user","msg");
+    risultato=risultato && checkPassword("login_password","msg");
 
-    window.scroll(0,findPos(document.getElementById("cont_error")));
+    window.scroll(0,findPos(document.getElementById("msg")));
     return risultato;
 }
 
