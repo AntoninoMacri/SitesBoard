@@ -129,7 +129,7 @@ print <<EOF;
 					<p id="underline">
 						Ricordati di cliccare su salva una volta che avrai terminato le modifiche
 					</p>
-					<p class="msgError" title="Messaggio di errore">
+					<p id="msg" class="msgError" title="Messaggio di errore">
 EOF
 if(defined($msgParam))
 {

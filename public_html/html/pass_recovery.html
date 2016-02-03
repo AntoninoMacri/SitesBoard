@@ -19,10 +19,8 @@
 		<script type="text/javascript" src="../js/control.js"></script>
 	</head>
 	<body>
+		<a class="screen_reader" href="#contents" hreflang="it" type="application/xhtml+xml">Se desideri saltare al contenuto segui questo collegamento</a>
 		<div id="container">
-
-
-
 			<!-- HEADER-->
 			<div id="header">
 				<a href="../cgi-bin/home.cgi" hreflang="it" ><img id="header_logo" src="../media/logo.png" alt="Logo del sito SitesBoard" title = "Logo del sito"/></a>
@@ -45,28 +43,24 @@
 				<!-- MENÙ DI NAVIGAZIONE -->
 				<div id="nav_menu" class="menu" title ="Menù di navigazione del sito">
 					<h3>Menù</h3>
-					<a href="../cgi-bin/home.cgi" xml:lang="en" lang="en" hreflang="it" >Home</a>
-					<p>Tipologia Siti:</p>
 					<ul>
-						<li><a href="../cgi-bin/eCommerce.cgi" hreflang="it" ><span xml:lang="en" lang="en">E-commerce</span></a></li>
-						<li><a href="../cgi-bin/forum.cgi" hreflang="it" ><span xml:lang="en" lang="en">Forum</span></a></li>
-						<li><a href="../cgi-bin/social.cgi" hreflang="it" ><span xml:lang="en" lang="en">Social</span></a></li>
-						<li><a href="../cgi-bin/personali.cgi" hreflang="it" >Personali</a></li>
-						<li><a href="../cgi-bin/aziendali.cgi" hreflang="it" >Aziendali</a></li>
-						<li><a href="../cgi-bin/blog.cgi" hreflang="it" ><span xml:lang="en" lang="en">Blog</span></a></li>
+						<li><span xml:lang="en" lang="en"><a href="home.cgi" hreflang="it" >Home Page</a></span></li>
+						<li><a href="eCommerce.cgi" hreflang="it" ><span xml:lang="en" lang="en">Tipologia E-commerce</span></a></li>
+						<li><a href="forum.cgi" hreflang="it" ><span xml:lang="en" lang="en">Tipologia Forum</span></a></li>
+						<li><a href="social.cgi" hreflang="it" ><span xml:lang="en" lang="en">Tipologia Social</span></a></li>
+						<li><a href="personali.cgi" hreflang="it" >Tipologia Personali</a></li>
+						<li><a href="aziendali.cgi" hreflang="it" >Tipologia Aziendali</a></li>
+						<li><a href="blog.cgi" hreflang="it" ><span xml:lang="en" lang="en">Tipologia Blog</span></a></li>
 					</ul>
 				</div>
 
 
-
 				<!-- MENÙ DI LOGIN-->
-				<!-- Da caricare solo se l'utente non è loggato-->
 				<div id="nav_login" class="menu" title="Menù di Login del sito">
 					<h3><span xml:lang="en" lang="en">Login</span></h3>
 					<!-- Messaggio di errore -->
-					<p id="nav_error" title="Messaggio di errore compilazione form login">
+					<p class="msgError" title="Messaggio di errore compilazione form login">
 					</p>
-
 					<!-- Form da compilare -->
 					<form onsubmit="return loginControl()" method="post" action="../cgi-bin/checkLogin.cgi">
 						<fieldset title="Campi da compilare per effettuare il Login">
@@ -78,7 +72,10 @@
 							<input type="submit" name="login_submit" id="login_submit" value="Accedi al sito" onkeypress="return loginControl()"/>
 						</fieldset>
 					</form>
-					<a class ="minimal" href="../cgi-bin/registration.cgi" hreflang="it" >Non ti sei ancora registrato?</a>
+					<div>
+						<a class ="minimal" href="../cgi-bin/registration.cgi" hreflang="it" >Non ti sei ancora registrato?</a>
+					</div>
+
 				</div>
 
 			</div>
@@ -92,10 +89,10 @@
 
 				<!-- Div contenuto della registrazione -->
 				<div id="cont_pass_recovery" title="Form da compilare per il recupero della password">
-					Inserire i dati relativi al proprio profilo e la nuova password.<br />
-					Se i dati sono corretti verrà reimpostata automaticamente la password.
+					<p>Inserire i dati relativi al proprio profilo e la nuova password.</p>
+					<p class="underline">Se i dati sono corretti verrà reimpostata automaticamente la password.</p>
 					<!-- Messaggio di errore -->
-					<p id="cont_error" title="Messaggio di errore compilazione form di recupero password">
+					<p class="msgError" title="Messaggio di errore compilazione form di recupero password">
 					</p>
 					<form onsubmit="return recoveryControl()" method="post" action="../cgi-bin/recoveryUser.cgi">
 						<fieldset title="Dati dell'Utente Obbligatori">

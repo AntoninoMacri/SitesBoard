@@ -121,7 +121,7 @@ print <<EOF;
 					Ricordati di fare salva quando hai portato a termine tutte le eventuali operazioni!
 					</p>
 
-					<p class="msgError" title="Messaggio di errore">
+					<p id="msg" class="msgError" title="Messaggio di errore">
 EOF
 if(defined($msgParam))
 {
