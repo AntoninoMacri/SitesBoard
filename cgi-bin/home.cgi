@@ -104,11 +104,10 @@ SECONDA_PARTE
 if($session == undef){
 print <<PEZZO;
 				<!-- MENÙ DI LOGIN-->
-				<!-- Da caricare solo se l utente non è loggato-->
 				<div id="nav_login" class="menu" title="Menù di Login del sito">
 					<h3><span xml:lang="en" lang="en">Login</span></h3>
 					<!-- Messaggio di errore -->
-					<p id="cont_error" title="Messaggio di errore compilazione form login">
+					<p class="msgError" title="Messaggio di errore compilazione form login">
 					</p>
 					<!-- Form da compilare -->
 					<form onsubmit="return loginControl()" method="post" action="checkLogin.cgi">
@@ -133,7 +132,6 @@ else
 {
 print <<PEZZO;
 				<!-- MENÙ DI AMMINISTRAZIONE-->
-				<!-- Da caricare se l utente è loggato-->
 				<div id="nav_administration" class="menu" title="Menù di amministrazione del sito">
 					<h3>Amministrazione</h3>
 					<ul>
