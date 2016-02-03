@@ -83,6 +83,10 @@ html, body {
 	font-weight: bold;
 }
 
+.screen_reader{
+	display: none;
+}
+
 /*Regole per i blocchi delle inserzioni*/
 /* versione div 
 .block_insertion{
