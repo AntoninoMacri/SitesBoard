@@ -63,14 +63,14 @@ function addInsertionControl(){
 
 //profileChangeControl
 function profileChangeControl(){
-    document.getElementById("underline").style.color='red';
-    var risultato=checkName("name","underline");
-    risultato=risultato && checkSurname("surname","underline");
-    risultato=risultato && checkData("year", "month", "day", "underline");
-    risultato=risultato && checkEmail("email","underline");
-    risultato=risultato && checkPassword("Password", "underline");
-    risultato=risultato && checkConfirmPassword("confirmPsw", "reg_re_pass" ,"underline");
-    return risultato;
+   document.getElementById("underline").style.color='red';
+   var risultato=checkName("name","underline");
+   risultato=risultato && checkSurname("surname","underline");
+   risultato=risultato && checkData("year", "month", "day", "underline");
+   risultato=risultato && checkEmail("email","underline");
+   risultato=risultato && checkPassword("password", "underline");
+   risultato=risultato && checkConfirmPassword("password", "confirmPsw" ,"underline");
+   return risultato;
 }
 
 
