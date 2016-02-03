@@ -18,7 +18,6 @@ if($session != undef)
 my @info=getBoard();
 
 print "Content-type: text/html\n\n";
-
 print <<PRIMA_PARTE;
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
@@ -43,10 +42,8 @@ print <<PRIMA_PARTE;
 
 	</head>
 	<body>
+		<div class="screen_reader">Se desideri saltare al contenuto segui questo collegamento</div>
 		<div id="container">
-
-
-
 			<!-- HEADER-->
 			<div id="header">
 				<img id="header_logo" src="../media/logo.png" alt="Logo del sito SitesBoard" title = "Logo del sito"/>
@@ -100,7 +97,6 @@ print <<SECONDA_PARTE;
 						<li><a href="aziendali.cgi" hreflang="it" >Tipologia Aziendali</a></li>
 						<li><a href="blog.cgi" hreflang="it" ><span xml:lang="en" lang="en">Tipologia Blog</span></a></li>
 					</ul>
-					
 				</div>
 SECONDA_PARTE
 
@@ -174,14 +170,6 @@ for (my $i=0; $i <scalar(@info); $i++) {
 	utf8::encode($oggetto);
 	utf8::encode($tipologia);
 	utf8::encode($data);
-
-	#print	"<div class='block_insertion'>
-	#				<div class='BI_date'>Data: <span class='BI_value'> $data </span></div>
-	#				<div class='BI_title'>Titolo: <span class='BI_value'><a href='insertion.cgi?idUser=$id_persona&amp;idInsertion=$id_annuncio'>$titolo</a></span></div>
-	#				<div class='BI_object'>Oggetto: <span class='BI_value'> $oggetto</span></div>
-	#				<div class='BI_type'>Tipologia: <span class='BI_value'> $tipologia</span></div>
-	#				<div class='BI_auth'>Autore: <span class='BI_value'> <a href='userProfile.cgi?user=$autore'>$autore</a></span></div>
-	#		</div>";
 
 	print "<li>
 				<dl class='block_insertion'>
