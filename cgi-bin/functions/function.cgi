@@ -7,6 +7,8 @@ use CGI::Carp qw(fatalsToBrowser);
 use XML::LibXML;
 use File::Basename;
 
+use POSIX qw(strftime);
+
 my $file = '../data/database.xml';  
 my $parser = XML::LibXML->new();
 my $doc= $parser->parse_file($file);
@@ -629,7 +631,7 @@ sub extractType(){
 sub getBoardSplit()
 {
 	my $index=$_[0];
-	my nElementi=$_[1];
+	my $nElementi=$_[1];
 	my @board=@{$_[0]}; #deferenzio il riferimento alla matrice
 	my @temp;
 
@@ -639,6 +641,20 @@ sub getBoardSplit()
 			@temp=\@{@board[$x]};
 		}
 	return @board;
+}
+
+
+sub dataValida()
+{
+	my $input=$_[0];
+	my $local_data = strftime "%F", gmtime;
+	
+	my @first = (substr($input,0,4),substr($input,5,2),substr($input,8,2));
+	my @second = substr($local_data,0,4),substr($local_data,5,2),substr($local_data,8,2);
+	my $dd = Delta_Days( @first, @second );
+	if($dd < 60){return 1;}
+	return 0;
+
 }
 
 #in ingresso($user_Username,$indice,$num_elementi_da_prendere) #dove $indice è il moltiplicatore del num degli elementi da prendere
