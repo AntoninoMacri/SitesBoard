@@ -62,7 +62,7 @@ if(defined($session))
 		{
 			my $data = strftime "%F", gmtime;
 
-			my $insertion='<annuncio id='.$highest.'>
+			my $insertion='<annuncio id="'.$highest.'">
 								<titolo>'.$titleInsertion.'</titolo>
 								<oggetto>'.$objectInsertion.'</oggetto>
 								<descrizione>'.$descriptionInsertion.'</descrizione>
