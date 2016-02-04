@@ -336,7 +336,7 @@ fieldset{
 
 	#cont_add form{
 		width: 60%;
-		margin: 20px auto 20px auto;
+		margin: auto;
 	}
 
 		#cont_add fieldset label{
