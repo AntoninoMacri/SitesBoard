@@ -19,7 +19,6 @@ my $descriptionInsertion = $cgi->param('addDescrizione');
 my $TipoInsertion = $cgi->param('addTipologia');
 
 #pulizia e correzione input
-$TipoInsertion = extractType($TipoInsertion); #tolgo le virgolette inserite dalla select
 $titleInsertion = inputControl($titleInsertion);
 $objectInsertion = inputControl($objectInsertion);
 $descriptionInsertion = inputControl($descriptionInsertion);
@@ -63,11 +62,11 @@ if(defined($session))
 		{
 			my $data = strftime "%F", gmtime;
 
-			my $insertion='<annuncio id="'.$highest.'">
+			my $insertion='<annuncio id='.$highest.'>
 								<titolo>'.$titleInsertion.'</titolo>
 								<oggetto>'.$objectInsertion.'</oggetto>
 								<descrizione>'.$descriptionInsertion.'</descrizione>
-								<tipologia>"'.$TipoInsertion.'"</tipologia>
+								<tipologia>'.$TipoInsertion.'</tipologia>
 								<data>'.$data.'</data>
 								<listaDisponibili>
 								</listaDisponibili>
