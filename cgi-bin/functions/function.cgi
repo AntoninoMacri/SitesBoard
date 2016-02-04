@@ -623,3 +623,94 @@ sub extractType(){
 
 	return $par;
 }
+
+
+#in ingresso($indice,$num_elementi_da_prendere,\@board)
+sub getBoardSplit()
+{
+	my $index=$_[0];
+	my nElementi=$_[1];
+	my @board=@{$_[0]}; #deferenzio il riferimento alla matrice
+	my @temp;
+
+	my $size=scalar @board ;
+
+	for(my $x=$indice*$nElementi; $x <= $size && $x<$nElementi; $x++){
+			@temp=\@{@board[$x]};
+		}
+	return @board;
+}
+
+#in ingresso($user_Username,$indice,$num_elementi_da_prendere) #dove $indice è il moltiplicatore del num degli elementi da prendere
+#es indice=2 nElementi=10 indica dal 20esimo elemento
+#sub getMyBoardSplit()
+#{
+#	my $user_Username = $_[0];
+#	print "<br />username: ";
+#	print $user_Username;
+#	print "<br />";
+#
+#	my $idUtente=$doc->findnodes('/bacheca/persona[user/text()="'.$user_Username.'"]/@id')->get_node(1) or die "utente non trovato"; #ottengo l'id dell'utente loggato
+#
+#	my @board;
+#
+#	my $persona=$doc->findnodes('/bacheca/persona/@id'); #ottengo tutti gli id di tutte le persone
+#	for (my $y=1; $y <= $persona->size; $y++) {
+#    	my $id_persona=$pers
+#    	ona->get_node($y); #ottengo il nodo di una sola persona
+#
+#
+#		my $query=$doc->findnodes('/bacheca/persona[@id!="'.$idUtente->to_literal.'" and @id="'.$id_persona->to_literal.'"]/listaAnnunci/annuncio');
+#
+#
+#		my $username=$doc->findnodes('/bacheca/persona[@id="'.$id_persona->to_literal.'"]/user/text()');
+#		
+#		for(my $x=1; $x <= $query->size; $x++){
+#			my $annuncio=$query->get_node($x);
+#			my $ann_presente=$annuncio->findnodes('listaDisponibili/idProgrammatore[text()="'.$idUtente->to_literal.'"]');
+#			if($ann_presente->size==0)
+#				{
+#					my $annuncio=$query->get_node($x);
+#					my $id_annuncio=$annuncio->findnodes('@id')->to_literal;
+#					my $titolo=$annuncio->findnodes('titolo/text()');
+#					my $oggetto=$annuncio->findnodes('oggetto/text()');
+#					my $descrizione=$annuncio->findnodes('descrizione/text()');
+#					my $tipologia=$annuncio->findnodes('tipologia/text()')->to_literal;
+#					my $data=$annuncio->findnodes('data/text()');
+#					my @var = ($username,$titolo,$oggetto,$descrizione,$tipologia,$data,$id_annuncio,$id_persona->to_literal); #array contenente un annuncio
+#					push @board, \@var;
+#				}
+#		}
+#	}
+#    #return InsertionSort(\@board);
+#	return @board;
+#}
+
+#in ingresso($indice,$num_elementi_da_prendere) #dove $indice è il moltiplicatore del num degli elementi da prendere
+#es indice=2 nElementi=10 indica dal 20esimo elemento
+#sub getBoardSplit(){
+#	my @board;
+#
+#	my $persona=$doc->findnodes('/bacheca/persona/@id'); #ottengo tutti gli id di tutte le persone
+#	for (my $y=1; $y <= $persona->size; $y++) {
+#    	my $id_persona=$persona->get_node($y); #ottengo il nodo di una sola persona
+#
+#		my $id_annuncio=$doc->findnodes('/bacheca/persona[@id="'.$id_persona->to_literal.'"]/listaAnnunci/annuncio/@id'); #ottengo tutti gli id di tutti gli annunci
+#		my $query=$doc->findnodes('/bacheca/persona[@id="'.$id_persona->to_literal.'"]/listaAnnunci/annuncio');
+#		
+#		my $username=$doc->findnodes('/bacheca/persona[@id="'.$id_persona->to_literal.'"]/user/text()');
+#		
+#		for (my $x=1; $x <= $id_annuncio->size; $x++) {
+#			my $annuncio=$query->get_node($x);
+#			my $id_annuncio=$annuncio->findnodes('@id')->to_literal;
+#			my $titolo=$annuncio->findnodes('titolo/text()');
+#			my $oggetto=$annuncio->findnodes('oggetto/text()');
+#			my $descrizione=$annuncio->findnodes('descrizione/text()');
+#			my $tipologia=$annuncio->findnodes('tipologia/text()')->to_literal;
+#			my $data=$annuncio->findnodes('data/text()');
+#			my @var = ($username,$titolo,$oggetto,$descrizione,$tipologia,$data,$id_annuncio,$id_persona->to_literal); #array contenente un annuncio
+#			push @board, \@var;
+#		}
+#    }
+#    return InsertionSort(\@board);
+#}
