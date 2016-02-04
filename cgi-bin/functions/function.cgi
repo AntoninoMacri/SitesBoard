@@ -632,15 +632,21 @@ sub getBoardSplit()
 {
 	my $index=$_[0];
 	my $nElementi=$_[1];
-	my @board=@{$_[0]}; #deferenzio il riferimento alla matrice
+	my @board=@{$_[2]}; #deferenzio il riferimento alla matrice
 	my @temp;
 
 	my $size=scalar @board ;
 
-	for(my $x=$indice*$nElementi; $x <= $size && $x<$nElementi; $x++){
-			@temp=\@{@board[$x]};
+	for(my $x=$index; $x < $size && $x<$index+$nElementi; $x++){
+			my @var=@{@board[$x]};
+			push @temp, \@var;
+			
+			#print "$x: ";
+			#print @{@board[$x]};
+			#print "<br />";
+			#print @var;
 		}
-	return @board;
+	return @temp;
 }
 
 
