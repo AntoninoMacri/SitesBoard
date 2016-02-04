@@ -455,6 +455,12 @@ fieldset{
 			width: 100%;
 		}
 
+		#cont_pass_recovery #recover_year,
+		#cont_pass_recovery #recover_month,
+		#cont_pass_recovery #recover_day{
+			width: 20%
+		}
+
 			#cont_pass_recovery form #recover_submit, 
 			#cont_pass_recovery form #recover_reset{
 				width: 150px;

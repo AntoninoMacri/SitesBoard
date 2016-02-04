@@ -31,6 +31,12 @@ html, body {
     font-size: 1em;
 }
 
+fieldset{
+	padding-top: 15px;
+	border-width: 1px;
+	border-color: #D3D3D3;
+}
+
 
 #container {
 	/*Spingo il footer in fondo alla pagina con un gioco di dimensioni */
@@ -83,13 +89,15 @@ html, body {
 }
 
 .msgConfirm{	/*messaggi di modifica andata a buon fine*/
-	color: green;
+	color: #228B22;
 	text-align: center;
 }
 
 .current_pageL{ /*Classe per la voce di menù selezionata*/
 	font-style: italic;
 	font-weight: bold;
+	list-style-type: disc;
+	margin-left: 20px;
 }
 
 .screen_reader{
@@ -158,9 +166,14 @@ html, body {
 	-----------------------------------------------------*/
 	#header{
 		background-color: #F0F8FF;
-		padding: 1px 20px 1px 20px;
-		height: 11em;
+		padding: 20px 20px 20px 20px;
+		height: auto;
+		/* border */
+		border-style: solid;
+		border-width: 0px 1px 1px 1px;
+		border-color: #D3D3D3;
 	}
+
 		#header_logo{
 			display: block;
 			margin: auto;
@@ -193,6 +206,10 @@ html, body {
 		clear:both;
 		background-color: #F0F8FF;
 		margin-top: 5px;
+		/* border */
+		border-style: solid;
+		border-width:1px;
+		border-color: #D3D3D3;
 	}
 
 
@@ -205,52 +222,57 @@ html, body {
 		width: 100%;
 	}
 
-	.menu{
+		.menu{
 			background-color: #F0F8FF;
 			padding:1px 20px 1px 20px;
+
+			/* border */
+			border-style: solid;
+			border-width:1px;
+			border-color: #D3D3D3;
 		}
 
-		.menu a{
-				margin: 5px 10px 5px 10px;
-				padding:10px 5px 10px 5px;
+		.menu ul{
+			list-style-type: none;
+			padding: 0px;
+		}
+
+		.menu ul li{
+			padding-bottom: 1.2em;
+			height: 1em;
+		}
+
+			.menu h3{
+				text-align: center;
+				padding-bottom:10px;
+				border-style: solid;
+				border-color: #D3D3D3;
+				border-width: 0px 0px 1px 0px;
 			}
 
-		/*menù navigazione*/
-		#nav_menu p{
-			display: inline;
-		}
 
-		#nav_menu ul, #nav_menu li{
-			display: inline;
-		}
-
-
-		/*menu per il login*/
+/*menu per il login*/
 		#nav_login{
 			margin-top: 20px;
 		}
 
-			#nav_login p{	/* logErr */
-				color: #FF0000;
-				text-align: center;
-			}
+		#nav_login div{
+			height: 6em;
+		}
 
 			#nav_login form{
 				margin-bottom: 10px;
 			}
 
-				#nav_login form fieldset{
+				#nav_login fieldset{
 					padding-top: 15px;
 				}
 
-					#nav_login form fieldset legend{
-						display: none;
-					}
-
-					#nav_login form fieldset input{
+					#nav_login form input{
 						width: 100%;
 					} 
-					#nav_login form  fieldset #login_submit{
+
+					#login_submit{
 						width: 100px;
 						height: 25px;
 						float: right;
@@ -260,6 +282,7 @@ html, body {
 			#nav_login a{
 				display: block;
 				text-align: right;
+				padding: 5px 0px 5px 0px;
 			}
 
 		/*menu amministrativo*/
@@ -267,6 +290,10 @@ html, body {
 		{
 			margin-top: 20px;
 		}
+
+		/*span nel menu nav e nel menu amministraz*/
+
+
 
 
 	/*---------------------------------------------------
@@ -276,6 +303,11 @@ html, body {
 		margin-top: 20px;
 		padding:1px 20px 20px 20px;
 		background-color: #F0F8FF;
+
+		/* border */
+		border-style: solid;
+		border-width:1px;
+		border-color: #D3D3D3;
 	}
 
 		#contents h3 {
@@ -300,6 +332,11 @@ html, body {
 	margin-top: 20px;
 	padding: 10px 20px 10px 20px;
 	text-align: center;
+
+	/* border */
+	border-style: solid;
+	border-width:1px 1px 0px 1px;
+	border-color: #D3D3D3;
 }
 
 /*---------------------------------------------------
@@ -357,12 +394,8 @@ html, body {
 			width: 100%;
 		}
 
-		#cont_registration #reg_year{
-			width: 20%
-		}
-		#cont_registration #reg_month{
-			width: 20%
-		}
+		#cont_registration #reg_year,
+		#cont_registration #reg_month,
 		#cont_registration #reg_day{
 			width: 20%
 		}
@@ -392,6 +425,13 @@ html, body {
 
 		#cont_pass_recovery form fieldset input{
 			width: 100%;
+		}
+
+
+		#cont_pass_recovery #recover_year,
+		#cont_pass_recovery #recover_month,
+		#cont_pass_recovery #recover_day{
+			width: 20%
 		}
 
 			#cont_pass_recovery form #recover_submit, 
