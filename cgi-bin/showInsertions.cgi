@@ -127,6 +127,9 @@ EOF
 					$data=$annunciPersonali[$i][4];
 					$id_persona=$annunciPersonali[$i][5];
 					$id_annuncio=$annunciPersonali[$i][6];
+
+					#$tipologia accessibile
+					$tipologia=addSpan($tipologia);
 				
 					utf8::encode($autore);
 					utf8::encode($titolo);

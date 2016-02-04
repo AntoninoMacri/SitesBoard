@@ -31,6 +31,9 @@ if(defined($idUserParam) && defined($idInsertionParam)){
 	$tipologia=$info[4];
 	$data=$info[5];
 
+	#$tipologia accessibile
+	$tipologia=addSpan($tipologia);
+
 	utf8::encode($autore);
 	utf8::encode($titolo);
 	utf8::encode($oggetto);

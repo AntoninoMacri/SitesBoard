@@ -133,6 +133,9 @@ if(defined($msgParam))
 						$autore=$annunciAccettati[$i][4];
 						$id_annuncio=$annunciAccettati[$i][5];
 						$id_persona=$annunciAccettati[$i][6];
+
+						#$tipologia accessibile
+						$tipologia=addSpan($tipologia);
 					
 						utf8::encode($titolo);
 						utf8::encode($oggetto);

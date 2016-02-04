@@ -660,7 +660,17 @@ sub dataValida()
 	my $dd = Delta_Days( @first, @second );
 	if($dd < 60){return 1;}
 	return 0;
+}
 
+sub addSpan(){
+	my $par=$_[0];
+	my $azd="Aziendali";
+	my $pers="Personali";
+	if(!($par eq azd || $par eq pers))
+		{ 
+			$par="<span xml:lang='en' lang='en'>".$par."</span>"; 
+		}
+	return $par;
 }
 
 #in ingresso($user_Username,$indice,$num_elementi_da_prendere) #dove $indice è il moltiplicatore del num degli elementi da prendere

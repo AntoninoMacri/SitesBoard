@@ -173,11 +173,15 @@ for (my $i=0; $i <scalar(@info); $i++) {
 	my $id_annuncio=$info[$i][6];
 	my $id_persona=$info[$i][7];
 
+	#$tipologia accessibile
+	$tipologia=addSpan($tipologia);
+
 	utf8::encode($autore);
 	utf8::encode($titolo);
 	utf8::encode($oggetto);
 	utf8::encode($tipologia);
 	utf8::encode($data);
+	
 
 	print "<li>
 				<dl class='block_insertion'>
