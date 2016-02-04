@@ -30,6 +30,7 @@ sub getSession() {
                 return undef;
         } else {
                 # print $sessione->param('username');
+                $session->expire('20m');
                 return $sessione;
         }
 }
