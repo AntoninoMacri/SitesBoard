@@ -189,11 +189,39 @@ fieldset{
 
 		#header_login{
 			text-align: center;
+			height: 3em;
 		}
 
-			#header_login div{
-				margin-top: 10px;
-			}
+		#header_login div{
+			margin:0px;
+			padding: 0px;
+		}
+
+		#header_login a{
+			margin:0px;
+			padding: 0px;
+		}
+
+		#header_login .edit{
+			display: inline-block;
+			padding: 0px 10px 0px 15px;
+		}
+
+		#img_EP{
+			display: inline-block;
+		    background-image: url("../media/edit_profile.png");
+		    min-width: 25px;
+		    min-height: 25px;
+		    padding-left: 10px;
+		}
+
+		#img_EL{
+			display: inline-block;
+		    background-image: url("../media/logout.png");
+		    min-width: 25px;
+		    min-height: 25px;
+		    padding-left: 10px;
+		}
 
 
 	/*---------------------------------------------------
