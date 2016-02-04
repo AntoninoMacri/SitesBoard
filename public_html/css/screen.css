@@ -4,11 +4,11 @@
 /*imposto i link ad essere tutti in corsivo per una maggiore usabilità*/
 a{
 	font-variant: small-caps;
-	color: rgb(15,27,194);
+	color: #0000CD;
 }
 
 a:visited{
-	color: #A0A;
+	color: #800000;
 }
 
 #header_login a:hover,
@@ -76,7 +76,7 @@ html, body {
 }
 
 .msgError{	/*messaggi di modifica non andata a buon fine*/
-	color: red;
+	color: #FF0000;
 	text-align: center;
 }
 
@@ -240,7 +240,6 @@ html, body {
 			border-style: solid;
 			border-width:1px;
 			border-color: #D3D3D3;
-
 		}
 
 		.menu ul{
@@ -267,7 +266,7 @@ html, body {
 		}
 
 		#nav_login div{
-			height: 4em;
+			height: 6em;
 		}
 
 			#nav_login form{
@@ -533,7 +532,7 @@ html, body {
 	}
 
 		#remove_profile .buttons{
-			color: red;
+			color: #FF0000;
 		}
 
 

@@ -44,7 +44,7 @@ print <<PRIMA_PARTE;
 		<meta name="keywords" content="Messaggio, Bacheca, Siti, Web" />
 		<meta name="language" content="italian it" />
 
-		<meta http-equiv="refresh" content="4;URL=../html/pass_recovery.html">
+		<meta http-equiv="refresh" content="4;URL=home.cgi">
 		
 	</head>
 	<body>

@@ -2,8 +2,23 @@
 ---------------------- GENERALE ----------------------
 -----------------------------------------------------*/
 /*imposto i link ad essere tutti in corsivo per una maggiore usabilità*/
+/*imposto i link ad essere tutti in corsivo per una maggiore usabilità*/
 a{
-	font-style: italic;
+	font-variant: small-caps;
+	color: #0000CD;
+}
+
+a:visited{
+	color: #800000;
+}
+
+
+#header_login a:hover,
+#path a:hover,
+#nav_panel a:hover,
+#contents a:hover
+{
+	font-size: 1.1em;
 }
 
 html, body {
@@ -16,80 +31,152 @@ html, body {
     font-size: 1em;
 }
 
-div {
-	/*opacity: 0.7;*/
-	/*border-radius: 10px;*/
-}
-
 
 #container {
 	/*Spingo il footer in fondo alla pagina con un gioco di dimensioni */
     min-height: 100%;
     height: auto !important;
     height: 100%;
+    margin: 0 auto -50px; 
+
+    /*Imposto la pagina*/
+    width: 95%;
 } 
 
 /*style per le immagini di validazione*/
 .img_validator{
-	border:0px;
+	border: 0px;
 	width: 88px;
 	height: 31px;
 }
 
+.buttons{
+	width: 150px;
+	height: 25px;
+	margin: 20px 0px 0px 20px;
+}
 
-/*definisco delle classi generali di grandezza per le scritte*/
+
+/*definisco delle classi generali di grandezza per le scritte e per underline*/
 .notable{
 	font-weight: bold;
 	padding-left: 10px;
+	padding-right: 10px;
 	font-size: 1.1em;
 }
 
 .minimal
 {
-	font-size: 0.8em;
+	font-size: 0.9em;
 }
 
+.underline{
+	border-style: solid;
+	border-color: #D3D3D3;
+	border-width: 0px 0px 1px 0px;
+	padding-bottom: 20px;
+}
 
-/*nascondo alcune componenti*/
-#header h1, #header h2,#header_login,#push_block{
+.msgError{	/*messaggi di modifica non andata a buon fine*/
+	color: #FF0000;
+	text-align: center;
+}
+
+.msgConfirm{	/*messaggi di modifica andata a buon fine*/
+	color: green;
+	text-align: center;
+}
+
+.current_pageL{ /*Classe per la voce di menù selezionata*/
+	font-style: italic;
+	font-weight: bold;
+}
+
+.screen_reader{
 	display: none;
 }
 
+/*Regole per i blocchi delle inserzioni*/
+/* versione migliore con dl */
+#block_insertions{
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
 
+#block_insertions li{
+	padding: 20px 0px 20px 0px;
+
+	border-style: solid;
+	border-color: #D3D3D3;
+	border-width: 0px 0px 1px 0px;
+}
+
+	#block_insertions .block_insertion{
+		padding: 0px;
+		margin: 0px;
+	}
+
+	#block_insertions .block_insertion dt{
+		display: inline-block;
+		width: 7%;
+		height: 1.1em;
+	}
+
+	#block_insertions .block_insertion dd{
+		padding: 0.8em 0em 0.8em 0em;
+		display: inline-block;
+		width: 85%;
+	}
+
+	#block_insertions .block_insertion .BI_accepted li{
+		display: inline-block;
+		border-width: 0px;
+		margin: 5px 10px 5px 10px;
+	}
+
+/* regole per informazioni utente */
+ 	.block_profile{
+		padding: 0px;
+		margin: 0px;
+	}
+
+	.block_profile dt{
+		display: inline-block;
+		width: 13%;
+		height: 1em;
+	}
+
+	.block_profile dd{
+		padding: 0.8em 0em 0.8em 0em;
+		display: inline-block;
+		width: 80%;
+	}
 
 	/*---------------------------------------------------
 	----------------------HEADER-------------------------
 	-----------------------------------------------------*/
 	#header{
 		background-color: #F0F8FF;
-
 		padding: 1px 20px 1px 20px;
 		height: 11em;
 	}
 		#header_logo{
-			float: left;
-			margin-top: 1.5em;
-			margin-left: 1em;
-			margin-right: 2em;
+			display: block;
+			margin: auto;
 			max-height: 230px;
 			max-width: 170px;
 			width: 170px;
 			border: 0px;
 		}
 
-		#header h1{
-			margin-top: 0px;
-			margin-left: 200px;
-			padding-top: 1em;
-		}
-
+		#header h1,
 		#header h2{
-			margin-bottom: 0px;
-			margin-left: 200px;
+			display: none;
 		}
 
 		#header_login{
-			text-align: right;
+			text-align: center;
 		}
 
 			#header_login div{
@@ -144,7 +231,7 @@ div {
 		}
 
 			#nav_login p{	/* logErr */
-				color: red;
+				color: #FF0000;
 				text-align: center;
 			}
 
@@ -223,7 +310,7 @@ div {
 }
 
 	#cont_login p{
-		color: red;
+		color: #FF0000;
 		text-align: center;
 	}
 	
@@ -251,7 +338,7 @@ div {
 }
 
 	#cont_registration p{
-		color: red;
+		color: #FF0000;
 		text-align: center;
 	}
 	
@@ -294,7 +381,7 @@ div {
 }
 
 	#cont_pass_recovery p{
-		color: red;
+		color: #FF0000;
 		text-align: center;
 	}
 	
