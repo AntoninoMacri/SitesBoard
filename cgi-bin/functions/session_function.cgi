@@ -16,7 +16,7 @@ sub createSession(){
 	my $password=$_[1];
 
 	my $session = new CGI::Session();
-	$session->expire('20m');
+	$session->expire('60m');
 	$session->param('username',$username);
 	$session->param('password',$password);
 
@@ -30,7 +30,7 @@ sub getSession() {
                 return undef;
         } else {
                 # print $sessione->param('username');
-                $sessione->expire('20m');
+                $sessione->expire('60m');
                 return $sessione;
         }
 }

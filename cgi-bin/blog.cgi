@@ -84,7 +84,7 @@ print <<PEZZO2;
 			</span>
 					</div>
 					<div>
-						<div class="edit"><a href="profileChange.cgi" hreflang="it" type="text/html">Modifica Profilo<div id="img_EP"></div></a></div>
+						<div class="edit"><a href="profile.cgi" hreflang="it" type="text/html">Il tuo profilo<div id="img_P"></div></a></div>						<div class="edit"><a href="logout.cgi" hreflang="it" type="text/html">Esci<div id="img_EL"></div></a></div>
 						<div class="edit"><a href="logout.cgi" hreflang="it" type="text/html">Esci<div id="img_EL"></div></a></div>
 					</div>
 				</div>
@@ -218,11 +218,11 @@ print <<FINE;
 					</ul>
 FINE
 if($index_precedente>=0 && $index ne 0){
-	print "<a href='blog.cgi?index=$index_precedente' hreflang='it' type='application/xhtml+xml'>Precedente</a>";
+	print "<a href='blog.cgi?index=$index_precedente' id='BI_PN' hreflang='it' type='application/xhtml+xml'>Precedente</a>";
 }
 
 if($index_successivo<$size){
-	print "<a href='blog.cgi?index=$index_successivo' hreflang='it' type='application/xhtml+xml'>Successiva</a>";
+	print "<a href='blog.cgi?index=$index_successivo' id='BI_PN' hreflang='it' type='application/xhtml+xml'>Successiva</a>";
 }
 
 print <<FINE;
