@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?xml-stylesheet type="text/xsl" href="home.xsl"?>
-<bacheca xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" 
-         xs:noNamespaceSchemaLocation="schema.xsd">
+<bacheca xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="schema.xsd">
 	<persona id="1">
 		<nome>Antonino</nome>
 		<cognome>Macrì</cognome>
@@ -20,94 +18,102 @@
 				<data>2015-12-29</data>
 				<listaDisponibili>
 					<idProgrammatore>3</idProgrammatore>
-				</listaDisponibili>
+				<idProgrammatore>4</idProgrammatore></listaDisponibili>
 			</annuncio>
-			<annuncio id="2">
-				<titolo>Facebook3</titolo>
-				<oggetto>Social network che dovrà competere con Facebook2</oggetto>
-				<descrizione>Stiamo cercando qualcuno con conoscenze di c++, html, javascript e css3 in grado di creare un nuovo social che un giorno possa competere con Facebook2</descrizione>
-				<tipologia>Blog</tipologia>
-				<data>2015-12-15</data>
-				<listaDisponibili>
-					<idProgrammatore>2</idProgrammatore>
-					<idProgrammatore>3</idProgrammatore>
-				</listaDisponibili>
-			</annuncio>
-		</listaAnnunci>
+		<annuncio id="2">
+								<titolo>Sito web per la gestione dei trasporti</titolo>
+								<oggetto>Vogliamo realizzare un sito web dove i nostri utenti possono gestire una rete di trasporti</oggetto>
+								<descrizione>Buongiorno, cerchiamo un programmatore esperto in HTML, JavaScript e PERL che realizzi il sito web della nostra azienda di trasporti. Il nostro sito deve fornire agli utenti la possibilità di gestire una rete di trasporti, in modo che chi usufruisce del nostro servizio possa modificare e gestire i percorsi dei nostri mezzi, grazie aad un algoritmo che trovi il percorso più breve per soddisfare tutti i clienti.</descrizione>
+								<tipologia>Aziendali</tipologia>
+								<data>2016-02-04</data>
+								<listaDisponibili>
+								</listaDisponibili>
+							</annuncio><annuncio id="3">
+								<titolo>Sito web degli UpInTheAir</titolo>
+								<oggetto>Sito web della nuova rock-band emergente UpInTheAir</oggetto>
+								<descrizione>Salve, sono il procuratore degli UpInTheAir, una rock-band formata da giovani, diventata da poco famosa in tutto il triveneto. Vogliamo realizzare un sito che spieghi la storia della band, che mostri gli album usciti ed i brani stand-alone e che fornisca informazioni aggiornabili a real-time sulla band. Il sito deve essere anche dotato di uno Store dove sarà possibile acquistare, oltre ai CD, anche i gadget degli UpInTheAir.</descrizione>
+								<tipologia>Personali</tipologia>
+								<data>2016-02-04</data>
+								<listaDisponibili>
+								</listaDisponibili>
+							</annuncio></listaAnnunci>
 	</persona>
-		<persona id="2">
-		<nome>France</nome>
-		<cognome>faso</cognome>
-		<dataNascita>1994-06-26</dataNascita>
-		<user>ffasolat</user>
-		<password>12345678</password>
-		<mail>fran_fas93@hotmail.it</mail>
-		<biografia>Sono un programmatore esperto in Java, C++ e ho lavorato per la Google (5 minuti perché mi avevano scambiato per un dipendente2)</biografia>
-		<listaAnnunci>
-			<annuncio id="1">
-				<titolo>Facebook4</titolo>
-				<oggetto>Social network che dovrà competere con Facebook</oggetto>
-				<descrizione>Stiamo cercando qualcuno con conoscenze di c++, html, javascript e css3 in grado di creare un nuovo social che un giorno possa competere con Facebook</descrizione>
-				<tipologia>Social</tipologia>
-				<data>2015-12-17</data>
-				<listaDisponibili>
-					<idProgrammatore>1</idProgrammatore>
-				</listaDisponibili>
-			</annuncio>
-			<annuncio id="2">
-				<titolo>Facebook5</titolo>
-				<oggetto>Social network che dovrà competere con Facebook2</oggetto>
-				<descrizione>Stiamo cercando qualcuno con conoscenze di c++, html, javascript e css3 in grado di creare un nuovo social che un giorno possa competere con Facebook2</descrizione>
-				<tipologia>E-commerce</tipologia>
-				<data>2015-12-09</data>
-				<listaDisponibili>
-					<idProgrammatore>3</idProgrammatore>
-					<idProgrammatore>1</idProgrammatore>
-				</listaDisponibili>
-			</annuncio>
-			<annuncio id="3">
-				<titolo>Facebook6</titolo>
-				<oggetto>Social network che dovrà competere con Facebook2</oggetto>
-				<descrizione>Stiamo cercando qualcuno con conoscenze di c++, html, javascript e css3 in grado di creare un nuovo social che un giorno possa competere con Facebook2</descrizione>
-				<tipologia>Forum</tipologia>
-				<data>2015-12-09</data>
-				<listaDisponibili>
-				</listaDisponibili>
-			</annuncio>
-		</listaAnnunci>
-	</persona>
-	<persona id="3">
-		<nome>Jack</nome>
-		<cognome>Zec</cognome>
-		<dataNascita>1993-04-04</dataNascita>
-		<user>gzecchin</user>
-		<password>87654321</password>
-		<mail>princess_93@hotmail.it</mail>
-		<biografia>Sono un programmatore esperto in Java, C++ e ho lavorato per la Google (5 minuti perché mi avevano scambiato per un dipendente3)</biografia>
-		<listaAnnunci>
-			<annuncio id="1">
-				<titolo>Facebook7</titolo>
-				<oggetto>Social network che dovrà competere con Facebook</oggetto>
-				<descrizione>Stiamo cercando qualcuno con conoscenze di c++, html, javascript e css3 in grado di creare un nuovo social che un giorno possa competere con Facebook</descrizione>
-				<tipologia>Forum</tipologia>
-				<data>2015-02-28</data>
-				<listaDisponibili>
-					<idProgrammatore>1</idProgrammatore>
-					<idProgrammatore>2</idProgrammatore>
-				</listaDisponibili>
-			</annuncio>
-			<annuncio id="2">
-				<titolo>Facebook8</titolo>
-				<oggetto>Social network che dovrà competere con Facebook2</oggetto>
-				<descrizione>Stiamo cercando qualcuno con conoscenze di c++, html, javascript e css3 in grado di creare un nuovo social che un giorno possa competere con Facebook2</descrizione>
-				<tipologia>Aziendali</tipologia>
-				<data>2015-07-09</data>
-				<listaDisponibili>
-					<idProgrammatore>2</idProgrammatore>
-				</listaDisponibili>
-			</annuncio>
-
-		</listaAnnunci>
-	</persona>
-
-</bacheca>
+<persona id="2">
+						<nome>Francesco</nome>
+						<cognome>Fasolato</cognome>
+						<dataNascita>1994-07-21</dataNascita>
+						<user>Fasolato94</user>
+						<password>armidoclassic</password>
+						<mail>francesco.fasolato94@gmail.com</mail>
+						<biografia/>
+						<listaAnnunci>
+						<annuncio id="1">
+								<titolo>Zlatan Ibrahimovic</titolo>
+								<oggetto>Sito eb per gli adepti del grande Ibra</oggetto>
+								<descrizione>Ciao, sono un ragazzo che, come molti, ammira dal profondo Zlatan Ibrahimovic. Il calciatore svedese, che attualmente milita tra le file del Paris Saint-Germain, è un simbolo di risolutezza e spontaneità, oltre ad essere un mito delle nuove generazioni vista la sua abilità col pallone. Vorrei che fosse realizzato un forum nel quale gli utenti possano scambiare le proprie opinioni sul calciatore e commentare le ultime partite giocate da Zlatan.</descrizione>
+								<tipologia>Forum</tipologia>
+								<data>2016-02-04</data>
+								<listaDisponibili>
+								<idProgrammatore>4</idProgrammatore></listaDisponibili>
+							</annuncio><annuncio id="2">
+								<titolo>LoveChat</titolo>
+								<oggetto>Vogliamo realizzare un sito di incontri chiamato LoveChat</oggetto>
+								<descrizione>Salve a tutti, siamo due programmatori di siti internet, esperti entrambi per quanto riguarda HTML e CSS e cerchiamo una persona con esperienza nel campo della programmazione lato server per realizzare un sito di incontri commissionato da terzi.</descrizione>
+								<tipologia>Social</tipologia>
+								<data>2016-02-04</data>
+								<listaDisponibili>
+								</listaDisponibili>
+							</annuncio><annuncio id="3">
+								<titolo>LightyFitness</titolo>
+								<oggetto>Voglio realizzare un blog per le persone che amano la vita salutare</oggetto>
+								<descrizione>Buongiorno, sono una ragazza appassionata di fitness e sport salutari. Mantengo uno stile di vita sano e pratico sport o cardio quasi ogni giorno. Vorrei avere un blog personale nel quale poter scrivere tutti i miei progressi e le mie sensazioni, dialogare con altre persone che hanno le mie stesse passioni riguardo al benessere e l'attività fisica.</descrizione>
+								<tipologia>Blog</tipologia>
+								<data>2016-02-04</data>
+								<listaDisponibili>
+								<idProgrammatore>1</idProgrammatore></listaDisponibili>
+							</annuncio></listaAnnunci>
+						</persona><persona id="3">
+						<nome>Giacomo</nome>
+						<cognome>Zecchin</cognome>
+						<dataNascita>1993-04-04</dataNascita>
+						<user>JackieZZ</user>
+						<password>bellali32</password>
+						<mail>zecchJ@hotmail.it</mail>
+						<biografia/>
+						<listaAnnunci>
+						<annuncio id="1">
+								<titolo>PelucheBay</titolo>
+								<oggetto>Sito per la compravendita di peluche usati</oggetto>
+								<descrizione>Buongiorno, stiamo cercando un team di programmatori esperti che realizzi un portale E-bay style per la compravendita di peluche usati. Riteniamo che i peluche possano essere la nuova frontiera del mercato dell'usato, poiché ognuno di noi, nel profondo, è ancora un po' bambino.</descrizione>
+								<tipologia>E-commerce</tipologia>
+								<data>2016-02-04</data>
+								<listaDisponibili>
+								</listaDisponibili>
+							</annuncio><annuncio id="2">
+								<titolo>Sito per FreezeTime</titolo>
+								<oggetto>Sito della famosa azienda di frigoriferi e congelatori FreezeTime</oggetto>
+								<descrizione>Salve, sono il General Manager della FreezeTime &amp; co., azienda leader nel settore della vendita di frigoriferi e congelatori, con sede a Gela (CL). Vogliamo realizzare un sito per la nostra azienda, poiché vogliamo aprirci alle nuove frontiere del web. Il sito dovrà contenere una galleria di immagini con relativa scheda tecnica per descrivere il nostro prodotto nei minimi dettagli. Inoltre deve essere implementata la funzione di ricerca dello store più vicino all'utente.</descrizione>
+								<tipologia>Aziendali</tipologia>
+								<data>2016-02-04</data>
+								<listaDisponibili>
+								</listaDisponibili>
+							</annuncio></listaAnnunci>
+						</persona><persona id="4">
+						<nome>Davide</nome>
+						<cognome>Rigoni</cognome>
+						<dataNascita>1994-08-01</dataNascita>
+						<user>DevilDav</user>
+						<password>peaceandlove</password>
+						<mail>dav_rig@libero.it</mail>
+						<biografia/>
+						<listaAnnunci>
+						<annuncio id="1">
+								<titolo>Sito per riparazione tasti delle tastiere</titolo>
+								<oggetto>Sito per l'assistenza e la riparazione di tastiere dei computer</oggetto>
+								<descrizione>Salve, mi chiamo Davide e ho da poco aperto un'attività in proprio. Sostanzialmente svolgo un lavoro a domicilio di riparazione di tastiere usate, rotte o comunque malfunzionanti. Vorrei che venisse realizzato un sito web nel quale i miei clienti possano descrivermi i problemi che riscontrano con le proprie tastiere e in caso i miei consigli non bastino, possiamo accordarci per un servizio a domicilio.</descrizione>
+								<tipologia>Personali</tipologia>
+								<data>2016-02-04</data>
+								<listaDisponibili>
+								<idProgrammatore>1</idProgrammatore></listaDisponibili>
+							</annuncio></listaAnnunci>
+						</persona></bacheca>
