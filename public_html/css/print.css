@@ -380,11 +380,17 @@ fieldset{
 				margin: 20px 0px 10px 20px;
 			}
 
-/*--------------profile.cgi && confirmRemoveProfile.cgi -------------------*/
+/*--------------profile.cgi && userProfile.cgi && confirmRemoveProfile.cgi -------------------*/
 
 #cont_profile{
 	height: auto;
 }
+
+	#cont_profile #BP_bio{
+		display: block;
+		margin-left: 0px;
+	}
+	
 	#remove_profile{
 		display: none;
 	}

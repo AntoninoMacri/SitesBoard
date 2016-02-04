@@ -126,8 +126,8 @@ print <<EOF;
 
 				<h3><span xml:lang="it" lang="it">Stai modificando i tuoi dati</span></h3>
 				<div id="cont_profile_change">
-					<p id="underline">
-						Ricordati di cliccare su salva una volta che avrai terminato le modifiche
+					<p class="underline">
+						Ricordati di procedere con il salvataggio una volta che avrai terminato le modifiche.
 					</p>
 					<p id="cont_msg" class="msgError" title="Messaggio di errore">
 EOF
@@ -154,9 +154,9 @@ print <<EOF;
 		  					<label for="email">Email</label>
 		  					<input id="email" type="text" name="email" value="$email" tabindex="6"  onfocus="cleanField('email')"/>
 
-		  					<label for="password">Nuova password</label>
+		  					<label for="password">Nuova <span xml:lang="en" lang="en">Password</span></label>
 		  					<input id="password" type="password" name="password" tabindex="7"  onfocus="cleanField('password')"/>
-		  					<label for="confirmPsw">Conferma nuova password</label>
+		  					<label for="confirmPsw">Ripeti la nuova <span xml:lang="en" lang="en">Password</span></label>
 		  					<input id="confirmPsw" type="password" name="confirmPsw" tabindex="8"  onfocus="cleanField('confirmPsw')"/>
 
 		  					<label for="bio" id="contaCaratteri">Biografia (max 2000 caratteri)</label>

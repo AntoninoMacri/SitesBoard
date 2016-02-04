@@ -126,7 +126,7 @@ print <<EOF;
 
 				<h3><span xml:lang="it" lang="it">I tuoi annunci</span></h3>
 				<div id="cont_annunci">
-					<p class="info">
+					<p class="underline">
 						Questi sono gli annunci che hai inserito.
 					</p>
 					<ul id="block_insertions">

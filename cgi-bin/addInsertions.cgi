@@ -111,14 +111,11 @@ print <<EOF;
 
 				<h3><span xml:lang="it" lang="it">Nuovo annuncio</span></h3>
 				<div id="cont_add">
-					<p class="info">
+					<p>
 					Ti trovi dentro alla pagina per creare un nuovo annuncio.
 					</p>
-					<p class="info">
-					In particolare un annuncio si compone di: un titolo, un oggetto ed una descrizione.  
-					</p>
-					<p class="info underline">
-					Ricordati di fare salva quando hai portato a termine tutte le eventuali operazioni!
+					<p class="underline">
+					In particolare un annuncio si compone di un titolo, una tipologia, un oggetto, e una descrizione di massimo 2000 caratteri.  
 					</p>
 
 					<p id="cont_msg" class="msgError" title="Messaggio di errore">

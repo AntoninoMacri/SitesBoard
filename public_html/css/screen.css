@@ -575,11 +575,17 @@ fieldset{
 				margin: 20px 0px 10px 20px;
 			}
 
-/*--------------profile.cgi && confirmRemoveProfile.cgi -------------------*/
+/*--------------profile.cgi && userProfile.cgi && confirmRemoveProfile.cgi -------------------*/
 
 #cont_profile{
 	height: auto;
 }
+
+	#cont_profile #BP_bio{
+		display: block;
+		margin-left: 0px;
+	}
+		
 	#remove_profile{
 		text-align: center;
 		width: 50%;
@@ -590,13 +596,6 @@ fieldset{
 		#remove_profile .buttons{
 			color: #FF0000;
 		}
-
-		#remove_profile #BP_bio{
-			display: block;
-			margin-left: 0px;
-		}
-
-
 
 
 /*--------------profile_change.cgi-------------------*/

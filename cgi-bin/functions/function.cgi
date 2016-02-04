@@ -666,10 +666,10 @@ sub addSpan(){
 	my $par=$_[0];
 	my $azd="Aziendali";
 	my $pers="Personali";
-	if(!($par eq azd || $par eq pers))
-		{ 
-			$par="<span xml:lang='en' lang='en'>".$par."</span>"; 
-		}
+	if($par ne $azd && $par ne $pers)
+	{ 
+			return "<span xml:lang='en' lang='en'>".$par."</span>"; 
+	}
 	return $par;
 }
 

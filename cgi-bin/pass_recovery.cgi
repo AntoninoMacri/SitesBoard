@@ -137,9 +137,9 @@ print <<EOF;
 							<input type="text" name="recover_username" id="recover_username" tabindex="6" />
 							<label for="recover_email" xml:lang="en" lang="en">Email</label>
 							<input type="text" name="recover_email" id="recover_email" maxlength="32" tabindex="7" />
-							<label for="recover_pass">Nuova <span xml:lang="en" lang="en">password</span></label>
+							<label for="recover_pass">Nuova <span xml:lang="en" lang="en">Password</span></label>
 							<input type="password" name="recover_pass" id="recover_pass" maxlength="16" tabindex="8" />
-							<label for="recover_re_pass">Ripeti la nuova<span xml:lang="en" lang="en">Password</span></label>
+							<label for="recover_re_pass">Ripeti la nuova <span xml:lang="en" lang="en">Password</span></label>
 							<input type="password" name="recover_re_pass" id="recover_re_pass" maxlength="16" tabindex="9" />
 							<input class="buttons" type="submit" name="recover_submit" id="recover_submit" value="Recupera" tabindex="10"  title="Procedi con la reimpostazione della password"/>
 							<input class="buttons" type="reset" name="recover_reset" id="recover_reset" value="Cancella i Campi" tabindex="11" title="Resetta i valori dei campi" onkeypress="return recoveryControl()"/>
