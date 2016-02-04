@@ -29,6 +29,12 @@ html, body {
     font-size: 1em;
 }
 
+fieldset{
+	padding-top: 15px;
+	border-width: 1px;
+	border-color: #D3D3D3;
+}
+
 
 #container {
 	/*Spingo il footer in fondo alla pagina con un gioco di dimensioni */
@@ -81,13 +87,15 @@ html, body {
 }
 
 .msgConfirm{	/*messaggi di modifica andata a buon fine*/
-	color: green;
+	color: #228B22;
 	text-align: center;
 }
 
 .current_pageL{ /*Classe per la voce di menù selezionata*/
 	font-style: italic;
 	font-weight: bold;
+	list-style-type: disc;
+	margin-left: 20px;
 }
 
 .screen_reader{
@@ -275,8 +283,6 @@ html, body {
 
 				#nav_login fieldset{
 					padding-top: 15px;
-					border-width: 1px;
-					border-color: #D3D3D3;
 				}
 
 					#nav_login form input{
@@ -459,7 +465,9 @@ html, body {
 
 
 /*--------------insertion.cgi-------------------*/
-
+#cont_insertion {
+	margin-top: 20px;
+}
 
 #contents h3.resizable{
 	font-size: 0.8em;
