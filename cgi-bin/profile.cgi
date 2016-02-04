@@ -72,9 +72,12 @@ print <<EOF;
 					<div>
 						Benvenuto <span class="notable">$username</span>
 					</div>
-					<div class="minimal">
-						<a class="edit" href="profileChange.cgi" hreflang="it" type="application/xhtml+xml">Modifica Profilo <img id="header_PEL" src="../media/edit_profile.png" alt="Iconcina di modifica profilo" title = "Modifica i dati del profilo"/></a>
-						<a class="edit" href="logout.cgi" hreflang="it" type="application/xhtml+xml">Esci <img id="logout_logo" src="../media/logout.png" alt="Iconcina del logout" title = "esegui il logout"/></a>
+					<div>
+						<div class="edit"><a href="profileChange.cgi" hreflang="it" type="application/xhtml+xml">Modifica Profilo<div id="img_EP"></div></a></div>
+						<div class="edit"><a href="logout.cgi" hreflang="it" type="application/xhtml+xml">Esci<div id="img_EL"></div></a></div>
+
+						<!--<a class="edit" href="profileChange.cgi" hreflang="it" type="application/xhtml+xml">Modifica Profilo<img id="header_PEL" src="../media/edit_profile.png" alt="Iconcina di modifica profilo" title = "Modifica i dati del profilo"/></a>
+						<a class="edit" href="logout.cgi" hreflang="it" type="application/xhtml+xml">Esci <img id="logout_logo" src="../media/logout.png" alt="Iconcina del logout" title = "esegui il logout"/></a>-->
 					</div>
 				</div>
 			</div>
@@ -174,7 +177,7 @@ print <<EOF;
 			</span>
 			<span title="Accessibile secondo lo standard WCAG2 Livello AAA">
 			    <a href="http://www.w3.org/WAI/intro/wcag" type="application/xhtml+xml" hreflang="en-US">
-			    	<img src="https://www.totalvalidator.com/images/valid_n_wcag2_aaa.gif" alt="Pagina accessibile" />
+			    	<img src="https://www.totalvalidator.com/images/valid_n_wcag2_aa.gif" alt="Pagina accessibile" />
 			    </a>
 			</span>
 		</div>
