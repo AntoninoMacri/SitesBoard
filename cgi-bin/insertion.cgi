@@ -110,7 +110,7 @@ print <<EOF;
 
 			<!-- PATH  -->
 			<div id="path" title="Sezione del sito in cui ti trovi in questo momento">
-				Ti trovi in: <span class="notable" xml:lang="en" lang="it">Visualizza annuncio</span>
+				Ti trovi in: <span class="notable" xml:lang="en" lang="en">Visualizza annuncio</span>
 			</div>
 			<div id="nav_panel">
 				<!-- MENÙ DI NAVIGAZIONE -->
@@ -215,7 +215,7 @@ if(defined($session))
 		if($check_accepted eq "true")
 		{
 print <<EOF;
-						<form name="form_RemoveAcception" method="post" action="removeAcception.cgi">
+						<form  method="post" action="removeAcception.cgi">
 							<fieldset title="Togli l'accettazione all'annuncio">
 							<legend id="accept_insertion">Procedi per rimuovere l'accettazione</legend>
 								<input  id="idUserInsertion" name="idUserInsertion" type="hidden" value='$idUserParam' />
@@ -228,7 +228,7 @@ EOF
 		else
 		{
 print <<EOF;
-						<form name="form_AddAcception" method="post" action="addAcception.cgi">
+						<form  method="post" action="addAcception.cgi">
 							<fieldset title="Accetta annuncio">
 							<legend id="accept_insertion">Procedi per proporti per l'annuncio</legend>
 								<input  id="idUserInsertion" name="idUserInsertion" type="hidden" value='$idUserParam' />
@@ -242,7 +242,7 @@ EOF
 	else
 	{
 print <<EOF;
-						<form name="form_RemoveInsertion" method="post" action="removeInsertion.cgi">
+						<form method="post" action="removeInsertion.cgi">
 							<fieldset title="Rimuovi annuncio">
 							<legend id="remove_insertion">Procedi per rimuovere l'annuncio</legend>
 								<input  id="idInsertion" name="idInsertion" type="hidden" value='$idInsertionParam' />
