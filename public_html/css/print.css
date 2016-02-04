@@ -122,6 +122,11 @@ fieldset{
 		margin: 5px 10px 5px 10px;
 	}
 
+.BI_PN{
+	display: inline-block;
+	margin: 10px 20px 20px 10px;
+}
+
 /* regole per informazioni utente */
  	.block_profile{
 		padding: 0px;
