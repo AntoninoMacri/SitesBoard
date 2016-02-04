@@ -15,8 +15,20 @@ if($session != undef)
    $name = getSessionUsername($session);
 }
 
+my $cgi = new CGI;
+my $index = $cgi->param('index');
+if(!defined($index)) { $index=0; }
+
+my $nElementi=5;
 my $tipo='Forum';
-my @info=getBoardTipologia($tipo);
+my @board=getBoardTipologia($tipo);
+my $size=scalar @board;
+my @info=getBoardSplit($index,$nElementi,\@board);
+
+$index_successivo=$index+$nElementi;
+$index_precedente=$index-$nElementi;
+
+if($index_precedente<0){ $index_precedente=0; }
 
 
 print "Content-type: text/html\n\n";
@@ -202,7 +214,19 @@ for (my $i=0; $i <scalar(@info); $i++) {
 
 print <<FINE;
 					</ul>
+FINE
+if($index_precedente>=0 && $index ne 0){
+	print "<a href='home.cgi?index=$index_precedente' hreflang='it' type='application/xhtml+xml'>Precedente</a>";
+}
+
+if($index_successivo<$size){
+	print "<a href='home.cgi?index=$index_successivo' hreflang='it' type='application/xhtml+xml'>Successiva</a>";
+}
+
+print <<FINE;
 				</div>
+
+
 			</div>
 
 			<!-- Div necessario per spostare il footer in fondo alla pagina -->
