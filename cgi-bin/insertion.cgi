@@ -70,7 +70,7 @@ print <<PRIMA_PARTE;
 
 	</head>
 	<body>
-		<a class="screen_reader" href="#contents" hreflang="it" type="application/xhtml+xml">Se desideri saltare al contenuto segui questo collegamento</a>
+		<div class="screen_reader"><a href="#contents" hreflang="it" type="application/xhtml+xml">Se desideri saltare al contenuto segui questo collegamento</a></div>
 		<div id="container">
 			<!-- HEADER  -->
 			<div id="header">
@@ -95,7 +95,6 @@ print <<PEZZO2;
 					</div>
 					<div class="minimal">
 						<a class="edit" href="profile.cgi" hreflang="it" type="application/xhtml+xml">Il tuo profilo <img id="profile_logo" src="../media/header_profile.png" alt="Iconcina del profilo" title = "Vai al tuo profilo"/></a>
-						&nbsp&nbsp&nbsp
 						<a class="edit" href="logout.cgi" hreflang="it" type="application/xhtml+xml">Esci <img id="logout_logo" src="../media/logout.png" alt="Iconcina del logout" title = "esegui il logout"/></a>
 					</div>
 				</div>

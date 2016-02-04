@@ -45,7 +45,7 @@ print <<PRIMA_PARTE;
 		<meta name="language" content="italian it" />
 	</head>
 	<body>
-		<a class="screen_reader" href="#contents" hreflang="it" type="application/xhtml+xml">Se desideri saltare al contenuto segui questo collegamento</a>
+				<div class="screen_reader"><a href="#contents" hreflang="it" type="application/xhtml+xml">Se desideri saltare al contenuto segui questo collegamento</a></div>
 		<div id="container">
 			<!-- HEADER  -->
 			<div id="header">
