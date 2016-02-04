@@ -125,14 +125,14 @@ fieldset{
 
 	.block_insertion dt{
 		display: inline-block;
-		width: 7%;
+		width: 12%;
 		height: 1.1em;
 	}
 
 	.block_insertion dd{
 		padding: 0.8em 0em 0.8em 0em;
 		display: inline-block;
-		width: 85%;
+		width: 80%;
 	}
 
 	.block_insertion .BI_accepted li{
@@ -140,6 +140,10 @@ fieldset{
 		border-width: 0px;
 		margin: 5px 10px 5px 10px;
 	}
+
+.BI_PN{
+	margin: 10px 10px 10px 10px;
+}
 
 /* regole per informazioni utente */
  	.block_profile{
@@ -158,6 +162,7 @@ fieldset{
 		display: inline-block;
 		width: 80%;
 	}
+
 
 
 	/*---------------------------------------------------
@@ -506,6 +511,7 @@ fieldset{
 
 		#cont_insertion #BI_description{
 			display: block;
+			margin-left: 0px;
 		}
 
 
@@ -567,6 +573,12 @@ fieldset{
 		#remove_profile .buttons{
 			color: #FF0000;
 		}
+
+		#remove_profile #BP_bio{
+			display: block;
+			margin-left: 0px;
+		}
+
 
 
 

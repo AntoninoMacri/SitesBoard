@@ -144,7 +144,7 @@ print <<EOF;
 	  					<dt><span xml:lang="en" lang="en">Email</span>:</dt>
 	  					<dd><a href="mailto:$email">$email</a></dd>
 	  					<dt>Biografia:</dt>
-	  					<dd>$bio</dd>
+	  					<dd id="BP_bio">$bio</dd>
 	  				</ul>
 	  					
 

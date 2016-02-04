@@ -142,6 +142,10 @@ fieldset{
 		margin: 5px 10px 5px 10px;
 	}
 
+.BI_PN{
+	margin: 10px 10px 10px 10px;
+}
+
 /* regole per informazioni utente */
  	.block_profile{
 		padding: 0px;
@@ -477,6 +481,11 @@ fieldset{
 			text-align: center;
 		}
 
+		#cont_insertion #BI_description{
+			display: block;
+			margin-left: 0px;
+		}
+
 /*--------------addInsertion.cgi-------------------*/
 #cont_add{
 	height: auto;
@@ -532,7 +541,11 @@ fieldset{
 		#remove_profile .buttons{
 			color: #FF0000;
 		}
-
+		
+		#remove_profile #BP_bio{
+			display: block;
+			margin-left: 0px;
+		}
 
 
 /*--------------profile_change.cgi-------------------*/
