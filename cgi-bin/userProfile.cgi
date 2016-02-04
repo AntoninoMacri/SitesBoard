@@ -19,25 +19,31 @@ if(!defined($user))
 {
     print redirect(-url => 'home.cgi');
 }
+else
+{
+	#controllo che se è l'utente stesso venga ridirezionato al suo profilo
+	my $sessionUserUsername=getSessionUsername($session);
+	if($sessionUserUsername eq $user)
+	{
+		print redirect(-url => 'profile.cgi');
+	}
 
-if(defined($user)){
-my @utente=getUtente($user);
+	my @utente=getUtente($user);
 
-$email=$utente[3];
-$biografia=$utente[4];
+	$email=$utente[3];
+	$biografia=$utente[4];
 
-utf8::encode($email);
-utf8::encode($biografia);
-
+	utf8::encode($email);
+	utf8::encode($biografia);
 }
 
 print "Content-type: text/html\n\n";
 
-print <<PRIMA_PARTE;
+print <<EOF;
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 	<head>
-		<title>Profilo di nomeUtente- SitesBoard</title> 
+		<title>Profilo utente - SitesBoard</title> 
 
 		<link href="../css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
 		<link href="../css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
@@ -46,11 +52,16 @@ print <<PRIMA_PARTE;
 
 		<!-- Meta Tag -->
 		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<meta name="title" content="Profilo Utente - SitesBoard" />
 		<meta name="author" content="Davide Rigoni, Francesco Fasolato, Giacomo Zecchin, Antonino Macrì" />
-		<meta name="description" content="Pagina profilo di un altro utente" />
-		<meta name="keywords" content="Utente, Profile, Siti, Web" />
+		<meta name="description" content="Pagina personale dell'utente loggato" />
+		<meta name="keywords" content="Profilo, Logged, Siti, Web" />
 		<meta name="language" content="italian it" />
+
+		<!-- JS -->
+		<script type="text/javascript" src="../js/control.js"></script>
+
 	</head>
 	<body>
 		<a class="screen_reader" href="#contents" hreflang="it" type="application/xhtml+xml">Se desideri saltare al contenuto segui questo collegamento</a>
@@ -61,27 +72,16 @@ print <<PRIMA_PARTE;
 				<h1>SitesBoard</h1>
 				<h2>La <span xml:lang="en" lang="en">Sites Board</span> per richiedere Siti <span xml:lang="en" lang="en">Web</span></h2>
 
-PRIMA_PARTE
-
-
-my $username = getSessionUsername($session);
-print <<EOF;
-
-
-				<!-- Da caricare nel caso l utente sia loggato (se è qui sicuramente ha una sessione valida, altrimenti viene redirectato a login.cgi) -->
 
 				<div id="header_login">
 					<div>
 						Benvenuto <span class="notable">$username</span>
 					</div>
 					<div class="minimal">
-						<a class="edit" href="profile.cgi" hreflang="it" type="application/xhtml+xml">Il tuo profilo <img id="profile_logo" src="../media/header_profile.png" alt="Iconcina del profilo" title = "Vai al tuo profilo"/></a>
+						<a class="edit" href="profileChange.cgi" hreflang="it" type="application/xhtml+xml">Modifica Profilo <img id="header_PEL" src="../media/edit_profile.png" alt="Iconcina di modifica profilo" title = "Modifica i dati del profilo"/></a>
 						<a class="edit" href="logout.cgi" hreflang="it" type="application/xhtml+xml">Esci <img id="logout_logo" src="../media/logout.png" alt="Iconcina del logout" title = "esegui il logout"/></a>
 					</div>
 				</div>
-
-
-			
 			</div>
 
 			<!-- PATH  -->
@@ -102,37 +102,7 @@ print <<EOF;
 						<li><a href="blog.cgi" hreflang="it" ><span xml:lang="en" lang="en">Tipologia Blog</span></a></li>
 					</ul>
 				</div>
-EOF
-if($session == undef){
-	print <<PEZZO;
-				<!-- MENÙ DI LOGIN-->
-				<div id="nav_login" class="menu" title="Menù di Login del sito">
-					<h3><span xml:lang="en" lang="en">Login</span></h3>
-					<!-- Messaggio di errore -->
-					<p id="log_msg" class="msgError" title="Messaggio di errore compilazione form login">
-					</p>
-					<!-- Form da compilare -->
-					<form onsubmit="return loginControl()" method="post" action="checkLogin.cgi">
-						<fieldset title="Campi da compilare per effettuare il Login">
-							<legend>Caompilare per effettuare il Login</legend>
-							<label for="login_user">Username</label>
-							<input type="text" name="login_user" id="login_user"/><br/>
-							<label for="login_password">Password</label>
-							<input type="password" name="login_password" id="login_password"/><br/>
 
-							<input type="submit" name="login_submit" id="login_submit" value="Accedi al sito" onkeypress="return loginControl()" />
-						</fieldset>
-					</form>
-					<div>
-						<a class ="minimal" href="registration.cgi" hreflang="it" >Non ti sei ancora registrato?</a>
-						<a class ="minimal" href="../html/pass_recovery.html" hreflang="it" >Non trovi più la <span xml:lang="en" lang="en">password?</span></a>
-					</div>
-				</div>
-PEZZO
-}
-else
-{
-	print <<PEZZO;
 				<!-- MENÙ DI AMMINISTRAZIONE-->
 				<div id="nav_administration" class="menu" title="Menù di amministrazione del sito">
 					<h3>Amministrazione</h3>
@@ -142,24 +112,30 @@ else
 						<li><a href="acceptedInsertions.cgi" hreflang="it" type="application/xhtml+xml">Inserzioni Accettate</a></li>
 					</ul>
 				</div>
-PEZZO
-}
-print <<EOF;
+
 			</div>
 
 			<!-- Contenuti della pagina -->
 			<div id="contents">
-
 				<h3><span xml:lang="it" lang="it">Profilo utente di $user</span></h3>
+
 				<div id="cont_profile">
-					<p class="info" id="underline">
-					Ti trovi all interno della pagina profilo di un altro utente iscritto a SitesBoard. Da qui puoi visualizzare i suoi dati.
+					<p class="underline">
+					Ti trovi all interno della pagina profilo di un utente iscritto a SitesBoard. Da qui puoi visualizzare i suoi dati.
  					</p>
-  					<span><span xml:lang="en" lang="en">Username</span>: $user</span><br/>
-  					<span><span xml:lang="en" lang="en">Email</span>: $email</span><br/>
-  					<span>Biografia: $biografia</span><br/>
+
+					<dl class="block_profile">
+						<dt><span xml:lang="en" lang="en">Username</span>:</dt>
+						<dd>$user</dd>
+	  					<dt><span xml:lang="en" lang="en">Email</span>:</dt>
+	  					<dd><a href="mailto:$email">$email</a></dd>
+	  					<dt>Biografia:</dt>
+	  					<dd>$biografia</dd>
+	  				</ul>
 				</div>
 			</div>
+
+
 			<!-- Div necessario per spostare il footer in fondo alla pagina -->
 			<div id="push_block">
 			</div>

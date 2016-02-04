@@ -139,12 +139,12 @@ print <<EOF;
 
 			  				<label for="addTipologia">Tipologia</label>
 				  			<select id="addTipologia" name="addTipologia" tabindex="2" >
-								<option value="eCommerce">E-commerce</option>
-								<option value="forum">Forum</option>
-								<option value="social" selected="selected">Social</option>
-								<option value="personali">Personali</option>
-	  							<option value="aziendali">Aziendali</option>
-								<option value="blog">Blog</option>
+								<option value="E-commerce">E-commerce</option>
+								<option value="Forum">Forum</option>
+								<option value="Social" selected="selected">Social</option>
+								<option value="Personali">Personali</option>
+	  							<option value="Aziendali">Aziendali</option>
+								<option value="Blog">Blog</option>
 							</select>
 			  				
 			  				<label for="addOggetto">Oggetto</label>

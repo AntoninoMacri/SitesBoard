@@ -29,9 +29,12 @@ utf8::encode($email);
 utf8::encode($date);
 utf8::encode($bio);
 
+my $username = getSessionUsername($session);
+utf8::encode($username);
+
 print "Content-type: text/html\n\n";
 
-print <<PRIMA_PARTE;
+print <<EOF;
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 	<head>
@@ -64,16 +67,6 @@ print <<PRIMA_PARTE;
 				<h1>SitesBoard</h1>
 				<h2>La <span xml:lang="en" lang="en">Sites Board</span> per richiedere Siti <span xml:lang="en" lang="en">Web</span></h2>
 
-PRIMA_PARTE
-
-
-my $username = getSessionUsername($session);
-utf8::encode($username);
-
-print <<EOF;
-
-
-				<!-- Da caricare nel caso l utente sia loggato (se è qui sicuramente ha una sessione valida, altrimenti viene redirectato a login.cgi) -->
 
 				<div id="header_login">
 					<div>
@@ -84,9 +77,6 @@ print <<EOF;
 						<a class="edit" href="logout.cgi" hreflang="it" type="application/xhtml+xml">Esci <img id="logout_logo" src="../media/logout.png" alt="Iconcina del logout" title = "esegui il logout"/></a>
 					</div>
 				</div>
-
-				
-			
 			</div>
 
 			<!-- PATH  -->
@@ -149,10 +139,10 @@ print <<EOF;
 	  					<dd>$surname</dd>
 	  					<dt>Data di nascita:</dt>
 	  					<dd>$date</dd>
-	  					<dt>Username:</dt>
+	  					<dt><span xml:lang="en" lang="en">Username</span>:</dt>
 	  					<dd>$username</dd>
-	  					<dt>Email:</dt>
-	  					<dd>$email</dd>
+	  					<dt><span xml:lang="en" lang="en">Email</span>:</dt>
+	  					<dd><a href="mailto:$email">$email</a></dd>
 	  					<dt>Biografia:</dt>
 	  					<dd>$bio</dd>
 	  				</ul>
