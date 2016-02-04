@@ -210,6 +210,7 @@ fieldset{
 		#img_EP{
 			display: inline-block;
 		    background-image: url("../media/edit_profile.png");
+		    background-repeat: no-repeat;
 		    min-width: 25px;
 		    min-height: 25px;
 		    padding-left: 10px;
@@ -218,6 +219,7 @@ fieldset{
 		#img_EL{
 			display: inline-block;
 		    background-image: url("../media/logout.png");
+		    background-repeat: no-repeat;
 		    min-width: 25px;
 		    min-height: 25px;
 		    padding-left: 10px;

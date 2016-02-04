@@ -138,7 +138,7 @@ if($session == undef){
 					<!-- Form da compilare -->
 					<form onsubmit="return loginControl()" method="post" action="checkLogin.cgi">
 						<fieldset title="Campi da compilare per effettuare il Login">
-							<legend>Caompilare per effettuare il Login</legend>
+							<legend>Compilare per effettuare il Login</legend>
 							<label for="login_user">Username</label>
 							<input type="text" name="login_user" id="login_user"/><br/>
 							<label for="login_password">Password</label>
