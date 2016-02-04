@@ -205,19 +205,19 @@ for (my $i=0; $i <scalar(@info); $i++) {
 
 print <<FINE;
 					</ul>
-				</div>
 FINE
+if($index_precedente>=0 && $index ne 0){
+	print "<a href='home.cgi?index=$index_precedente' hreflang='it' type='application/xhtml+xml'>Precedente</a>";
+}
 
 if($index_successivo<$size){
 	print "<a href='home.cgi?index=$index_successivo' hreflang='it' type='application/xhtml+xml'>Successiva</a>";
 }
 
-
-if($index_precedente>=0 && $index ne 0){
-	print "<a href='home.cgi?index=$index_precedente' hreflang='it' type='application/xhtml+xml'>Precedente</a>";
-}
-
 print <<FINE;
+				</div>
+
+
 			</div>
 
 			<!-- Div necessario per spostare il footer in fondo alla pagina -->
