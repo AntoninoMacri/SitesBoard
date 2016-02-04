@@ -24,32 +24,27 @@ print <<EOF;
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 	<head>
-		<title>Login - SitesBoard</title> 
+		<title>Recupero Password Utente - SitesBoard</title> 
 
 		<link href="../css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
 		<link href="../css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
 		<link href="../css/print.css" rel="stylesheet" type="text/css" media="print"/>
 
 
-		<!-- Meta Tag -->
+		<!-- Meta Tag-->
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
-		<meta name="title" content="Login - SitesBoard" />
+		<meta name="title" content="Recupero Password Utente - SitesBoard" />
 		<meta name="author" content="Davide Rigoni, Francesco Fasolato, Giacomo Zecchin, Antonino Macrì" />
-		<meta name="description" content="Form login utente per SitesBoard, il sito per la richiesta di Siti Web Professionali" />
-		<meta name="keywords" content="Login, Password, Bacheca, Siti, Web" />
+		<meta name="description" content="Form di recupero password utente per SitesBoard, il sito per la richiesta di Siti Web Professionali" />
+		<meta name="keywords" content="Recupero, Password, Bacheca, Siti, Web" />
 		<meta name="language" content="italian it" />
-
-		<!-- JS -->
 		<script type="text/javascript" src="../js/control.js"></script>
 	</head>
 	<body>
-				<div class="screen_reader"><a href="#contents" hreflang="it" type="text/html">Se desideri saltare al contenuto segui questo collegamento</a></div>
+		<div class="screen_reader"><a href="#contents" hreflang="it" type="text/html">Se desideri saltare al contenuto segui questo collegamento</a></div>
 		<div id="container">
-
-
-
-			<!-- HEADER -->
+			<!-- HEADER-->
 			<div id="header">
 				<a href="home.cgi" hreflang="it" ><img id="header_logo" src="../media/logo.png" alt="Logo del sito SitesBoard" title = "Logo del sito"/></a>
 				<h1>SitesBoard</h1>
@@ -60,7 +55,7 @@ print <<EOF;
 
 			<!-- PATH -->
 			<div id="path" title="Sezione del sito in cui ti trovi in questo momento">
-				Ti trovi in: <span class="notable"><span xml:lang="en" lang="en">Login</span></span>
+				Ti trovi in: <span class="notable">Recupero <span xml:lang="en" lang="en">Password</span> Utente</span>
 			</div>
 
 			<div id="nav_panel">
@@ -82,46 +77,85 @@ print <<EOF;
 					</ul>
 				</div>
 
-			</div>
-			<!-- CONTENUTI DELLA PAGINA -->
-			<div id="contents">
-				<h3><span xml:lang="en" lang="en">Login</span></h3>
 
-				<!-- Div contenuto del Login -->
-				<div id="cont_login" title="Form da compilare per effettuare il Login">
-					<p>Se non disponi di un <span xml:lang="en" lang="en">username</span> e di una <span xml:lang="en" lang="en">password</span> allora prima di effettuare il <span xml:lang="en" lang="en">login</span> devi <a href="registration.cgi" hreflang="it">registrarti</a>.</p>
-					<p class="underline">Se hai dimenticato la <span xml:lang="en" lang="en">password</span> allora prima di effettuare il <span xml:lang="en" lang="en">login</span> devi <a href="pass_recovery.cgi" hreflang="it">recuperarla</a>.</p>
-					<!-- Messaggio di errore  -->
+				<!-- MENÙ DI LOGIN-->
+				<div id="nav_login" class="menu" title="Menù di Login del sito">
+					<h3><span xml:lang="en" lang="en">Login</span></h3>
+					<!-- Messaggio di errore -->
 					<p id="log_msg" class="msgError" title="Messaggio di errore compilazione form login">
-EOF
-if(defined($msgParam))
-{
-	print $msgParam;
-}
-print <<EOF;
 					</p>
-					<!-- Form da compilare  -->
+					<!-- Form da compilare -->
 					<form onsubmit="return loginControl()" method="post" action="checkLogin.cgi">
 						<fieldset title="Campi da compilare per effettuare il Login">
-							<legend>Campi da compilare per effettuare il Login</legend>
+							<legend>Effettua il Login</legend>
 							<label for="login_user">Username</label>
 							<input type="text" name="login_user" id="login_user"/><br/>
 							<label for="login_password">Password</label>
 							<input type="password" name="login_password" id="login_password"/><br/>
-							<input type="submit" name="login_submit" id="login_submit" value="Accedi al sito" />
-							<input type="reset" name="login_reset" id="login_reset" value="Cancella i Campi" onkeypress="return loginControl()"/>
+							<input type="submit" name="login_submit" id="login_submit" value="Accedi al sito" onkeypress="return loginControl()"/>
+						</fieldset>
+					</form>
+					<div>
+						<a class ="minimal" href="registration.cgi" hreflang="it" >Non ti sei ancora registrato?</a>
+					</div>
+
+				</div>
+
+			</div>
+
+
+
+
+			<!-- CONTENUTI DELLA PAGINA -->
+			<div id="contents">
+				<h3>Recupero <span xml:lang="en" lang="en">Password</span> Utente</h3>
+
+				<!-- Div contenuto della registrazione -->
+				<div id="cont_pass_recovery" title="Form da compilare per il recupero della password">
+					<p>Inserire i dati relativi al proprio profilo e la nuova password.</p>
+					<p class="underline">Se i dati sono corretti verrà reimpostata automaticamente la password.</p>
+					<!-- Messaggio di errore -->
+					<p id="cont_msg" class="msgError" title="Messaggio di errore compilazione form di recupero password">
+					</p>
+					<form onsubmit="return recoveryControl()" method="post" action="recoveryUser.cgi">
+						<fieldset title="Dati dell'Utente Obbligatori">
+							<legend>Dati dell'Utente:</legend>
+							<label for="recover_name">Nome</label>
+							<input type="text" name="recover_name" id="recover_name" tabindex="1" />
+							<label for="recover_surname">Cognome</label>
+							<input type="text" name="recover_surname" id="recover_surname" tabindex="2" />
+							<label for="recover_year">Anno di Nascita</label>
+							<input type="text" name="recover_year" id="recover_year" tabindex="3"/>
+							<label for="recover_month">Mese di Nascita</label>
+							<input type="text" name="recover_month" id="recover_month" tabindex="4"/>
+							<label for="recover_day">Giorno di Nascita</label>
+							<input type="text" name="recover_day" id="recover_day" tabindex="5"/>
+						</fieldset>
+						<fieldset title="Dati Riguardanti il Sito Obbligatori">
+							<legend>Dati Riguardanti il Sito:</legend>
+							<label for="recover_username" xml:lang="en" lang="en">Username</label>
+							<input type="text" name="recover_username" id="recover_username" tabindex="6" />
+							<label for="recover_email" xml:lang="en" lang="en">Email</label>
+							<input type="text" name="recover_email" id="recover_email" maxlength="32" tabindex="7" />
+							<label for="recover_pass">Nuova <span xml:lang="en" lang="en">password</span></label>
+							<input type="password" name="recover_pass" id="recover_pass" maxlength="16" tabindex="8" />
+							<label for="recover_re_pass">Ripeti la nuova<span xml:lang="en" lang="en">Password</span></label>
+							<input type="password" name="recover_re_pass" id="recover_re_pass" maxlength="16" tabindex="9" />
+							<input class="buttons" type="submit" name="recover_submit" id="recover_submit" value="Recupera" tabindex="10"  title="Procedi con la reimpostazione della password"/>
+							<input class="buttons" type="reset" name="recover_reset" id="recover_reset" value="Cancella i Campi" tabindex="11" title="Resetta i valori dei campi" onkeypress="return recoveryControl()"/>
 						</fieldset>
 					</form>
 				</div>
 			</div>
 
-			<!-- Div necessario per spostare il footer in fondo alla pagina  -->
+			<!-- Div necessario per spostare il footer in fondo alla pagina -->
 			<div id="push_block">
 			</div>
 		</div>
 
 
 
+		
 		<!-- FOOTER -->
 		<div id="footer">
 			<span title="Pagina validata con lo standard XHTML 1.0 Strict">

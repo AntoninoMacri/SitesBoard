@@ -143,7 +143,7 @@ print <<PEZZO;
 					</form>
 					<div>
 						<a class ="minimal" href="registration.cgi" hreflang="it" >Non ti sei ancora registrato?</a>
-						<a class ="minimal" href="../html/pass_recovery.html" hreflang="it" >Non trovi più la <span xml:lang="en" lang="en">password?</span></a>
+						<a class ="minimal" href="pass_recovery.cgi" hreflang="it" >Non trovi più la <span xml:lang="en" lang="en">password?</span></a>
 					</div>
 				</div>
 PEZZO
