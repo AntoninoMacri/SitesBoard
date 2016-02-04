@@ -504,6 +504,12 @@ fieldset{
 			text-align: center;
 		}
 
+		#cont_insertion #BI_description{
+			display: block;
+		}
+
+
+
 /*--------------addInsertion.cgi-------------------*/
 #cont_add{
 	height: auto;
