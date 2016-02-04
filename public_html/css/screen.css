@@ -118,18 +118,18 @@ fieldset{
 	border-width: 0px 0px 1px 0px;
 }
 
-	#block_insertions .block_insertion{
+	.block_insertion{
 		padding: 0px;
 		margin: 0px;
 	}
 
-	#block_insertions .block_insertion dt{
+	.block_insertion dt{
 		display: inline-block;
 		width: 12%;
 		height: 1.1em;
 	}
 
-	#block_insertions .block_insertion dd{
+	.block_insertion dd{
 		padding: 0.8em 0em 0.8em 0em;
 		display: inline-block;
 		width: 80%;
@@ -510,7 +510,7 @@ fieldset{
 
 
 /*--------------insertion.cgi-------------------*/
-#contents h3.resizable{
+#contents h3 .resizable{
 	font-size: 0.8em;
 	text-align: justify;
 	padding: 10px 0px 10px 0px;
@@ -589,8 +589,7 @@ fieldset{
 	#remove_profile{
 		text-align: center;
 		width: 50%;
-		margin: auto;
-		margin-top: 100px;
+		margin: 40px auto 20px auto;
 	}
 
 		#remove_profile .buttons{

@@ -44,6 +44,7 @@
 				<!--Annunci-->
 				<ul id="block_insertions">
 				<xsl:for-each select="bacheca/persona/listaAnnunci/annuncio">
+					<xsl:sort select="data" order="descending"/>
 						<li>
 							<dl class='block_insertion'>
 								<dt>Titolo: </dt>
@@ -56,6 +57,8 @@
 								<dd><xsl:value-of select="../../user/text()"/></dd>
 								<dt>Data: </dt>
 								<dd><xsl:value-of select="data/text()"/></dd>
+								<dt>Descrizione: </dt>
+								<dd class="BI_description"><xsl:value-of select="descrizione/text()"/></dd>
 							</dl>
 						</li>
 				</xsl:for-each>

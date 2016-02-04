@@ -131,13 +131,12 @@ print <<PEZZO;
 					<!-- Form da compilare -->
 					<form onsubmit="return loginControl()" method="post" action="checkLogin.cgi">
 						<fieldset title="Campi da compilare per effettuare il Login">
-							<legend>Effettua il Login</legend>
-							<label for="login_user">Username</label>
+							<legend>Effettua il <span  xml:lang="en" lang="en">Login</span></legend>
+							<label for="login_user" xml:lang="en" lang="en">Username</label>
 							<input type="text" name="login_user" id="login_user"/><br/>
-							<label for="login_password">Password</label>
+							<label for="login_password" xml:lang="en" lang="en">Password</label>
 							<input type="password" name="login_password" id="login_password"/><br/>
-
-							<input type="submit" name="login_submit" id="login_submit" value="Accedi al sito" onkeypress="return loginControl()" />
+							<input type="submit" name="login_submit" id="login_submit" value="Accedi al sito" onkeypress="return loginControl()"/>
 						</fieldset>
 					</form>
 					<div>
