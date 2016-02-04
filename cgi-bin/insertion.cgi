@@ -110,65 +110,59 @@ print <<EOF;
 				Ti trovi in: <span class="notable" xml:lang="en" lang="it">Visualizza annuncio</span>
 			</div>
 			<div id="nav_panel">
-				<!-- MENÙ DI NAVIGAZIONE --> 
+				<!-- MENÙ DI NAVIGAZIONE -->
 				<div id="nav_menu" class="menu" title ="Menù di navigazione del sito">
 					<h3>Menù</h3>
-					<a href="home.cgi" xml:lang="en" lang="en" hreflang="it" >Home</a>
-
-					<p>Tipologia Siti:</p>
 					<ul>
-						<li><a href="eCommerce.cgi" hreflang="it" ><span xml:lang="en" lang="en">E-commerce</span></a></li>
-						<li><a href="forum.cgi" hreflang="it" ><span xml:lang="en" lang="en">Forum</span></a></li>
-						<li><a href="social.cgi" hreflang="it" ><span xml:lang="en" lang="en">Social</span></a></li>
-						<li><a href="personali.cgi" hreflang="it" >Personali</a></li>
-						<li><a href="aziendali.cgi" hreflang="it" >Aziendali</a></li>
-						<li><a href="blog.cgi" hreflang="it" ><span xml:lang="en" lang="en">Blog</span></a></li>
+						<li><span xml:lang="en" lang="en"><a href="home.cgi" hreflang="it" >Home Page</a></span></li>
+						<li><a href="eCommerce.cgi" hreflang="it" ><span xml:lang="en" lang="en">Tipologia E-commerce</span></a></li>
+						<li><a href="forum.cgi" hreflang="it" ><span xml:lang="en" lang="en">Tipologia Forum</span></a></li>
+						<li><a href="social.cgi" hreflang="it" ><span xml:lang="en" lang="en">Tipologia Social</span></a></li>
+						<li><a href="personali.cgi" hreflang="it" >Tipologia Personali</a></li>
+						<li><a href="aziendali.cgi" hreflang="it" >Tipologia Aziendali</a></li>
+						<li><a href="blog.cgi" hreflang="it" ><span xml:lang="en" lang="en">Tipologia Blog</span></a></li>
 					</ul>
-					
 				</div>
 EOF
 if($session == undef){
 	print <<PEZZO;
-					<!-- MENÙ DI LOGIN-->
-					<!-- Da caricare solo se l utente non è loggato-->
-					<div id="nav_login" class="menu" title="Menù di Login del sito">
-						<h3><span xml:lang="en" lang="en">Login</span></h3>
-						<!-- Messaggio di errore -->
-						<p id="cont_error" title="Messaggio di errore compilazione form login">
-						</p>
-						<!-- Form da compilare -->
-						<form onsubmit="return loginControl()" method="post" action="checkLogin.cgi">
-							<fieldset title="Campi da compilare per effettuare il Login">
-								<legend>Campi da compilare per effettuare il Login</legend>
-								<label for="login_user">Username</label>
-								<input type="text" name="login_user" id="login_user"/><br/>
-								<label for="login_password">Password</label>
-								<input type="password" name="login_password" id="login_password"/><br/>
-							</fieldset>
-							<fieldset title="Procedi su Login per effetturare l'accesso">
-								<legend>Operazione di Login</legend>
-								<input type="submit" name="login_submit" id="login_submit" value="Accedi al sito" onkeypress="return loginControl()" />
-							</fieldset>
-						</form>
+				<!-- MENÙ DI LOGIN-->
+				<div id="nav_login" class="menu" title="Menù di Login del sito">
+					<h3><span xml:lang="en" lang="en">Login</span></h3>
+					<!-- Messaggio di errore -->
+					<p id="log_msg" class="msgError" title="Messaggio di errore compilazione form login">
+					</p>
+					<!-- Form da compilare -->
+					<form onsubmit="return loginControl()" method="post" action="checkLogin.cgi">
+						<fieldset title="Campi da compilare per effettuare il Login">
+							<legend>Caompilare per effettuare il Login</legend>
+							<label for="login_user">Username</label>
+							<input type="text" name="login_user" id="login_user"/><br/>
+							<label for="login_password">Password</label>
+							<input type="password" name="login_password" id="login_password"/><br/>
+
+							<input type="submit" name="login_submit" id="login_submit" value="Accedi al sito" onkeypress="return loginControl()" />
+						</fieldset>
+					</form>
+					<div>
 						<a class ="minimal" href="registration.cgi" hreflang="it" >Non ti sei ancora registrato?</a>
-						<a class = "minimal" href="../html/pass_recovery.html" hreflang="it" >Non trovi più la <span xml:lang="en" lang="en">password?</span></a>
+						<a class ="minimal" href="../html/pass_recovery.html" hreflang="it" >Non trovi più la <span xml:lang="en" lang="en">password?</span></a>
 					</div>
+				</div>
 PEZZO
 }
 else
 {
 	print <<PEZZO;
-					<!-- MENÙ DI AMMINISTRAZIONE-->
-					<!-- Da caricare se l utente è loggato-->
-					<div id="nav_administration" class="menu" title="Menù di amministrazione del sito">
-						<h3>Amministrazione</h3>
-						<p>Annunci:</p>
-						<ul>
-							<li><a href="addInsertions.cgi" hreflang="it" type="application/xhtml+xml">Nuovo</a></li>
-							<li><a href="showInsertions.cgi" hreflang="it" type="application/xhtml+xml">Inseriti</a></li>
-							<li><a href="acceptedInsertions.cgi" hreflang="it" type="application/xhtml+xml">Accettati</a></li>
-						</ul>
-					</div>
+				<!-- MENÙ DI AMMINISTRAZIONE-->
+				<div id="nav_administration" class="menu" title="Menù di amministrazione del sito">
+					<h3>Amministrazione</h3>
+					<ul>
+						<li><a href="addInsertions.cgi" hreflang="it" type="application/xhtml+xml">Nuova Inserzione</a></li>
+						<li><a href="showInsertions.cgi" hreflang="it" type="application/xhtml+xml">Inserzioni Inserite</a></li>
+						<li><a href="acceptedInsertions.cgi" hreflang="it" type="application/xhtml+xml">Inserzioni Accettate</a></li>
+					</ul>
+				</div>
 PEZZO
 }
 print <<EOF;
@@ -177,21 +171,8 @@ print <<EOF;
 
 			<!-- Contenuti della pagina -->
 			<div id="contents">
+				<h3>Inserzione</h3>
 				<div id="cont_insertion">
-					<span id="ins_author">da: <a href="profile.cgi" hreflang="it" type="application/xhtml+xml">$autore</a> </span> 
-					<span id="ins_date">in data: $data</span>
-					<p id="underline">
-						<span class="insInfo">Tipologia:</span> $tipologia
-					</p>
-					<p id="title">
-						<span>Titolo:</span> $titolo
-					</p>
-					<p class="underline">
-						<span>Oggetto:</span> $oggetto
-					</p>
-					<p class="underline">
-						<span>Descrizione:</span> </br> $descrizione
-					</p>
 					<p id="cont_error">
 EOF
 if(defined($msgErrorParam))
@@ -200,7 +181,24 @@ if(defined($msgErrorParam))
 }
 
 					print "</p>";
+print <<EOF;
 
+				<dl class='block_insertion'>
+					<dt>Titolo:</dt>
+					<dd><a href='insertion.cgi?idUser=$id_persona&amp;idInsertion=$id_annuncio'>$titolo</a></dd>
+					<dt>Tipologia:</dt>
+					<dd>$tipologia</dd>
+					<dt>Oggetto:</dt>
+					<dd>$oggetto</dd>
+					<dt>Autore:</dt>
+					<dd><a href='userProfile.cgi?user=$autore'>$autore</a></dd>
+					<dt>Data:</dt>
+					<dd>$data</dd>
+					<dt>Descrizione:</dt>
+					<dd>$descrizione</dd>
+				</dl>
+
+EOF
 #controllo se l'utente è loggato
 if(defined($session))
 {
@@ -263,17 +261,17 @@ print <<EOF;
 		<!-- FOOTER -->
 		<div id="footer">
 			<span title="Pagina validata con lo standard XHTML 1.0 Strict">
-			    <a href="http://validator.w3.org/check?uri=referer" hreflang="en" type="application/xhtml+xml"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
+			    <a href="http://validator.w3.org/check?uri=referer" hreflang="en" type="application/xhtml+xml">
+			    	<img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
 			</span>
 			<span title="CSS della pagina validato secondo lo standard">
 				<!--hrflang varia a seconda dello stato -->
-			    <a href="http://jigsaw.w3.org/css-validator/check/referer" type="application/xhtml+xml"> 
-			        <img id="footer_CSS_Validator" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valido!" />
-			    </a>
+			    <a href="http://jigsaw.w3.org/css-validator/check/referer" type="application/xhtml+xml">
+					<img src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valido!" /></a>
 			</span>
 			<span title="Accessibile secondo lo standard WCAG2 Livello AAA">
-			    <a href="http://www.w3.org/WAI/intro/wcag" type="application/xhtml+xml" hreflang="en-US"> 
-			        <img src="https://www.totalvalidator.com/images/valid_n_wcag2_aaa.gif" alt="Pagina accessibile" />
+			    <a href="http://www.w3.org/WAI/intro/wcag" type="application/xhtml+xml" hreflang="en-US">
+			    	<img src="https://www.totalvalidator.com/images/valid_n_wcag2_aaa.gif" alt="Pagina accessibile" />
 			    </a>
 			</span>
 		</div>

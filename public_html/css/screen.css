@@ -118,24 +118,24 @@ fieldset{
 	border-width: 0px 0px 1px 0px;
 }
 
-	#block_insertions .block_insertion{
+	.block_insertion{
 		padding: 0px;
 		margin: 0px;
 	}
 
-	#block_insertions .block_insertion dt{
+	.block_insertion dt{
 		display: inline-block;
 		width: 7%;
 		height: 1.1em;
 	}
 
-	#block_insertions .block_insertion dd{
+	.block_insertion dd{
 		padding: 0.8em 0em 0.8em 0em;
 		display: inline-block;
 		width: 85%;
 	}
 
-	#block_insertions .block_insertion .BI_accepted li{
+	.block_insertion .BI_accepted li{
 		display: inline-block;
 		border-width: 0px;
 		margin: 5px 10px 5px 10px;
