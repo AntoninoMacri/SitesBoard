@@ -172,7 +172,7 @@ print <<FINE;
 			<div id="contents">
 				<h3><span xml:lang="en" lang="en">Forum</span></h3>
 				<div id="cont_forum">
-				<p class="underline">Ecco gli annunci disponibili per la tipologia <span xml:lang="en" lang="en">Forum</span>.
+				<p class="underline">Ecco gli annunci disponibili per la tipologia <span xml:lang="en" lang="en">Forum</span>.</p>
 				<ul id="block_insertions">
 				
 FINE
