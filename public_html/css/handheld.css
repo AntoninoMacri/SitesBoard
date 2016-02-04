@@ -341,7 +341,6 @@ fieldset{
 /*---------------------------------------------------
 -----------------CONTENUTO AGGIUNTIVO----------------
 -----------------------------------------------------*/
-/*-------------- login.html-------------------*/
 #cont_login {
 }
 
@@ -372,11 +371,6 @@ fieldset{
 /*-------------- registration.html-------------------*/
 #cont_registration {
 }
-
-	#cont_registration p{
-		color: #FF0000;
-		text-align: center;
-	}
 	
 	#cont_registration form fieldset{
 		margin: auto;
@@ -411,11 +405,6 @@ fieldset{
 /*-------------- pass_recovery.html-------------------*/
 #cont_pass_recovery {
 }
-
-	#cont_pass_recovery p{
-		color: #FF0000;
-		text-align: center;
-	}
 	
 	#cont_pass_recovery form fieldset{
 		margin: auto;
@@ -440,3 +429,120 @@ fieldset{
 				float: right;
 				margin: 20px 0px 10px 20px;
 			}
+
+
+/*--------------insertion.cgi-------------------*/
+#contents h3.resizable{
+	font-size: 0.8em;
+	text-align: justify;
+	padding: 10px 0px 10px 0px;
+}
+
+	#contents #ins_date{
+		float: right;					
+	}
+
+		#cont_insertion fieldset{
+			margin: 40px auto 20px auto;
+			text-align: center;
+		}
+
+/*--------------addInsertion.cgi-------------------*/
+#cont_add{
+	height: auto;
+}
+
+	#cont_add form{
+		margin: 20px auto 20px auto;
+	}
+
+		#cont_add fieldset label{
+			display: block;
+			margin-top: 0.4em;
+			margin-bottom: 0.2em;
+		}
+
+
+		#cont_add input{
+			width: 100%;
+		}
+
+			#cont_add  #addDescrizione{
+				width:100%;
+				min-width: 100% ;
+				min-height: 250px;
+				max-width: 100%;
+				max-height: 500px;
+				margin:10px 0px 0px 0px;
+			}
+
+			#cont_add #addTipologia{
+				width: 50%;
+			}
+
+			#cont_add form #submit_new, 
+			#cont_add form #reset_new{
+				width: 150px;
+				height: 25px;
+				float: right;
+				margin: 20px 0px 10px 20px;
+			}
+
+/*--------------profile.cgi && confirmRemoveProfile.cgi -------------------*/
+
+#cont_profile{
+	height: auto;
+}
+	#remove_profile{
+		text-align: center;
+		margin: auto;
+		margin-top: 100px;
+	}
+
+		#remove_profile .buttons{
+			color: #FF0000;
+		}
+
+
+
+/*--------------profile_change.cgi-------------------*/
+
+#cont_profile_change form{
+		margin: 20px auto 20px auto;
+	}
+
+		#cont_profile_change fieldset label{
+			display: block;
+			margin-top: 0.4em;
+			margin-bottom: 0.2em;
+		}
+
+
+		#cont_profile_change input{
+			width: 100%;
+		}
+
+			#cont_profile_change  #bio{
+				width:100%;
+				min-width: 100% ;
+				min-height: 250px;
+				max-width: 100%;
+				max-height: 500px;
+				margin:10px 0px 0px 0px;
+			}
+
+			#cont_profile_change form  fieldset .buttons{
+				width: 150px;
+				height: 25px;
+				float: right;
+				margin: 20px 0px 10px 20px;
+			}
+
+			#cont_profile_change #year,
+			#cont_profile_change #month,
+			#cont_profile_change #day{
+				width: 20%
+			}
+
+
+
