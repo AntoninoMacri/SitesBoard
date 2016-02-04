@@ -132,13 +132,13 @@ print <<EOF;
 					</p>
 					<!-- Messaggio di errore  -->
 					<p id="cont_msg" class="msgError" title="Messaggio di errore">
-					<ul id="block_insertions">
 EOF
 if(defined($msgParam))
 {
 	print $msgParam;
 }
 					print "</p>";
+					print '<ul id="block_insertions">';
 					for (my $i=0; $i <scalar(@annunciAccettati); $i++) {
 						$titolo=$annunciAccettati[$i][0];
 						$oggetto=$annunciAccettati[$i][1];

@@ -131,7 +131,7 @@ print <<EOF;
 	  					<dd><a href="mailto:$email">$email</a></dd>
 	  					<dt>Biografia:</dt>
 	  					<dd id="BP_bio">$biografia</dd>
-	  				</ul>
+	  				</dl>
 				</div>
 			</div>
 

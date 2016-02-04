@@ -164,16 +164,30 @@ EOF
 										<dd>$data</dd>";
 
 								my @disp = getDisponibili($autore, $id_annuncio);
-								print '<p>Disponibili:</p>
-									   <ul class="BI_accepted">';
-								for (my $i=0; $i <scalar(@disp); $i++) {
-									my $userDisp=$disp[$i];
-									print "<li><a href='userProfile.cgi?user=$userDisp' hreflang='it' >$userDisp</a></li>"
+
+								if(scalar(@disp)>0)
+								{
+									print '<dt>Disponibili:</dt>
+										   <dd><ul class="BI_accepted">';
+									for (my $i=0; $i <scalar(@disp); $i++) {
+										my $userDisp=$disp[$i];
+										print "<li><a href='userProfile.cgi?user=$userDisp' hreflang='it' >$userDisp</a></li>"
+									}
+
+							print '			</ul></dd>
+										</dl>
+									</li>';
+
+								}
+								else
+								{
+									print '<dt>Disponibili:</dt>
+										   <dd>Nessuno</dd>
+										</dl>
+									</li>';
 								}
 
-						print '			</ul>
-									</dl>
-								</li>';
+
 
 				}
 

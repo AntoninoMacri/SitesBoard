@@ -59,7 +59,7 @@ print <<EOF;
 
 	</head>
 	<body>
-		<a class="screen_reader" href="#contents" hreflang="it" type="text/html">Se desideri saltare al contenuto segui questo collegamento</a>
+		<div class="screen_reader"><a href="#contents" hreflang="it" type="text/html">Se desideri saltare al contenuto segui questo collegamento</a></div>
 		<div id="container">
 			<!-- HEADER  -->
 			<div id="header">
@@ -145,7 +145,7 @@ print <<EOF;
 	  					<dd><a href="mailto:$email">$email</a></dd>
 	  					<dt>Biografia:</dt>
 	  					<dd id="BP_bio">$bio</dd>
-	  				</ul>
+	  				</dl>
 	  					
 
 					<form id="remove_profile" method="post" action="confirmRemoveProfile.cgi">
