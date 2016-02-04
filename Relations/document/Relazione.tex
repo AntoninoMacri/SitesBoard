@@ -2,9 +2,12 @@
 
 
 \usepackage[english,italian]{babel} %lingue utilizzabili
-\usepackage{graphicx}
-\usepackage{fancyhdr}
 
+%grafica
+\usepackage{graphicx}
+\usepackage{fancyhdr} %font
+\usepackage{subfig}
+\usepackage{float}
 
 \usepackage[utf8]{inputenc} %codifica e input
 
@@ -155,7 +158,6 @@ Il nostro sito si rivolge ad un’utenza formata sia da utenti abbastanza abili 
 			\item \textbf{pass\textunderscore recovery.html}: È la pagina che contiene la form per il recupero della password utente eventualmente dimenticata.\\
 			\item \textbf{insertion.cgi}: È la pagina che permette di visualizzare i dati delle inserzioni.
 		\end{itemize}
-		
 		Le pagine aggiuntive alle quali hanno accesso solamente gli utenti che hanno effettuato il login sono 6:
 		
 		\begin{itemize}
@@ -202,11 +204,24 @@ Il nostro sito si rivolge ad un’utenza formata sia da utenti abbastanza abili 
 	
 	
 	\begin{figure}
-	\includegraphics[angle=0,scale=.7]{layout1.png}
-	\includegraphics[angle=0,scale=.7]{layout2.png}
-	\hspace{1.5in}
-	%\caption{layout}
+ 		\begin{minipage}[b]{8.5cm}
+  		 \centering
+   		\includegraphics[angle=0,scale=.7]{img/layout1.png}
+   		\caption{Visualizzazione Desktop}
+ 		\end{minipage}
+ 	\ \hspace{2mm} \hspace{3mm} \
+		 \begin{minipage}[b]{8.5cm}
+  		\centering
+   		\includegraphics[angle=0,scale=.7]{img/layout2.png}
+   		\caption{Visualizzazione Mobile}
+ 		\end{minipage}
 	\end{figure}
+	
+	\subsection{CSS}
+	
+	Il footer è fissato sempre in fondo alla pagina tramite una tecnica che sfrutta solo CSS.\\
+	Tende ad essere retrocompatibile e funziona anche su Internet Explorer 6.	
+
 	
 	\subsection{Javascript}
 	
@@ -216,30 +231,115 @@ Il nostro sito si rivolge ad un’utenza formata sia da utenti abbastanza abili 
 	
 	\subsection{Perl}
 	
+	Gran parte delle pagine del nostro sito sono state realizzate con PERL per sfruttare la possibilità di effettuare sempre i controlli sull’identità dell’utente.
+	
+	Il tempo di permanenza di un utente su una singola pagina è limitato a 60 minuti. Se l’utente non cambia pagina entro quel limite di tempo, la sessione scade e gli viene chiesto di nuovo di effettuare il log-in. \\	
+	Le pagine PERL che vengono utilizzate solo come pagine di transizione per effettuare controlli o dialogare col database sono le seguenti:	
+	“addAcception.cgi”, “addUser.cgi", “changeUserData.cgi", “checkLogin.cgi", "insertInsertions.cgi'', “logout.cgi", “recoveryUser.cgi", ''removeAcception.cgi", “removeInsertion.cgi", “removeProfile.cgi".
+	
+Le pagine di scrittura dati nel database, “addAcception.cgi” e “addUser.cgi”, “changeUserData.cgi" e “insertInsertion.cgi", prima di tutto effettuano i controlli di routine per verificare se l’utente che effettua l’operazione è presente nel database. Una volta superati i controlli si verifica se anche l’annuncio sul quale si vuole operare sia disponibile e poi, sempre grazie ai percorsi xPath e a funzioni apposite (come “findnodes( )” e “appendChild( )" ), si va ad effettuare la modifica del file “database.xml”.
+
+Per garantire la solidità del database, nel file “addUser.cgi” si va anche ad effettuare una ricerca dell'attributo “persona/id” di tutti gli utenti già presenti nel database. Una volta trovati tutti si ricerca quello con valore più alto e si garantisce che il nuovo utente abbia il più piccolo valore intero che supera il valore appena trovato.
+
+Le pagine di rimozione dati nel database, “removeAcception.cgi”, “removeInsertion.cgi” e “removeProfile.cgi”, sono duali a quelle di inserimento dati, tranne per il fatto che sfruttano la funzione removeChild( ).
+
+La pagina “recoveryUser.cgi”, usata per recuperare la password dell’utente, effettua dei controlli sul database di:
+Nome, Cognome, Data di Nascita, Username, E-mail.\\
+Se l’utente inserisce correttamente tutti i dati ed imposta una nuova password, questa viene sovrascritta alla precedente nel database. La modalità di recupero password così implementata impedisce ogni tentativo di impossessarsi di un account altrui, poiché i dati di ogni utente visibili da tutti gli altri all’interno del sito sono solo: Username e E-mail ( è disponibile anche il campo Biografia, che non viene richiesto nella procedura del recupero password per ovvi motivi).
+
+La pagina “checkLogin.cgi” effettua i controlli sui parametri passati, ovvero verifica se Username e Password sono corretti, nel caso in cui non lo siano, l’utente viene reindirizzato alla pagina “Login.cgi”, mentre se sono corretti, è possibile accedere alla pagina del proprio profilo personale “profile.cgi”. Se un utente vuole tentare di bypassare la procedura di log-in accedendo ad una pagina tramite url, la pagina “checkLogin.cgi” lo reindirizza alla home del sito.
+
+La pagina “logout.cgi” si occupa di chiudere l’eventuale sessione tramite il metodo “destroySession( )” e reindirizza alla home.
 	
 	\subsection{XSLT}
+	
+	Abbiamo realizzato una versione più “semplice” della home del nostro sito usando XSLT. Questa pagina è stata pensata per essere utilizzata da utenti che non hanno effettuato il login. Infatti vengono visualizzati solo gli annunci presenti nel nostro database, come nel file “home.cgi", ma con alcune differenze.
+
+Per quanto riguarda gli annunci stessi vengono visualizzati: Titolo, Oggetto, Tipologia di Annuncio e la data in cui sono stati inseriti. Abbiamo evitato volontariamente di fornire all’utente non registrato (o che non ha ancora effettuato il log-in) le informazioni che riguardano l’utente che ha inserito l’annuncio, per evitare che possa usufruire delle funzionalità del nostro sito, mettendosi in contatto con lui.
+
+E’ stato realizzato il foglio di stile "screen\textunderscore xsl.css” apposito per "home.xsl", per rendere più gradevole l’aspetto della pagina. E’ stata realizzata solo la visualizzazione screen come esempio. 
+Purtroppo per ragioni logistiche di organizzazione delle cartelle e dei file, non abbiamo potuto aprire questo file dal server e così abbiamo deciso di tenerlo solo come esempio, per essere visualizzato in locale.
 
 
 \section{Accessibilità}
-[..]
-	\subsection{Struttura}
-	\begin{itemize}
-	\item Le pagine Web hanno tutte dei titoli che ne descrivono l’argomento o la finalità.
-	\item Per ogni immagine presente è stato associato l'attributo “alt” in modo da fornire un’alternativa testuale per contenuti non testuali.
-	\item Uso di attributo “xml:lang” e "lang"  come specificato nel documento \url(https://www.w3.org/TR/REC-xml/) per identificare le parole in lingua straniera, in modo che uno screen reader possa leggerle correttamente.
-	\item Uso di breadcrumb (path) per permettere all’utente di sapere sempre dove si trova nel sito.
-	\item Le form son tutte divise in fieldset contenente l'attributo "title", il tag "legend" e gli altri tag "label" collegati agli "input".
-	\end{itemize}
+Il sito è stato pensato per essere facilmente consultabile dalla maggior utenza possibile, anche se è rivolto ad un pubblico con una esperienza medio-alta nell’uso di internet.
 
+Per chi dovesse aver disabilitato, volontariamente o meno, JavaScript, sono state scritte le funzioni principali che controllano l’input dalle form con il linguaggio PERL. Le scelte effettuate per adempiere a tali propositi sono spiegate a seguire.
+
+	\subsection{Struttura}
+	
+	\begin{itemize}
+	\item Uso di attributo “alt” per ogni immagine presente in modo da fornire un’alternativa testuale per contenuti non testuali.
+	\item Si cerca di mantenere la stessa struttura in tutte le pagine ( fatta eccezione per “home.xsl” che è stata realizzata solo per esempio e per essere vista in locale ) per evitare di disorientare l’utente. 
+	\item Uso dell'attributo “xml:lang” e “lang” per identificare le parole in lingua straniera, in modo che uno screen reader possa leggerle correttamente, come specificato nel documento (\url{https://www.w3.org/TR/REC-xml/}). L’attributo non è presente solamente all’interno dei tag “title”, poiché, come da specifiche W3C, non è possibile inserire un tag “span” all’interno di un “title”.
+	\item Le pagine Web hanno titoli che ne descrivono l’argomento o la finalità.
+	\item Tutti i contenuti più importanti sono identificati dall’attributo “title” che ne specifica l'argomento.
+	\item Sono stati utilizzati tutti colori “web safe”, ovvero colori compatibili con tutti i browser, recenti o meno.
+	\item Uso di tabindex nelle form per permettere una navigazione facilitata attraverso l’uso della sola tastiera. Sono stati realizzati associando al primo field della form l’indice “1” in modo da dare priorità al contenuto della pagina, rispetto al menù laterale.
+	\item All’inizio di ogni pagina è stato dato fornito un link, permettendo così agli utenti che fanno uso di uno screen reader di saltare direttamente al contenuto della pagina, senza perdita di tempo.
+	\item Ogni form è caratterizzata da un titolo. Tutti i field delle form sono stati dotati di una label e le voci sono state raggruppate tramite fieldset.
+	\item Non sono state usate tabelle, tutte le strutture sono state realizzate tramite div e liste.
+	\item Il pulsante di elimina profilo presente nella pagina “profile.cgi" rimanda alla pagina “confirmRemoveProfile.cgi" che funziona anche senza JavaScript e richiede la conferma dell’eliminazione del profilo.
+	\item Le piccole icone in altro a destra associate al profilo, alla modifica profilo e al logout sono caricate tramite CSS e non dall'html poiché non sono informazioni aggiuntive al contenuto; inoltre velocizzano il caricamento del sito.
+	\item Le immagini presenti nel nostro sito sono state riadattate alla dimensione nella quale vengono visualizzate, per velocizzare il download delle componenti del sito.
+	\end{itemize}
+	
 	\subsection{Presentazione}
 
 	\subsection{Comportamento}
 
+	\newpage
+	
 	\subsection{Test effettuati}
 		\subsubsection{Conformità standard WCAG}
 		\subsubsection{Contrato testo e sfondo}
-		\subsubsection{Screen reader}		
+		
+		I test sono stati effettuati con Colour Contrast Analyser, reperibile a questo indirizzo: \url{http://www.paciellogroup.com/resources/contrastanalyser/}.\medskip
+		
+Affinché il contrasto possa ottenere una valutazione di tripla A secondo le norme del W3C, devo avere una soglia minima garantita di: differenza di colore:500 / differenza di luminosità:125.\\
+Le combinazioni di testo e sfondo possibili sono le seguenti:
+
+\begin{itemize}
+\item Sfondo bianco (\#FFFFFF), Testo nero (\#000000) per alcuni pulsanti: ottiene un punteggio di tripla A per quanto riguarda il testo  piccolo, che è quello che viene utilizzato sul sito. differenza di colore:765 / differenza di luminosità:255.
+\item Sfondo azzurro chiaro (\#ECF6FE), Testo nero (\#000000) utilizzato per la maggior parte del testo presente nel nostro sito: ottiene un punteggio di tripla A sia per quanto riguarda il testo grande, che quello piccolo. differenza di colore:736 / differenza di luminosità:243.
+\item Sfondo azzurro chiaro (\#ECF6FE), Testo blu (\#0000CD) utilizzato per i link a pagine non ancora visitate del nostro sito: ottiene un punteggio di tripla A per quanto riguarda il testo piccolo, che è quello che viene utilizzato sul sito. differenza di colore:531/ differenza di luminosità:220.
+\item Sfondo azzurro chiaro (\#ECF6FE), Testo viola (\#800000) utilizzato per i link a pagine già visitate del nostro sito: ottiene un punteggio di tripla A sia per quanto riguarda il testo grande, che quello piccolo. differenza di colore:608/ differenza di luminosità:205.
+\item Sfondo azzurro chiaro (\#ECF6FE), Testo rosso (\#FF0000) utilizzato per visualizzare i messaggi d'errore del nostro sito: ottiene un punteggio di tripla A per quanto riguarda il testo piccolo, che è quello che viene utilizzato sul sito. differenza di colore:519/ differenza di luminosità:167.
+\item Sfondo azzurro chiaro (\#ECF6FE), Testo verde (\#228B22) utilizzato per visualizzare i messaggi di successo del nostro sito: ottiene un punteggio di tripla A per quanto riguarda il testo piccolo, che è quello che viene utilizzato sul sito. differenza di colore:529/ differenza di luminosità:148.
+\end{itemize}
+		
+		\subsubsection{Screen reader}
+		
+		Sono stati effettuati dei test con lo screen-reader “NVDA” su sistema operativo Windows 7 per verificare che SitesBoard fosse accessibile anche all’utenza con disabilità visiva. 
+		
 		\subsubsection{Disturbi visivi}
+		
+		Sono state effettuate simulazioni per quanto riguarda la visione del sito da parte di persone affette da disturbi visivi quali Protanopia, Deuteranopia, Tritanopia. Si allegano le immagini che dimostrano come il sito sia accessibile anche per queste categorie di persone.
+	\vspace{2cm}
+	
+	\begin{figure}[H]
+	\centering
+    		\subfloat[Protanopia\label{Protanopia}]{%
+     		 \includegraphics[scale=0.3]{img/userProfileProtanope_SitesBoard.jpg}
+   		 }
+	\end{figure}
+   	
+	\newpage
+	
+	\begin{figure}[H]
+	\centering
+    		\subfloat[Deuteranopia\label{Deuteranopia}]{%
+     		 \includegraphics[scale=0.3]{img/userProfileDeuteranope_SitesBoard.jpg}
+   		 }
+   		 \vfill
+    		\subfloat[Tritanopia\label{Tritanopia}]{%
+      		\includegraphics[scale=0.3]{img/userProfileTritanope_SitesBoard.jpg}
+   		 }
+	\end{figure}
+		
+  	
+		
+		
 		
 \section{Usabilità}
 Particolare attenzione è stata posta all’usabilità del sito e si è cercato dunque di rispettare il più possibile le sue raccomandazioni:
