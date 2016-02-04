@@ -459,7 +459,9 @@ html, body {
 
 
 /*--------------insertion.cgi-------------------*/
-
+#cont_insertion{
+	margin-top: 20px;
+}
 
 #contents h3.resizable{
 	font-size: 0.8em;
