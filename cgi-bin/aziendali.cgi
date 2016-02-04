@@ -216,11 +216,11 @@ print <<FINE;
 					</ul>
 FINE
 if($index_precedente>=0 && $index ne 0){
-	print "<a href='aziendali.cgi?index=$index_precedente' id='BI_PN' hreflang='it' type='application/xhtml+xml'>Precedente</a>";
+	print "<a href='aziendali.cgi?index=$index_precedente' class='BI_PN' hreflang='it' type='application/xhtml+xml'>Precedente</a>";
 }
 
 if($index_successivo<$size){
-	print "<a href='aziendali.cgi?index=$index_successivo' id='BI_PN' hreflang='it' type='application/xhtml+xml'>Successiva</a>";
+	print "<a href='aziendali.cgi?index=$index_successivo' class='BI_PN' hreflang='it' type='application/xhtml+xml'>Successiva</a>";
 }
 
 print <<FINE;
