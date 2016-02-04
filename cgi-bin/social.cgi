@@ -83,7 +83,7 @@ print <<PEZZO2;
 			</span>
 					</div>
 					<div>
-						<div class="edit"><a href="profileChange.cgi" hreflang="it" type="text/html">Modifica Profilo<div id="img_EP"></div></a></div>
+						<div class="edit"><a href="profile.cgi" hreflang="it" type="text/html">Il tuo profilo<div id="img_P"></div></a></div>						<div class="edit"><a href="logout.cgi" hreflang="it" type="text/html">Esci<div id="img_EL"></div></a></div>
 						<div class="edit"><a href="logout.cgi" hreflang="it" type="text/html">Esci<div id="img_EL"></div></a></div>
 					</div>
 				</div>
