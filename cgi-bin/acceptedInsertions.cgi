@@ -21,7 +21,21 @@ my $userName=getUsername($session);
 
 utf8::encode($userName);
 
-@annunciAccettati=getAcceptedAd($userName);
+
+my $cgi = new CGI;
+my $index = $cgi->param('index');
+if(!defined($index)) { $index=0; }
+
+my $nElementi=5;
+my @board=getAcceptedAd($userName);
+my $size=scalar @board;
+my @annunciAccettati=getBoardSplit($index,$nElementi,\@board);
+
+$index_successivo=$index+$nElementi;
+$index_precedente=$index-$nElementi;
+
+if($index_precedente<0){ $index_precedente=0; }
+
 
 
 print "Content-type: text/html\n\n";
@@ -160,14 +174,30 @@ if(defined($msgParam))
 									</dl>
 								</li>";
 				}
-print <<EOF;
+print <<FINE;
 					</ul>
+FINE
+if($index_precedente>=0 && $index ne 0){
+	print "<a href='acceptedInsertions.cgi?index=$index_precedente' hreflang='it' type='application/xhtml+xml'>Precedente</a>";
+}
+
+if($index_successivo<$size){
+	print "<a href='acceptedInsertions.cgi?index=$index_successivo' hreflang='it' type='application/xhtml+xml'>Successiva</a>";
+}
+
+print <<FINE;
 				</div>
+
+
 			</div>
+
 			<!-- Div necessario per spostare il footer in fondo alla pagina -->
 			<div id="push_block">
 			</div>
 		</div>
+
+
+
 
 		<!-- FOOTER -->
 		<div id="footer">
@@ -188,5 +218,6 @@ print <<EOF;
 		</div>
 	</body>
 </html>
-EOF
+	
+FINE
 exit;
