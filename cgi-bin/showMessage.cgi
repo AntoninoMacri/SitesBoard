@@ -70,8 +70,8 @@ print <<PEZZO2;
 			</span>
 					</div>
 					<div>
-						<div class="edit"><a href="profile.cgi" hreflang="it" type="text/html">Il tuo profilo<div id="img_P"></div></a></div>
-						<div class="edit"><a href="logout.cgi" hreflang="it" type="text/html">Esci<div id="img_EL"></div></a></div>
+						<div class="edit" ><a href="profile.cgi"  id="img_P" hreflang="it" type="text/html">Il tuo profilo</a></div>
+						<div class="edit" ><a href="logout.cgi" id="img_EL" hreflang="it" type="text/html">Esci</a></div>
 					</div>
 				</div>
 			

@@ -73,8 +73,8 @@ print <<EOF;
 						Benvenuto <span class="notable">$username</span>
 					</div>
 					<div>
-						<div class="edit"><a href="profileChange.cgi" hreflang="it" type="text/html">Modifica Profilo<div id="img_EP"></div></a></div>
-						<div class="edit"><a href="logout.cgi" hreflang="it" type="text/html">Esci<div id="img_EL"></div></a></div>
+						<div class="edit" ><a href="profileChange.cgi"  id="img_P" hreflang="it" type="text/html">Modifica Profilo</a></div>
+						<div class="edit" ><a href="logout.cgi" id="img_EL" hreflang="it" type="text/html">Esci</a></div>
 					</div>
 				</div>
 			</div>

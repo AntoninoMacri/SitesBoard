@@ -215,25 +215,37 @@ fieldset{
 
 		#header_login .edit{
 			display: inline-block;
-			padding: 0px 10px 0px 15px;
+			padding: 10px 10px 10px 15px;
 		}
 
-		#img_EP{
+		#header_login #img_P{
+			display: inline-block;
+		    background-image: url("../media/header_profile.png");
+		    background-repeat: no-repeat;
+		    background-position: right center;
+		    min-width: 25px;
+		    min-height: 25px;
+		    padding-right: 40px;
+		}
+
+		#header_login #img_EP{
 			display: inline-block;
 		    background-image: url("../media/edit_profile.png");
 		    background-repeat: no-repeat;
+		    background-position: right center;
 		    min-width: 25px;
 		    min-height: 25px;
-		    padding-left: 10px;
+		    padding-right: 40px;
 		}
 
-		#img_EL{
+		#header_login #img_EL{
 			display: inline-block;
 		    background-image: url("../media/logout.png");
 		    background-repeat: no-repeat;
+		    background-position: right center;
 		    min-width: 25px;
 		    min-height: 25px;
-		    padding-left: 10px;
+		   	padding-right: 40px;
 		}
 
 
