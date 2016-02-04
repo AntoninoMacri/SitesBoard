@@ -75,7 +75,7 @@ print <<EOF;
 
 				<div id="header_login">
 					<div>
-						Benvenuto <span class="notable">$username</span>
+						Benvenuto <span class="notable">$user</span>
 					</div>
 					<div>
 						<div class="edit"><a href="profileChange.cgi" hreflang="it" type="text/html">Modifica Profilo<div id="img_EP"></div></a></div>
@@ -130,7 +130,7 @@ print <<EOF;
 	  					<dt><span xml:lang="en" lang="en">Email</span>:</dt>
 	  					<dd><a href="mailto:$email">$email</a></dd>
 	  					<dt>Biografia:</dt>
-	  					<dd>$biografia</dd>
+	  					<dd id="BP_bio">$biografia</dd>
 	  				</ul>
 				</div>
 			</div>

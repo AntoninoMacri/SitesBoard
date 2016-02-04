@@ -188,7 +188,7 @@ print <<EOF;
 
 				<dl class='block_insertion'>
 					<dt>Titolo:</dt>
-					<dd><a href='insertion.cgi?idUser=$id_persona&amp;idInsertion=$id_annuncio'>$titolo</a></dd>
+					<dd>$titolo</dd>
 					<dt>Tipologia:</dt>
 					<dd>$tipologia</dd>
 					<dt>Oggetto:</dt>
