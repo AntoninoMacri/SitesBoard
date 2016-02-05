@@ -185,7 +185,7 @@ Il nostro sito si rivolge ad un’utenza formata sia da utenti abbastanza abili 
 
 	\subsection{Presentazione}
 	
-	Il sito è impostato secondo un layout ibrido a 3 pannelli.
+	Il sito è impostato secondo un layout ibrido a 3 pannelli in cui le dimensioni del testo e delle altezze dei blocchi sono date in ems, mentre la larghezza è data in \% secondo la dimensione della pagina.
 	
 	Per una maggiore usabilità sono presenti due differenti visualizzazioni del sito, a seconda del dispositivo utilizzato per la navigazione.
 	È stato impostato un punto di rottura a 800px di larghezza al di sotto del quale si passa da una visualizzazione desktop ad una adatta per dispositivi mobile o tablet con piccoli schermi.
@@ -193,10 +193,9 @@ Il nostro sito si rivolge ad un’utenza formata sia da utenti abbastanza abili 
 	A sinistra c'è il menù di navigazione che permette all’utente di raggiungere varie sezioni del sito in base al suo interesse, in alto l'header e la breadcrumb, nella zona centrale il corpo del contenuto ed infine in basso il footer.
 	Per quanto riguarda il layout ridotto, esso si sviluppa in verticale. Dall’alto verso il basso si trovano in ordine header, breadcrumb, il menù di navigazione, il corpo e il footer.
 		
-	La grandezza del font dell'intero corpo è stata impostata in ems invece dei pixel.
-	Essendo una misura relativa, gli ems fanno si che anche il testo si adatti alla dimensione dello schermo visualizzato. Inoltre se vogliamo cambiare successivamente la dimensione del font, mentre con i pixel dobbiamo modificarlo in ogni parte del sito web, con gli ems è sufficiente cambiarlo nel body ed una sola volta poiché tutti gli altri font si adatteranno proporzionalmente.\\
+	E\' stato scelto di usare gli ems in modo da permettere che il testo si adatti alle dimensioni decise dall'utente.
 	Dobbiamo anche considerare la non scalabilità dei pixel in IE nei browser più vecchi. Se un un utente ha bisogno di ingrandire le dimensioni di tutto il sito il font settato in pixel rimane della stessa dimensione creando gravi problemi di accessibilità poiché molti utenti con problemi alla vista non riuscirebbero ad accedere ai contenuti.
-	Anche gli ems però presentano un piccolo svantaggio che è quello di dover considerare il contesto in cui si trovano se vogliamo mantenere un testo reattivo.\\ Visto che però il contenuto di SitesBoard è rappresentato quasi unicamente da testo (sono presenti solo 3 loghi nell'header) il problema di gestire immagini o altri contenuti grafici diventa irrilevante.
+	Anche gli ems però presentano un piccolo svantaggio che è quello di dover considerare il contesto in cui si trovano se vogliamo mantenere un testo reattivo.\\ Visto che il contenuto di SitesBoard è rappresentato quasi unicamente da testo (sono presenti solo 3 loghi nell'header) il problema di gestire le immagini durante il ridimensionamento di quest'ultimo diventa irrilevante.
 	
 	Il layout così impostato diventa molto fluido, accessibile ed adattabile ad ogni dispositivo di navigazione e ciò sta alla base di un responsive layout.
 	
@@ -219,14 +218,14 @@ Il nostro sito si rivolge ad un’utenza formata sia da utenti abbastanza abili 
 	
 	\subsection{CSS}
 	
-	Il footer è fissato sempre in fondo alla pagina tramite una tecnica che sfrutta solo CSS.\\
-	Tende ad essere retrocompatibile e funziona anche su Internet Explorer 6.	
+	Il footer è fissato sempre in fondo alla pagina tramite una tecnica che sfrutta solo CSS, in quanto imposta ai blocchi solamente le proprietà "margin" e "height". \\
+	Tende ad essere retrocompatibile e funziona anche su Internet Explorer 6.\\
 
 	
 	\subsection{Javascript}
 	
 	Il linguaggio javascript è stato utilizzato per i controlli degli input delle form in locale.
-	I controlli fatti sono di 2 tipi: campo compilato e validità del valore inserito nel campo controllato tramite espressioni regolari.
+	I controlli fatti sono di due tipi: 
 	Javascript è stato usato anche per rendere migliore l'esperienza del sito con il conta caratteri, la funzione di svuotamento di un campo input di changeProfile.cgi che viene in automatico precompilato con valori di default presi da quelli precedentemente inseriti e una funzione di richiamo di un alert di avvertimento in caso di click alla form di elimina del proprio profilo.
 	
 	\subsection{Perl}
@@ -235,7 +234,7 @@ Il nostro sito si rivolge ad un’utenza formata sia da utenti abbastanza abili 
 	
 	Il tempo di permanenza di un utente su una singola pagina è limitato a 60 minuti. Se l’utente non cambia pagina entro quel limite di tempo, la sessione scade e gli viene chiesto di nuovo di effettuare il log-in. \\	
 	Le pagine PERL che vengono utilizzate solo come pagine di transizione per effettuare controlli o dialogare col database sono le seguenti:	
-	“addAcception.cgi”, “addUser.cgi", “changeUserData.cgi", “checkLogin.cgi", "insertInsertions.cgi'', “logout.cgi", “recoveryUser.cgi", ''removeAcception.cgi", “removeInsertion.cgi", “removeProfile.cgi".
+	"addAcception.cgi", "addUser.cgi", "changeUserData.cgi", "checkLogin.cgi", "insertInsertions.cgi", "logout.cgi", "recoveryUser.cgi", "removeAcception.cgi", "removeInsertion.cgi", "removeProfile.cgi".
 	
 Le pagine di scrittura dati nel database, “addAcception.cgi” e “addUser.cgi”, “changeUserData.cgi" e “insertInsertion.cgi", prima di tutto effettuano i controlli di routine per verificare se l’utente che effettua l’operazione è presente nel database. Una volta superati i controlli si verifica se anche l’annuncio sul quale si vuole operare sia disponibile e poi, sempre grazie ai percorsi xPath e a funzioni apposite (come “findnodes( )” e “appendChild( )" ), si va ad effettuare la modifica del file “database.xml”.
 
@@ -245,7 +244,7 @@ Le pagine di rimozione dati nel database, “removeAcception.cgi”, “removeIn
 
 La pagina “recoveryUser.cgi”, usata per recuperare la password dell’utente, effettua dei controlli sul database di:
 Nome, Cognome, Data di Nascita, Username, E-mail.\\
-Se l’utente inserisce correttamente tutti i dati ed imposta una nuova password, questa viene sovrascritta alla precedente nel database. La modalità di recupero password così implementata impedisce ogni tentativo di impossessarsi di un account altrui, poiché i dati di ogni utente visibili da tutti gli altri all’interno del sito sono solo: Username e E-mail ( è disponibile anche il campo Biografia, che non viene richiesto nella procedura del recupero password per ovvi motivi).
+Se l’utente inserisce correttamente tutti i dati ed inserisce una nuova password, questa viene sovrascritta alla precedente nel database. La modalità di recupero password così implementata impedisce ogni tentativo di impossessarsi di un account altrui, poiché i dati di ogni utente visibili da tutti gli altri all’interno del sito sono solo: Username e E-mail ( è disponibile anche il campo Biografia, che non viene richiesto nella procedura del recupero password per ovvi motivi).
 
 La pagina “checkLogin.cgi” effettua i controlli sui parametri passati, ovvero verifica se Username e Password sono corretti, nel caso in cui non lo siano, l’utente viene reindirizzato alla pagina “Login.cgi”, mentre se sono corretti, è possibile accedere alla pagina del proprio profilo personale “profile.cgi”. Se un utente vuole tentare di bypassare la procedura di log-in accedendo ad una pagina tramite url, la pagina “checkLogin.cgi” lo reindirizza alla home del sito.
 
@@ -255,7 +254,7 @@ La pagina “logout.cgi” si occupa di chiudere l’eventuale sessione tramite 
 	
 	Abbiamo realizzato una versione più “semplice” della home del nostro sito usando XSLT. Questa pagina è stata pensata per essere utilizzata da utenti che non hanno effettuato il login. Infatti vengono visualizzati solo gli annunci presenti nel nostro database, come nel file “home.cgi", ma con alcune differenze.
 
-Per quanto riguarda gli annunci stessi vengono visualizzati: Titolo, Oggetto, Tipologia di Annuncio e la data in cui sono stati inseriti. Abbiamo evitato volontariamente di fornire all’utente non registrato (o che non ha ancora effettuato il log-in) le informazioni che riguardano l’utente che ha inserito l’annuncio, per evitare che possa usufruire delle funzionalità del nostro sito, mettendosi in contatto con lui.
+Per quanto riguarda gli annunci stessi vengono visualizzati: Titolo, Oggetto, Tipologia di Annuncio, la data in cui sono stati inseriti e la descrizione. Tutti i campi sono ordinati per data descrescente. Abbiamo evitato volontariamente di fornire all’utente non registrato (o che non ha ancora effettuato il log-in) le informazioni che riguardano l’utente che ha inserito l’annuncio, per evitare che possa usufruire delle funzionalità del nostro sito, mettendosi in contatto con lui.
 
 E’ stato realizzato il foglio di stile "screen\textunderscore xsl.css” apposito per "home.xsl", per rendere più gradevole l’aspetto della pagina. E’ stata realizzata solo la visualizzazione screen come esempio. 
 Purtroppo per ragioni logistiche di organizzazione delle cartelle e dei file, non abbiamo potuto aprire questo file dal server e così abbiamo deciso di tenerlo solo come esempio, per essere visualizzato in locale.
