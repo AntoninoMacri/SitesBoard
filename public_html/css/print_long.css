@@ -1,0 +1,443 @@
+/*---------------------------------------------------
+---------------------- GENERALE ----------------------
+-----------------------------------------------------*/
+/*imposto i link ad essere tutti in corsivo per una maggiore usabilità*/
+a{
+	font-style: italic;
+}
+
+a:visited{
+	color: #A0A;
+}
+
+#path a:hover,
+#contents a:hover
+{
+	font-size: 1.1em;
+}
+
+/*Caratteri generali della pagina*/
+html body {
+    margin:0;
+    padding:0;
+    font-family:arial, helvetica, sans-serif;
+    font-size:0.7em;
+    background-color:white;
+    color:black;
+}
+
+fieldset{
+	padding-top: 15px;
+	border-width: 1px;
+	border-color: #D3D3D3;
+}
+
+/*nascondo alcuni div che nel print è buona regola non vedere*/
+#header_login, #nav_panel,#push_block,#footer{
+	display: none;
+}
+
+/*classi generali*/
+
+.notable{
+	font-weight: bold;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 1.1em;
+}
+
+.minimal
+{
+	font-size: 0.9em;
+}
+
+.buttons{
+	width: 150px;
+	height: 25px;
+	margin: 20px 0px 0px 20px;
+}
+
+.underline{
+	border-style: solid;
+	border-color: #D3D3D3;
+	border-width: 0px 0px 1px 0px;
+	padding-bottom: 20px;
+}
+
+.msgError{	/*messaggi di modifica non andata a buon fine*/
+	color: red;
+	text-align: center;
+}
+
+.msgConfirm{	/*messaggi di modifica andata a buon fine*/
+	color: green;
+	text-align: center;
+}
+
+.current_pageL{ /*Classe per la voce di menù selezionata*/
+	font-style: italic;
+	font-weight: bold;
+}
+
+.screen_reader{
+	display: none;
+}
+
+/*Regole per i blocchi delle inserzioni*/
+/* versione migliore con dl */
+#block_insertions{
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+#block_insertions li{
+	padding: 20px 0px 20px 0px;
+
+	border-style: solid;
+	border-color: #D3D3D3;
+	border-width: 0px 0px 1px 0px;
+}
+
+	.block_insertion{
+		padding: 0px;
+		margin: 0px;
+	}
+
+	.block_insertion dt{
+		display: inline-block;
+		width: 7%;
+		height: 1.1em;
+	}
+
+	.block_insertion dd{
+		padding: 0.8em 0em 0.8em 0em;
+		display: inline-block;
+		width: 85%;
+	}
+
+	#block_insertions .block_insertion .BI_accepted{
+		padding: 0px;
+	}
+
+	#block_insertions .block_insertion .BI_accepted li{
+		display: inline-block;
+		border-width: 0px;
+		margin: 5px 10px 5px 10px;
+	}
+
+.BI_PN{
+	display: inline-block;
+	margin: 10px 20px 20px 10px;
+}
+
+/* regole per informazioni utente */
+ 	.block_profile{
+		padding: 0px;
+		margin: 0px;
+	}
+
+	.block_profile dt{
+		display: inline-block;
+		width: 13%;
+		height: 1em;
+	}
+
+	.block_profile dd{
+		padding: 0.8em 0em 0.8em 0em;
+		display: inline-block;
+		width: 80%;
+	}
+
+
+	/*---------------------------------------------------
+	----------------------HEADER-------------------------
+	-----------------------------------------------------*/
+	#header{
+		padding: 20px 20px 40px 20px;
+		height: auto;
+		/* border */
+		border-style: solid;
+		border-width: 0px 1px 1px 1px;
+		border-color: #D3D3D3;
+	}
+		#header_logo{
+			float: left;
+			margin: 0px 20px 1em 20px;
+			max-height: 200px;
+			max-width: 140px;
+			width: 140px;
+			border: 0px;
+		}
+
+		#header h1{
+			margin-top: 0.5em;
+			margin-left: 50px;
+		}
+
+		#header h2{
+			margin-bottom: 0.5em;
+			margin-left: 50px;
+		}
+
+
+	/*---------------------------------------------------
+	------------------------PATH-------------------------
+	-----------------------------------------------------*/
+	#path
+	{
+		padding: 10px 20px 10px 20px;
+		clear:both;
+		background-color: #F0F8FF;
+		margin-top: 5px;
+		/* border */
+		border-style: solid;
+		border-width:1px;
+		border-color: #D3D3D3;
+	}
+
+
+	/*---------------------------------------------------
+	----------------------CONTENUTO----------------------
+	-----------------------------------------------------*/
+	#contents{
+		margin-top: 20px;
+		padding:1px 20px 20px 20px;
+		background-color: #F0F8FF;
+
+		/* border */
+		border-style: solid;
+		border-width:1px;
+		border-color: #D3D3D3;
+	}
+
+		#contents h3 {
+			text-align: center;
+			padding-bottom:10px;
+			border-style: solid;
+			border-color: #D3D3D3;
+			border-width: 0px;
+			border-bottom-width: 1px;
+		}
+
+/*---------------------------------------------------
+-----------------CONTENUTO AGGIUNTIVO----------------
+-----------------------------------------------------*/
+
+
+/*-------------- home.cgi-------------------*/
+
+#cont_welcome{
+	height: auto;
+}
+
+/*-------------- login.html-------------------*/
+#cont_login {
+}
+
+	#cont_login form fieldset{
+		width: 50%;
+		margin: auto;
+		margin: 20px auto 20px auto;
+	}
+
+		#cont_login form fieldset input{
+			width: 100%;
+		}
+
+			#cont_login form #login_submit, 
+			#cont_login form #login_reset{
+				width: 100px;
+				height: 25px;
+				float: right;
+				margin: 20px 0px 10px 20px;
+			}
+
+
+/*-------------- registration.html-------------------*/
+#cont_registration {
+}
+
+	#cont_registration form fieldset{
+		width: 50%;
+		margin: auto;
+		margin: 20px auto 20px auto;
+	}
+
+		#cont_registration form fieldset label{
+			display: block;
+			margin-top: 0.4em;
+			margin-bottom: 0.2em;
+		}
+
+		#cont_registration form fieldset input{
+			width: 100%;
+		}
+
+		#cont_registration #reg_year,
+		#cont_registration #reg_month,
+		#cont_registration #reg_day{
+			width: 20%
+		}
+
+			#cont_registration form #reg_submit, 
+			#cont_registration form #reg_reset{
+				width: 100px;
+				height: 25px;
+				float: right;
+				margin: 20px 0px 10px 20px;
+			}
+
+
+/*-------------- pass_recovery.html-------------------*/
+#cont_pass_recovery {
+}
+
+	#cont_pass_recovery form fieldset{
+		width: 50%;
+		margin: auto;
+		margin: 20px auto 20px auto;
+	}
+
+		#cont_pass_recovery form fieldset label{
+			display: block;
+			margin-top: 0.4em;
+			margin-bottom: 0.2em;
+		}
+
+		#cont_pass_recovery form fieldset input{
+			width: 100%;
+		}
+
+		#cont_pass_recovery #recover_year,
+		#cont_pass_recovery #recover_month,
+		#cont_pass_recovery #recover_day{
+			width: 20%
+		}
+
+			#cont_pass_recovery form #recover_submit, 
+			#cont_pass_recovery form #recover_reset{
+				width: 100px;
+				height: 25px;
+				float: right;
+				margin: 20px 0px 10px 20px;
+			}
+
+/*--------------insertion.cgi-------------------*/
+#contents h3.resizable{
+	font-size: 0.8em;
+	text-align: justify;
+	padding: 10px 0px 10px 0px;
+}
+
+	#contents #ins_date{
+		float: right;					
+	}
+
+		#cont_insertion fieldset{
+			display: none;
+		}
+
+/*--------------addInsertion.cgi-------------------*/
+#cont_add{
+	height: auto;
+}
+
+	#cont_add form{
+		width: 60%;
+		margin: auto;
+	}
+
+		#cont_add fieldset label{
+			display: block;
+			margin-top: 0.4em;
+			margin-bottom: 0.2em;
+		}
+
+
+		#cont_add input{
+			width: 100%;
+		}
+
+			#cont_add  #addDescrizione{
+				width:100%;
+				min-width: 100% ;
+				min-height: 250px;
+				max-width: 100%;
+				max-height: 500px;
+				margin:10px 0px 0px 0px;
+			}
+
+			#cont_add #addTipologia{
+				width: 50%;
+			}
+
+			#cont_add form #submit_new, 
+			#cont_add form #reset_new{
+				width: 150px;
+				height: 25px;
+				float: right;
+				margin: 20px 0px 10px 20px;
+			}
+
+/*--------------profile.cgi && userProfile.cgi && confirmRemoveProfile.cgi -------------------*/
+
+#cont_profile{
+	height: auto;
+}
+
+	#cont_profile #BP_bio{
+		display: block;
+		margin-left: 0px;
+	}
+	
+	#remove_profile{
+		display: none;
+	}
+
+
+/*--------------profile_change.cgi-------------------*/
+
+#cont_profile_change form{
+		width: 60%;
+		margin: 20px auto 20px auto;
+	}
+
+		#cont_profile_change fieldset label{
+			display: block;
+			margin-top: 0.4em;
+			margin-bottom: 0.2em;
+		}
+
+
+		#cont_profile_change input{
+			width: 100%;
+		}
+
+			#cont_profile_change  #bio{
+				width:100%;
+				min-width: 100% ;
+				min-height: 250px;
+				max-width: 100%;
+				max-height: 500px;
+				margin:10px 0px 0px 0px;
+			}
+
+			#cont_profile_change form  fieldset .buttons{
+				width: 150px;
+				height: 25px;
+				float: right;
+				margin: 20px 0px 10px 20px;
+			}
+
+			#cont_profile_change #year,
+			#cont_profile_change #month,
+			#cont_profile_change #day{
+				width: 20%
+			}
+
+
+
+
+
+
