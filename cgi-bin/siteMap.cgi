@@ -76,7 +76,7 @@ print <<SECONDA_PARTE;
 			</div>
 			<!-- PATH -->
 			<div id="path" title="Sezione del sito in cui ti trovi in questo momento">
-				Ti trovi in: <span class="notable">Sitemap</span>
+				Ti trovi in: <span class="notable" xml:lang="en" lang="en">Sitemap</span>
 			</div>
 
 
