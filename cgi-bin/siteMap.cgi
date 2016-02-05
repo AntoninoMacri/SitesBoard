@@ -21,7 +21,7 @@ print <<PRIMA_PARTE;
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 	<head>
-		<title>Mappa dei Contenuti - SitesBoard</title> 
+		<title xml:lang="en" lang="en">Sitemap - SitesBoard</title> 
 
 		<link href="../css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
 		<link href="../css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
@@ -31,10 +31,10 @@ print <<PRIMA_PARTE;
 		<!-- Meta Tag -->
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
-		<meta name="title" content="Mappa dei Contenuti - SitesBoard" />
+		<meta name="title" content="Sitemap - SitesBoard" />
 		<meta name="author" content="Davide Rigoni, Francesco Fasolato, Giacomo Zecchin, Antonino Macrì" />
-		<meta name="description" content="Mappa dei Contenuti di SitesBoard per la richiesta di Siti Web Professionali" />
-		<meta name="keywords" content="Mappa, Bacheca, Siti, Web" />
+		<meta name="description" content="Sitemap di SitesBoard per la richiesta di Siti Web Professionali" />
+		<meta name="keywords" content="Sitemap, Bacheca, Siti, Web" />
 		<meta name="language" content="italian it" />	
 
 	</head>
@@ -76,7 +76,7 @@ print <<SECONDA_PARTE;
 			</div>
 			<!-- PATH -->
 			<div id="path" title="Sezione del sito in cui ti trovi in questo momento">
-				Ti trovi in: <span class="notable">Mappa dei Contenuti</span>
+				Ti trovi in: <span class="notable">Sitemap</span>
 			</div>
 
 
@@ -86,13 +86,14 @@ print <<SECONDA_PARTE;
 				<div id="nav_menu" class="menu" title ="Menù di navigazione del sito">
 					<h3>Menù</h3>
 					<ul>
-						<li><span xml:lang="en" lang="en"><a href="home.cgi" hreflang="it" >Home Page</a></span></li>
-						<li><a href="eCommerce.cgi" hreflang="it" ><span xml:lang="en" lang="en">Tipologia E-commerce</span></a></li>
-						<li><a href="forum.cgi" hreflang="it" ><span xml:lang="en" lang="en">Tipologia Forum</span></a></li>
-						<li><a href="social.cgi" hreflang="it" ><span xml:lang="en" lang="en">Tipologia Social</span></a></li>
+						<li><a href="home.cgi" hreflang="it" ><span xml:lang="en" lang="en">Home Page</span></a></li>
+						<li><a href="eCommerce.cgi" hreflang="it" >Tipologia <span xml:lang="en" lang="en">E-commerce</span></a></li>
+						<li><a href="forum.cgi" hreflang="it" >Tipologia <span xml:lang="en" lang="en">Forum</span></a></li>
+						<li><a href="social.cgi" hreflang="it" >Tipologia <span xml:lang="en" lang="en">Social</span></a></li>
 						<li><a href="personali.cgi" hreflang="it" >Tipologia Personali</a></li>
 						<li><a href="aziendali.cgi" hreflang="it" >Tipologia Aziendali</a></li>
-						<li><a href="blog.cgi" hreflang="it" ><span xml:lang="en" lang="en">Tipologia Blog</span></a></li>
+						<li><a href="blog.cgi" hreflang="it" >Tipologia <span xml:lang="en" lang="en">Blog</span></a></li>
+						<li class="current_pageL"><span xml:lang="en" lang="en">Sitemap</span></li>
 					</ul>
 				</div>
 SECONDA_PARTE
@@ -149,11 +150,8 @@ print <<FINE;
 			</div>
 			<!-- CONTENUTI DELLA PAGINA -->
 			<div id="contents">
-				<h3><span xml:lang="en" lang="en">Mappa dei Contenuti</span></h3>
+				<h3><span xml:lang="en" lang="en">Sitemap</span></h3>
 				<div id="cont_map"> 
-					<p class="underline">Benvenuti nella sezione di <span xml:lang="en" lang="en">SitesBoard</span> dove vengono visualizzati tutti i contenuti di tutte le pagine.<span xml:lang="en" lang="en">web</span>.</p>
-					
-
 				<ul>
 					<li><a href="home.cgi" hreflang="it"><span xml:lang="en" lang="en">Home Page</span></a>
 						<ul>
