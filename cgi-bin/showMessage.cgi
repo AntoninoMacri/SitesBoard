@@ -152,6 +152,7 @@ print <<FINE;
 			<div id="contents">
 				<h3><span xml:lang="en" lang="en">Home</span></h3>
 				<div id="cont_showMessage"> 
+				<p class="underline">Torna alla <span xml:lang="en" lang="en"><a href="home.cgi" hreflang="it" >Home Page</a></span>.</p>
 					
 FINE
 if(defined($msgConfirmParam))

@@ -66,11 +66,11 @@ if($url eq 1)
 		print OUT $doc->toString;
 		close(OUT);
 
-		print $cgi->redirect( 'login.cgi' );
+		print $cgi->redirect( 'showMessage.cgi?confirm=Operazione andata a buon fine. Se i dati inseriti sono corretti la password sarà reimpostata' );
 	}
 	else{
 		#utente non presente nel db
-		print $cgi->redirect( 'login.cgi' );
+		print $cgi->redirect( 'showMessage.cgi?confirm=Operazione andata a buon fine. Se i dati inseriti sono corretti la password sarà reimpostata' );
 	}
 }
 else
