@@ -41,8 +41,12 @@ print <<PRIMA_PARTE;
 		<title xml:lang="en" lang="en">E-Commerce - SitesBoard</title> 
 
 		<link href="../css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
-		<link href="../css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
+		<link href="../css/handheld.css" rel="stylesheet" type="text/css" media="handheld, screen and (max-width:800px)" />
 		<link href="../css/print.css" rel="stylesheet" type="text/css" media="print"/>
+		<!--[if lt IE 9]>
+			<link href="../css/screen.css" rel="stylesheet" type="text/css" media="screen"/>
+			<link href="../css/print.css" rel="stylesheet" type="text/css" media="print"/>
+		<![endif]-->
 
 
 		<!-- Meta Tag -->
