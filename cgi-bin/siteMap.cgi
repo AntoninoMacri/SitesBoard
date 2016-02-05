@@ -21,7 +21,7 @@ print <<PRIMA_PARTE;
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 	<head>
-		<title xml:lang="en" lang="en">Mappa dei Contenuti - SitesBoard</title> 
+		<title>Mappa dei Contenuti - SitesBoard</title> 
 
 		<link href="../css/screen.css" rel="stylesheet" type="text/css" media="screen and (min-width:800px)"/>
 		<link href="../css/handheld.css" rel="stylesheet" type="text/css" media="handheld,screen and (max-width:800px)" />
@@ -34,7 +34,7 @@ print <<PRIMA_PARTE;
 		<meta name="title" content="Mappa dei Contenuti - SitesBoard" />
 		<meta name="author" content="Davide Rigoni, Francesco Fasolato, Giacomo Zecchin, Antonino Macrì" />
 		<meta name="description" content="Mappa dei Contenuti di SitesBoard per la richiesta di Siti Web Professionali" />
-		<meta name="keywords" content="Map, Bacheca, Siti, Web" />
+		<meta name="keywords" content="Mappa, Bacheca, Siti, Web" />
 		<meta name="language" content="italian it" />	
 
 	</head>
@@ -110,13 +110,12 @@ print <<PEZZO;
 					<!-- Form da compilare -->
 					<form onsubmit="return loginControl()" method="post" action="checkLogin.cgi">
 						<fieldset title="Campi da compilare per effettuare il Login">
-							<legend>Effettua il Login</legend>
-							<label for="login_user">Username</label>
+							<legend>Effettua il <span  xml:lang="en" lang="en">Login</span></legend>
+							<label for="login_user" xml:lang="en" lang="en">Username</label>
 							<input type="text" name="login_user" id="login_user"/><br/>
-							<label for="login_password">Password</label>
+							<label for="login_password" xml:lang="en" lang="en">Password</label>
 							<input type="password" name="login_password" id="login_password"/><br/>
-
-							<input type="submit" name="login_submit" id="login_submit" value="Accedi al sito" onkeypress="return loginControl()" />
+							<input type="submit" name="login_submit" id="login_submit" value="Accedi al sito" onkeypress="return loginControl()"/>
 						</fieldset>
 					</form>
 					<div>
@@ -155,20 +154,20 @@ print <<FINE;
 					<p class="underline">Benvenuti nella sezione di <span xml:lang="en" lang="en">SitesBoard</span> dove vengono visualizzati tutti i contenuti di tutte le pagine.<span xml:lang="en" lang="en">web</span>.</p>
 					
 
-<ul>
-	<li><span xml:lang="en" lang="en"><a href="home.cgi" hreflang="it" >Home Page</a></span>
-		<ul>
-				<li><a href="registration.cgi" hreflang="it">Sei un utente nuovo? Registrati</span></a></li>
-				<li><a href="pass_recovery.cgi" hreflang="it">Hai dimenticato la password?</span></a></li>
-				<li><a href="profile.cgi" hreflang="it">Il tuo profilo<span></a>
-					<ul>
-						<li><a href="profileChange.cgi" hreflang="it">Modifica il tuo profilo<span></a>
-					</ul>
-				</li>
-				<li><a href="logout.cgi" hreflang="it">Log-out</span></a></li>
-				<li><a href="addInsertions.cgi" hreflang="it">Nuova Inserzione</a></li>
-				<li><a href="showInsertions.cgi" hreflang="it">Inserzioni Inserite</a></li>
-				<li><a href="acceptedInsertions.cgi" hreflang="it">Inserzioni Accettate</a></li>
+				<ul>
+					<li><a href="home.cgi" hreflang="it"><span xml:lang="en" lang="en">Home Page</span></a>
+						<ul>
+							<li><a href="registration.cgi" hreflang="it">Non ti sei ancora registrato?</a></li>
+							<li><a href="pass_recovery.cgi" hreflang="it">Non trovi più la password?</a></li>
+							<li><a href="profile.cgi" hreflang="it">Il tuo profilo</a>
+								<ul>
+									<li><a href="profileChange.cgi" hreflang="it">Modifica il tuo profilo</a></li>
+								</ul>
+							</li>
+							<li><a href="logout.cgi" hreflang="it" xml:lang="en" lang="en">Logout</a></li>
+							<li><a href="addInsertions.cgi" hreflang="it">Nuova Inserzione</a></li>
+							<li><a href="showInsertions.cgi" hreflang="it">Inserzioni Inserite</a></li>
+							<li><a href="acceptedInsertions.cgi" hreflang="it">Inserzioni Accettate</a></li>
 
 FINE
 my @board=getBoard();
@@ -189,20 +188,21 @@ for (my $i=0; $i <scalar(@board); $i++) {
 
 
 print <<FINE;
-		</ul>
-	</li>
-	<li><a href="eCommerce.cgi" hreflang="it" ><span xml:lang="en" lang="en">Tipologia E-commerce</span></a>		<ul>
-			<li><a href="registration.cgi" hreflang="it">Sei un utente nuovo? Registrati</span></a></li>
-			<li><a href="pass_recovery.cgi" hreflang="it">Hai dimenticato la password?</span></a></li>
-			<li><a href="profile.cgi" hreflang="it">Il tuo profilo<span></a>
-				<ul>
-					<li><a href="profileChange.cgi" hreflang="it">Modifica il tuo profilo<span></a>
-				</ul>
-			</li>
-			<li><a href="logout.cgi" hreflang="it">Log-out</span></a></li>
-			<li><a href="addInsertions.cgi" hreflang="it">Nuova Inserzione</a></li>
-			<li><a href="showInsertions.cgi" hreflang="it">Inserzioni Inserite</a></li>
-			<li><a href="acceptedInsertions.cgi" hreflang="it">Inserzioni Accettate</a></li>
+						</ul>
+					</li>
+					<li><a href="eCommerce.cgi" hreflang="it" >Tipologia <span xml:lang="en" lang="en">E-commerce</span></a>
+						<ul>
+							<li><a href="registration.cgi" hreflang="it">Non ti sei ancora registrato?</a></li>
+							<li><a href="pass_recovery.cgi" hreflang="it">Non trovi più la password?</a></li>
+							<li><a href="profile.cgi" hreflang="it">Il tuo profilo</a>
+								<ul>
+									<li><a href="profileChange.cgi" hreflang="it">Modifica il tuo profilo</a></li>
+								</ul>
+							</li>
+							<li><a href="logout.cgi" hreflang="it" xml:lang="en" lang="en">Logout</a></li>
+							<li><a href="addInsertions.cgi" hreflang="it">Nuova Inserzione</a></li>
+							<li><a href="showInsertions.cgi" hreflang="it">Inserzioni Inserite</a></li>
+							<li><a href="acceptedInsertions.cgi" hreflang="it">Inserzioni Accettate</a></li>
 
 FINE
 
@@ -226,21 +226,21 @@ for (my $i=0; $i <scalar(@ecomm); $i++) {
 
 
 print <<FINE;
-		</ul>
-	</li>
-	<li><a href="forum.cgi" hreflang="it" ><span xml:lang="en" lang="en">Tipologia Forum</span></a>
-		<ul>
-			<li><a href="registration.cgi" hreflang="it">Sei un utente nuovo? Registrati</span></a></li>
-			<li><a href="pass_recovery.cgi" hreflang="it">Hai dimenticato la password?</span></a></li>
-			<li><a href="profile.cgi" hreflang="it">Il tuo profilo<span></a>
-				<ul>
-					<li><a href="profileChange.cgi" hreflang="it">Modifica il tuo profilo<span></a>
-				</ul>
-			</li>
-			<li><a href="logout.cgi" hreflang="it">Log-out</span></a></li>
-			<li><a href="addInsertions.cgi" hreflang="it">Nuova Inserzione</a></li>
-			<li><a href="showInsertions.cgi" hreflang="it">Inserzioni Inserite</a></li>
-			<li><a href="acceptedInsertions.cgi" hreflang="it">Inserzioni Accettate</a></li>
+						</ul>
+					</li>
+					<li><a href="forum.cgi" hreflang="it" >Tipologia <span xml:lang="en" lang="en">Forum</span></a>
+						<ul>
+							<li><a href="registration.cgi" hreflang="it">Non ti sei ancora registrato?</a></li>
+							<li><a href="pass_recovery.cgi" hreflang="it">Non trovi più la password?</a></li>
+							<li><a href="profile.cgi" hreflang="it">Il tuo profilo</a>
+								<ul>
+									<li><a href="profileChange.cgi" hreflang="it">Modifica il tuo profilo</a></li>
+								</ul>
+							</li>
+							<li><a href="logout.cgi" hreflang="it" xml:lang="en" lang="en">Logout</a></li>
+							<li><a href="addInsertions.cgi" hreflang="it">Nuova Inserzione</a></li>
+							<li><a href="showInsertions.cgi" hreflang="it">Inserzioni Inserite</a></li>
+							<li><a href="acceptedInsertions.cgi" hreflang="it">Inserzioni Accettate</a></li>
 
 FINE
 
@@ -264,21 +264,21 @@ for (my $i=0; $i <scalar(@forum); $i++) {
 
 
 print <<FINE;
-		</ul>
-	</li>
-	<li><a href="social.cgi" hreflang="it" ><span xml:lang="en" lang="en">Tipologia Social</span></a>
-		<ul>
-			<li><a href="registration.cgi" hreflang="it">Sei un utente nuovo? Registrati</span></a></li>
-			<li><a href="pass_recovery.cgi" hreflang="it">Hai dimenticato la password?</span></a></li>
-			<li><a href="profile.cgi" hreflang="it">Il tuo profilo<span></a>
-				<ul>
-					<li><a href="profileChange.cgi" hreflang="it">Modifica il tuo profilo<span></a>
-				</ul>
-			</li>
-			<li><a href="logout.cgi" hreflang="it">Log-out</span></a></li>
-			<li><a href="addInsertions.cgi" hreflang="it">Nuova Inserzione</a></li>
-			<li><a href="showInsertions.cgi" hreflang="it">Inserzioni Inserite</a></li>
-			<li><a href="acceptedInsertions.cgi" hreflang="it">Inserzioni Accettate</a></li>
+						</ul>
+					</li>
+				<li><a href="social.cgi" hreflang="it" >Tipologia <span xml:lang="en" lang="en">Social</span></a>
+						<ul>
+							<li><a href="registration.cgi" hreflang="it">Non ti sei ancora registrato?</a></li>
+							<li><a href="pass_recovery.cgi" hreflang="it">Non trovi più la password?</a></li>
+							<li><a href="profile.cgi" hreflang="it">Il tuo profilo</a>
+								<ul>
+									<li><a href="profileChange.cgi" hreflang="it">Modifica il tuo profilo</a></li>
+								</ul>
+							</li>
+							<li><a href="logout.cgi" hreflang="it" xml:lang="en" lang="en">Logout</a></li>
+							<li><a href="addInsertions.cgi" hreflang="it">Nuova Inserzione</a></li>
+							<li><a href="showInsertions.cgi" hreflang="it">Inserzioni Inserite</a></li>
+							<li><a href="acceptedInsertions.cgi" hreflang="it">Inserzioni Accettate</a></li>
 
 FINE
 
@@ -302,21 +302,21 @@ for (my $i=0; $i <scalar(@social); $i++) {
 
 
 print <<FINE;
-		</ul>
-	</li>
-	<li><a href="personali.cgi" hreflang="it" >Tipologia Personali</a>
-		<ul>
-			<li><a href="registration.cgi" hreflang="it">Sei un utente nuovo? Registrati</span></a></li>
-			<li><a href="pass_recovery.cgi" hreflang="it">Hai dimenticato la password?</span></a></li>
-			<li><a href="profile.cgi" hreflang="it">Il tuo profilo<span></a>
-				<ul>
-					<li><a href="profileChange.cgi" hreflang="it">Modifica il tuo profilo<span></a>
-				</ul>
-			</li>
-			<li><a href="logout.cgi" hreflang="it">Log-out</span></a></li>
-			<li><a href="addInsertions.cgi" hreflang="it">Nuova Inserzione</a></li>
-			<li><a href="showInsertions.cgi" hreflang="it">Inserzioni Inserite</a></li>
-			<li><a href="acceptedInsertions.cgi" hreflang="it">Inserzioni Accettate</a></li>
+						</ul>
+					</li>
+					<li><a href="personali.cgi" hreflang="it" >Tipologia Personali</a>
+						<ul>
+							<li><a href="registration.cgi" hreflang="it">Non ti sei ancora registrato?</a></li>
+							<li><a href="pass_recovery.cgi" hreflang="it">Non trovi più la password?</a></li>
+							<li><a href="profile.cgi" hreflang="it">Il tuo profilo</a>
+								<ul>
+									<li><a href="profileChange.cgi" hreflang="it">Modifica il tuo profilo</a></li>
+								</ul>
+							</li>
+							<li><a href="logout.cgi" hreflang="it" xml:lang="en" lang="en">Logout</a></li>
+							<li><a href="addInsertions.cgi" hreflang="it">Nuova Inserzione</a></li>
+							<li><a href="showInsertions.cgi" hreflang="it">Inserzioni Inserite</a></li>
+							<li><a href="acceptedInsertions.cgi" hreflang="it">Inserzioni Accettate</a></li>
 
 FINE
 
@@ -340,21 +340,21 @@ for (my $i=0; $i <scalar(@pers); $i++) {
 
 
 print <<FINE;
-		</ul>
-	</li>
-	<li><a href="aziendali.cgi" hreflang="it" >Tipologia Aziendali</a>
-		<ul>
-			<li><a href="registration.cgi" hreflang="it">Sei un utente nuovo? Registrati</span></a></li>
-			<li><a href="pass_recovery.cgi" hreflang="it">Hai dimenticato la password?</span></a></li>
-			<li><a href="profile.cgi" hreflang="it">Il tuo profilo<span></a>
-				<ul>
-					<li><a href="profileChange.cgi" hreflang="it">Modifica il tuo profilo<span></a>
-				</ul>
-			</li>
-			<li><a href="logout.cgi" hreflang="it">Log-out</span></a></li>
-			<li><a href="addInsertions.cgi" hreflang="it">Nuova Inserzione</a></li>
-			<li><a href="showInsertions.cgi" hreflang="it">Inserzioni Inserite</a></li>
-			<li><a href="acceptedInsertions.cgi" hreflang="it">Inserzioni Accettate</a></li>
+						</ul>
+					</li>
+					<li><a href="aziendali.cgi" hreflang="it" >Tipologia Aziendali</a>
+						<ul>
+							<li><a href="registration.cgi" hreflang="it">Non ti sei ancora registrato?</a></li>
+							<li><a href="pass_recovery.cgi" hreflang="it">Non trovi più la password?</a></li>
+							<li><a href="profile.cgi" hreflang="it">Il tuo profilo</a>
+								<ul>
+									<li><a href="profileChange.cgi" hreflang="it">Modifica il tuo profilo</a></li>
+								</ul>
+							</li>
+							<li><a href="logout.cgi" hreflang="it" xml:lang="en" lang="en">Logout</a></li>
+							<li><a href="addInsertions.cgi" hreflang="it">Nuova Inserzione</a></li>
+							<li><a href="showInsertions.cgi" hreflang="it">Inserzioni Inserite</a></li>
+							<li><a href="acceptedInsertions.cgi" hreflang="it">Inserzioni Accettate</a></li>
 
 FINE
 
@@ -378,21 +378,21 @@ for (my $i=0; $i <scalar(@aziendali); $i++) {
 
 
 print <<FINE;
-		</ul>
-	</li>
-	<li><a href="blog.cgi" hreflang="it" ><span xml:lang="en" lang="en">Tipologia Blog</span></a>
-		<ul>
-			<li><a href="registration.cgi" hreflang="it">Sei un utente nuovo? Registrati</span></a></li>
-			<li><a href="pass_recovery.cgi" hreflang="it">Hai dimenticato la password?</span></a></li>
-			<li><a href="profile.cgi" hreflang="it">Il tuo profilo<span></a>
-				<ul>
-					<li><a href="profileChange.cgi" hreflang="it">Modifica il tuo profilo<span></a>
-				</ul>
-			</li>
-			<li><a href="logout.cgi" hreflang="it">Log-out</span></a></li>
-			<li><a href="addInsertions.cgi" hreflang="it">Nuova Inserzione</a></li>
-			<li><a href="showInsertions.cgi" hreflang="it">Inserzioni Inserite</a></li>
-			<li><a href="acceptedInsertions.cgi" hreflang="it">Inserzioni Accettate</a></li>
+						</ul>
+					</li>
+					<li><a href="blog.cgi" hreflang="it" >Tipologia <span xml:lang="en" lang="en">Blog</span></a>
+						<ul>
+							<li><a href="registration.cgi" hreflang="it">Non ti sei ancora registrato?</a></li>
+							<li><a href="pass_recovery.cgi" hreflang="it">Non trovi più la password?</a></li>
+							<li><a href="profile.cgi" hreflang="it">Il tuo profilo</a>
+								<ul>
+									<li><a href="profileChange.cgi" hreflang="it">Modifica il tuo profilo</a></li>
+								</ul>
+							</li>
+							<li><a href="logout.cgi" hreflang="it" xml:lang="en" lang="en">Logout</a></li>
+							<li><a href="addInsertions.cgi" hreflang="it">Nuova Inserzione</a></li>
+							<li><a href="showInsertions.cgi" hreflang="it">Inserzioni Inserite</a></li>
+							<li><a href="acceptedInsertions.cgi" hreflang="it">Inserzioni Accettate</a></li>
 
 FINE
 
@@ -416,13 +416,11 @@ for (my $i=0; $i <scalar(@blog); $i++) {
 
 
 print <<FINE;
-		</ul>
-	</li>
-</ul>
+						</ul>
+					</li>
+				</ul>
 
 				</div>
-
-
 			</div>
 
 			<!-- Div necessario per spostare il footer in fondo alla pagina -->
