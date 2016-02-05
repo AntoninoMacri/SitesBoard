@@ -72,7 +72,7 @@ tabsize=2, stepnumber=10, numbersep=5pt, breaklines=true, frame=single, rulecolo
 
 \begin{figure}
 \centering
-\includegraphics[angle=0,scale=.30]{logo.png}
+\includegraphics[angle=0]{img/logo.png}
 \end{figure} 
 
 \title{ \textbf{{\Huge SitesBoard}}\vspace{2cm} \\ {\Huge Tecnologie Web \\ Relazione del progetto} \\ {\Large Anno accademico 2015/2016} }
@@ -268,7 +268,7 @@ Per chi dovesse aver disabilitato, volontariamente o meno, JavaScript, sono stat
 
 	\subsection{Struttura}
 	
-	\begin{itemize}
+\begin{itemize}
 	\item Uso di attributo “alt” per ogni immagine presente in modo da fornire un’alternativa testuale per contenuti non testuali.
 	\item Si cerca di mantenere la stessa struttura in tutte le pagine ( fatta eccezione per “home.xsl” che è stata realizzata solo per esempio e per essere vista in locale ) per evitare di disorientare l’utente. 
 	\item Uso dell'attributo “xml:lang” e “lang” per identificare le parole in lingua straniera, in modo che uno screen reader possa leggerle correttamente, come specificato nel documento (\url{https://www.w3.org/TR/REC-xml/}). L’attributo non è presente solamente all’interno dei tag “title”, poiché, come da specifiche W3C, non è possibile inserire un tag “span” all’interno di un “title”.
@@ -280,18 +280,50 @@ Per chi dovesse aver disabilitato, volontariamente o meno, JavaScript, sono stat
 	\item Ogni form è caratterizzata da un titolo. Tutti i field delle form sono stati dotati di una label e le voci sono state raggruppate tramite fieldset.
 	\item Non sono state usate tabelle, tutte le strutture sono state realizzate tramite div e liste.
 	\item Il pulsante di elimina profilo presente nella pagina “profile.cgi" rimanda alla pagina “confirmRemoveProfile.cgi" che funziona anche senza JavaScript e richiede la conferma dell’eliminazione del profilo.
+	\item L'intero sito è stato strutturato per essere completamente utilizzabile anche con JavaScript disabilitato.
 	\item Le piccole icone in altro a destra associate al profilo, alla modifica profilo e al logout sono caricate tramite CSS e non dall'html poiché non sono informazioni aggiuntive al contenuto; inoltre velocizzano il caricamento del sito.
 	\item Le immagini presenti nel nostro sito sono state riadattate alla dimensione nella quale vengono visualizzate, per velocizzare il download delle componenti del sito.
-	\end{itemize}
+\end{itemize}
 	
-	\subsection{Presentazione}
+	\subsection{Visualizzazione}
+	Di seguito è riportata l'anteprima standard della pagina ''profile.cgi'':
+	
+	\begin{figure}[H]
+	\centering
+     		 \includegraphics[scale=0.3]{img/userProfile_SitesBoard.jpg}
+		 \caption{Anteprima standard ''Profile.cgi''}
+	\end{figure}
+	
+	Evidenziamo alcune caratteristiche visive che aumentano l'accessibilità del sito:
+	
+\begin{itemize}
+	\item I paragrafi di testo soddisfano i seguenti requisiti:
+		\begin{itemize}
+		\item Lo spazio tra i paragrafi è almeno una volta e mezzo più grande rispetto all’interlinea. (w3c AAA)
+		\item Il testo su tutti i contenuti non è giustificato per renderlo più leggibile. (w3c AAA)
+		\item Il testo può essere ridimensionato fino al 200\% in modo che non venga richiesto all'utente lo scroll orizzontale per leggere quella che sarebbe stata un'unica riga di testo nella visualizzazione full-screen. (w3c AAA)
+		\end{itemize}
+	\item  I componenti che hanno la stessa funzionalità all’interno di un insieme di pagine web sono identificati in modo univoco. (ad esempio nav\textunderscore menu, nav\textunderscore login ecc.)
+	\item I componenti di ogni pagina del sito sono accessibili anche solo tramite l'input da tastiera.
+	\item Non sono presenti lampeggi del monitor dovuti ad immagini o testi animati che potrebbero essere pericolosi per le persone affette da epilessia fotosensibile.
+\end{itemize}
+	
+	
 
 	\subsection{Comportamento}
+	Riportiamo gli aspetti tecnici più rilevanti del nostro sito:
+	
+	\begin{itemize}
+	\item Controlli lato server realizzati con PERL per sopperire alla mancanza di Javascript qualora un utente l'avesse disabilitato.
+	\item Degradazione elegante con JavaScript assente o disabilitato.
+	\end{itemize}
 
 	\newpage
 	
 	\subsection{Test effettuati}
 		\subsubsection{Conformità standard WCAG}
+		
+		Tutte le pagine HTML generate dalle nostre pagine .cgi sono state testate all'indirizzo \url{url} [......]
 		\subsubsection{Contrato testo e sfondo}
 		
 		I test sono stati effettuati con Colour Contrast Analyser, reperibile a questo indirizzo: \url{http://www.paciellogroup.com/resources/contrastanalyser/}.\medskip
@@ -343,6 +375,8 @@ Le combinazioni di testo e sfondo possibili sono le seguenti:
 		
 \section{Usabilità}
 Particolare attenzione è stata posta all’usabilità del sito e si è cercato dunque di rispettare il più possibile le sue raccomandazioni:
+
+nel profilo personale di ogni utente viene inserito il suo contatto e-mail con un link che genera una nuova e-mail vuota indirizzata al contatto e-mail che si stava visualizzando, utilizzando il client di posta elettronica predefinito.
 
 \begin{itemize}
 \item \textbf{Le sei W}: La home page del sito risponde alle seguenti domande:
