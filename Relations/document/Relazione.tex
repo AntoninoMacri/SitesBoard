@@ -5,7 +5,7 @@
 
 %grafica
 \usepackage{graphicx}
-\usepackage{fancyhdr} %font
+\usepackage{fancyhdr}
 \usepackage{subfig}
 \usepackage{float}
 
@@ -35,37 +35,6 @@
 \definecolor{editorGray}{rgb}{0.95, 0.95, 0.95}
 \definecolor{editorOrange}{rgb}{1, 0.5, 0} % #FF7F00 -> rgb(239, 169, 0)
 \definecolor{editorGreen}{rgb}{0, 0.6, 0} % #007C00 -> rgb(0, 124, 0)
-
-
-
-
-%personalizzazione classe per il codice SQL
-\lstnewenvironment{sql}[1][] 
-{\lstset{basicstyle=\scriptstyle \ttfamily, columns=fullflexible, keywordstyle=\color{blue}\bfseries, ndkeywordstyle=\color{blue}\bfseries , ndkeywords={references}, numberstyle=\color{red}, commentstyle=\color{editorGreen}, showstringspaces=false, stringstyle=\color{editorOrange},
-language=SQL, basicstyle=\small,
-numbers=left, numberstyle=\tiny,
-tabsize=2, stepnumber=10, numbersep=5pt, breaklines=true, frame=single, rulecolor=\color{black}, #1}}
-{\lstset {language=SQL,morekeywords={INT,CHAR,varchar,smallint,numeric}}}{}
-
-
-%personalizzazione classe per il codice HTML
-\lstnewenvironment{html}[1][] 
-{\lstset{basicstyle=\scriptstyle \ttfamily, columns=fullflexible,
-keywordstyle=\color{blue}\bfseries, ndkeywords={content,=,charset=, id=, width=, height=},	 ndkeywordstyle=\color{editorGreen}\bfseries , numberstyle=\color{red} commentstyle=\color{red}, showstringspaces=false, stringstyle=\color{editorOrange},
-language=HTML, basicstyle=\small,
-numbers=left, numberstyle=\tiny,
-tabsize=2, stepnumber=10, numbersep=5pt, breaklines=true, frame=single, rulecolor=\color{black}, #1}}{}
-
-%personalizzazione classe per il codice PERL
-\lstnewenvironment{perl}[1][] 
-{\lstset{basicstyle=\scriptstyle \ttfamily, columns=fullflexible,
-keywordstyle=\color{blue}\bfseries, ndkeywords={content,=,charset=, id=, width=, height=},	 ndkeywordstyle=\color{editorGreen}\bfseries , numberstyle=\color{red} commentstyle=\color{red}, showstringspaces=false, stringstyle=\color{editorGreen},
-language=PHP, basicstyle=\small,
-numbers=left, numberstyle=\tiny,
-tabsize=2, stepnumber=10, numbersep=5pt, breaklines=true, frame=single, rulecolor=\color{black}, #1}}{}
-
-
-
 
 
 \begin{document}
@@ -139,9 +108,9 @@ Il nostro sito si rivolge ad un’utenza formata sia da utenti abbastanza abili 
 
 		\begin{itemize}
 
-			\item \textbf{public\textunderscore html}: contiene le pagine statiche, gli stili, il codice javaScript e le immagini contenute nel sito;
+			\item \textbf{public\textunderscore html}: contiene la pagina 404.html, gli stili, il codice javaScript e le immagini contenute nel sito;
 			\item \textbf{data}: contiene i files accessibili solo internamente al server, quindi i file xml, i fogli di trasformazione e la definizione dello schema;
-			\item \textbf{cgi-bin}: contiene gli script cgi o più precisamente perl che generano dinamicamente le pagine del sito.
+			\item \textbf{cgi-bin}: contiene gli script cgi che generano dinamicamente le pagine del sito.
 
 		\end{itemize}
 
@@ -155,8 +124,10 @@ Il nostro sito si rivolge ad un’utenza formata sia da utenti abbastanza abili 
 			\item \textbf{pagine suddivise per le diverse categorie di annunci}: Le pagine eCommerce.cgi, forum.cgi, social.cgi, personali.cgi, aziendali.cgi e blog.cgi mostrano gli annunci della loro tipologia.
 			\item \textbf{registration.cgi}: È la pagina che contiene la form per la registrazione al sito di SitesBoard.
 			\item \textbf{login.cgi}: È la pagina che contiene la form per eseguire la login al sito.
-			\item \textbf{pass\textunderscore recovery.html}: È la pagina che contiene la form per il recupero della password utente eventualmente dimenticata.\\
+			\item \textbf{pass\textunderscore recovery.cgi}: È la pagina che contiene la form per il recupero della password utente eventualmente dimenticata.\\
 			\item \textbf{insertion.cgi}: È la pagina che permette di visualizzare i dati delle inserzioni.
+			\item \textbf{showMessage.cgi}: Questa è la pagina nella quale vengono visualizzati i messaggi rivolti all'utente. La sua visualizzazione da utente non loggato è permessa solo tramite url.
+			\item \textbf{siteMap.cgi}: È una mappa dinamica che permette all'utente di accedere a tutti i contenuti presenti nel sito.
 		\end{itemize}
 		Le pagine aggiuntive alle quali hanno accesso solamente gli utenti che hanno effettuato il login sono 6:
 		
@@ -168,6 +139,8 @@ Il nostro sito si rivolge ad un’utenza formata sia da utenti abbastanza abili 
 			\item \textbf{acceptedInsertions.cgi}: È la pagina che mostra gli annunci accettati dall'utente.
 			\item \textbf{userProfile.cgi}: È la pagina che mostra i dati di un altro utente registrato al sito.
 		\end{itemize}
+		
+		Inoltre è stato creato un file ''.htaccess'' posizionato in public\textunderscore html che serve a ridirezionare l'utente alla pagina di errore 404 nel caso in cui si verificasse. (Si ricorda che funziona solo con Web Server Apache)
 		
 	
 		\subsubsection{Database}
@@ -219,14 +192,27 @@ Il nostro sito si rivolge ad un’utenza formata sia da utenti abbastanza abili 
 	\subsection{CSS}
 	
 	Il footer è fissato sempre in fondo alla pagina tramite una tecnica che sfrutta solo CSS, in quanto imposta ai blocchi solamente le proprietà "margin" e "height". \\
-	Tende ad essere retrocompatibile e funziona anche su Internet Explorer 6.\\
+	Tende ad essere retrocompatibile e funziona anche su Internet Explorer 8.\\
+	
+	Per maggiori dettagli si veda la pagina \url{http://www.yourinspirationweb.com/2013/09/24/sticky-footer-come-posizionare-il-footer-in-fondo-alla-pagina/}.
+	
+	Inoltre poichè le versioni precedenti a IE 9 non supportano le media queries sono state introdotte delle istruzioni condizionali per il caricamento degli stili per IE su tutte le pagine.
 
 	
-	\subsection{Javascript}
+	\subsection{JavaScript}
 	
-	Il linguaggio javascript è stato utilizzato per i controlli degli input delle form in locale.
-	I controlli fatti sono di due tipi: 
-	Javascript è stato usato anche per rendere migliore l'esperienza del sito con il conta caratteri, la funzione di svuotamento di un campo input di changeProfile.cgi che viene in automatico precompilato con valori di default presi da quelli precedentemente inseriti e una funzione di richiamo di un alert di avvertimento in caso di click alla form di elimina del proprio profilo.
+	JavaScript è stato utilizzato come supporto per migliorare l'esperienza di navigazione dell'intero sito.\\
+	La sua assenza non comporta perdita di funzionalità o malfunzionalità nei controlli del sito, infatti quest'ultimi vengono rieseguiti, in tutte le pagine che ne necessitano, tramite Perl (per maggiore descrizione si rimanda alla sezione apposita).
+
+	Nello specifico, le operazioni eseguite da JavaScript sono di tre tipi:
+	\begin{itemize}
+		\item \textbf{Controlli di consistenza}: Vengono controllati tutti i campi di input nelle pagine che contengono delle form per assicurarsi che non siano vuoti o rispettino la sintassi prevista (per esempio data o mail).
+		\item \textbf{Carico server}: JavaScript permette di alleggerire sia la banda che il server grazie ai controlli lato client, poiché non permette di inviare dati errati provenienti da form come descritto al punto precedente.
+		\item \textbf{Esperienza migliorata}: Javascript è stato usato per rendere migliore l'esperienza del sito con il conta caratteri (nelle textarea) e la funzione di svuotamento dei campi input in ''changeProfile.cgi'' che viene in automatico precompilato con i valori di default associati all'utente nel database .\\
+		
+		Inoltre, quando si tenta di inviare i dati di una form con un input errato, viene impostato il focus su di esso e la pagina viene posizionata all'altezza del messaggio d'errore.
+		La chiamata di funzione che si occupa dell scroll è ( window.scroll(0,findPos(getElementById(''id'')) ) ) dove findPos(id) è una funzione per trovare la posizione di quell'id all'interno della pagina.
+	\end{itemize}
 	
 	\subsection{Perl}
 	
@@ -249,6 +235,10 @@ Se l’utente inserisce correttamente tutti i dati ed inserisce una nuova passwo
 La pagina “checkLogin.cgi” effettua i controlli sui parametri passati, ovvero verifica se Username e Password sono corretti, nel caso in cui non lo siano, l’utente viene reindirizzato alla pagina “Login.cgi”, mentre se sono corretti, è possibile accedere alla pagina del proprio profilo personale “profile.cgi”. Se un utente vuole tentare di bypassare la procedura di log-in accedendo ad una pagina tramite url, la pagina “checkLogin.cgi” lo reindirizza alla home del sito.
 
 La pagina “logout.cgi” si occupa di chiudere l’eventuale sessione tramite il metodo “destroySession( )” e reindirizza alla home.
+
+In tutte queste pagine sono utilizzati due file presenti in cgi-bin/functions/ che contengono un insieme di funzioni utili, in particolare quelle delle sessioni e scritture/letture su file.
+
+Nello specifico in  cgi-bin/functions/function.cgi l'algoritmo di ordinamento delle inserzioni che si visualizzano in tutte le bacheche è Insertion Sort poiché quest'ultimo ha prestazioni migliori di altri algoritmi per un database di piccole dimensioni come il nostro.
 	
 	\subsection{XSLT}
 	
@@ -256,7 +246,7 @@ La pagina “logout.cgi” si occupa di chiudere l’eventuale sessione tramite 
 
 Per quanto riguarda gli annunci stessi vengono visualizzati: Titolo, Oggetto, Tipologia di Annuncio, la data in cui sono stati inseriti e la descrizione. Tutti i campi sono ordinati per data descrescente. Abbiamo evitato volontariamente di fornire all’utente non registrato (o che non ha ancora effettuato il log-in) le informazioni che riguardano l’utente che ha inserito l’annuncio, per evitare che possa usufruire delle funzionalità del nostro sito, mettendosi in contatto con lui.
 
-E’ stato realizzato il foglio di stile "screen\textunderscore xsl.css” apposito per "home.xsl", per rendere più gradevole l’aspetto della pagina. E’ stata realizzata solo la visualizzazione screen come esempio. 
+È stato realizzato il foglio di stile "screen\textunderscore xsl.css” apposito per "home.xsl", per rendere più gradevole l’aspetto della pagina. E’ stata realizzata solo la visualizzazione screen come esempio. 
 Purtroppo per ragioni logistiche di organizzazione delle cartelle e dei file, non abbiamo potuto aprire questo file dal server e così abbiamo deciso di tenerlo solo come esempio, per essere visualizzato in locale.
 
 
@@ -273,16 +263,20 @@ Per chi dovesse aver disabilitato, volontariamente o meno, JavaScript, sono stat
 	\item Uso dell'attributo “xml:lang” e “lang” per identificare le parole in lingua straniera, in modo che uno screen reader possa leggerle correttamente, come specificato nel documento (\url{https://www.w3.org/TR/REC-xml/}). L’attributo non è presente solamente all’interno dei tag “title”, poiché, come da specifiche W3C, non è possibile inserire un tag “span” all’interno di un “title”.
 	\item Le pagine Web hanno titoli che ne descrivono l’argomento o la finalità.
 	\item Tutti i contenuti più importanti sono identificati dall’attributo “title” che ne specifica l'argomento.
-	\item Sono stati utilizzati tutti colori “web safe”, ovvero colori compatibili con tutti i browser, recenti o meno.
+	\item Sono stati utilizzati tutti colori “web safe”, ovvero colori compatibili con tutti i browser, recenti o meno. (trovati all'indirizzo \url{http://www.w3schools.com/colors/colors_hex.asp})
+	\item I link sono stati impostati tutti in maiuscolo tramite CSS per migliorarne la visualizzazione; inoltre quando il cursore si posiziona al di sopra di essi, questi si ingrandiscono in modo da essere ulteriormente visibili.
 	\item Uso di tabindex nelle form per permettere una navigazione facilitata attraverso l’uso della sola tastiera. Sono stati realizzati associando al primo field della form l’indice “1” in modo da dare priorità al contenuto della pagina, rispetto al menù laterale.
 	\item All’inizio di ogni pagina è stato dato fornito un link, permettendo così agli utenti che fanno uso di uno screen reader di saltare direttamente al contenuto della pagina, senza perdita di tempo.
 	\item Ogni form è caratterizzata da un titolo. Tutti i field delle form sono stati dotati di una label e le voci sono state raggruppate tramite fieldset.
 	\item Non sono state usate tabelle, tutte le strutture sono state realizzate tramite div e liste.
 	\item Il pulsante di elimina profilo presente nella pagina “profile.cgi" rimanda alla pagina “confirmRemoveProfile.cgi" che funziona anche senza JavaScript e richiede la conferma dell’eliminazione del profilo.
 	\item L'intero sito è stato strutturato per essere completamente utilizzabile anche con JavaScript disabilitato.
+	\item All'inizio della pagina è presente un link al contenuto della pagina in modo da favorire la lettura da un eventuale Screen reader.
 	\item Le piccole icone in altro a destra associate al profilo, alla modifica profilo e al logout sono caricate tramite CSS e non dall'html poiché non sono informazioni aggiuntive al contenuto; inoltre velocizzano il caricamento del sito.
 	\item Le immagini presenti nel nostro sito sono state riadattate alla dimensione nella quale vengono visualizzate, per velocizzare il download delle componenti del sito.
 \end{itemize}
+	
+	\newpage
 	
 	\subsection{Visualizzazione}
 	Di seguito è riportata l'anteprima standard della pagina ''profile.cgi'':
@@ -313,16 +307,19 @@ Per chi dovesse aver disabilitato, volontariamente o meno, JavaScript, sono stat
 	Riportiamo gli aspetti tecnici più rilevanti del nostro sito:
 	
 	\begin{itemize}
+	\item Controlli lato client JavaScript
 	\item Controlli lato server realizzati con PERL per sopperire alla mancanza di Javascript qualora un utente l'avesse disabilitato.
 	\item Degradazione elegante con JavaScript assente o disabilitato.
+	\item Prevista una pagina apposita di conferma definitiva (''confirmRemoveprofile.cgi'') quando un utente clicca sul bottone di eliminazione del profilo.
 	\end{itemize}
-
-	\newpage
 	
 	\subsection{Test effettuati}
 		\subsubsection{Conformità standard WCAG}
 		
-		Tutte le pagine HTML generate dalle nostre pagine .cgi sono state testate all'indirizzo \url{url} [......]
+		Tutte le pagine HTML generate dalle nostre pagine .cgi hanno seguito le linee guida AA presenti all'indirizzo \url{https://www.w3.org/TR/2008/REC-WCAG20-20081211} e sono state successivamente controllate tramite il software TotalValidator.
+		
+		Si ricorda che sono stati svolti anche alcuni punti di accessibilità AAA.
+		
 		\subsubsection{Contrato testo e sfondo}
 		
 		I test sono stati effettuati con Colour Contrast Analyser, reperibile a questo indirizzo: \url{http://www.paciellogroup.com/resources/contrastanalyser/}.\medskip
@@ -341,7 +338,8 @@ Le combinazioni di testo e sfondo possibili sono le seguenti:
 		
 		\subsubsection{Screen reader}
 		
-		Sono stati effettuati dei test con lo screen-reader “NVDA” su sistema operativo Windows 7 per verificare che SitesBoard fosse accessibile anche all’utenza con disabilità visiva. 
+		Sono stati effettuati dei test con lo screen-reader free-ware “NVDA” su sistema operativo Windows 7 per verificare che SitesBoard fosse accessibile anche all’utenza con disabilità visiva. 
+		
 		
 		\subsubsection{Disturbi visivi}
 		
@@ -375,7 +373,7 @@ Le combinazioni di testo e sfondo possibili sono le seguenti:
 \section{Usabilità}
 Particolare attenzione è stata posta all’usabilità del sito e si è cercato dunque di rispettare il più possibile le sue raccomandazioni:
 
-nel profilo personale di ogni utente viene inserito il suo contatto e-mail con un link che genera una nuova e-mail vuota indirizzata al contatto e-mail che si stava visualizzando, utilizzando il client di posta elettronica predefinito.
+Nel profilo personale di ogni utente viene inserito il suo contatto e-mail con un link che genera una nuova e-mail vuota indirizzata al contatto e-mail che si stava visualizzando, utilizzando il client di posta elettronica predefinito.
 
 \begin{itemize}
 \item \textbf{Le sei W}: La home page del sito risponde alle seguenti domande:
@@ -384,16 +382,14 @@ nel profilo personale di ogni utente viene inserito il suo contatto e-mail con u
 \item Where: Il breve testo presente nelle pagina di apertura illustra in maniera esaustiva ciò che il sito si propone di rappresentare, ovvero una bacheca per proporre e trovare persone affidabili per la realizzazione di siti;
 \item Who: Un utente che accede per la prima volta ad un sito sente la necessità di conoscere chi o quale entità il esso rappresenta. Abbiamo quindi posizionato, come di consueto, in alto a sinistra il logo del sito seguito alla sua destra dal nome e dallo slogan. Il logo è cliccabile e porta sempre l'utente nella home page del sito;
 \item When: Nelle sezioni degli annunci quest'ultimi sono visualizzati per data, facendo si che l'ultimo inserito si trovi sempre in cima alla pagina e che quindi sia sempre il più visibile;
-\item How: I menù posti sulla sinistra della pagina sono suddivisi per funzione e permettono all'utente di visualizzare tutte le sezioni del sito;
-\item What: Un utente, quando accede alla home page riesce a farsi un’idea del sito visualizzando lo slogan e una descrizione del sito.
+\item How: I menù posti sulla sinistra della pagina sono suddivisi per funzione e permettono all'utente di visualizzare tutte le sezioni del sito e di accedere alla mappa del sito (Sitemap.cgi).
+\item What: Un utente, quando accede alla home page riesce a farsi un’idea del sito visualizzando lo slogan e una descrizione del sito. 
 \end{itemize}
 
-\item \textbf{Navbar}:
+\item \textbf{Navbar}: La Navbar è presente sempre presente in tutti gli stili, tranne quello per la stampa. La Navbar divide i link a seconda della loro funzione e dunque da quelli di navigazione a quelli di amministrazione.
 
 \item \textbf{Breadcrumbs}:
-
-\item \textbf{Link}
-Inserito a:hover{font-variant: small-caps} per risaltare i link e aumentare accessibilità.
+In ogni pagina è sempre presente un riferimento all path della pagina in cui mi trovo con in caso un link alle pagine precedenti.
 
 
 \end{itemize}
@@ -401,37 +397,72 @@ Inserito a:hover{font-variant: small-caps} per risaltare i link e aumentare acce
 		
 \section{Validazione}
 	\subsection{XHTML}
+	La conformità allo standard XHTML 1.0 Strict è stata controllata con il validatore del W3C a questo indirizzo: \url{https://validator.w3.org/}. Le pagine statiche sono risultate tutte valide, così come le pagine generate da file .cgi e dal file ''home.xsl''.
 	\subsection{CSS}
+	Tutto il codice CSS è stato controllato secondo lo standard W3C a questa pagina: \url{https://jigsaw.w3.org/css-validator/} ed è risultato valido secondo lo standard della versione CCS 2.1 .
+	
+	\newpage
+	
 	\subsection{XML e XSD}
+	
+	I file XML e XSD sono stati tutti controllati e validati con successo a questa pagina:
+\url{http://www.freeformatter.com/xml-validator-xsd.html}.
+	
+	\begin{figure}[H]
+	\centering
+     		 \includegraphics[scale=0.3]{img/xml&xsd_validation.jpg}
+   		 \caption{Database.xml e schema.xsd validati}
+		 
+	\end{figure}
 
-\section{xmlSchema}
+\section{Compatibilità}
 
+Tutte i link, le funzionalità e la grafica di SitesBoard sono stati testati sui seguenti browser:\vspace{1.5cm}
 
+\def\arraystretch{1.7}%
+\begin{tabular}{|l|c|}
+\hline
+\textbf{\large Browser} & \textbf{Sistema Operativo}  \\
+\hline
+Safari 5.1.7(7534.57.2) & Windows Professional 64 bit \\
+\hline
+Mozilla Firefox 32.0 e 44.0 & Windows 7 Professional 64 bit \\
+\hline
+Internet Explorer 11 & Windows 7 64 bit \\
+\hline
+Internet Explorer 8 & Windows 7 64 bit \\
+\hline
+Google Chrome 47.0.2526.106 & Ubuntu 12.04 LTS 64 bit \\
+\hline
+Opera 12.10 & Ubuntu 12.04 LTS 64 bit \\
+\hline
+\end{tabular}\vspace{1.5cm}
+
+Per quando riguarda Internet Explorer dalla versione 7 in giù la stampa funziona correttamente ma la visualizzazione dei fogli di stile per quanto riguarda la versione Desktop ha qualche piccolo problema di compatibilità.
+
+\section{Amministrazione}
+Per provare interamente il sito anche come utente loggato si riporta qualche esempio di account registrato in SitesBoard:
+
+\begin{itemize}
+\item \textbf{Username1}: Torroncino93
+\item \textbf{Password}:12345678
+\end{itemize}
+\vspace{0.2cm}
+\begin{itemize}
+\item \textbf{Username2}: Jackie
+\item \textbf{Password}: bellali32
+\end{itemize}
 
 \section{Ruoli}
+Tutti i componenti del gruppo hanno partecipato attivamente ed in parti uguali alla relazione.\\
+Nello specifico:
 
-	
-%per inserire un'immagine
-%\begin{landscape}
-%\begin{figure}
-%\subsection{Schema E-R iniziale del database}
-%\centering
-%\includegraphics[angle=0,scale=.40]{projBasi.jpg}
-%\hspace{1in}
-%\label{schema}
-%\caption{schema E-R}
-%\end{figure}
-%\end{landscape}
-
-
-\newpage
-
-
-
-
-
-
-
+\begin{itemize}
+\item \textbf{Davide Rigoni}: HTML, CSS, Perl
+\item \textbf{Antonino Macrì}: XML, XSD, JavaScript, Perl
+\item \textbf{Giacomo Zecchin}: HTML, CSS, grafica
+\item \textbf{Francesco Fasolato}: XML, XSD, XSLT, Perl
+\end{itemize}
 
 
 
